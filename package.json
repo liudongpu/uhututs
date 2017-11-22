@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "ts",
   "main": "index.js",
+  "bin": "exec/test.js",
+
+  
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"node dist/ulocal/publish.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/liudongpu/uhututs/issues"
   },
-  "homepage": "https://github.com/liudongpu/uhututs#readme"
+  "homepage": "https://github.com/liudongpu/uhututs#readme",
+  "dependencies": {
+    "@types/node": "^8.0.53"
+  }
 }
