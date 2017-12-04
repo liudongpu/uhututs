@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var page_1 = require("./../update/page");
 var index_1 = require("../../tcore/index");
 var program_1 = require("../../air/export/program");
 var VendCmd = (function () {
@@ -19,6 +20,9 @@ var VendCmd = (function () {
                 describe: 'update pages'
             }
         }).help().argv);
+        if (a.updatePages) {
+            page_1.UpdatePage.update(a);
+        }
     };
     return VendCmd;
 }());

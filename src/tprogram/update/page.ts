@@ -1,6 +1,6 @@
 import { BaseGlobalDefine } from './../../base/global/define';
 import { IargsStart } from './../../air/interfaces/args';
-import { TnodeProtoProcess } from '../../tnode/index';
+import { TnodeProtoProcess, TnodeIoFile } from '../../tnode/index';
 export class UpdatePage{
 
 
@@ -12,7 +12,7 @@ export class UpdatePage{
         BaseGlobalDefine.upProgram().gitPagesUrl;
 
 
-
+        TnodeIoFile.mkdir(BaseGlobalDefine.upBase().tempDir);
 
 
 
