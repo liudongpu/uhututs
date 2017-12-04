@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/liudongpu/uhututs#readme",
   "dependencies": {
-    "@types/node": "^8.0.53",
+    "log4js": "^2.3.12",
     "yargs": "^10.0.3"
   },
   "devDependencies": {
+    "@types/log4js": "^2.3.5",
+    "@types/node": "^8.0.53",
     "@types/yargs": "^8.0.2"
   }
 }
