@@ -7,4 +7,12 @@ export default class{
         return Object.assign(target,source);
     }
 
+
+
+
+    static parse<T>(source:any){
+        return source;
+    }
+
+
 }

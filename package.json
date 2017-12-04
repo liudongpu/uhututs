@@ -4,12 +4,9 @@
   "description": "ts",
   "main": "index.js",
   "bin": "exec/test.js",
-
-  
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"node dist/ulocal/publish.js"
+    "dev": "node dist/ulocal/publish.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +19,10 @@
   },
   "homepage": "https://github.com/liudongpu/uhututs#readme",
   "dependencies": {
-    "@types/node": "^8.0.53"
+    "@types/node": "^8.0.53",
+    "yargs": "^10.0.3"
+  },
+  "devDependencies": {
+    "@types/yargs": "^8.0.2"
   }
 }

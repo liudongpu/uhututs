@@ -6,6 +6,9 @@ var default_1 = (function () {
     default_1.assign = function (target, source) {
         return Object.assign(target, source);
     };
+    default_1.parse = function (source) {
+        return source;
+    };
     return default_1;
 }());
 exports.default = default_1;
