@@ -5,7 +5,7 @@ import {TcoreHelperObject} from '../../tcore/index';
 
 
 
-let a : IargsStart = TcoreHelperObject.parse<IargsStart>(yargs({}).options({
+let a : IargsStart = TcoreHelperObject.parseTs<IargsStart>(yargs({}).options({
     'path': {
         alias: 'p',
         describe: 'run your program'
