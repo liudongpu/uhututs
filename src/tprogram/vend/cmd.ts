@@ -1,13 +1,13 @@
-import {IargsStart} from './../../air/face/args';
+import {IargsStart} from './../../air/interfaces/args';
 import {TcoreHelperObject} from "../../tcore/index";
-import { AprogramYargs } from '../../air/import/program';
+import { EprogramYargs } from '../../air/export/program';
 
 export class VendCmd {
 
    static start() {
     
 
-        let a : IargsStart = TcoreHelperObject.parseTs < IargsStart > (AprogramYargs({}).options({
+        let a : IargsStart = TcoreHelperObject.parseTs < IargsStart > (EprogramYargs({}).options({
             'path': {
                 alias: 'p',
                 describe: 'run your program'
