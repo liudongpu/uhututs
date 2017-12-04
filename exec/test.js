@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require("../dist/tstart/cmd/page");
+require("../dist/tprogram/yummy/cmd");

@@ -22,6 +22,15 @@ let a : IargsStart = TcoreHelperObject.parseTs<IargsStart>(yargs({}).options({
 
 
 
+if(a.updatePages){
+    
+}
+
+
+
+
+
+
 
 
 
