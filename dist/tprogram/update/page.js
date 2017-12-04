@@ -6,8 +6,20 @@ var UpdatePage = (function () {
     function UpdatePage() {
     }
     UpdatePage.update = function (args) {
-        define_1.BaseGlobalDefine.upProgram().gitPagesUrl;
+        define_1.BaseGlobalDefine
+            .upProgram()
+            .gitPagesUrl;
         index_1.TnodeIoFile.mkdir(define_1.BaseGlobalDefine.upBase().tempDir);
+        index_1.TnodeProtoProcess.spawnSync("git", [
+            "clone",
+            define_1.BaseGlobalDefine
+                .upProgram()
+                .gitPagesUrl
+        ], {
+            cwd: define_1.BaseGlobalDefine
+                .upBase()
+                .tempDir
+        });
     };
     return UpdatePage;
 }());
