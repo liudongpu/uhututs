@@ -21,6 +21,11 @@ export class VendCmd {
             }
         }).help().argv);
 
+
+        
+
+
+
         if (this.checkInit()) {
 
             if (a.updateWeb) {

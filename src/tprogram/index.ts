@@ -1,4 +1,6 @@
-import {TcoreHelperMap} from '../tcore';
+import { EasyLaunch as TprogramEasyLanch} from './easy/launch';
+ 
 
+export {TprogramEasyLanch};
 
  

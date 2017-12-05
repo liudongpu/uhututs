@@ -139,7 +139,7 @@ export class IoFile{
         return sReturn;
     }
 
-    static pathJoin(...args) {
+    static pathJoin(...args:string[]):string {
 
         var sReturn = '';
         args.forEach(function (arg) {

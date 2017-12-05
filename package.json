@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "resource/exec/nodebin.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "node dist/ulocal/publish.js"
   },
   "repository": {
@@ -23,8 +23,23 @@
     "yargs": "^10.0.3"
   },
   "devDependencies": {
+    "@types/jest": "^21.1.8",
     "@types/log4js": "^2.3.5",
     "@types/node": "^8.0.53",
-    "@types/yargs": "^8.0.2"
+    "@types/yargs": "^8.0.2",
+    "jest": "^21.2.1",
+    "ts-jest": "^21.2.4",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/test/jest/.*\\.ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   }
 }

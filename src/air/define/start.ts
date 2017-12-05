@@ -10,7 +10,7 @@ const defineBase={
      */
     pathOfBaseRoot:'uhutu_ts_root',
 
-    pathOfTempDir:'',
+    pathOfTempDir:'temp',
 
     tempDir:'uhutu_ts_temp'
 }
