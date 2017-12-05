@@ -4,7 +4,14 @@
 
 
 const defineBase={
-    
+
+    /**
+     * 最基本根路径
+     */
+    pathOfBaseRoot:'uhutu_ts_root',
+
+    pathOfTempDir:'',
+
     tempDir:'uhutu_ts_temp'
 }
 

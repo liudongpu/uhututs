@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ts",
   "main": "index.js",
-  "bin": "exec/test.js",
+  "bin": "resource/exec/nodebin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node dist/ulocal/publish.js"
