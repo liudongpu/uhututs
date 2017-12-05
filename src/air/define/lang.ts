@@ -1,7 +1,7 @@
 
 
 
-const StartLang={
+const AdefineLang={
 
     0:"{0}",
 
@@ -28,6 +28,6 @@ const StartLang={
 }
 
 
-export {StartLang};
+export {AdefineLang};
 
 

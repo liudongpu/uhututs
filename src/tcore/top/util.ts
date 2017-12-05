@@ -1,6 +1,7 @@
 import {HelperString} from './../helper/string';
-import {BaseStartLang} from "../../base/index";
+import {AdefineLang} from "../../air/define/lang";
 import {EutilLog} from '../../air/export/util';
+import { AdefineStart } from '../../air/define/start';
 
 export class TopUtil {
 
@@ -30,6 +31,23 @@ export class TopUtil {
 
     }
 
+
+
+
+
+    static defineBase(){
+        return AdefineStart.upBase();
+    }
+
+
+    static defineProgram(){
+        return AdefineStart.upProgram();
+    }
+
+
+
+
+
     /**
      * 获取文本信息根据编号
      *
@@ -38,6 +56,6 @@ export class TopUtil {
      * @returns {string}
      * @memberof TopUtil
      */
-    static upLangInfo(iCode : number) : string {return BaseStartLang[iCode];}
+    static upLangInfo(iCode : number) : string {return AdefineLang[iCode];}
 
 }

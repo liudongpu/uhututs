@@ -1,24 +1,24 @@
-import {BaseGlobalDefine} from './../../base/index';
 import {IargsStart} from './../../air/interfaces/args';
 import {TnodeProtoProcess, TnodeIoFile} from '../../tnode/index';
+import {Tbase} from '../../tcore/index';
 export class UpdateWeb {
 
     static update(args : IargsStart) {
 
-        BaseGlobalDefine
-            .upProgram()
+        Tbase
+            .defineProgram()
             .gitPagesUrl;
 
-        TnodeIoFile.mkdir(BaseGlobalDefine.upBase().tempDir);
+        TnodeIoFile.mkdir(Tbase.defineBase().tempDir);
 
         TnodeProtoProcess.spawnSync("git", [
             "clone",
-            BaseGlobalDefine
-                .upProgram()
+            Tbase
+                .defineProgram()
                 .gitPagesUrl
         ], {
-            cwd: BaseGlobalDefine
-                .upBase()
+            cwd: Tbase
+                .defineBase()
                 .tempDir
         });
 

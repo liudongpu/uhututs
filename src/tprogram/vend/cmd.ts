@@ -1,6 +1,6 @@
 import {UpdateWeb} from './../update/web';
 import {IargsStart} from './../../air/interfaces/args';
-import {TcoreHelperObject, TcoreTopUtil} from "../../tcore/index";
+import {TcoreHelperObject, Tbase} from "../../tcore/index";
 import {EprogramYargs} from '../../air/export/program';
 
 export class VendCmd {
@@ -14,10 +14,10 @@ export class VendCmd {
             },
             'upgrade': {
                 alias: 'u',
-                describe: TcoreTopUtil.upLangInfo(331002)
+                describe: Tbase.upLangInfo(331002)
             },
             'updateWeb': {
-                describe: TcoreTopUtil.upLangInfo(331001)
+                describe: Tbase.upLangInfo(331001)
             }
         }).help().argv);
 
@@ -33,7 +33,7 @@ export class VendCmd {
 
     static checkInit() : boolean {
 
-        TcoreTopUtil.logDebug(3411001);
+        Tbase.logDebug(3411001);
 
        
         return true;

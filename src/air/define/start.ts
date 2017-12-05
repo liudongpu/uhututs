@@ -28,7 +28,7 @@ const defineProgram={
 
 
 
-export class GlobalDefine{
+export class AdefineStart{
 
 
     static upBase(){

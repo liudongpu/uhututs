@@ -14,10 +14,10 @@ var VendCmd = (function () {
             },
             'upgrade': {
                 alias: 'u',
-                describe: index_1.TcoreTopUtil.upLangInfo(331002)
+                describe: index_1.Tbase.upLangInfo(331002)
             },
             'updateWeb': {
-                describe: index_1.TcoreTopUtil.upLangInfo(331001)
+                describe: index_1.Tbase.upLangInfo(331001)
             }
         }).help().argv);
         if (this.checkInit()) {
@@ -27,7 +27,7 @@ var VendCmd = (function () {
         }
     };
     VendCmd.checkInit = function () {
-        index_1.TcoreTopUtil.logDebug(34101001);
+        index_1.Tbase.logDebug(3411001);
         return true;
     };
     return VendCmd;

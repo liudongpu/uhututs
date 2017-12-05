@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var string_1 = require("./../helper/string");
-var index_1 = require("../../base/index");
+var lang_1 = require("../../air/define/lang");
 var util_1 = require("../../air/export/util");
+var start_1 = require("../../air/define/start");
 var TopUtil = (function () {
     function TopUtil() {
     }
@@ -23,6 +24,9 @@ var TopUtil = (function () {
     TopUtil.logError = function (iCode, params) {
         util_1.EutilLog.error(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };
+    TopUtil.defineBase = function () {
+        return start_1.AdefineStart.upBase();
+    };
     /**
      * 获取文本信息根据编号
      *
@@ -31,7 +35,7 @@ var TopUtil = (function () {
      * @returns {string}
      * @memberof TopUtil
      */
-    TopUtil.upLangInfo = function (iCode) { return index_1.BaseStartLang[iCode]; };
+    TopUtil.upLangInfo = function (iCode) { return lang_1.AdefineLang[iCode]; };
     return TopUtil;
 }());
 exports.TopUtil = TopUtil;
