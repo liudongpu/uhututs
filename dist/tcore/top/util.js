@@ -18,6 +18,9 @@ var TopUtil = /** @class */ (function () {
     TopUtil.logDebug = function (iCode, params) {
         util_1.EutilLog.debug(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };
+    TopUtil.logWarn = function (iCode, params) {
+        util_1.EutilLog.warn(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+    };
     TopUtil.logInfo = function (iCode, params) {
         util_1.EutilLog.info(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };

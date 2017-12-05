@@ -27,7 +27,6 @@ var VendWar = /** @class */ (function () {
                 describe: index_1.Tbase.upLangInfo(331001)
             }
         }).help().argv);
-        console.log('dd');
         if (a.init) {
             init_1.VendInit.initProgram(a);
         }
@@ -37,12 +36,11 @@ var VendWar = /** @class */ (function () {
             }
         }
         else {
-            index_1.Tbase.logError(3511001, [launch_1.EasyLaunch.upSubPath('')]);
+            index_1.Tbase.logError(3911001, [launch_1.EasyLaunch.upSubPath('')]);
         }
     };
     VendWar.checkInit = function () {
         var sPathDir = launch_1.EasyLaunch.upSubPath('');
-        index_1.Tbase.logDebug(3411001);
         return index_2.TnodeIoFile.flagExist(sPathDir);
     };
     return VendWar;

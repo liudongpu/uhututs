@@ -28,7 +28,7 @@ export class VendWar {
             }
         }).help().argv);
 
-        console.log('dd');
+        
         
         if(a.init){
             VendInit.initProgram(a);
@@ -45,7 +45,7 @@ export class VendWar {
 
         }
         else{
-            Tbase.logError(3511001,[EasyLaunch.upSubPath('')]);
+            Tbase.logError(3911001,[EasyLaunch.upSubPath('')]);
         }
 
     }
@@ -57,7 +57,7 @@ export class VendWar {
         let sPathDir=EasyLaunch.upSubPath('');
 
 
-        Tbase.logDebug(3411001);
+        
 
         return TnodeIoFile.flagExist(sPathDir);
        

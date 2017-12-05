@@ -1,7 +1,7 @@
 import {HelperString} from './../helper/string';
 import {AdefineLang} from "../../air/define/lang";
 import {EutilLog} from '../../air/export/util';
-import { AdefineStart } from '../../air/define/start';
+import {AdefineStart} from '../../air/define/start';
 
 export class TopUtil {
 
@@ -19,6 +19,11 @@ export class TopUtil {
 
     }
 
+    static logWarn(iCode : number, params?: string[]) {
+
+        EutilLog.warn(HelperString.formatString(this.upLangInfo(iCode), params));
+
+    }
     static logInfo(iCode : number, params?: string[]) {
 
         EutilLog.info(HelperString.formatString(this.upLangInfo(iCode), params));
@@ -31,22 +36,13 @@ export class TopUtil {
 
     }
 
-
-
-
-
-    static defineBase(){
+    static defineBase() {
         return AdefineStart.upBase();
     }
 
-
-    static defineProgram(){
+    static defineProgram() {
         return AdefineStart.upProgram();
     }
-
-
-
-
 
     /**
      * 获取文本信息根据编号
