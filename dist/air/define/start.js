@@ -10,6 +10,7 @@ var defineBase = {
     tempDir: 'uhutu_ts_temp'
 };
 var defineProgram = {
+    pathWeb: 'web',
     gitPagesUrl: 'https://github.com/liudongpu/uhututs'
 };
 var AdefineStart = /** @class */ (function () {

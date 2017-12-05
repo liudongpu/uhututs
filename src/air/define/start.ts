@@ -21,6 +21,9 @@ const defineBase={
 
 const defineProgram={
 
+
+    pathWeb:'web',
+
     gitPagesUrl:'https://github.com/liudongpu/uhututs'
 };
 

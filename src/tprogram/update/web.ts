@@ -1,3 +1,4 @@
+import { ProcessGit } from './../process/git';
 import {IargsStart} from './../../air/interfaces/args';
 import {TnodeProtoProcess, TnodeIoFile} from '../../tnode/index';
 import {Tbase} from '../../tcore/index';
@@ -5,11 +6,11 @@ export class UpdateWeb {
 
     static update(args : IargsStart) {
 
-        Tbase
-            .defineProgram()
-            .gitPagesUrl;
 
-        TnodeIoFile.mkdir(Tbase.defineBase().tempDir);
+
+
+
+       ProcessGit.checkOrUpdate(Tbase.defineProgram().pathWeb,Tbase.defineProgram().gitPagesUrl);
 
         /*
         TnodeProtoProcess.spawnSync("git", [

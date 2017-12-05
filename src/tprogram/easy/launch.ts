@@ -13,6 +13,10 @@ export class EasyLaunch {
         return TnodeIoFile.pathJoin(this.upSubPath(Tbase.defineBase().pathRootTemp),sPath);
     }
 
+    static upSubPathForTempGit(sPath:string){
+        return TnodeIoFile.pathJoin(this.upSubPathForTemp(Tbase.defineBase().pathRootTempGit),sPath);
+    }
+
 
     static upResourcePath(sPath : string) : string {
 
