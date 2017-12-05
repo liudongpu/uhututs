@@ -3,9 +3,16 @@ import {Tbase} from "../../tcore/index";
 
 export class EasyLaunch {
 
-    static upSubPath(sPath : string) {
-        return TnodeIoFile.pathJoin(TnodeIoPath.upCwdPath(), Tbase.defineBase().pathOfBaseRoot, sPath);
+    static upSubPath(sPath : string):string {
+        return TnodeIoFile.pathJoin(TnodeIoPath.upCwdPath(), Tbase.defineBase().pathRoot, sPath);
     }
+
+
+
+    static upSubPathForTemp(sPath:string){
+        return TnodeIoFile.pathJoin(this.upSubPath(Tbase.defineBase().pathRootTemp),sPath);
+    }
+
 
     static upResourcePath(sPath : string) : string {
 

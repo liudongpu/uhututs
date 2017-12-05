@@ -4,8 +4,9 @@ var defineBase = {
     /**
      * 最基本根路径
      */
-    pathOfBaseRoot: 'uhutu_ts_root',
-    pathOfTempDir: 'temp',
+    pathRoot: 'uhutu_ts_root',
+    pathRootTemp: 'temp',
+    pathRootTempGit: 'git',
     tempDir: 'uhutu_ts_temp'
 };
 var defineProgram = {

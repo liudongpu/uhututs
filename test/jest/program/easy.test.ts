@@ -5,6 +5,6 @@ test('upSubPath', () => {
     expect(TprogramEasyLanch.upSubPath(
         Tbase
             .defineBase()
-            .pathOfTempDir
+            .pathRootTemp
     )).toBe('uhutu_ts_root/temp');
 });
