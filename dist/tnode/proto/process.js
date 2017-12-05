@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var childProcess = require("child_process");
 var index_1 = require("../../tcore/index");
-var default_1 = /** @class */ (function () {
-    function default_1() {
+var ProtoProcess = /** @class */ (function () {
+    function ProtoProcess() {
     }
     /**
      * 同步执行命令
@@ -14,7 +14,7 @@ var default_1 = /** @class */ (function () {
      *
      * @memberOf MutilsHelper
      */
-    default_1.spawnSync = function (sCommand, aArgs, oOption) {
+    ProtoProcess.spawnSync = function (sCommand, aArgs, oOption) {
         var result = childProcess.spawnSync(sCommand, aArgs, index_1.TcoreHelperObject.assign({
             stdio: 'inherit'
         }, oOption));
@@ -45,11 +45,11 @@ var default_1 = /** @class */ (function () {
      *
      * @memberOf MutilsHelper
      */
-    default_1.spawn = function (sCommand, aArgs, oOption) {
+    ProtoProcess.spawn = function (sCommand, aArgs, oOption) {
         oOption.stdio = 'inherit';
         childProcess.spawn(sCommand, aArgs, oOption);
     };
-    default_1.exitProcess = function (iState, oError) {
+    ProtoProcess.exitProcess = function (iState, oError) {
         if (!oError) {
             oError = "undefined error from exit";
         }
@@ -58,6 +58,6 @@ var default_1 = /** @class */ (function () {
             .write(oError);
         process.exit(iState);
     };
-    return default_1;
+    return ProtoProcess;
 }());
-exports.default = default_1;
+exports.ProtoProcess = ProtoProcess;

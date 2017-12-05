@@ -29,8 +29,15 @@ export class IoFile{
         return path.extname(sFile);
     }
 
-
-    static flagExist(sPath) {
+    /**
+     * 是否存在路径
+     * 
+     * @static
+     * @param {string} sPath 
+     * @returns {boolean} 
+     * @memberof IoFile
+     */
+    static flagExist(sPath:string):boolean {
         return fs.existsSync(sPath);
     }
     static mkdir(dirpath, mode?) {

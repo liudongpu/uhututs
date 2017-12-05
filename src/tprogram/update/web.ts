@@ -11,6 +11,7 @@ export class UpdateWeb {
 
         TnodeIoFile.mkdir(Tbase.defineBase().tempDir);
 
+        /*
         TnodeProtoProcess.spawnSync("git", [
             "clone",
             Tbase
@@ -21,7 +22,7 @@ export class UpdateWeb {
                 .defineBase()
                 .tempDir
         });
-
+        */
     }
 
 }

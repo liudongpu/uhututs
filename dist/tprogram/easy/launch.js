@@ -6,7 +6,10 @@ var EasyLaunch = /** @class */ (function () {
     function EasyLaunch() {
     }
     EasyLaunch.upSubPath = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(index_2.Tbase.defineBase().pathOfBaseRoot, sPath);
+        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineBase().pathOfBaseRoot, sPath);
+    };
+    EasyLaunch.upResourcePath = function (sPath) {
+        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upResourcePath(), sPath);
     };
     return EasyLaunch;
 }());

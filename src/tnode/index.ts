@@ -1,5 +1,9 @@
 import { IoFile as TnodeIoFile } from './io/file';
-import TnodeProtoProcess from './proto/process';
+import { IoPath as TnodeIoPath } from './io/path';
 
 
-export {TnodeProtoProcess,TnodeIoFile}
+
+import {ProtoProcess as TnodeProtoProcess} from './proto/process';
+
+
+export {TnodeProtoProcess,TnodeIoFile,TnodeIoPath}

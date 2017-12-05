@@ -7,7 +7,7 @@ interface IHelperSpawSyncOption {
     stdio?: string
 }
 
-export default class {
+export  class ProtoProcess {
 
     /**
      * 同步执行命令

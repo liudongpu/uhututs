@@ -1,12 +1,16 @@
-import { TnodeIoFile } from "../../tnode/index";
-import { Tbase } from "../../tcore/index";
+import {TnodeIoFile, TnodeIoPath} from "../../tnode/index";
+import {Tbase} from "../../tcore/index";
 
+export class EasyLaunch {
 
-export class EasyLaunch{
+    static upSubPath(sPath : string) {
+        return TnodeIoFile.pathJoin(TnodeIoPath.upCwdPath(), Tbase.defineBase().pathOfBaseRoot, sPath);
+    }
 
+    static upResourcePath(sPath : string) : string {
 
-    static upSubPath(sPath:string){
-        return  TnodeIoFile.pathJoin(Tbase.defineBase().pathOfBaseRoot  , sPath);
+        return TnodeIoFile.pathJoin(TnodeIoPath.upResourcePath(), sPath);
+
     }
 
 }

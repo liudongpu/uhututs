@@ -23,6 +23,14 @@ var IoFile = /** @class */ (function () {
     IoFile.upExtName = function (sFile) {
         return path.extname(sFile);
     };
+    /**
+     * 是否存在路径
+     *
+     * @static
+     * @param {string} sPath
+     * @returns {boolean}
+     * @memberof IoFile
+     */
     IoFile.flagExist = function (sPath) {
         return fs.existsSync(sPath);
     };

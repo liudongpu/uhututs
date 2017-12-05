@@ -3,6 +3,10 @@ export interface IargsStart{
 
     path:string,
 
+
+
+    init:boolean,
+
     /**
      * 更新页面程序
      * 

@@ -1,6 +1,6 @@
-import { VendCmd } from './../vend/cmd';
+import { VendWar } from './../vend/war';
 
-VendCmd.start();
+VendWar.start();
 
 
 
