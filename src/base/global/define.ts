@@ -28,7 +28,7 @@ const defineProgram={
 
 
 
-export class BaseGlobalDefine{
+export class GlobalDefine{
 
 
     static upBase(){

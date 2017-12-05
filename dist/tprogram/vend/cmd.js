@@ -17,7 +17,7 @@ var VendCmd = (function () {
                 alias: 'u',
                 describe: 'upgrade uhututs program'
             },
-            'updatePages': {
+            'updateWeb': {
                 describe: 'update pages'
             }
         }).help().argv);

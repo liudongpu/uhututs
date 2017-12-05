@@ -11,15 +11,15 @@ var defineBase = {
 var defineProgram = {
     gitPagesUrl: 'https://github.com/liudongpu/uhututs'
 };
-var BaseGlobalDefine = (function () {
-    function BaseGlobalDefine() {
+var GlobalDefine = (function () {
+    function GlobalDefine() {
     }
-    BaseGlobalDefine.upBase = function () {
+    GlobalDefine.upBase = function () {
         return defineBase;
     };
-    BaseGlobalDefine.upProgram = function () {
+    GlobalDefine.upProgram = function () {
         return defineProgram;
     };
-    return BaseGlobalDefine;
+    return GlobalDefine;
 }());
-exports.BaseGlobalDefine = BaseGlobalDefine;
+exports.GlobalDefine = GlobalDefine;

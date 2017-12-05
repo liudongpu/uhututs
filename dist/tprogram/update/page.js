@@ -1,22 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var define_1 = require("./../../base/global/define");
-var index_1 = require("../../tnode/index");
+var index_1 = require("./../../base/index");
+var index_2 = require("../../tnode/index");
 var UpdatePage = (function () {
     function UpdatePage() {
     }
     UpdatePage.update = function (args) {
-        define_1.BaseGlobalDefine
+        index_1.BaseGlobalDefine
             .upProgram()
             .gitPagesUrl;
-        index_1.TnodeIoFile.mkdir(define_1.BaseGlobalDefine.upBase().tempDir);
-        index_1.TnodeProtoProcess.spawnSync("git", [
+        index_2.TnodeIoFile.mkdir(index_1.BaseGlobalDefine.upBase().tempDir);
+        index_2.TnodeProtoProcess.spawnSync("git", [
             "clone",
-            define_1.BaseGlobalDefine
+            index_1.BaseGlobalDefine
                 .upProgram()
                 .gitPagesUrl
         ], {
-            cwd: define_1.BaseGlobalDefine
+            cwd: index_1.BaseGlobalDefine
                 .upBase()
                 .tempDir
         });
