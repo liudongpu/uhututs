@@ -27,6 +27,7 @@ var VendWar = /** @class */ (function () {
                 describe: index_1.Tbase.upLangInfo(331001)
             }
         }).help().argv);
+        console.log('bb');
         if (a.init) {
             init_1.VendInit.initProgram(a);
         }

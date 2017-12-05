@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "dev": "node dist/ulocal/publish.js",
-    "dev-watch":"./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp_watch.js"
+    "dev-watch": "./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp/watch.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@types/node": "^8.0.53",
     "@types/yargs": "^8.0.2",
     "gulp": "^3.9.1",
+    "gulp-typedoc": "^2.1.1",
     "gulp-typescript": "^3.2.3",
     "gulp-watch": "^4.3.11",
     "jest": "^21.2.1",

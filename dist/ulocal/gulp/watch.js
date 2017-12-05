@@ -1,7 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var gulp = require('gulp');
 var tsGulp = require("gulp-typescript");
 //var tsProject = tsGulp.createProject("../../../tsconfig.json");
 var watch = require('gulp-watch');
+var childProcess = require("child_process");
 var sTargetDept = "/usr/local/lib/node_modules/uhutu-ts/";
 gulp.task("ts:compile", function () {
     var tsProject = tsGulp.createProject("../../../tsconfig.json");
@@ -14,11 +17,8 @@ gulp.task("ts:copy", function () {
 });
 gulp.task("ts", ["ts:compile", "ts:copy"]),
     gulp.task("watch:ts", function () {
-        return watch("../../../src/**/*.ts", { ignoreInitial: false }, function () {
-            var tsProject = tsGulp.createProject("../../../tsconfig.json");
-            tsProject.src()
-                .pipe(tsProject())
-                .js.pipe(gulp.dest(tsProject.options.outDir)).pipe(gulp.dest(sTargetDept + "/dist/"));
+        return watch("../../../src/**/*.ts", { ignoreInitial: false }, function (s) {
+            childProcess.spawnSync("tsc", { cwd: "../../../" });
         });
     });
 gulp.task("watch:resources", function () {
