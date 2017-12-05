@@ -19,6 +19,10 @@ export class VendWar {
                 alias: 'i',
                 describe: Tbase.upLangInfo(331003)
             },
+            'force':{
+                alias: 'f',
+                describe: Tbase.upLangInfo(331004)
+            },
             'upgrade': {
                 alias: 'u',
                 describe: Tbase.upLangInfo(331002)

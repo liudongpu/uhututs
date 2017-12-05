@@ -19,6 +19,10 @@ var VendWar = /** @class */ (function () {
                 alias: 'i',
                 describe: index_1.Tbase.upLangInfo(331003)
             },
+            'force': {
+                alias: 'f',
+                describe: index_1.Tbase.upLangInfo(331004)
+            },
             'upgrade': {
                 alias: 'u',
                 describe: index_1.Tbase.upLangInfo(331002)
