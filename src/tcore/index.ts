@@ -1,4 +1,4 @@
-import TcoreHelperMap from './helper/map';
-import TcoreHelperObject from './helper/object';
-
-export {TcoreHelperMap,TcoreHelperObject};
+import { TopUtil as TcoreTopUtil} from './top/util';
+import {HelperMap as TcoreHelperMap} from './helper/map';
+import {HelperObject as TcoreHelperObject} from './helper/object';
+export {TcoreHelperMap,TcoreHelperObject,TcoreTopUtil};

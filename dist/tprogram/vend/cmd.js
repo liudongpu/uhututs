@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var page_1 = require("./../update/page");
+var web_1 = require("./../update/web");
 var index_1 = require("../../tcore/index");
 var program_1 = require("../../air/export/program");
-var util_1 = require("../../air/export/util");
 var VendCmd = (function () {
     function VendCmd() {
     }
@@ -15,21 +14,20 @@ var VendCmd = (function () {
             },
             'upgrade': {
                 alias: 'u',
-                describe: 'upgrade uhututs program'
+                describe: index_1.TcoreTopUtil.upLangInfo(331002)
             },
             'updateWeb': {
-                describe: 'update pages'
+                describe: index_1.TcoreTopUtil.upLangInfo(331001)
             }
         }).help().argv);
         if (this.checkInit()) {
-            if (a.updatePages) {
-                page_1.UpdatePage.update(a);
+            if (a.updateWeb) {
+                web_1.UpdateWeb.update(a);
             }
         }
     };
     VendCmd.checkInit = function () {
-        //EutilLog.debug('abcd');
-        util_1.EutilLog.info("aaaaa");
+        index_1.TcoreTopUtil.logDebug(34101001);
         return true;
     };
     return VendCmd;

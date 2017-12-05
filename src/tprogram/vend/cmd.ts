@@ -1,8 +1,7 @@
-import {UpdatePage} from './../update/page';
+import {UpdateWeb} from './../update/web';
 import {IargsStart} from './../../air/interfaces/args';
-import {TcoreHelperObject} from "../../tcore/index";
+import {TcoreHelperObject, TcoreTopUtil} from "../../tcore/index";
 import {EprogramYargs} from '../../air/export/program';
-import {EutilLog} from '../../air/export/util';
 
 export class VendCmd {
 
@@ -15,17 +14,17 @@ export class VendCmd {
             },
             'upgrade': {
                 alias: 'u',
-                describe: 'upgrade uhututs program'
+                describe: TcoreTopUtil.upLangInfo(331002)
             },
             'updateWeb': {
-                describe: 'update pages'
+                describe: TcoreTopUtil.upLangInfo(331001)
             }
         }).help().argv);
 
         if (this.checkInit()) {
 
-            if (a.updatePages) {
-                UpdatePage.update(a);
+            if (a.updateWeb) {
+                UpdateWeb.update(a);
             }
 
         }
@@ -34,9 +33,9 @@ export class VendCmd {
 
     static checkInit() : boolean {
 
-        //EutilLog.debug('abcd');
-        EutilLog.info("aaaaa");
+        TcoreTopUtil.logDebug(3411001);
 
+       
         return true;
 
     }

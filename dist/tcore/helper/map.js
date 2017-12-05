@@ -1,27 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var default_1 = (function () {
-    function default_1() {
+var HelperMap = (function () {
+    function HelperMap() {
     }
-    default_1.stringIsEmpty = function (cs) {
+    HelperMap.stringIsEmpty = function (cs) {
         return cs == undefined || cs == null || cs.length == 0;
     };
-    default_1.objectToMap = function (oAttr) {
+    HelperMap.objectToMap = function (oAttr) {
         var mMap = new Map();
         for (var k in oAttr) {
             mMap.set(k, oAttr[k]);
         }
         return mMap;
     };
-    default_1.mapToObject = function (oMap) {
+    HelperMap.mapToObject = function (oMap) {
         var oReturn = {};
         oMap.forEach(function (v, k) { return oReturn[k] = v; });
         return oReturn;
     };
-    default_1.stringToObject = function (sParm) {
+    HelperMap.stringToObject = function (sParm) {
         return this.mapToObject(this.stringToMap(sParm));
     };
-    default_1.stringToMapArray = function (sParm) {
+    HelperMap.stringToMapArray = function (sParm) {
         var oMap = this.stringToMap(sParm);
         var aItems = [];
         oMap.forEach(function (v, k) {
@@ -29,7 +29,7 @@ var default_1 = (function () {
         });
         return aItems;
     };
-    default_1.stringToMap = function (sParm) {
+    HelperMap.stringToMap = function (sParm) {
         var _this = this;
         var oReturn = new Map();
         if (sParm)
@@ -42,7 +42,7 @@ var default_1 = (function () {
             });
         return oReturn;
     };
-    default_1.formatMapbyObject = function (oObject, sPropName) {
+    HelperMap.formatMapbyObject = function (oObject, sPropName) {
         var oMap = new Map();
         if (oObject.hasOwnProperty(sPropName)) {
             for (var sKey in oObject[sPropName]) {
@@ -52,13 +52,13 @@ var default_1 = (function () {
         }
         return oMap;
     };
-    default_1.mapAssign = function (oTarget, oSource) {
+    HelperMap.mapAssign = function (oTarget, oSource) {
         oSource.forEach(function (v, k) {
             oTarget.set(k, v);
         });
         return oTarget;
     };
-    default_1.stringToSet = function (sString) {
+    HelperMap.stringToSet = function (sString) {
         var oSet = new Set();
         if (sString != undefined && sString != null) {
             sString
@@ -72,11 +72,11 @@ var default_1 = (function () {
         ;
         return oSet;
     };
-    default_1.setToString = function (oSet) {
+    HelperMap.setToString = function (oSet) {
         var aString = [];
         oSet.forEach(function (f) { return aString.push(f); });
         return aString.join(',');
     };
-    return default_1;
+    return HelperMap;
 }());
-exports.default = default_1;
+exports.HelperMap = HelperMap;

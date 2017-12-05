@@ -1,4 +1,4 @@
-export default class  {
+export  class HelperMap {
     
 
     static stringIsEmpty(cs) {

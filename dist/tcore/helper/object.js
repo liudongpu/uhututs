@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var default_1 = (function () {
-    function default_1() {
+var HelperObject = (function () {
+    function HelperObject() {
     }
     /**
      * 浅层克隆
@@ -13,7 +13,7 @@ var default_1 = (function () {
      * @param {U} source
      * @returns
      */
-    default_1.assign = function (target, source) {
+    HelperObject.assign = function (target, source) {
         return Object.assign(target, source);
     };
     /**
@@ -24,9 +24,9 @@ var default_1 = (function () {
      * @param {*} source
      * @returns
      */
-    default_1.parseTs = function (source) {
+    HelperObject.parseTs = function (source) {
         return source;
     };
-    return default_1;
+    return HelperObject;
 }());
-exports.default = default_1;
+exports.HelperObject = HelperObject;

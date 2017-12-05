@@ -1,7 +1,7 @@
 import {BaseGlobalDefine} from './../../base/index';
 import {IargsStart} from './../../air/interfaces/args';
 import {TnodeProtoProcess, TnodeIoFile} from '../../tnode/index';
-export class UpdatePage {
+export class UpdateWeb {
 
     static update(args : IargsStart) {
 
