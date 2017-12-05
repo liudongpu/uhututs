@@ -6,7 +6,8 @@
   "bin": "resource/exec/nodebin.js",
   "scripts": {
     "test": "jest",
-    "dev": "node dist/ulocal/publish.js"
+    "dev": "node dist/ulocal/publish.js",
+    "dev-watch":"./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp_watch.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,9 @@
     "@types/log4js": "^2.3.5",
     "@types/node": "^8.0.53",
     "@types/yargs": "^8.0.2",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.3",
+    "gulp-watch": "^4.3.11",
     "jest": "^21.2.1",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2"
