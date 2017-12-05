@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ProcessGit = /** @class */ (function () {
+var ProcessGit = (function () {
     function ProcessGit() {
     }
     ProcessGit.checkOrUpdate = function () {

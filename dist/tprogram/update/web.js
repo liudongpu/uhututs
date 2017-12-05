@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../../tnode/index");
 var index_2 = require("../../tcore/index");
-var UpdateWeb = /** @class */ (function () {
+var UpdateWeb = (function () {
     function UpdateWeb() {
     }
     UpdateWeb.update = function (args) {

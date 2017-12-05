@@ -6,7 +6,7 @@ var index_1 = require("../../tcore/index");
 var program_1 = require("../../air/export/program");
 var index_2 = require("../../tnode/index");
 var launch_1 = require("../easy/launch");
-var VendWar = /** @class */ (function () {
+var VendWar = (function () {
     function VendWar() {
     }
     VendWar.start = function () {

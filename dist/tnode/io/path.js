@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var file_1 = require("./file");
-var IoPath = /** @class */ (function () {
+var IoPath = (function () {
     function IoPath() {
     }
     IoPath.upCwdPath = function () {

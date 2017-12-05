@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../../tnode/index");
 var index_2 = require("../../tcore/index");
-var EasyLaunch = /** @class */ (function () {
+var EasyLaunch = (function () {
     function EasyLaunch() {
     }
     EasyLaunch.upSubPath = function (sPath) {

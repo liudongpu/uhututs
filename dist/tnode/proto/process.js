@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var childProcess = require("child_process");
 var index_1 = require("../../tcore/index");
-var ProtoProcess = /** @class */ (function () {
+var ProtoProcess = (function () {
     function ProtoProcess() {
     }
     /**

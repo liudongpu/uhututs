@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var HelperObject = /** @class */ (function () {
+var HelperObject = (function () {
     function HelperObject() {
     }
     /**
