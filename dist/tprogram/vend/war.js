@@ -6,7 +6,7 @@ var index_1 = require("../../tcore/index");
 var program_1 = require("../../air/export/program");
 var index_2 = require("../../tnode/index");
 var launch_1 = require("../easy/launch");
-var VendWar = (function () {
+var VendWar = /** @class */ (function () {
     function VendWar() {
     }
     VendWar.start = function () {
@@ -27,7 +27,7 @@ var VendWar = (function () {
                 describe: index_1.Tbase.upLangInfo(331001)
             }
         }).help().argv);
-        console.log('bb');
+        console.log('dd');
         if (a.init) {
             init_1.VendInit.initProgram(a);
         }

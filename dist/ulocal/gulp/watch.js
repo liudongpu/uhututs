@@ -19,6 +19,7 @@ gulp.task("ts", ["ts:compile", "ts:copy"]),
     gulp.task("watch:ts", function () {
         return watch("../../../src/**/*.ts", { ignoreInitial: false }, function (s) {
             childProcess.spawnSync("tsc", { cwd: "../../../" });
+            gulp.src(['../../../dist/**/*']).pipe(gulp.dest(sTargetDept + "dist/"));
         });
     });
 gulp.task("watch:resources", function () {

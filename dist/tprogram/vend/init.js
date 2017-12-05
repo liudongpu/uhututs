@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../../tnode/index");
 var launch_1 = require("../easy/launch");
-var VendInit = (function () {
+var VendInit = /** @class */ (function () {
     function VendInit() {
     }
     VendInit.initProgram = function (arg) {

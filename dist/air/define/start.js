@@ -11,7 +11,7 @@ var defineBase = {
 var defineProgram = {
     gitPagesUrl: 'https://github.com/liudongpu/uhututs'
 };
-var AdefineStart = (function () {
+var AdefineStart = /** @class */ (function () {
     function AdefineStart() {
     }
     AdefineStart.upBase = function () {

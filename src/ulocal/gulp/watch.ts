@@ -32,7 +32,9 @@ gulp.task("watch:ts", function () {
 
         childProcess.spawnSync("tsc",{cwd:"../../../"});
 
-          
+        gulp.src(['../../../dist/**/*']).pipe(
+            gulp.dest(sTargetDept+"dist/")
+        )
        })
 });
 gulp.task("watch:resources", function () {

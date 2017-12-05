@@ -28,7 +28,7 @@ export class VendWar {
             }
         }).help().argv);
 
-        console.log('bb');
+        console.log('dd');
         
         if(a.init){
             VendInit.initProgram(a);

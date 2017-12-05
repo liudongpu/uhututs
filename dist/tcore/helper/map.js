@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var HelperMap = (function () {
+var HelperMap = /** @class */ (function () {
     function HelperMap() {
     }
     HelperMap.stringIsEmpty = function (cs) {

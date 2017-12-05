@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
-var IoFile = (function () {
+var IoFile = /** @class */ (function () {
     function IoFile() {
     }
     IoFile.chmodSync = function (sPath, iMode) {

@@ -4,7 +4,7 @@ var string_1 = require("./../helper/string");
 var lang_1 = require("../../air/define/lang");
 var util_1 = require("../../air/export/util");
 var start_1 = require("../../air/define/start");
-var TopUtil = (function () {
+var TopUtil = /** @class */ (function () {
     function TopUtil() {
     }
     /**
