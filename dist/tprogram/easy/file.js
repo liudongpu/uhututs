@@ -45,7 +45,9 @@ var EasyFile = /** @class */ (function () {
                         .join(',')
                 ]);
             }
-            index_2.TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+            if (sTargetContent != oContentInfo.execContent) {
+                index_2.TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+            }
         }
     };
     EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt, sSkipDir) {
@@ -81,6 +83,7 @@ var EasyFile = /** @class */ (function () {
             .defineBase()
             .replaceContentEnd;
         var sReturn = sSourceContent;
+        var sCheckTarget = sTargetContent;
         var sRegexLeft = "([\r\n])(\s*)(.*)(";
         var sRegexRight = ")(\\w+)(\s|.)*([\r\n])";
         var sRegexInfo = "(.|\s|\S|\r|\n)*?";
@@ -98,7 +101,7 @@ var EasyFile = /** @class */ (function () {
                 var oContentInfo = oRegexContent.exec(sTargetContent);
                 if (oContentInfo != null && oContentInfo.length > 0) {
                     oMapReplace.set(sName, oContentInfo[0]);
-                    sTargetContent = sTargetContent.replace(oContentInfo[0], '');
+                    sCheckTarget = sCheckTarget.replace(oContentInfo[0], '');
                 }
                 else {
                     oEasyFileContent
@@ -110,9 +113,9 @@ var EasyFile = /** @class */ (function () {
         oMapReplace.forEach(function (fVal, fKey) {
             sReturn = sReturn.replace(new RegExp(sStart + fKey + sRegexInfo + sEnd + fKey, "g"), fVal);
         });
-        oEasyFileContent.targetContent = sTargetContent;
+        oEasyFileContent.targetContent = sCheckTarget;
         oEasyFileContent.execContent = sReturn;
-        var oCheckMatch = sTargetContent.match(new RegExp(sStart + ".*", "g"));
+        var oCheckMatch = sCheckTarget.match(new RegExp(sStart + ".*", "g"));
         if (oCheckMatch != null) {
             oCheckMatch.forEach(function (fItem) {
                 oEasyFileContent

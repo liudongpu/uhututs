@@ -45,7 +45,12 @@ export class EasyFile {
                 ]);
             }
 
-            TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+
+            if(sTargetContent!=oContentInfo.execContent)
+            {
+                TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+            }
+            
 
         }
 
@@ -98,6 +103,8 @@ export class EasyFile {
 
         let sReturn = sSourceContent;
 
+        let sCheckTarget=sTargetContent;
+
         let sRegexLeft = "([\r\n])(\s*)(.*)(";
         let sRegexRight = ")(\\w+)(\s|.)*([\r\n])";
 
@@ -128,7 +135,7 @@ export class EasyFile {
 
                 if (oContentInfo != null && oContentInfo.length > 0) {
                     oMapReplace.set(sName, oContentInfo[0]);
-                    sTargetContent = sTargetContent.replace(oContentInfo[0], '');
+                    sCheckTarget = sCheckTarget.replace(oContentInfo[0], '');
                 } else {
 
                     oEasyFileContent
@@ -143,11 +150,11 @@ export class EasyFile {
             sReturn = sReturn.replace(new RegExp(sStart + fKey + sRegexInfo + sEnd + fKey, "g"), fVal);
         });
 
-        oEasyFileContent.targetContent = sTargetContent;
+        oEasyFileContent.targetContent = sCheckTarget;
 
         oEasyFileContent.execContent = sReturn;
 
-        let oCheckMatch = sTargetContent.match(new RegExp(sStart + ".*", "g"));
+        let oCheckMatch = sCheckTarget.match(new RegExp(sStart + ".*", "g"));
 
         if (oCheckMatch != null) {
             oCheckMatch.forEach(fItem => {
