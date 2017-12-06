@@ -23,6 +23,7 @@ export class EasyFile {
 
             TnodeIoFile.copyFile(sSourceFile, sTargetFile);
         } else {
+           
 
             let sSourceContent = TnodeIoFile.readFile(sSourceFile);
             let sTargetContent = TnodeIoFile.readFile(sTargetFile);
@@ -35,6 +36,9 @@ export class EasyFile {
                 Tbase.logWarn(3711003,[sSourceFile,oContentInfo.targetNotFounc.join(',')]);
             }
              
+
+            
+
             TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
 
         }
@@ -53,7 +57,7 @@ export class EasyFile {
 
             let sTargetFile = TnodeIoFile.pathJoin(sTargetDir, sNewPath);
             if (sReplaceFileExt.indexOf(sExtName) > -1) {
-               
+              
                 this.copyFileAndReplace(fItem, sTargetFile);
             } else {
                 TnodeIoFile.copyFileAsync(fItem, sTargetFile);
@@ -77,7 +81,7 @@ export class EasyFile {
         let sReturn = sSourceContent;
 
         let sRegexLeft = "([\r\n])(\s*)(.*)(";
-        let sRegexRight = ")(\\w+)(\s*)([\r\n])";
+        let sRegexRight = ")(\\w+)(\s|.)*([\r\n])";
 
         let sRegexInfo = "(.|\s|\S|\r|\n)*?";
 
@@ -89,6 +93,8 @@ export class EasyFile {
             string > ();
 
         let oSourceMatch = sSourceContent.match(oRegexBegin);
+
+        
         if (oSourceMatch != null) {
             oSourceMatch.forEach(fItem => {
 
@@ -119,6 +125,8 @@ export class EasyFile {
 
             sReturn = sReturn.replace(new RegExp(sStart + fKey + sRegexInfo + sEnd + fKey, "g"), fVal);
         });
+
+       
 
         oEasyFileContent.targetContent = sTargetContent;
 

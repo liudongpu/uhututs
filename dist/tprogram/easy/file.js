@@ -63,7 +63,7 @@ var EasyFile = /** @class */ (function () {
             .replaceContentEnd;
         var sReturn = sSourceContent;
         var sRegexLeft = "([\r\n])(\s*)(.*)(";
-        var sRegexRight = ")(\\w+)(\s*)([\r\n])";
+        var sRegexRight = ")(\\w+)(\s|.)*([\r\n])";
         var sRegexInfo = "(.|\s|\S|\r|\n)*?";
         var sRegex = sRegexLeft + sStart + sRegexRight;
         var oRegexBegin = new RegExp(sRegex, "g");
