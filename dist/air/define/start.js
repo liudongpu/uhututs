@@ -7,6 +7,8 @@ var defineBase = {
     pathRoot: 'uhutu_ts_root',
     pathRootTemp: 'temp',
     pathRootTempGit: 'git',
+    replaceContentBegin: 'uts_begin_',
+    replaceContentEnd: 'uts_end_',
     tempDir: 'uhutu_ts_temp'
 };
 var defineProgram = {

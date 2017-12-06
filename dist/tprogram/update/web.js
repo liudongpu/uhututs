@@ -6,6 +6,7 @@ var UpdateWeb = /** @class */ (function () {
     function UpdateWeb() {
     }
     UpdateWeb.update = function (args) {
+        index_1.Tbase.logDebug(3411003);
         git_1.ProcessGit.checkOrUpdate(index_1.Tbase.defineProgram().pathWeb, index_1.Tbase.defineProgram().gitPagesUrl);
         /*
         TnodeProtoProcess.spawnSync("git", [

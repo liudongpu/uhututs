@@ -7,10 +7,13 @@ export class UpdateWeb {
     static update(args : IargsStart) {
 
 
-
+        Tbase.logDebug(3411003);
 
 
        ProcessGit.checkOrUpdate(Tbase.defineProgram().pathWeb,Tbase.defineProgram().gitPagesUrl);
+
+
+       
 
         /*
         TnodeProtoProcess.spawnSync("git", [
