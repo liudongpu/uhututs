@@ -2,6 +2,7 @@ import {IargsStart} from "../../air/interfaces/args";
 import {TnodeIoFile} from "../../tnode/index";
 import {EasyLaunch} from "../easy/launch";
 import {Tbase} from "../../tcore/index";
+import {EasyFile} from "../easy/file";
 
 export class VendInit {
 
@@ -13,10 +14,11 @@ export class VendInit {
 
         if (!TnodeIoFile.flagExist(sDir)) {
             TnodeIoFile.mkdir(sDir);
-        }
-        else{
+        } else {
             Tbase.logWarn(3711001, [sDir]);
         }
+
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('') + ".gitignore");
 
         return true;
 

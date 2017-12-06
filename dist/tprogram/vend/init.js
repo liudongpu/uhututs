@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../../tnode/index");
 var launch_1 = require("../easy/launch");
 var index_2 = require("../../tcore/index");
+var file_1 = require("../easy/file");
 var VendInit = /** @class */ (function () {
     function VendInit() {
     }
@@ -15,6 +16,7 @@ var VendInit = /** @class */ (function () {
         else {
             index_2.Tbase.logWarn(3711001, [sDir]);
         }
+        file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), launch_1.EasyLaunch.upSubPath('') + ".gitignore");
         return true;
     };
     return VendInit;
