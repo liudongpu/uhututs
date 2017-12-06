@@ -26,9 +26,16 @@ export class EasyFile {
 
             let sSourceContent = TnodeIoFile.readFile(sSourceFile);
             let sTargetContent = TnodeIoFile.readFile(sTargetFile);
-            let sNewContent = this.replaceContent(sSourceContent, sTargetContent);
+            let oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
 
-            TnodeIoFile.writeFile(sTargetFile, sTargetContent);
+            if(oContentInfo.sourceNotFound.length>0){
+                Tbase.logWarn(3711002,[sSourceFile,oContentInfo.sourceNotFound.join(',')]);
+            }
+            if(oContentInfo.targetNotFounc.length>0){
+                Tbase.logWarn(3711003,[sSourceFile,oContentInfo.targetNotFounc.join(',')]);
+            }
+             
+            TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
 
         }
 
@@ -46,6 +53,7 @@ export class EasyFile {
 
             let sTargetFile = TnodeIoFile.pathJoin(sTargetDir, sNewPath);
             if (sReplaceFileExt.indexOf(sExtName) > -1) {
+               
                 this.copyFileAndReplace(fItem, sTargetFile);
             } else {
                 TnodeIoFile.copyFileAsync(fItem, sTargetFile);

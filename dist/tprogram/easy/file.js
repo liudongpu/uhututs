@@ -28,8 +28,14 @@ var EasyFile = /** @class */ (function () {
         else {
             var sSourceContent = index_2.TnodeIoFile.readFile(sSourceFile);
             var sTargetContent = index_2.TnodeIoFile.readFile(sTargetFile);
-            var sNewContent = this.replaceContent(sSourceContent, sTargetContent);
-            index_2.TnodeIoFile.writeFile(sTargetFile, sTargetContent);
+            var oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
+            if (oContentInfo.sourceNotFound.length > 0) {
+                index_1.Tbase.logWarn(3711002, [sSourceFile, oContentInfo.sourceNotFound.join(',')]);
+            }
+            if (oContentInfo.targetNotFounc.length > 0) {
+                index_1.Tbase.logWarn(3711003, [sSourceFile, oContentInfo.targetNotFounc.join(',')]);
+            }
+            index_2.TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
         }
     };
     EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt) {
