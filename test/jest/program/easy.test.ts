@@ -8,20 +8,20 @@ test('fileContent',()=>{
 
 
     let sSourceContent=`
-    aabbcc
+    aaa
     #uhutu_sign_begin_r1
     #uhutu_sign_end_r1
     #uhutu_sign_begin_r2
-    fff
+    eee
     #uhutu_sign_end_r2
     `;
 
     let sTargetContent=`
     aabbcc
     #uhutu_sign_begin_r1
-    abcdefg
-    ggadfadfsafdas
-    gdafdsafdsfa
+    bbb
+    ccc
+    ddd
     #uhutu_sign_end_r1
     #uhutu_sign_begin_r3
     #uhutu_sign_end_r3
