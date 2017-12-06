@@ -81,6 +81,9 @@ var IoFile = /** @class */ (function () {
         this.mkdir(path.dirname(sPath));
         fs.writeFileSync(sPath, sContent);
     };
+    IoFile.deleteFile = function (sPath) {
+        fs.rmdirSync(sPath);
+    };
     IoFile.readFile = function (sPath) {
         return fs.readFileSync(sPath, 'UTF-8');
     };

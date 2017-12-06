@@ -102,6 +102,13 @@ export class IoFile{
         fs.writeFileSync(sPath, sContent);
 
     }
+
+
+    static deleteFile(sPath){
+        fs.rmdirSync(sPath);
+    }
+
+
     static readFile(sPath:string) {
         return fs.readFileSync(sPath, 'UTF-8');
     }
