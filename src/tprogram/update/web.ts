@@ -16,7 +16,7 @@ export class UpdateWeb {
 
         ProcessGit.checkOrUpdate(Tbase.defineProgram().pathManageName, Tbase.defineProgram().gitManageUrl);
 
-        EasyFile.copyDirAndReplace(EasyLaunch.upSubPathForTempGit(Tbase.defineProgram().pathManageName), TnodeIoPath.upCwdPath(), Tbase.defineProgram().fileExtReplace);
+        EasyFile.copyDirAndReplace(EasyLaunch.upSubPathForTempGit(Tbase.defineProgram().pathManageName), TnodeIoPath.upCwdPath(), Tbase.defineProgram().fileExtReplace,Tbase.defineProgram().pathSkipDir);
 
         /*
         TnodeProtoProcess.spawnSync("git", [

@@ -23,21 +23,27 @@ export class EasyFile {
 
             TnodeIoFile.copyFile(sSourceFile, sTargetFile);
         } else {
-           
 
             let sSourceContent = TnodeIoFile.readFile(sSourceFile);
             let sTargetContent = TnodeIoFile.readFile(sTargetFile);
             let oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
 
-            if(oContentInfo.sourceNotFound.length>0){
-                Tbase.logWarn(3711002,[sSourceFile,oContentInfo.sourceNotFound.join(',')]);
+            if (oContentInfo.sourceNotFound.length > 0) {
+                Tbase.logWarn(3711002, [
+                    sSourceFile,
+                    oContentInfo
+                        .sourceNotFound
+                        .join(',')
+                ]);
             }
-            if(oContentInfo.targetNotFounc.length>0){
-                Tbase.logWarn(3711003,[sSourceFile,oContentInfo.targetNotFounc.join(',')]);
+            if (oContentInfo.targetNotFounc.length > 0) {
+                Tbase.logWarn(3711003, [
+                    sSourceFile,
+                    oContentInfo
+                        .targetNotFounc
+                        .join(',')
+                ]);
             }
-             
-
-            
 
             TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
 
@@ -45,22 +51,34 @@ export class EasyFile {
 
     }
 
-    static copyDirAndReplace(sSourceDir : string, sTargetDir : string, sReplaceFileExt : string) {
+    static copyDirAndReplace(sSourceDir : string, sTargetDir : string, sReplaceFileExt : string, sSkipDir : string) {
 
         let aFiles = TnodeIoFile.listDir(sSourceDir);
 
+        let aSkip = sSkipDir.split(',');
+
         aFiles.forEach(fItem => {
 
-            let sNewPath = fItem.substr(sSourceDir.length);
+            let sSubPath = fItem.substr(sSourceDir.length);
 
-            let sExtName = TnodeIoFile.upExtName(sNewPath);
+            let bFlagSkip = false;
 
-            let sTargetFile = TnodeIoFile.pathJoin(sTargetDir, sNewPath);
-            if (sReplaceFileExt.indexOf(sExtName) > -1) {
-              
-                this.copyFileAndReplace(fItem, sTargetFile);
-            } else {
-                TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+            aSkip.forEach(fItem => {
+                if (sSubPath.startsWith(fItem)) {
+                    bFlagSkip = true;
+                }
+            })
+
+            if (!bFlagSkip) {
+                let sExtName = TnodeIoFile.upExtName(sSubPath);
+
+                let sTargetFile = TnodeIoFile.pathJoin(sTargetDir, sSubPath);
+                if (sReplaceFileExt.indexOf(sExtName) > -1) {
+
+                    this.copyFileAndReplace(fItem, sTargetFile);
+                } else {
+                    TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+                }
             }
 
         });
@@ -94,7 +112,6 @@ export class EasyFile {
 
         let oSourceMatch = sSourceContent.match(oRegexBegin);
 
-        
         if (oSourceMatch != null) {
             oSourceMatch.forEach(fItem => {
 
@@ -125,8 +142,6 @@ export class EasyFile {
 
             sReturn = sReturn.replace(new RegExp(sStart + fKey + sRegexInfo + sEnd + fKey, "g"), fVal);
         });
-
-       
 
         oEasyFileContent.targetContent = sTargetContent;
 

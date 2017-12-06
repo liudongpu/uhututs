@@ -16,7 +16,8 @@ var defineProgram = {
     /**
      * 执行替换的文件扩展名
      */
-    fileExtReplace: '.ts;.html;.json;',
+    fileExtReplace: '.ts,.html,.json',
+    pathSkipDir: '/.git',
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
 var AdefineStart = /** @class */ (function () {

@@ -47,14 +47,26 @@ var HelperString = /** @class */ (function () {
             return this.temp.EMPTY;
         }
         var pos = str.lastIndexOf(separator);
-        if (pos == this.temp.INDEX_NOT_FOUND
-            || pos == str.length - separator.length) {
+        if (pos == this.temp.INDEX_NOT_FOUND || pos == str.length - separator.length) {
             return this.temp.EMPTY;
         }
         return str.substring(pos + separator.length);
     };
     HelperString.contains = function (seq, searchSeq) {
         return seq.indexOf(searchSeq) > this.temp.INDEX_NOT_FOUND;
+    };
+    HelperString.split = function (source) {
+        return source.split(',');
+    };
+    HelperString.containsOfArrayString = function (source, searchofArray) {
+        var bReturn = false;
+        var aArr = this.split(searchofArray);
+        aArr.forEach(function (fItem) {
+            if (source.indexOf(fItem) > -1) {
+                bReturn = true;
+            }
+        });
+        return bReturn;
     };
     /**
      *
@@ -65,12 +77,20 @@ var HelperString = /** @class */ (function () {
      * @param fRemove 标记是否将Start和end去掉
      */
     HelperString.replaceBetween = function (sInString, sStart, sEnd, sWith, fRemove) {
-        //var reg=new RegExp("("+sStart.replace('/','\/')+")[\s\S]*?("+sEnd.replace('/','\/')+")","gm");
-        //console.log(/(\/\/UhutuIncCodeClassAutoBegin)*?(\/\/UhutuIncCodeClassAutoEnd)/gm.test(sInString));
-        //console.log(reg.test("//UhutuIncCodeClassAutoBegin//UhutuIncCodeClassAutoEnd"));
+        // var reg=new
+        // RegExp("("+sStart.replace('/','\/')+")[\s\S]*?("+sEnd.replace('/','\/')+")","
+        // g m");
+        // console.log(/(\/\/UhutuIncCodeClassAutoBegin)*?(\/\/UhutuIncCodeClassAutoEnd)
+        // / gm.test(sInString));
+        // console.log(reg.test("//UhutuIncCodeClassAutoBegin//UhutuIncCodeClassAutoEnd"
+        // ) );
         var reg = new RegExp('(' + sStart + ')(.|\s|\S|\n)*?(' + sEnd + ')', 'gm');
         //console.log(reg.test(sInString));
-        return sInString.replace(reg, (fRemove ? '' : sStart) + sWith + (fRemove ? '' : sEnd));
+        return sInString.replace(reg, (fRemove
+            ? ''
+            : sStart) + sWith + (fRemove
+            ? ''
+            : sEnd));
     };
     /**
      *

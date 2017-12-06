@@ -14,7 +14,7 @@ var UpdateWeb = /** @class */ (function () {
             index_1.TnodeIoFile.deleteFile(launch_1.EasyLaunch.upSubPathForTempGit(''));
         }
         git_1.ProcessGit.checkOrUpdate(index_2.Tbase.defineProgram().pathManageName, index_2.Tbase.defineProgram().gitManageUrl);
-        file_1.EasyFile.copyDirAndReplace(launch_1.EasyLaunch.upSubPathForTempGit(index_2.Tbase.defineProgram().pathManageName), index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineProgram().fileExtReplace);
+        file_1.EasyFile.copyDirAndReplace(launch_1.EasyLaunch.upSubPathForTempGit(index_2.Tbase.defineProgram().pathManageName), index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineProgram().fileExtReplace, index_2.Tbase.defineProgram().pathSkipDir);
         /*
         TnodeProtoProcess.spawnSync("git", [
             "clone",

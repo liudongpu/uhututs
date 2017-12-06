@@ -30,26 +30,45 @@ var EasyFile = /** @class */ (function () {
             var sTargetContent = index_2.TnodeIoFile.readFile(sTargetFile);
             var oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
             if (oContentInfo.sourceNotFound.length > 0) {
-                index_1.Tbase.logWarn(3711002, [sSourceFile, oContentInfo.sourceNotFound.join(',')]);
+                index_1.Tbase.logWarn(3711002, [
+                    sSourceFile,
+                    oContentInfo
+                        .sourceNotFound
+                        .join(',')
+                ]);
             }
             if (oContentInfo.targetNotFounc.length > 0) {
-                index_1.Tbase.logWarn(3711003, [sSourceFile, oContentInfo.targetNotFounc.join(',')]);
+                index_1.Tbase.logWarn(3711003, [
+                    sSourceFile,
+                    oContentInfo
+                        .targetNotFounc
+                        .join(',')
+                ]);
             }
             index_2.TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
         }
     };
-    EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt) {
+    EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt, sSkipDir) {
         var _this = this;
         var aFiles = index_2.TnodeIoFile.listDir(sSourceDir);
+        var aSkip = sSkipDir.split(',');
         aFiles.forEach(function (fItem) {
-            var sNewPath = fItem.substr(sSourceDir.length);
-            var sExtName = index_2.TnodeIoFile.upExtName(sNewPath);
-            var sTargetFile = index_2.TnodeIoFile.pathJoin(sTargetDir, sNewPath);
-            if (sReplaceFileExt.indexOf(sExtName) > -1) {
-                _this.copyFileAndReplace(fItem, sTargetFile);
-            }
-            else {
-                index_2.TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+            var sSubPath = fItem.substr(sSourceDir.length);
+            var bFlagSkip = false;
+            aSkip.forEach(function (fItem) {
+                if (sSubPath.startsWith(fItem)) {
+                    bFlagSkip = true;
+                }
+            });
+            if (!bFlagSkip) {
+                var sExtName = index_2.TnodeIoFile.upExtName(sSubPath);
+                var sTargetFile = index_2.TnodeIoFile.pathJoin(sTargetDir, sSubPath);
+                if (sReplaceFileExt.indexOf(sExtName) > -1) {
+                    _this.copyFileAndReplace(fItem, sTargetFile);
+                }
+                else {
+                    index_2.TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+                }
             }
         });
     };
