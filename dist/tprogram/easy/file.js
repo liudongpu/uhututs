@@ -6,6 +6,12 @@ var EasyFileReplaceContent = /** @class */ (function () {
     function EasyFileReplaceContent() {
         this.sourceContent = '';
         this.targetContent = '';
+        /**
+         * 替换结果
+         *
+         * @type {string}
+         * @memberof EasyFileReplaceContent
+         */
         this.execContent = '';
         this.sourceNotFound = [];
         this.targetNotFounc = [];

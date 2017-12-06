@@ -34,7 +34,7 @@ test('fileContent',()=>{
 
     console.log(oContent);
 
+    expect(oContent.sourceNotFound).toEqual(["uhutu_sign_begin_r2"]);
 
-
-
+    expect(oContent.targetNotFounc).toEqual(["uhutu_sign_begin_r3"]);
 })

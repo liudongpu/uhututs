@@ -4,6 +4,12 @@ import {TnodeIoFile} from "../../tnode/index";
 class EasyFileReplaceContent {
     sourceContent : string = ''
     targetContent : string = ''
+    /**
+     * 替换结果
+     * 
+     * @type {string}
+     * @memberof EasyFileReplaceContent
+     */
     execContent : string = ''
     sourceNotFound : string[] = []
     targetNotFounc : string[] = []
