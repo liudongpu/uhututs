@@ -7,13 +7,15 @@ var ProcessGit = /** @class */ (function () {
     }
     ProcessGit.checkOrUpdate = function (sDirPath, sGitUrl) {
         var sDir = launch_1.EasyLaunch.upSubPathForTempGit(sDirPath);
+        var sParentPath = index_1.TnodeIoFile.parentPath(sDir);
+        if (!index_1.TnodeIoFile.flagExist(sParentPath)) {
+            index_1.TnodeIoFile.mkdir(sParentPath);
+        }
         if (index_1.TnodeIoFile.flagExist(sDir)) {
             index_1.TnodeProtoProcess.spawnSync('git', ["pull"], { cwd: sDir });
         }
         else {
-            var sDirOfGit = launch_1.EasyLaunch.upSubPathForTempGit('');
-            console.log(sDirOfGit);
-            index_1.TnodeProtoProcess.spawnSync("git", [" clone ", sGitUrl, sDirPath], { cwd: sDirOfGit });
+            index_1.TnodeProtoProcess.spawnSync("git", ["clone", sGitUrl, sDirPath], { cwd: sParentPath });
         }
     };
     return ProcessGit;
