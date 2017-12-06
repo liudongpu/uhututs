@@ -15,8 +15,8 @@ const defineBase={
     pathRootTempGit:'git',
 
     
-    replaceContentBegin:'uts_begin_',
-    replaceContentEnd:'uts_end_',
+    replaceContentBegin:'uhutu_sign_begin_',
+    replaceContentEnd:'uhutu_sign_end_',
 
 
     tempDir:'uhutu_ts_temp'
