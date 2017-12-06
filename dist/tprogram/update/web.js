@@ -12,7 +12,7 @@ var UpdateWeb = /** @class */ (function () {
         if (args.force) {
             index_1.TnodeIoFile.deleteFile(launch_1.EasyLaunch.upSubPathForTempGit(''));
         }
-        git_1.ProcessGit.checkOrUpdate(index_2.Tbase.defineProgram().pathWeb, index_2.Tbase.defineProgram().gitPagesUrl);
+        git_1.ProcessGit.checkOrUpdate(index_2.Tbase.defineProgram().pathManageName, index_2.Tbase.defineProgram().gitManageUrl);
         /*
         TnodeProtoProcess.spawnSync("git", [
             "clone",

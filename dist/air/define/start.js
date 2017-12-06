@@ -12,8 +12,8 @@ var defineBase = {
     tempDir: 'uhutu_ts_temp'
 };
 var defineProgram = {
-    pathWeb: 'web',
-    gitPagesUrl: 'https://github.com/liudongpu/uhututs'
+    pathManageName: 'manage',
+    gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
 var AdefineStart = /** @class */ (function () {
     function AdefineStart() {

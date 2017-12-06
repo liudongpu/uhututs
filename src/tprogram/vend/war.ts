@@ -27,7 +27,7 @@ export class VendWar {
                 alias: 'u',
                 describe: Tbase.upLangInfo(331002)
             },
-            'updateWeb': {
+            'updateManage': {
                 describe: Tbase.upLangInfo(331001)
             }
         }).help().argv);
@@ -43,7 +43,7 @@ export class VendWar {
 
         if (this.checkInit()) {
 
-            if (a.updateWeb) {
+            if (a.updateManage) {
                 UpdateWeb.update(a);
             }
 

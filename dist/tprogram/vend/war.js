@@ -27,7 +27,7 @@ var VendWar = /** @class */ (function () {
                 alias: 'u',
                 describe: index_1.Tbase.upLangInfo(331002)
             },
-            'updateWeb': {
+            'updateManage': {
                 describe: index_1.Tbase.upLangInfo(331001)
             }
         }).help().argv);
@@ -35,7 +35,7 @@ var VendWar = /** @class */ (function () {
             init_1.VendInit.initProgram(a);
         }
         if (this.checkInit()) {
-            if (a.updateWeb) {
+            if (a.updateManage) {
                 web_1.UpdateWeb.update(a);
             }
         }

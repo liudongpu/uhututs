@@ -18,7 +18,7 @@ export class VendInit {
             Tbase.logWarn(3711001, [sDir]);
         }
 
-        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('') + ".gitignore");
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('.gitignore') );
 
         return true;
 

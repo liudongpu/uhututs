@@ -27,9 +27,9 @@ const defineBase={
 const defineProgram={
 
 
-    pathWeb:'web',
+    pathManageName:'manage',
 
-    gitPagesUrl:'https://github.com/liudongpu/uhututs'
+    gitManageUrl:'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
 
 

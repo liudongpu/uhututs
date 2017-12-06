@@ -16,7 +16,7 @@ export class UpdateWeb {
         }
 
 
-       ProcessGit.checkOrUpdate(Tbase.defineProgram().pathWeb,Tbase.defineProgram().gitPagesUrl);
+       ProcessGit.checkOrUpdate(Tbase.defineProgram().pathManageName,Tbase.defineProgram().gitManageUrl);
 
 
        

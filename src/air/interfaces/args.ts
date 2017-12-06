@@ -21,6 +21,6 @@ export interface IargsStart{
      * @type {boolean}
      * @memberof IargsStart
      */
-    updateWeb:boolean
+    updateManage:boolean
 
 }
