@@ -32,6 +32,21 @@ var EasyFile = /** @class */ (function () {
             index_2.TnodeIoFile.writeFile(sTargetFile, sTargetContent);
         }
     };
+    EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt) {
+        var _this = this;
+        var aFiles = index_2.TnodeIoFile.listDir(sSourceDir);
+        aFiles.forEach(function (fItem) {
+            var sNewPath = fItem.substr(sSourceDir.length);
+            var sExtName = index_2.TnodeIoFile.upExtName(sNewPath);
+            var sTargetFile = index_2.TnodeIoFile.pathJoin(sTargetDir, sNewPath);
+            if (sReplaceFileExt.indexOf(sExtName) > -1) {
+                _this.copyFileAndReplace(fItem, sTargetFile);
+            }
+            else {
+                index_2.TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+            }
+        });
+    };
     EasyFile.replaceContent = function (sSourceContent, sTargetContent) {
         var oEasyFileContent = new EasyFileReplaceContent();
         var sStart = index_1.Tbase

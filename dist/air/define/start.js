@@ -13,6 +13,10 @@ var defineBase = {
 };
 var defineProgram = {
     pathManageName: 'manage',
+    /**
+     * 执行替换的文件扩展名
+     */
+    fileExtReplace: '.ts;.html;',
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
 var AdefineStart = /** @class */ (function () {

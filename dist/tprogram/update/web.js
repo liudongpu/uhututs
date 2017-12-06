@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var file_1 = require("./../easy/file");
 var git_1 = require("./../process/git");
 var index_1 = require("../../tnode/index");
 var index_2 = require("../../tcore/index");
@@ -13,6 +14,7 @@ var UpdateWeb = /** @class */ (function () {
             index_1.TnodeIoFile.deleteFile(launch_1.EasyLaunch.upSubPathForTempGit(''));
         }
         git_1.ProcessGit.checkOrUpdate(index_2.Tbase.defineProgram().pathManageName, index_2.Tbase.defineProgram().gitManageUrl);
+        file_1.EasyFile.copyDirAndReplace(launch_1.EasyLaunch.upSubPathForTempGit(index_2.Tbase.defineProgram().pathManageName), index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineProgram().fileExtReplace);
         /*
         TnodeProtoProcess.spawnSync("git", [
             "clone",

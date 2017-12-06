@@ -57,7 +57,7 @@ export class IoFile{
         fs.createReadStream(sSourcePath).pipe(fs.createWriteStream(sTargetPath));
     }
 
-    static listDir(sPath) {
+    static listDir(sPath:string) :string[]{
         var aList = [];
 
 

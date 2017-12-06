@@ -6,7 +6,7 @@ class EasyFileReplaceContent {
     targetContent : string = ''
     /**
      * 替换结果
-     * 
+     *
      * @type {string}
      * @memberof EasyFileReplaceContent
      */
@@ -31,6 +31,27 @@ export class EasyFile {
             TnodeIoFile.writeFile(sTargetFile, sTargetContent);
 
         }
+
+    }
+
+    static copyDirAndReplace(sSourceDir : string, sTargetDir : string, sReplaceFileExt : string) {
+
+        let aFiles = TnodeIoFile.listDir(sSourceDir);
+
+        aFiles.forEach(fItem => {
+
+            let sNewPath = fItem.substr(sSourceDir.length);
+
+            let sExtName = TnodeIoFile.upExtName(sNewPath);
+
+            let sTargetFile = TnodeIoFile.pathJoin(sTargetDir, sNewPath);
+            if (sReplaceFileExt.indexOf(sExtName) > -1) {
+                this.copyFileAndReplace(fItem, sTargetFile);
+            } else {
+                TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+            }
+
+        });
 
     }
 
@@ -78,7 +99,6 @@ export class EasyFile {
                     oMapReplace.set(sName, oContentInfo[0]);
                     sTargetContent = sTargetContent.replace(oContentInfo[0], '');
                 } else {
-                    
 
                     oEasyFileContent
                         .sourceNotFound
@@ -96,7 +116,7 @@ export class EasyFile {
 
         oEasyFileContent.execContent = sReturn;
 
-        let oCheckMatch = sTargetContent.match(new RegExp(sStart+".*", "g"));
+        let oCheckMatch = sTargetContent.match(new RegExp(sStart + ".*", "g"));
 
         if (oCheckMatch != null) {
             oCheckMatch.forEach(fItem => {
