@@ -23,14 +23,16 @@ test('fileContent',()=>{
     ggadfadfsafdas
     gdafdsafdsfa
     #uhutu_sign_end_r1
+    #uhutu_sign_begin_r3
+    #uhutu_sign_end_r3
     `;
 
 
 
-    let sContent=TprogramEasyFile.replaceContent(sSourceContent,sTargetContent);
+    let oContent=TprogramEasyFile.replaceContent(sSourceContent,sTargetContent);
 
 
-    console.log(sContent);
+    console.log(oContent);
 
 
 
