@@ -15,3 +15,6 @@
 >> *test.jsn* 系统生成的配置文件的最终版  
 >
 > *dist* 生成的代码
+
+
+npm install -g github:liudongpu/uhututs
