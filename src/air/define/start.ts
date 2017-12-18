@@ -19,7 +19,7 @@ const defineBase={
     replaceContentEnd:'uhutu_sign_end_',
 
 
-    tempDir:'uhutu_ts_temp'
+    tempDir:''
 }
 
 
