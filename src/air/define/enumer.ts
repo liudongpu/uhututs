@@ -14,6 +14,11 @@ export enum AenumNodeType{
     unknow,
 
     /**
+     * 忽略类型
+     */
+    ignore,
+
+    /**
      * 基本元素
      */
     element,
