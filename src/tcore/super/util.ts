@@ -3,7 +3,7 @@ import {AdefineLang} from "../../air/define/lang";
 import {EutilLog} from '../../air/export/util';
 import {AdefineStart} from '../../air/define/start';
 
-export class TopUtil {
+export class SuperUtil {
 
     /**
      * 调试日志
@@ -11,7 +11,7 @@ export class TopUtil {
      * @static
      * @param {number} iCode
      * @param {string[]} [params]
-     * @memberof TopUtil
+     * @memberof SuperUtil
      */
     static logDebug(iCode : number, params?: string[]) {
 
@@ -50,7 +50,7 @@ export class TopUtil {
      * @static
      * @param {number} iCode
      * @returns {string}
-     * @memberof TopUtil
+     * @memberof SuperUtil
      */
     static upLangInfo(iCode : number) : string {return AdefineLang[iCode];}
 

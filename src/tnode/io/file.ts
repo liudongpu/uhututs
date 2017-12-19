@@ -1,3 +1,4 @@
+import { CommonBase } from './../../tcore/common/base';
 import fs = require('fs');
 import path = require('path');
 
@@ -88,11 +89,11 @@ export class IoFile{
     //根据文件读取配置项
     static upConfigByFile(sPath) {
         var sContent = this.readFile(sPath);
-        return JSON.parse(sContent);
+        return CommonBase.jsonParse(sContent);
     }
     //将配置写入配置文件
     static inFileByConfig(sPath, oJson) {
-        this.writeFile(sPath, JSON.stringify(oJson));
+        this.writeFile(sPath, CommonBase.jsonStringify(oJson));
     }
 
 
