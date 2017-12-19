@@ -17,4 +17,10 @@ export class IoPath{
     }
 
 
+
+    static upTestPath():string{
+        return   IoFile.pathJoin(  IoFile.parentTop(__dirname,3),"test");
+    }
+
+
 }
