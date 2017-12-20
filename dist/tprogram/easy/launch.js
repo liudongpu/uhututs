@@ -6,25 +6,25 @@ var EasyLaunch = /** @class */ (function () {
     function EasyLaunch() {
     }
     EasyLaunch.upSubPath = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathRoot, sPath);
+        return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathRoot, sPath);
     };
     EasyLaunch.upSubPathForTemp = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootTemp), sPath);
+        return index_1.TNodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootTemp), sPath);
     };
     EasyLaunch.upSubPathForGenerate = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootGenerate), sPath);
+        return index_1.TNodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootGenerate), sPath);
     };
     EasyLaunch.upSubPathForTempGit = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(this.upSubPathForTemp(index_2.TBase.defineBase().pathRootTempGit), sPath);
+        return index_1.TNodeIoFile.pathJoin(this.upSubPathForTemp(index_2.TBase.defineBase().pathRootTempGit), sPath);
     };
     EasyLaunch.upResourcePath = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upResourcePath(), sPath);
+        return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upResourcePath(), sPath);
     };
     EasyLaunch.upDevPath = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathDev, sPath);
+        return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathDev, sPath);
     };
     EasyLaunch.upDevPathForSetting = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(this.upDevPath(index_2.TBase.defineBase().pathDevSetting), sPath);
+        return index_1.TNodeIoFile.pathJoin(this.upDevPath(index_2.TBase.defineBase().pathDevSetting), sPath);
     };
     return EasyLaunch;
 }());

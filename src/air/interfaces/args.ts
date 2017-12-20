@@ -23,4 +23,7 @@ export interface IArgsStart{
      */
     updateManage:boolean
 
+
+    updateGo:boolean
+
 }

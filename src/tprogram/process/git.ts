@@ -1,5 +1,5 @@
 import { EasyLaunch } from './../easy/launch';
-import { TnodeIoFile, TnodeProtoProcess } from "../../tnode/index";
+import { TNodeIoFile, TNodeProtoProcess } from "../../tnode/index";
 
 
 
@@ -11,18 +11,18 @@ export class ProcessGit{
         let sDir=EasyLaunch.upSubPathForTempGit(sDirPath);
         
 
-        let sParentPath=TnodeIoFile.parentPath(sDir);
-        if(!TnodeIoFile.flagExist(sParentPath)){
-            TnodeIoFile.mkdir(sParentPath);
+        let sParentPath=TNodeIoFile.parentPath(sDir);
+        if(!TNodeIoFile.flagExist(sParentPath)){
+            TNodeIoFile.mkdir(sParentPath);
         }
 
-        if(TnodeIoFile.flagExist(sDir)){
-            TnodeProtoProcess.spawnSync('git',["pull"],{cwd:sDir});
+        if(TNodeIoFile.flagExist(sDir)){
+            TNodeProtoProcess.spawnSync('git',["pull"],{cwd:sDir});
         }
         else{
            
           
-            TnodeProtoProcess.spawnSync("git",["clone",sGitUrl,sDirPath],{cwd:sParentPath});
+            TNodeProtoProcess.spawnSync("git",["clone",sGitUrl,sDirPath],{cwd:sParentPath});
         }
 
 

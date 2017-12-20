@@ -4,7 +4,7 @@ import { IConfigInfo } from './../interfaces/config';
 
 const configInfo:IConfigInfo={
 
-    projectBaseName:"demo",
+    projectBaseName:"",
 
     projectVersionName:"1.0.1",
 

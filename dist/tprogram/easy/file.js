@@ -22,12 +22,12 @@ var EasyFile = /** @class */ (function () {
     function EasyFile() {
     }
     EasyFile.copyFileAndReplace = function (sSourceFile, sTargetFile) {
-        if (!index_2.TnodeIoFile.flagExist(sTargetFile)) {
-            index_2.TnodeIoFile.copyFile(sSourceFile, sTargetFile);
+        if (!index_2.TNodeIoFile.flagExist(sTargetFile)) {
+            index_2.TNodeIoFile.copyFile(sSourceFile, sTargetFile);
         }
         else {
-            var sSourceContent = index_2.TnodeIoFile.readFile(sSourceFile);
-            var sTargetContent = index_2.TnodeIoFile.readFile(sTargetFile);
+            var sSourceContent = index_2.TNodeIoFile.readFile(sSourceFile);
+            var sTargetContent = index_2.TNodeIoFile.readFile(sTargetFile);
             var oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
             if (oContentInfo.sourceNotFound.length > 0) {
                 index_1.TBase.logWarn(3711002, [
@@ -46,13 +46,13 @@ var EasyFile = /** @class */ (function () {
                 ]);
             }
             if (sTargetContent != oContentInfo.execContent) {
-                index_2.TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+                index_2.TNodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
             }
         }
     };
     EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt, sSkipDir) {
         var _this = this;
-        var aFiles = index_2.TnodeIoFile.listDir(sSourceDir);
+        var aFiles = index_2.TNodeIoFile.listDir(sSourceDir);
         var aSkip = sSkipDir.split(',');
         aFiles.forEach(function (fItem) {
             var sSubPath = fItem.substr(sSourceDir.length);
@@ -63,13 +63,13 @@ var EasyFile = /** @class */ (function () {
                 }
             });
             if (!bFlagSkip) {
-                var sExtName = index_2.TnodeIoFile.upExtName(sSubPath);
-                var sTargetFile = index_2.TnodeIoFile.pathJoin(sTargetDir, sSubPath);
+                var sExtName = index_2.TNodeIoFile.upExtName(sSubPath);
+                var sTargetFile = index_2.TNodeIoFile.pathJoin(sTargetDir, sSubPath);
                 if (sReplaceFileExt.indexOf(sExtName) > -1) {
                     _this.copyFileAndReplace(fItem, sTargetFile);
                 }
                 else {
-                    index_2.TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+                    index_2.TNodeIoFile.copyFileAsync(fItem, sTargetFile);
                 }
             }
         });

@@ -10,8 +10,8 @@ var VendInit = /** @class */ (function () {
     VendInit.initProgram = function (arg) {
         var sDir = launch_1.EasyLaunch.upSubPath('');
         index_2.TBase.logDebug(3411002, [sDir]);
-        if (!index_1.TnodeIoFile.flagExist(sDir)) {
-            index_1.TnodeIoFile.mkdir(sDir);
+        if (!index_1.TNodeIoFile.flagExist(sDir)) {
+            index_1.TNodeIoFile.mkdir(sDir);
         }
         file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), launch_1.EasyLaunch.upSubPath('.gitignore'));
         if (arg.init === index_2.TBase.defineBase().projectGo) {
@@ -22,20 +22,21 @@ var VendInit = /** @class */ (function () {
     VendInit.initGo = function (arg) {
         var sDir = launch_1.EasyLaunch.upDevPath('');
         index_2.TBase.logDebug(3411004, [sDir]);
-        if (!index_1.TnodeIoFile.flagExist(sDir)) {
-            index_1.TnodeIoFile.mkdir(sDir);
+        if (!index_1.TNodeIoFile.flagExist(sDir)) {
+            index_1.TNodeIoFile.mkdir(sDir);
         }
         var sConfigFile = launch_1.EasyLaunch.upDevPathForSetting(index_2.TBase.defineProgram().fileNameOfConfig);
-        var bFlagExistConfigFile = index_1.TnodeIoFile.flagExist(sConfigFile);
+        var bFlagExistConfigFile = index_1.TNodeIoFile.flagExist(sConfigFile);
         if (!bFlagExistConfigFile || arg.force) {
             var oConfigCurrent = index_2.TCoreHelperObject.parseTs({});
             if (bFlagExistConfigFile) {
-                oConfigCurrent = index_2.TCoreCommonFunc.jsonParse(index_1.TnodeIoFile.readFile(sConfigFile));
+                oConfigCurrent = index_2.TCoreCommonFunc.jsonParse(index_1.TNodeIoFile.readFile(sConfigFile));
             }
-            var oConfigDefault = index_2.TCoreCommonFunc.jsonParse(index_1.TnodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-go/setting/config.json")));
-            oConfigDefault.projectBaseName = index_1.TnodeIoFile.upBaseName(index_1.TnodeIoPath.upCwdPath(), "");
+            var oConfigDefault = index_2.TCoreCommonFunc.jsonParse(index_1.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-go/setting/config.json")));
+            oConfigDefault.projectBaseName = index_1.TNodeIoFile.upBaseName(index_1.TNodeIoPath.upCwdPath(), "");
             oConfigCurrent = index_2.TCoreHelperObject.assign(oConfigDefault, oConfigCurrent);
-            index_1.TnodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringify(oConfigCurrent));
+            index_1.TNodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringify(oConfigCurrent));
+            index_2.TBase.logInfo(3611001);
         }
         return true;
     };

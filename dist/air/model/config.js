@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var configInfo = {
-    projectBaseName: "demo",
+    projectBaseName: "",
     projectVersionName: "1.0.1",
     projectDisplayName: "示例项目",
     projectVersionCode: 1

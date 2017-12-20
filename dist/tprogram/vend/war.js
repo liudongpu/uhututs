@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var go_1 = require("./../update/go");
 var init_1 = require("./init");
 var web_1 = require("./../update/web");
 var index_1 = require("../../tcore/index");
@@ -46,6 +47,9 @@ var VendWar = /** @class */ (function () {
             if (a.updateManage) {
                 web_1.UpdateWeb.update(a);
             }
+            if (a.updateGo) {
+                go_1.UpdateGo.update(a);
+            }
         }
         else {
             index_1.TBase.logError(3911001, [launch_1.EasyLaunch.upSubPath('')]);
@@ -53,7 +57,7 @@ var VendWar = /** @class */ (function () {
     };
     VendWar.checkInit = function () {
         var sPathDir = launch_1.EasyLaunch.upSubPath('');
-        return index_2.TnodeIoFile.flagExist(sPathDir);
+        return index_2.TNodeIoFile.flagExist(sPathDir);
     };
     return VendWar;
 }());

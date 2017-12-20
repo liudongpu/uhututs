@@ -1,5 +1,5 @@
 import {TBase} from "../../tcore/index";
-import {TnodeIoFile} from "../../tnode/index";
+import {TNodeIoFile} from "../../tnode/index";
 
 class EasyFileReplaceContent {
     sourceContent : string = ''
@@ -19,13 +19,13 @@ export class EasyFile {
 
     static copyFileAndReplace(sSourceFile : string, sTargetFile : string) {
 
-        if (!TnodeIoFile.flagExist(sTargetFile)) {
+        if (!TNodeIoFile.flagExist(sTargetFile)) {
 
-            TnodeIoFile.copyFile(sSourceFile, sTargetFile);
+            TNodeIoFile.copyFile(sSourceFile, sTargetFile);
         } else {
 
-            let sSourceContent = TnodeIoFile.readFile(sSourceFile);
-            let sTargetContent = TnodeIoFile.readFile(sTargetFile);
+            let sSourceContent = TNodeIoFile.readFile(sSourceFile);
+            let sTargetContent = TNodeIoFile.readFile(sTargetFile);
             let oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
 
             if (oContentInfo.sourceNotFound.length > 0) {
@@ -48,7 +48,7 @@ export class EasyFile {
 
             if(sTargetContent!=oContentInfo.execContent)
             {
-                TnodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+                TNodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
             }
             
 
@@ -58,7 +58,7 @@ export class EasyFile {
 
     static copyDirAndReplace(sSourceDir : string, sTargetDir : string, sReplaceFileExt : string, sSkipDir : string) {
 
-        let aFiles = TnodeIoFile.listDir(sSourceDir);
+        let aFiles = TNodeIoFile.listDir(sSourceDir);
 
         let aSkip = sSkipDir.split(',');
 
@@ -75,14 +75,14 @@ export class EasyFile {
             })
 
             if (!bFlagSkip) {
-                let sExtName = TnodeIoFile.upExtName(sSubPath);
+                let sExtName = TNodeIoFile.upExtName(sSubPath);
 
-                let sTargetFile = TnodeIoFile.pathJoin(sTargetDir, sSubPath);
+                let sTargetFile = TNodeIoFile.pathJoin(sTargetDir, sSubPath);
                 if (sReplaceFileExt.indexOf(sExtName) > -1) {
 
                     this.copyFileAndReplace(fItem, sTargetFile);
                 } else {
-                    TnodeIoFile.copyFileAsync(fItem, sTargetFile);
+                    TNodeIoFile.copyFileAsync(fItem, sTargetFile);
                 }
             }
 

@@ -2,7 +2,7 @@
 
 
 
-import {TnodeProtoProcess} from '../tnode/index';
+import {TNodeProtoProcess} from '../tnode/index';
 
 
 
@@ -10,5 +10,5 @@ import childProcess = require("child_process");
 
 
 
-TnodeProtoProcess.spawnSync('tsc',[]);
-TnodeProtoProcess.spawnSync('npm',["install","-g"]);
+TNodeProtoProcess.spawnSync('tsc',[]);
+TNodeProtoProcess.spawnSync('npm',["install","-g"]);
