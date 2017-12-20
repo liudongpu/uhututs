@@ -25,6 +25,7 @@ var VendInit = /** @class */ (function () {
         if (!index_1.TnodeIoFile.flagExist(sDir)) {
             index_1.TnodeIoFile.mkdir(sDir);
         }
+        var sConfigFile = launch_1.EasyLaunch.upDevPath('');
         return true;
     };
     return VendInit;

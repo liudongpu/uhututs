@@ -10,6 +10,11 @@ const defineBase = {
     */
     pathRootTemp: 'temp',
 
+    /** 
+     * 自动生成的文件
+    */
+    pathRootGenerate: 'generate',
+
     /**
      * Git项目文件夹
     */
