@@ -34,7 +34,10 @@ var defineBase = {
      * 客户端类项目名称标记
      */
     projectGo: "go",
-    projectManage: "manage"
+    projectManage: "manage",
+    workNative: "native",
+    workVue: "vue",
+    workWeapp: "weapp"
 };
 var defineProgram = {
     /**

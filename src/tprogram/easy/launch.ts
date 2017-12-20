@@ -1,5 +1,6 @@
 import {TNodeIoFile, TNodeIoPath} from "../../tnode/index";
 import {TBase} from "../../tcore/index";
+import { BootProgram } from "../boot/program";
 
 export class EasyLaunch {
 
@@ -42,6 +43,17 @@ export class EasyLaunch {
         return TNodeIoFile.pathJoin(this.upDevPath(TBase.defineBase().pathDevSetting), sPath);
     }
 
+
+
+
+
+
+
+    static upGoNativePath(sPath:string){
+
+        return TNodeIoFile.pathJoin(TNodeIoPath.upCwdPath(), BootProgram.upGoWorkOfNative(), sPath);
+
+    }
 
 
 }

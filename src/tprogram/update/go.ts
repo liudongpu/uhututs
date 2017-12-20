@@ -3,15 +3,33 @@ import {IConfigInfo} from './../../air/interfaces/config';
 import {EasyLaunch} from './../easy/launch';
 import {IArgsStart} from './../../air/interfaces/args';
 import {TBase, TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
-import {TNodeIoFile} from '../../tnode/index';
+import {TNodeIoFile, TNodeProtoProcess} from '../../tnode/index';
+import { BootProgram } from '../boot/program';
 export class UpdateGo {
 
     static update(args : IArgsStart) {
 
         this.generateConfig();
+         let oConfig= BootProgram.upGoConfig();
+
+
+        if(oConfig.projectEnableNative){
+
+            this.installNative(oConfig);
+        }
+
+
+
 
     }
 
+    /**
+     * 生成配置文件
+     * 
+     * @private
+     * @static
+     * @memberof UpdateGo
+     */
     private static generateConfig() {
 
         let sConfigFile = EasyLaunch.upDevPathForSetting(TBase.defineProgram().fileNameOfConfig);
@@ -33,4 +51,25 @@ export class UpdateGo {
 
 
     }
+
+
+
+
+
+    private static installNative(oConfig:IConfigInfo){
+
+
+
+        let sNativePath=EasyLaunch.upGoNativePath("");
+        if(!TNodeIoFile.flagExist(sNativePath)){
+
+            TNodeProtoProcess.spawnSync("react-native",["init",BootProgram.upGoWorkOfNative()]);
+        }
+
+
+    }
+
+
+
+
 }

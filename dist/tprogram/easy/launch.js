@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../../tnode/index");
 var index_2 = require("../../tcore/index");
+var program_1 = require("../boot/program");
 var EasyLaunch = /** @class */ (function () {
     function EasyLaunch() {
     }
@@ -25,6 +26,9 @@ var EasyLaunch = /** @class */ (function () {
     };
     EasyLaunch.upDevPathForSetting = function (sPath) {
         return index_1.TNodeIoFile.pathJoin(this.upDevPath(index_2.TBase.defineBase().pathDevSetting), sPath);
+    };
+    EasyLaunch.upGoNativePath = function (sPath) {
+        return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upCwdPath(), program_1.BootProgram.upGoWorkOfNative(), sPath);
     };
     return EasyLaunch;
 }());

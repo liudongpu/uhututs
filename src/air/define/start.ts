@@ -41,7 +41,12 @@ const defineBase = {
      */
     projectGo: "go",
 
-    projectManage: "manage"
+    projectManage: "manage",
+
+    workNative: "native",
+    workVue: "vue",
+
+    workWeapp: "weapp"
 
 }
 
