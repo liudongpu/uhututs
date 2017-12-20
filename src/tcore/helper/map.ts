@@ -1,5 +1,14 @@
-export  class HelperMap {
-    
+export class HelperMap {
+
+    static parseMap < T > (oAttr) : Map < string,
+    T > {
+        var mMap = new Map < string,
+            T > ();
+        for (let k in oAttr) {
+            mMap.set(k, oAttr[k]);
+        }
+        return mMap;
+    }
 
     static stringIsEmpty(cs) {
         return cs == undefined || cs == null || cs.length == 0;
