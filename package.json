@@ -20,14 +20,16 @@
   },
   "homepage": "https://github.com/liudongpu/uhututs#readme",
   "dependencies": {
+    "htmlparser2": "^3.9.2",
     "log4js": "^2.3.12",
-    "yargs": "^10.0.3",
-    "htmlparser2": "^3.9.2"
+    "mustache": "^2.3.0",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "@types/htmlparser2": "^3.7.31",
     "@types/jest": "^21.1.8",
     "@types/log4js": "^2.3.5",
+    "@types/mustache": "^0.8.30",
     "@types/node": "^8.0.53",
     "@types/yargs": "^8.0.2",
     "gulp": "^3.9.1",
