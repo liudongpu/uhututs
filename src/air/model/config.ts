@@ -6,7 +6,12 @@ const configInfo:IconfigInfo={
 
     projectBaseName:"demo",
 
-    projectVersionName:"1.0.1"
+    projectVersionName:"1.0.1",
+
+
+    projectDisplayName:"示例项目",
+
+    projectVersionCode:1
 }
 
 

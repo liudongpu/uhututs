@@ -16,4 +16,10 @@ export interface IconfigInfo{
      */
     projectVersionName:string
 
+
+    projectDisplayName:string
+
+
+    projectVersionCode:number
+
 }

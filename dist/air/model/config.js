@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var configInfo = {
     projectBaseName: "demo",
-    projectVersionName: "1.0.1"
+    projectVersionName: "1.0.1",
+    projectDisplayName: "示例项目",
+    projectVersionCode: 1
 };
 var AModelConfig = /** @class */ (function () {
     function AModelConfig() {

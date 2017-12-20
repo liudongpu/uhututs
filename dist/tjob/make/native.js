@@ -21,7 +21,7 @@ var MakeNative = /** @class */ (function (_super) {
         return oNodeInfo;
     };
     MakeNative.prototype.subElementTrans = function () {
-        return trans_1.AmodelTrans.upNative();
+        return trans_1.AModelTrans.upNative();
     };
     return MakeNative;
 }(make_1.FatherMake));
