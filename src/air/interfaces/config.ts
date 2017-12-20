@@ -1,10 +1,10 @@
-export interface IconfigInfo{
+export interface IConfigInfo{
 
     /**
      * 项目基本名称
      * 
      * @type {string}
-     * @memberof IconfigInfo
+     * @memberof IConfigInfo
      */
     projectBaseName:string
 
@@ -12,7 +12,7 @@ export interface IconfigInfo{
      * 项目版本名称
      * 
      * @type {string}
-     * @memberof IconfigInfo
+     * @memberof IConfigInfo
      */
     projectVersionName:string
 

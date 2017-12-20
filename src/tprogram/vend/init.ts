@@ -1,8 +1,9 @@
 import {IArgsStart} from "../../air/interfaces/args";
-import {TnodeIoFile} from "../../tnode/index";
+import {TnodeIoFile, TnodeIoPath} from "../../tnode/index";
 import {EasyLaunch} from "../easy/launch";
-import {TBase} from "../../tcore/index";
+import {TBase, TCoreCommonFunc, TCoreHelperObject} from "../../tcore/index";
 import {EasyFile} from "../easy/file";
+import {IConfigInfo} from "../../air/interfaces/config";
 
 export class VendInit {
 
@@ -14,31 +15,19 @@ export class VendInit {
 
         if (!TnodeIoFile.flagExist(sDir)) {
             TnodeIoFile.mkdir(sDir);
-        } 
+        }
 
-        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('.gitignore') );
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('.gitignore'));
 
-
-
-        if(arg.init===TBase.defineBase().projectGo){
+        if (arg.init === TBase.defineBase().projectGo) {
             VendInit.initGo(arg);
         }
 
-
         return true;
 
-    
-    
     }
 
-
-    
-
-
-
-    static initGo(arg:IArgsStart):boolean{
-
-        
+    static initGo(arg : IArgsStart) : boolean {
 
         let sDir = EasyLaunch.upDevPath('');
 
@@ -47,9 +36,31 @@ export class VendInit {
             TnodeIoFile.mkdir(sDir);
         }
 
+        let sConfigFile = EasyLaunch.upDevPathForSetting(TBase.defineProgram().fileNameOfConfig);
 
 
-        let sConfigFile = EasyLaunch.upDevPath('');
+
+        let bFlagExistConfigFile=TnodeIoFile.flagExist(sConfigFile);
+
+        if(!bFlagExistConfigFile||arg.force){
+
+
+
+            let oConfigCurrent=TCoreHelperObject.parseTs<IConfigInfo>({});
+
+
+            if(bFlagExistConfigFile){
+                oConfigCurrent=TCoreCommonFunc.jsonParse<IConfigInfo>(TnodeIoFile.readFile(sConfigFile));
+            }
+            let oConfigDefault = TCoreCommonFunc.jsonParse < IConfigInfo > (TnodeIoFile.readFile(EasyLaunch.upResourcePath("files-go/setting/config.json")));
+            oConfigDefault.projectBaseName=TnodeIoFile.upBaseName(TnodeIoPath.upCwdPath(),"");
+            oConfigCurrent=TCoreHelperObject.assign(oConfigDefault,oConfigCurrent);
+            TnodeIoFile.writeFile(sConfigFile,TCoreCommonFunc.jsonStringify(oConfigCurrent));
+
+
+            
+        }
+
 
 
 

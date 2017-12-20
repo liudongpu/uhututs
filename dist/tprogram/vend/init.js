@@ -25,7 +25,18 @@ var VendInit = /** @class */ (function () {
         if (!index_1.TnodeIoFile.flagExist(sDir)) {
             index_1.TnodeIoFile.mkdir(sDir);
         }
-        var sConfigFile = launch_1.EasyLaunch.upDevPath('');
+        var sConfigFile = launch_1.EasyLaunch.upDevPathForSetting(index_2.TBase.defineProgram().fileNameOfConfig);
+        var bFlagExistConfigFile = index_1.TnodeIoFile.flagExist(sConfigFile);
+        if (!bFlagExistConfigFile || arg.force) {
+            var oConfigCurrent = index_2.TCoreHelperObject.parseTs({});
+            if (bFlagExistConfigFile) {
+                oConfigCurrent = index_2.TCoreCommonFunc.jsonParse(index_1.TnodeIoFile.readFile(sConfigFile));
+            }
+            var oConfigDefault = index_2.TCoreCommonFunc.jsonParse(index_1.TnodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-go/setting/config.json")));
+            oConfigDefault.projectBaseName = index_1.TnodeIoFile.upBaseName(index_1.TnodeIoPath.upCwdPath(), "");
+            oConfigCurrent = index_2.TCoreHelperObject.assign(oConfigDefault, oConfigCurrent);
+            index_1.TnodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringify(oConfigCurrent));
+        }
         return true;
     };
     return VendInit;

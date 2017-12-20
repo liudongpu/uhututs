@@ -32,6 +32,11 @@ var VendWar = /** @class */ (function () {
                 describe: index_1.TBase.upLangInfo(331001),
                 type: "boolean",
                 default: false
+            },
+            'updateGo': {
+                describe: index_1.TBase.upLangInfo(331005),
+                type: "boolean",
+                default: false
             }
         }).help().argv);
         if (a.init) {

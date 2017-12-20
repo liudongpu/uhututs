@@ -29,6 +29,7 @@ var defineBase = {
      * 开发目录
      */
     pathDev: "dev",
+    pathDevSetting: "setting",
     /**
      * 客户端类项目名称标记
      */
@@ -41,7 +42,8 @@ var defineProgram = {
      */
     fileExtReplace: '.ts,.html,.json',
     pathSkipDir: '/.git',
-    gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
+    gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git',
+    fileNameOfConfig: "config.json"
 };
 var ADefineStart = /** @class */ (function () {
     function ADefineStart() {

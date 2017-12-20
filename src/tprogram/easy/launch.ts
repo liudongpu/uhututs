@@ -13,6 +13,11 @@ export class EasyLaunch {
         return TnodeIoFile.pathJoin(this.upSubPath(TBase.defineBase().pathRootTemp),sPath);
     }
 
+
+    static upSubPathForGenerate(sPath:string){
+        return TnodeIoFile.pathJoin(this.upSubPath(TBase.defineBase().pathRootGenerate),sPath);
+    }
+
     static upSubPathForTempGit(sPath:string){
         return TnodeIoFile.pathJoin(this.upSubPathForTemp(TBase.defineBase().pathRootTempGit),sPath);
     }
@@ -30,6 +35,11 @@ export class EasyLaunch {
 
     static upDevPath(sPath:string){
         return TnodeIoFile.pathJoin(TnodeIoPath.upCwdPath(), TBase.defineBase().pathDev, sPath);
+    }
+
+
+    static upDevPathForSetting(sPath:string){
+        return TnodeIoFile.pathJoin(this.upDevPath(TBase.defineBase().pathDevSetting), sPath);
     }
 
 

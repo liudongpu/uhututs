@@ -33,6 +33,11 @@ export class VendWar {
                 describe: TBase.upLangInfo(331001),
                 type:"boolean",
                 default:false
+            },
+            'updateGo': {
+                describe: TBase.upLangInfo(331005),
+                type:"boolean",
+                default:false
             }
         }).help().argv);
 

@@ -1,8 +1,8 @@
-import { IconfigInfo } from './../interfaces/config';
+import { IConfigInfo } from './../interfaces/config';
 
 
 
-const configInfo:IconfigInfo={
+const configInfo:IConfigInfo={
 
     projectBaseName:"demo",
 

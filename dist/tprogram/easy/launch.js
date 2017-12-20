@@ -11,6 +11,9 @@ var EasyLaunch = /** @class */ (function () {
     EasyLaunch.upSubPathForTemp = function (sPath) {
         return index_1.TnodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootTemp), sPath);
     };
+    EasyLaunch.upSubPathForGenerate = function (sPath) {
+        return index_1.TnodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootGenerate), sPath);
+    };
     EasyLaunch.upSubPathForTempGit = function (sPath) {
         return index_1.TnodeIoFile.pathJoin(this.upSubPathForTemp(index_2.TBase.defineBase().pathRootTempGit), sPath);
     };
@@ -19,6 +22,9 @@ var EasyLaunch = /** @class */ (function () {
     };
     EasyLaunch.upDevPath = function (sPath) {
         return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathDev, sPath);
+    };
+    EasyLaunch.upDevPathForSetting = function (sPath) {
+        return index_1.TnodeIoFile.pathJoin(this.upDevPath(index_2.TBase.defineBase().pathDevSetting), sPath);
     };
     return EasyLaunch;
 }());

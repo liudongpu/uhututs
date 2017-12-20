@@ -10,7 +10,7 @@ const defineBase = {
     */
     pathRootTemp: 'temp',
 
-    /** 
+    /**
      * 自动生成的文件
     */
     pathRootGenerate: 'generate',
@@ -34,18 +34,18 @@ const defineBase = {
      */
     pathDev: "dev",
 
+    pathDevSetting: "setting",
+
     /**
      * 客户端类项目名称标记
      */
     projectGo: "go",
 
-    projectManage:"manage"
+    projectManage: "manage"
 
 }
 
 const defineProgram = {
-
-   
 
     /**
      * 执行替换的文件扩展名
@@ -54,7 +54,10 @@ const defineProgram = {
 
     pathSkipDir: '/.git',
 
-    gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
+    gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git',
+
+    fileNameOfConfig: "config.json"
+
 };
 
 export class ADefineStart {
