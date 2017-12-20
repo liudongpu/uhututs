@@ -2,7 +2,7 @@
 import  EProgramYargs from 'yargs';
 
 
-import * as EMustache from 'mustache';
+import * as EProgramMustache from 'mustache';
 
 
-export {EProgramYargs,EMustache};
+export {EProgramYargs,EProgramMustache};
