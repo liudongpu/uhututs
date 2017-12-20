@@ -1,6 +1,6 @@
 
-import {KjobPageOut, KjobFileInfo, KjobCurrentParse, KjobNodeInfo, KjobTemplateInfo} from './../../air/keep/job';
-import { AmodelTrans } from '../../air/model/trans';
+import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
+import { AModelTrans } from '../../air/model/trans';
 import { FatherMake } from '../father/make';
 
 
@@ -8,7 +8,7 @@ import { FatherMake } from '../father/make';
 export class MakeNative extends FatherMake{
 
 
-     subElementParse(oNodeInfo : KjobNodeInfo):KjobNodeInfo{
+     subElementParse(oNodeInfo : KJobNodeInfo):KJobNodeInfo{
 
         
 
@@ -22,7 +22,7 @@ export class MakeNative extends FatherMake{
 
 
     subElementTrans(){
-        return AmodelTrans.upNative();
+        return AModelTrans.upNative();
     }
     
 

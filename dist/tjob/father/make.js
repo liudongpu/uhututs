@@ -5,7 +5,7 @@ var FatherMake = /** @class */ (function () {
     function FatherMake() {
     }
     FatherMake.prototype.makeElement = function (oNodeInfo) {
-        var mElement = index_1.TcoreHelperMap.parseMap(this.subElementTrans());
+        var mElement = index_1.TCoreHelperMap.parseMap(this.subElementTrans());
         var oInfo = mElement.get(oNodeInfo.nodeName);
         oNodeInfo.itemName = oInfo.name;
         this.subElementParse(oNodeInfo);

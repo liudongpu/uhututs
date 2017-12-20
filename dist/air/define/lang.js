@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var AdefineLang = {
+var ADefineLang = {
     0: "{0}",
     31: '#####以下是常规操作#####',
     31101: '确定',
@@ -24,4 +24,4 @@ var AdefineLang = {
     3911001: "没有找到配置目录{0}，请先执行uhutu-ts --init 初始化项目",
     99: ''
 };
-exports.AdefineLang = AdefineLang;
+exports.ADefineLang = ADefineLang;

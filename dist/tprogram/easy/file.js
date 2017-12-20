@@ -30,7 +30,7 @@ var EasyFile = /** @class */ (function () {
             var sTargetContent = index_2.TnodeIoFile.readFile(sTargetFile);
             var oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
             if (oContentInfo.sourceNotFound.length > 0) {
-                index_1.Tbase.logWarn(3711002, [
+                index_1.TBase.logWarn(3711002, [
                     sSourceFile,
                     oContentInfo
                         .sourceNotFound
@@ -38,7 +38,7 @@ var EasyFile = /** @class */ (function () {
                 ]);
             }
             if (oContentInfo.targetNotFounc.length > 0) {
-                index_1.Tbase.logWarn(3711003, [
+                index_1.TBase.logWarn(3711003, [
                     sSourceFile,
                     oContentInfo
                         .targetNotFounc
@@ -76,10 +76,10 @@ var EasyFile = /** @class */ (function () {
     };
     EasyFile.replaceContent = function (sSourceContent, sTargetContent) {
         var oEasyFileContent = new EasyFileReplaceContent();
-        var sStart = index_1.Tbase
+        var sStart = index_1.TBase
             .defineBase()
             .replaceSignBegin;
-        var sEnd = index_1.Tbase
+        var sEnd = index_1.TBase
             .defineBase()
             .replaceSignEnd;
         var sReturn = sSourceContent;

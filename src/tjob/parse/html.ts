@@ -1,8 +1,8 @@
-import {AenumNodeType} from './../../air/define/enumer';
-import {KjobPageOut, KjobFileInfo, KjobCurrentParse, KjobNodeInfo, KjobTemplateInfo} from './../../air/keep/job';
+import {AEnumNodeType} from './../../air/define/enumer';
+import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
 import {EParseHtml} from "../../air/export/parse";
 import {IbaseKv} from '../../air/interfaces/base';
-import {TcoreHelperMap} from '../../tcore/index';
+import {TCoreHelperMap} from '../../tcore/index';
 import { TjobFatherMake } from '../index';
 
 const sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"]);
@@ -15,27 +15,27 @@ const sSetScript : Set < string >= new Set < string > (["script"]);
 
 export class ParseHtml {
 
-    static parse(fileInfo : KjobFileInfo, make : TjobFatherMake) : KjobPageOut {
+    static parse(fileInfo : KJobFileInfo, make : TjobFatherMake) : KJobPageOut {
 
-        let oResult: KjobPageOut = new KjobPageOut();
+        let oResult: KJobPageOut = new KJobPageOut();
 
-        let oCurrentPage = new KjobCurrentParse();
+        let oCurrentPage = new KJobCurrentParse();
 
         let oParse = new EParseHtml({
 
             onopentag(sName : string, oAttr) {
 
-                let oNodeInfo = ParseHtml.processNodeType(new KjobNodeInfo(), sName);
+                let oNodeInfo = ParseHtml.processNodeType(new KJobNodeInfo(), sName);
 
                 ParseHtml.processNodeAttr(oNodeInfo, oAttr);
 
                 switch (oNodeInfo.nodeType) {
-                    case AenumNodeType.template:
+                    case AEnumNodeType.template:
                         oCurrentPage.templateContents = [];
                         oCurrentPage.templateFlag = true;
                         break;
 
-                    case AenumNodeType.element:
+                    case AEnumNodeType.element:
 
                         make.makeElement(oNodeInfo);
 
@@ -61,15 +61,15 @@ export class ParseHtml {
 
                 switch (oNodeInfo.nodeType) {
 
-                    case AenumNodeType.element:
+                    case AEnumNodeType.element:
 
                         ParseHtml.processElementEnd(oNodeInfo, oCurrentPage);
 
                         break;
 
-                    case AenumNodeType.template:
+                    case AEnumNodeType.template:
 
-                        let oTemplateInfo = new KjobTemplateInfo();
+                        let oTemplateInfo = new KJobTemplateInfo();
                         oTemplateInfo.content = oCurrentPage
                             .templateContents
                             .join('');
@@ -107,7 +107,7 @@ export class ParseHtml {
 
     }
 
-    private static processElementBegin(oNodeInfo : KjobNodeInfo, oCurrentPage : KjobCurrentParse) {
+    private static processElementBegin(oNodeInfo : KJobNodeInfo, oCurrentPage : KJobCurrentParse) {
 
         let sContent = '<' + oNodeInfo.itemName + '>';
 
@@ -123,7 +123,7 @@ export class ParseHtml {
 
     }
 
-    private static processElementEnd(oNodeInfo : KjobNodeInfo, oCurrentPage : KjobCurrentParse) {
+    private static processElementEnd(oNodeInfo : KJobNodeInfo, oCurrentPage : KJobCurrentParse) {
 
         let sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>';
 
@@ -144,25 +144,25 @@ export class ParseHtml {
      *
      * @private
      * @static
-     * @param {KjobNodeInfo} oNodeInfo
+     * @param {KJobNodeInfo} oNodeInfo
      * @param {string} sName
-     * @returns {KjobNodeInfo}
+     * @returns {KJobNodeInfo}
      * @memberof ParseHtml
      */
-    private static processNodeType(oNodeInfo : KjobNodeInfo, sName : string) : KjobNodeInfo {
+    private static processNodeType(oNodeInfo : KJobNodeInfo, sName : string) : KJobNodeInfo {
 
         if(sSetIgnore.has(sName)) {
 
-            oNodeInfo.nodeType = AenumNodeType.ignore;
+            oNodeInfo.nodeType = AEnumNodeType.ignore;
         } else if (sSetElement.has(sName)) {
-            oNodeInfo.nodeType = AenumNodeType.element;
+            oNodeInfo.nodeType = AEnumNodeType.element;
         } else if (sSetTemplage.has(sName)) {
 
-            oNodeInfo.nodeType = AenumNodeType.template;
+            oNodeInfo.nodeType = AEnumNodeType.template;
         } else if (sSetScript.has(sName)) {
-            oNodeInfo.nodeType = AenumNodeType.script;
+            oNodeInfo.nodeType = AEnumNodeType.script;
         } else {
-            oNodeInfo.nodeType = AenumNodeType.unknow;
+            oNodeInfo.nodeType = AEnumNodeType.unknow;
         }
 
         oNodeInfo.nodeName = sName;
@@ -171,9 +171,9 @@ export class ParseHtml {
 
     }
 
-    private static processNodeAttr(oNodeInfo : KjobNodeInfo, oAttr : IbaseKv) : KjobNodeInfo {
+    private static processNodeAttr(oNodeInfo : KJobNodeInfo, oAttr : IbaseKv) : KJobNodeInfo {
 
-        oNodeInfo.nodeAttr = TcoreHelperMap.objectToMap(oAttr);
+        oNodeInfo.nodeAttr = TCoreHelperMap.objectToMap(oAttr);
 
         if (oNodeInfo.nodeAttr.has("id")) {
             oNodeInfo.sourceId = oNodeInfo

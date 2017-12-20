@@ -4,15 +4,15 @@ var configInfo = {
     projectBaseName: "demo",
     projectVersionName: "1.0.1"
 };
-var AmodelConfig = /** @class */ (function () {
-    function AmodelConfig() {
+var AModelConfig = /** @class */ (function () {
+    function AModelConfig() {
     }
-    AmodelConfig.upConfig = function () {
+    AModelConfig.upConfig = function () {
         return configInfo;
     };
-    AmodelConfig.initConfig = function (source) {
+    AModelConfig.initConfig = function (source) {
         Object.assign(configInfo, source);
     };
-    return AmodelConfig;
+    return AModelConfig;
 }());
-exports.AmodelConfig = AmodelConfig;
+exports.AModelConfig = AModelConfig;

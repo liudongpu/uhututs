@@ -1,7 +1,7 @@
 import * as log from 'log4js';
 
-const EutilLog = log.getLogger();
-EutilLog.level = 'debug';
+const EUtilLog = log.getLogger();
+EUtilLog.level = 'debug';
 
 
-export {EutilLog};
+export {EUtilLog};

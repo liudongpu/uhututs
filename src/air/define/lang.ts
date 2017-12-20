@@ -1,7 +1,7 @@
 
 
 
-const AdefineLang={
+const ADefineLang={
 
     0:"{0}",
 
@@ -37,6 +37,6 @@ const AdefineLang={
 }
 
 
-export {AdefineLang};
+export {ADefineLang};
 
 

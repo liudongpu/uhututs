@@ -6,19 +6,19 @@ var EasyLaunch = /** @class */ (function () {
     function EasyLaunch() {
     }
     EasyLaunch.upSubPath = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineBase().pathRoot, sPath);
+        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathRoot, sPath);
     };
     EasyLaunch.upSubPathForTemp = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(this.upSubPath(index_2.Tbase.defineBase().pathRootTemp), sPath);
+        return index_1.TnodeIoFile.pathJoin(this.upSubPath(index_2.TBase.defineBase().pathRootTemp), sPath);
     };
     EasyLaunch.upSubPathForTempGit = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(this.upSubPathForTemp(index_2.Tbase.defineBase().pathRootTempGit), sPath);
+        return index_1.TnodeIoFile.pathJoin(this.upSubPathForTemp(index_2.TBase.defineBase().pathRootTempGit), sPath);
     };
     EasyLaunch.upResourcePath = function (sPath) {
         return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upResourcePath(), sPath);
     };
     EasyLaunch.upDevPath = function (sPath) {
-        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineBase().pathDev, sPath);
+        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathDev, sPath);
     };
     return EasyLaunch;
 }());

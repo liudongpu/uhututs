@@ -1,11 +1,11 @@
-import { AenumNodeType } from "../define/enumer";
+import { AEnumNodeType } from "../define/enumer";
 
 
 
 
 
 
-export class KjobFileInfo{
+export class KJobFileInfo{
 
 
     path:string
@@ -21,9 +21,9 @@ export class KjobFileInfo{
  * 页面输出
  * 
  * @export
- * @class KjobPageOut
+ * @class KJobPageOut
  */
-export class KjobPageOut{
+export class KJobPageOut{
 
     /**
      * 内容
@@ -34,12 +34,12 @@ export class KjobPageOut{
     content:string=""
 
 
-    templates:KjobTemplateInfo[]=[]
+    templates:KJobTemplateInfo[]=[]
 
 }
 
 
-export class KjobTemplateInfo{
+export class KJobTemplateInfo{
     name:string=""
     content:string=""
 }
@@ -47,15 +47,15 @@ export class KjobTemplateInfo{
 
 
 
-export class KjobCurrentParse{
+export class KJobCurrentParse{
 
     /**
      * 节点元素
      * 
-     * @type {KjobNodeInfo[]}
+     * @type {KJobNodeInfo[]}
      * @memberof KjobCurrentParse
      */
-    nodes:KjobNodeInfo[]=[]
+    nodes:KJobNodeInfo[]=[]
 
 
     contents:string[]=[]
@@ -75,9 +75,9 @@ export class KjobCurrentParse{
  * 元素的基本信息
  * 
  * @export
- * @class KjobNodeInfo
+ * @class KJobNodeInfo
  */
-export class KjobNodeInfo{
+export class KJobNodeInfo{
 
     /**
      * 节点名称
@@ -88,10 +88,10 @@ export class KjobNodeInfo{
     /**
      * 节点类型
      * 
-     * @type {AenumNodeType}
+     * @type {AEnumNodeType}
      * @memberof KjobElementInfo
      */
-    nodeType:AenumNodeType=AenumNodeType.unknow
+    nodeType:AEnumNodeType=AEnumNodeType.unknow
 
     
     /**

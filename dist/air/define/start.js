@@ -39,15 +39,15 @@ var defineProgram = {
     pathSkipDir: '/.git',
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
-var AdefineStart = /** @class */ (function () {
-    function AdefineStart() {
+var ADefineStart = /** @class */ (function () {
+    function ADefineStart() {
     }
-    AdefineStart.upBase = function () {
+    ADefineStart.upBase = function () {
         return defineBase;
     };
-    AdefineStart.upProgram = function () {
+    ADefineStart.upProgram = function () {
         return defineProgram;
     };
-    return AdefineStart;
+    return ADefineStart;
 }());
-exports.AdefineStart = AdefineStart;
+exports.ADefineStart = ADefineStart;

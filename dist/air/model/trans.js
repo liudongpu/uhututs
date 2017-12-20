@@ -14,12 +14,12 @@ var transNative = {
         name: "input"
     }
 };
-var AmodelTrans = /** @class */ (function () {
-    function AmodelTrans() {
+var AModelTrans = /** @class */ (function () {
+    function AModelTrans() {
     }
-    AmodelTrans.upNative = function () {
+    AModelTrans.upNative = function () {
         return transNative;
     };
-    return AmodelTrans;
+    return AModelTrans;
 }());
-exports.AmodelTrans = AmodelTrans;
+exports.AModelTrans = AModelTrans;

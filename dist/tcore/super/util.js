@@ -16,22 +16,22 @@ var SuperUtil = /** @class */ (function () {
      * @memberof SuperUtil
      */
     SuperUtil.logDebug = function (iCode, params) {
-        util_1.EutilLog.debug(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.debug(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.logWarn = function (iCode, params) {
-        util_1.EutilLog.warn(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.warn(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.logInfo = function (iCode, params) {
-        util_1.EutilLog.info(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.info(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.logError = function (iCode, params) {
-        util_1.EutilLog.error(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.error(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.defineBase = function () {
-        return start_1.AdefineStart.upBase();
+        return start_1.ADefineStart.upBase();
     };
     SuperUtil.defineProgram = function () {
-        return start_1.AdefineStart.upProgram();
+        return start_1.ADefineStart.upProgram();
     };
     /**
      * 获取文本信息根据编号
@@ -41,7 +41,7 @@ var SuperUtil = /** @class */ (function () {
      * @returns {string}
      * @memberof SuperUtil
      */
-    SuperUtil.upLangInfo = function (iCode) { return lang_1.AdefineLang[iCode]; };
+    SuperUtil.upLangInfo = function (iCode) { return lang_1.ADefineLang[iCode]; };
     return SuperUtil;
 }());
 exports.SuperUtil = SuperUtil;

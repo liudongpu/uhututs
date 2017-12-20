@@ -18,7 +18,7 @@ const transNative : IhtmlElementList = {
     }
 }
 
-export class AmodelTrans {
+export class AModelTrans {
 
     static upNative() {
         return transNative;

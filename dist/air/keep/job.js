@@ -1,20 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var enumer_1 = require("../define/enumer");
-var KjobFileInfo = /** @class */ (function () {
-    function KjobFileInfo() {
+var KJobFileInfo = /** @class */ (function () {
+    function KJobFileInfo() {
     }
-    return KjobFileInfo;
+    return KJobFileInfo;
 }());
-exports.KjobFileInfo = KjobFileInfo;
+exports.KJobFileInfo = KJobFileInfo;
 /**
  * 页面输出
  *
  * @export
- * @class KjobPageOut
+ * @class KJobPageOut
  */
-var KjobPageOut = /** @class */ (function () {
-    function KjobPageOut() {
+var KJobPageOut = /** @class */ (function () {
+    function KJobPageOut() {
         /**
          * 内容
          *
@@ -24,23 +24,23 @@ var KjobPageOut = /** @class */ (function () {
         this.content = "";
         this.templates = [];
     }
-    return KjobPageOut;
+    return KJobPageOut;
 }());
-exports.KjobPageOut = KjobPageOut;
-var KjobTemplateInfo = /** @class */ (function () {
-    function KjobTemplateInfo() {
+exports.KJobPageOut = KJobPageOut;
+var KJobTemplateInfo = /** @class */ (function () {
+    function KJobTemplateInfo() {
         this.name = "";
         this.content = "";
     }
-    return KjobTemplateInfo;
+    return KJobTemplateInfo;
 }());
-exports.KjobTemplateInfo = KjobTemplateInfo;
-var KjobCurrentParse = /** @class */ (function () {
-    function KjobCurrentParse() {
+exports.KJobTemplateInfo = KJobTemplateInfo;
+var KJobCurrentParse = /** @class */ (function () {
+    function KJobCurrentParse() {
         /**
          * 节点元素
          *
-         * @type {KjobNodeInfo[]}
+         * @type {KJobNodeInfo[]}
          * @memberof KjobCurrentParse
          */
         this.nodes = [];
@@ -48,17 +48,17 @@ var KjobCurrentParse = /** @class */ (function () {
         this.templateFlag = false;
         this.templateContents = [];
     }
-    return KjobCurrentParse;
+    return KJobCurrentParse;
 }());
-exports.KjobCurrentParse = KjobCurrentParse;
+exports.KJobCurrentParse = KJobCurrentParse;
 /**
  * 元素的基本信息
  *
  * @export
- * @class KjobNodeInfo
+ * @class KJobNodeInfo
  */
-var KjobNodeInfo = /** @class */ (function () {
-    function KjobNodeInfo() {
+var KJobNodeInfo = /** @class */ (function () {
+    function KJobNodeInfo() {
         /**
          * 节点名称
          */
@@ -66,10 +66,10 @@ var KjobNodeInfo = /** @class */ (function () {
         /**
          * 节点类型
          *
-         * @type {AenumNodeType}
+         * @type {AEnumNodeType}
          * @memberof KjobElementInfo
          */
-        this.nodeType = enumer_1.AenumNodeType.unknow;
+        this.nodeType = enumer_1.AEnumNodeType.unknow;
         /**
          * 节点属性
          *
@@ -93,6 +93,6 @@ var KjobNodeInfo = /** @class */ (function () {
          */
         this.itemAttr = new Map();
     }
-    return KjobNodeInfo;
+    return KJobNodeInfo;
 }());
-exports.KjobNodeInfo = KjobNodeInfo;
+exports.KJobNodeInfo = KJobNodeInfo;

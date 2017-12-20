@@ -1,16 +1,16 @@
-import {IargsStart} from "../../air/interfaces/args";
+import {IArgsStart} from "../../air/interfaces/args";
 import {TnodeIoFile} from "../../tnode/index";
 import {EasyLaunch} from "../easy/launch";
-import {Tbase} from "../../tcore/index";
+import {TBase} from "../../tcore/index";
 import {EasyFile} from "../easy/file";
 
 export class VendInit {
 
-    static initProgram(arg : IargsStart) : boolean {
+    static initProgram(arg : IArgsStart) : boolean {
 
         let sDir = EasyLaunch.upSubPath('');
 
-        Tbase.logDebug(3411002, [sDir]);
+        TBase.logDebug(3411002, [sDir]);
 
         if (!TnodeIoFile.flagExist(sDir)) {
             TnodeIoFile.mkdir(sDir);
@@ -20,7 +20,7 @@ export class VendInit {
 
 
 
-        if(arg.init===Tbase.defineBase().projectGo){
+        if(arg.init===TBase.defineBase().projectGo){
             VendInit.initGo(arg);
         }
 
@@ -32,17 +32,24 @@ export class VendInit {
     }
 
 
+    
 
-    static initGo(arg:IargsStart):boolean{
+
+
+    static initGo(arg:IArgsStart):boolean{
 
         
 
         let sDir = EasyLaunch.upDevPath('');
 
-        Tbase.logDebug(3411002, [sDir]);
+        TBase.logDebug(3411004, [sDir]);
         if (!TnodeIoFile.flagExist(sDir)) {
             TnodeIoFile.mkdir(sDir);
         }
+
+
+
+
 
         return true;
     }

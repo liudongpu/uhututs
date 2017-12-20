@@ -72,11 +72,11 @@ var IoFile = /** @class */ (function () {
     //根据文件读取配置项
     IoFile.upConfigByFile = function (sPath) {
         var sContent = this.readFile(sPath);
-        return index_1.TcoreCommonFunc.jsonParse(sContent);
+        return index_1.TCoreCommonFunc.jsonParse(sContent);
     };
     //将配置写入配置文件
     IoFile.inFileByConfig = function (sPath, oJson) {
-        this.writeFile(sPath, index_1.TcoreCommonFunc.jsonStringify(oJson));
+        this.writeFile(sPath, index_1.TCoreCommonFunc.jsonStringify(oJson));
     };
     IoFile.writeFile = function (sPath, sContent) {
         this.mkdir(path.dirname(sPath));

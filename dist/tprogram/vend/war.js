@@ -10,26 +10,26 @@ var VendWar = /** @class */ (function () {
     function VendWar() {
     }
     VendWar.start = function () {
-        var a = index_1.TcoreHelperObject.parseTs(program_1.EprogramYargs({}).options({
+        var a = index_1.TCoreHelperObject.parseTs(program_1.EProgramYargs({}).options({
             'init': {
                 alias: 'i',
-                describe: index_1.Tbase.upLangInfo(331003),
+                describe: index_1.TBase.upLangInfo(331003),
                 type: "string"
             },
             'force': {
                 alias: 'f',
-                describe: index_1.Tbase.upLangInfo(331004),
+                describe: index_1.TBase.upLangInfo(331004),
                 type: "boolean",
                 default: false
             },
             'upgrade': {
                 alias: 'u',
-                describe: index_1.Tbase.upLangInfo(331002),
+                describe: index_1.TBase.upLangInfo(331002),
                 type: "boolean",
                 default: false
             },
             'updateManage': {
-                describe: index_1.Tbase.upLangInfo(331001),
+                describe: index_1.TBase.upLangInfo(331001),
                 type: "boolean",
                 default: false
             }
@@ -43,7 +43,7 @@ var VendWar = /** @class */ (function () {
             }
         }
         else {
-            index_1.Tbase.logError(3911001, [launch_1.EasyLaunch.upSubPath('')]);
+            index_1.TBase.logError(3911001, [launch_1.EasyLaunch.upSubPath('')]);
         }
     };
     VendWar.checkInit = function () {

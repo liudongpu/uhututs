@@ -11,7 +11,7 @@ const configInfo:IconfigInfo={
 
 
 
-export class AmodelConfig {
+export class AModelConfig {
     
     static upConfig(){
         return configInfo;

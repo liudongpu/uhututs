@@ -52,7 +52,7 @@ const defineProgram = {
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
 
-export class AdefineStart {
+export class ADefineStart {
 
     static upBase() {
         return defineBase;

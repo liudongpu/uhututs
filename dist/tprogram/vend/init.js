@@ -9,19 +9,19 @@ var VendInit = /** @class */ (function () {
     }
     VendInit.initProgram = function (arg) {
         var sDir = launch_1.EasyLaunch.upSubPath('');
-        index_2.Tbase.logDebug(3411002, [sDir]);
+        index_2.TBase.logDebug(3411002, [sDir]);
         if (!index_1.TnodeIoFile.flagExist(sDir)) {
             index_1.TnodeIoFile.mkdir(sDir);
         }
         file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), launch_1.EasyLaunch.upSubPath('.gitignore'));
-        if (arg.init === index_2.Tbase.defineBase().projectGo) {
+        if (arg.init === index_2.TBase.defineBase().projectGo) {
             VendInit.initGo(arg);
         }
         return true;
     };
     VendInit.initGo = function (arg) {
         var sDir = launch_1.EasyLaunch.upDevPath('');
-        index_2.Tbase.logDebug(3411002, [sDir]);
+        index_2.TBase.logDebug(3411004, [sDir]);
         if (!index_1.TnodeIoFile.flagExist(sDir)) {
             index_1.TnodeIoFile.mkdir(sDir);
         }

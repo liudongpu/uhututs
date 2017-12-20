@@ -15,7 +15,7 @@ var ProtoProcess = /** @class */ (function () {
      * @memberOf MutilsHelper
      */
     ProtoProcess.spawnSync = function (sCommand, aArgs, oOption) {
-        var result = childProcess.spawnSync(sCommand, aArgs, index_1.TcoreHelperObject.assign({
+        var result = childProcess.spawnSync(sCommand, aArgs, index_1.TCoreHelperObject.assign({
             stdio: 'inherit'
         }, oOption));
         if (result.status !== 0) {

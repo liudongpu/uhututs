@@ -1,5 +1,5 @@
 
-import  EprogramYargs from 'yargs';
+import  EProgramYargs from 'yargs';
 
 
-export {EprogramYargs};
+export {EProgramYargs};

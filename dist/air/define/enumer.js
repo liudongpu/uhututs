@@ -6,26 +6,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @export
  * @enum {number}
  */
-var AenumNodeType;
-(function (AenumNodeType) {
+var AEnumNodeType;
+(function (AEnumNodeType) {
     /**
      * 未定义类型
      */
-    AenumNodeType[AenumNodeType["unknow"] = 0] = "unknow";
+    AEnumNodeType[AEnumNodeType["unknow"] = 0] = "unknow";
     /**
      * 忽略类型
      */
-    AenumNodeType[AenumNodeType["ignore"] = 1] = "ignore";
+    AEnumNodeType[AEnumNodeType["ignore"] = 1] = "ignore";
     /**
      * 基本元素
      */
-    AenumNodeType[AenumNodeType["element"] = 2] = "element";
+    AEnumNodeType[AEnumNodeType["element"] = 2] = "element";
     /**
      * 模板
      */
-    AenumNodeType[AenumNodeType["template"] = 3] = "template";
+    AEnumNodeType[AEnumNodeType["template"] = 3] = "template";
     /**
      * 脚本
      */
-    AenumNodeType[AenumNodeType["script"] = 4] = "script";
-})(AenumNodeType = exports.AenumNodeType || (exports.AenumNodeType = {}));
+    AEnumNodeType[AEnumNodeType["script"] = 4] = "script";
+})(AEnumNodeType = exports.AEnumNodeType || (exports.AEnumNodeType = {}));

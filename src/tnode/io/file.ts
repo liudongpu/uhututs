@@ -1,4 +1,4 @@
-import { TcoreCommonFunc } from './../../tcore/index';
+import { TCoreCommonFunc } from './../../tcore/index';
 import fs = require('fs');
 import path = require('path');
 
@@ -89,11 +89,11 @@ export class IoFile{
     //根据文件读取配置项
     static upConfigByFile(sPath) {
         var sContent = this.readFile(sPath);
-        return TcoreCommonFunc.jsonParse(sContent);
+        return TCoreCommonFunc.jsonParse(sContent);
     }
     //将配置写入配置文件
     static inFileByConfig(sPath, oJson) {
-        this.writeFile(sPath, TcoreCommonFunc.jsonStringify(oJson));
+        this.writeFile(sPath, TCoreCommonFunc.jsonStringify(oJson));
     }
 
 

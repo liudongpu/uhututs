@@ -1,6 +1,6 @@
 import childProcess = require("child_process");
 
-import {TcoreHelperObject} from '../../tcore/index';
+import {TCoreHelperObject} from '../../tcore/index';
 
 interface IHelperSpawSyncOption {
     cwd : string
@@ -22,7 +22,7 @@ export  class ProtoProcess {
         ?
         : IHelperSpawSyncOption) {
 
-        var result = childProcess.spawnSync(sCommand, aArgs, TcoreHelperObject.assign({
+        var result = childProcess.spawnSync(sCommand, aArgs, TCoreHelperObject.assign({
             stdio: 'inherit'
         }, oOption));
 

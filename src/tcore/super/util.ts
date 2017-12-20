@@ -1,7 +1,7 @@
 import {HelperString} from './../helper/string';
-import {AdefineLang} from "../../air/define/lang";
-import {EutilLog} from '../../air/export/util';
-import {AdefineStart} from '../../air/define/start';
+import {ADefineLang} from "../../air/define/lang";
+import {EUtilLog} from '../../air/export/util';
+import {ADefineStart} from '../../air/define/start';
 
 export class SuperUtil {
 
@@ -15,33 +15,33 @@ export class SuperUtil {
      */
     static logDebug(iCode : number, params?: string[]) {
 
-        EutilLog.debug(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.debug(HelperString.formatString(this.upLangInfo(iCode), params));
 
     }
 
     static logWarn(iCode : number, params?: string[]) {
 
-        EutilLog.warn(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.warn(HelperString.formatString(this.upLangInfo(iCode), params));
 
     }
     static logInfo(iCode : number, params?: string[]) {
 
-        EutilLog.info(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.info(HelperString.formatString(this.upLangInfo(iCode), params));
 
     }
 
     static logError(iCode : number, params?: string[]) {
 
-        EutilLog.error(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.error(HelperString.formatString(this.upLangInfo(iCode), params));
 
     }
 
     static defineBase() {
-        return AdefineStart.upBase();
+        return ADefineStart.upBase();
     }
 
     static defineProgram() {
-        return AdefineStart.upProgram();
+        return ADefineStart.upProgram();
     }
 
     /**
@@ -52,6 +52,6 @@ export class SuperUtil {
      * @returns {string}
      * @memberof SuperUtil
      */
-    static upLangInfo(iCode : number) : string {return AdefineLang[iCode];}
+    static upLangInfo(iCode : number) : string {return ADefineLang[iCode];}
 
 }

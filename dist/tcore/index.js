@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var func_1 = require("./common/func");
-exports.TcoreCommonFunc = func_1.CommonFunc;
+exports.TCoreCommonFunc = func_1.CommonFunc;
 var util_1 = require("./super/util");
-exports.Tbase = util_1.SuperUtil;
+exports.TBase = util_1.SuperUtil;
 var map_1 = require("./helper/map");
-exports.TcoreHelperMap = map_1.HelperMap;
+exports.TCoreHelperMap = map_1.HelperMap;
 var object_1 = require("./helper/object");
-exports.TcoreHelperObject = object_1.HelperObject;
+exports.TCoreHelperObject = object_1.HelperObject;

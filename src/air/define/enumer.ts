@@ -6,7 +6,7 @@
  * @export
  * @enum {number}
  */
-export enum AenumNodeType{
+export enum AEnumNodeType{
     
     /**
      * 未定义类型

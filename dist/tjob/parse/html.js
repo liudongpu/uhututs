@@ -12,18 +12,18 @@ var ParseHtml = /** @class */ (function () {
     function ParseHtml() {
     }
     ParseHtml.parse = function (fileInfo, make) {
-        var oResult = new job_1.KjobPageOut();
-        var oCurrentPage = new job_1.KjobCurrentParse();
+        var oResult = new job_1.KJobPageOut();
+        var oCurrentPage = new job_1.KJobCurrentParse();
         var oParse = new parse_1.EParseHtml({
             onopentag: function (sName, oAttr) {
-                var oNodeInfo = ParseHtml.processNodeType(new job_1.KjobNodeInfo(), sName);
+                var oNodeInfo = ParseHtml.processNodeType(new job_1.KJobNodeInfo(), sName);
                 ParseHtml.processNodeAttr(oNodeInfo, oAttr);
                 switch (oNodeInfo.nodeType) {
-                    case enumer_1.AenumNodeType.template:
+                    case enumer_1.AEnumNodeType.template:
                         oCurrentPage.templateContents = [];
                         oCurrentPage.templateFlag = true;
                         break;
-                    case enumer_1.AenumNodeType.element:
+                    case enumer_1.AEnumNodeType.element:
                         make.makeElement(oNodeInfo);
                         ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
                         break;
@@ -40,11 +40,11 @@ var ParseHtml = /** @class */ (function () {
                     .nodes
                     .pop();
                 switch (oNodeInfo.nodeType) {
-                    case enumer_1.AenumNodeType.element:
+                    case enumer_1.AEnumNodeType.element:
                         ParseHtml.processElementEnd(oNodeInfo, oCurrentPage);
                         break;
-                    case enumer_1.AenumNodeType.template:
-                        var oTemplateInfo = new job_1.KjobTemplateInfo();
+                    case enumer_1.AEnumNodeType.template:
+                        var oTemplateInfo = new job_1.KJobTemplateInfo();
                         oTemplateInfo.content = oCurrentPage
                             .templateContents
                             .join('');
@@ -98,32 +98,32 @@ var ParseHtml = /** @class */ (function () {
      *
      * @private
      * @static
-     * @param {KjobNodeInfo} oNodeInfo
+     * @param {KJobNodeInfo} oNodeInfo
      * @param {string} sName
-     * @returns {KjobNodeInfo}
+     * @returns {KJobNodeInfo}
      * @memberof ParseHtml
      */
     ParseHtml.processNodeType = function (oNodeInfo, sName) {
         if (sSetIgnore.has(sName)) {
-            oNodeInfo.nodeType = enumer_1.AenumNodeType.ignore;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.ignore;
         }
         else if (sSetElement.has(sName)) {
-            oNodeInfo.nodeType = enumer_1.AenumNodeType.element;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.element;
         }
         else if (sSetTemplage.has(sName)) {
-            oNodeInfo.nodeType = enumer_1.AenumNodeType.template;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.template;
         }
         else if (sSetScript.has(sName)) {
-            oNodeInfo.nodeType = enumer_1.AenumNodeType.script;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.script;
         }
         else {
-            oNodeInfo.nodeType = enumer_1.AenumNodeType.unknow;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.unknow;
         }
         oNodeInfo.nodeName = sName;
         return oNodeInfo;
     };
     ParseHtml.processNodeAttr = function (oNodeInfo, oAttr) {
-        oNodeInfo.nodeAttr = index_1.TcoreHelperMap.objectToMap(oAttr);
+        oNodeInfo.nodeAttr = index_1.TCoreHelperMap.objectToMap(oAttr);
         if (oNodeInfo.nodeAttr.has("id")) {
             oNodeInfo.sourceId = oNodeInfo
                 .nodeAttr

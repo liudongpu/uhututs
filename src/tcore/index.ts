@@ -1,7 +1,7 @@
-import { CommonFunc as TcoreCommonFunc } from './common/func';
-import { SuperUtil as Tbase} from './super/util';
-import {HelperMap as TcoreHelperMap} from './helper/map';
-import {HelperObject as TcoreHelperObject} from './helper/object';
+import { CommonFunc as TCoreCommonFunc } from './common/func';
+import { SuperUtil as TBase} from './super/util';
+import {HelperMap as TCoreHelperMap} from './helper/map';
+import {HelperObject as TCoreHelperObject} from './helper/object';
 
 
-export {TcoreCommonFunc,TcoreHelperMap,TcoreHelperObject,Tbase};
+export {TCoreCommonFunc,TCoreHelperMap,TCoreHelperObject,TBase};

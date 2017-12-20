@@ -9,12 +9,12 @@ var UpdateWeb = /** @class */ (function () {
     function UpdateWeb() {
     }
     UpdateWeb.update = function (args) {
-        index_2.Tbase.logDebug(3411003);
+        index_2.TBase.logDebug(3411003);
         if (args.force) {
             index_1.TnodeIoFile.deleteFile(launch_1.EasyLaunch.upSubPathForTempGit(''));
         }
-        git_1.ProcessGit.checkOrUpdate(index_2.Tbase.defineBase().projectManage, index_2.Tbase.defineProgram().gitManageUrl);
-        file_1.EasyFile.copyDirAndReplace(launch_1.EasyLaunch.upSubPathForTempGit(index_2.Tbase.defineBase().projectManage), index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineProgram().fileExtReplace, index_2.Tbase.defineProgram().pathSkipDir);
+        git_1.ProcessGit.checkOrUpdate(index_2.TBase.defineBase().projectManage, index_2.TBase.defineProgram().gitManageUrl);
+        file_1.EasyFile.copyDirAndReplace(launch_1.EasyLaunch.upSubPathForTempGit(index_2.TBase.defineBase().projectManage), index_1.TnodeIoPath.upCwdPath(), index_2.TBase.defineProgram().fileExtReplace, index_2.TBase.defineProgram().pathSkipDir);
         /*
         TnodeProtoProcess.spawnSync("git", [
             "clone",

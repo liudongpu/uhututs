@@ -1,6 +1,6 @@
-import { KjobNodeInfo } from './../../air/keep/job';
+import { KJobNodeInfo } from './../../air/keep/job';
 import { IhtmlElementList, IhtmlElementInfo } from '../../air/interfaces/html';
-import { TcoreHelperMap } from '../../tcore/index';
+import { TCoreHelperMap } from '../../tcore/index';
 
 
 
@@ -9,12 +9,12 @@ export abstract class FatherMake {
 
 
 
-    makeElement(oNodeInfo : KjobNodeInfo):KjobNodeInfo{
+    makeElement(oNodeInfo : KJobNodeInfo):KJobNodeInfo{
 
 
       
 
-       let mElement=  TcoreHelperMap.parseMap<IhtmlElementInfo>(this.subElementTrans());
+       let mElement=  TCoreHelperMap.parseMap<IhtmlElementInfo>(this.subElementTrans());
 
 
        let oInfo=mElement.get(oNodeInfo.nodeName);
@@ -40,11 +40,11 @@ export abstract class FatherMake {
      * 处理元素
      * 
      * @abstract
-     * @param {KjobNodeInfo} oNodeInfo 
-     * @returns {KjobNodeInfo} 
+     * @param {KJobNodeInfo} oNodeInfo 
+     * @returns {KJobNodeInfo} 
      * @memberof FatherMake
      */
-    protected abstract subElementParse(oNodeInfo : KjobNodeInfo):KjobNodeInfo;
+    protected abstract subElementParse(oNodeInfo : KJobNodeInfo):KJobNodeInfo;
 
 }
 

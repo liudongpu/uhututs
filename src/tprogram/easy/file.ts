@@ -1,4 +1,4 @@
-import {Tbase} from "../../tcore/index";
+import {TBase} from "../../tcore/index";
 import {TnodeIoFile} from "../../tnode/index";
 
 class EasyFileReplaceContent {
@@ -29,7 +29,7 @@ export class EasyFile {
             let oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
 
             if (oContentInfo.sourceNotFound.length > 0) {
-                Tbase.logWarn(3711002, [
+                TBase.logWarn(3711002, [
                     sSourceFile,
                     oContentInfo
                         .sourceNotFound
@@ -37,7 +37,7 @@ export class EasyFile {
                 ]);
             }
             if (oContentInfo.targetNotFounc.length > 0) {
-                Tbase.logWarn(3711003, [
+                TBase.logWarn(3711003, [
                     sSourceFile,
                     oContentInfo
                         .targetNotFounc
@@ -94,10 +94,10 @@ export class EasyFile {
 
         let oEasyFileContent = new EasyFileReplaceContent();
 
-        let sStart = Tbase
+        let sStart = TBase
             .defineBase()
             .replaceSignBegin;
-        let sEnd = Tbase
+        let sEnd = TBase
             .defineBase()
             .replaceSignEnd;
 
