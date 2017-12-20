@@ -11,28 +11,29 @@ export class VendWar {
     static start() {
 
         let a : IargsStart = TcoreHelperObject.parseTs < IargsStart > (EprogramYargs({}).options({
-            'path': {
-                alias: 'p',
-                describe: 'run your program'
-            },
+            
             'init':{
                 alias: 'i',
                 describe: Tbase.upLangInfo(331003),
-                type:"boolean"
+                type:"boolean",
+                default:false
             },
             'force':{
                 alias: 'f',
                 describe: Tbase.upLangInfo(331004),
-                type:"boolean"
+                type:"boolean",
+                default:false
             },
             'upgrade': {
                 alias: 'u',
                 describe: Tbase.upLangInfo(331002),
-                type:"boolean"
+                type:"boolean",
+                default:false
             },
             'updateManage': {
                 describe: Tbase.upLangInfo(331001),
-                type:"boolean"
+                type:"boolean",
+                default:false
             }
         }).help().argv);
 

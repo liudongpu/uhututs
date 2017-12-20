@@ -11,28 +11,28 @@ var VendWar = /** @class */ (function () {
     }
     VendWar.start = function () {
         var a = index_1.TcoreHelperObject.parseTs(program_1.EprogramYargs({}).options({
-            'path': {
-                alias: 'p',
-                describe: 'run your program'
-            },
             'init': {
                 alias: 'i',
                 describe: index_1.Tbase.upLangInfo(331003),
-                type: "boolean"
+                type: "boolean",
+                default: false
             },
             'force': {
                 alias: 'f',
                 describe: index_1.Tbase.upLangInfo(331004),
-                type: "boolean"
+                type: "boolean",
+                default: false
             },
             'upgrade': {
                 alias: 'u',
                 describe: index_1.Tbase.upLangInfo(331002),
-                type: "boolean"
+                type: "boolean",
+                default: false
             },
             'updateManage': {
                 describe: index_1.Tbase.upLangInfo(331001),
-                type: "boolean"
+                type: "boolean",
+                default: false
             }
         }).help().argv);
         if (a.init) {
