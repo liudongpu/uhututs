@@ -11,7 +11,16 @@ const configInfo:IConfigInfo={
 
     projectDisplayName:"示例项目",
 
-    projectVersionCode:1
+    projectVersionCode:1,
+
+
+    projectEnableNative:false,
+
+    projectEnableVue:false,
+
+    projectEnableWeapp:false
+
+
 }
 
 

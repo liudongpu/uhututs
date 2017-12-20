@@ -22,4 +22,11 @@ export interface IConfigInfo{
 
     projectVersionCode:number
 
+
+    projectEnableNative:boolean
+
+    projectEnableVue:boolean
+
+    projectEnableWeapp:boolean
+
 }

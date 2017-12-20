@@ -1,5 +1,8 @@
 {
     "projectBaseName": "示例项目",
     "projectVersionName": "1.0.1",
-    "projectVersionCode": 1
+    "projectVersionCode": 1,
+    "projectEnableNative":true,
+    "projectEnableVue":true,
+    "projectEnableWeapp":true
 }
