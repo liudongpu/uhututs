@@ -10,6 +10,9 @@ var IoPath = /** @class */ (function () {
     IoPath.upResourcePath = function () {
         return file_1.IoFile.pathJoin(file_1.IoFile.parentTop(__dirname, 3), "resource");
     };
+    IoPath.upTestPath = function () {
+        return file_1.IoFile.pathJoin(file_1.IoFile.parentTop(__dirname, 3), "test");
+    };
     return IoPath;
 }());
 exports.IoPath = IoPath;

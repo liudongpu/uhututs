@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var index_1 = require("./../../tcore/index");
 var fs = require("fs");
 var path = require("path");
 var IoFile = /** @class */ (function () {
@@ -71,11 +72,11 @@ var IoFile = /** @class */ (function () {
     //根据文件读取配置项
     IoFile.upConfigByFile = function (sPath) {
         var sContent = this.readFile(sPath);
-        return JSON.parse(sContent);
+        return index_1.TcoreCommonFunc.jsonParse(sContent);
     };
     //将配置写入配置文件
     IoFile.inFileByConfig = function (sPath, oJson) {
-        this.writeFile(sPath, JSON.stringify(oJson));
+        this.writeFile(sPath, index_1.TcoreCommonFunc.jsonStringify(oJson));
     };
     IoFile.writeFile = function (sPath, sContent) {
         this.mkdir(path.dirname(sPath));

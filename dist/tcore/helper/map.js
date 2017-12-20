@@ -3,6 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var HelperMap = /** @class */ (function () {
     function HelperMap() {
     }
+    HelperMap.parseMap = function (oAttr) {
+        var mMap = new Map();
+        for (var k in oAttr) {
+            mMap.set(k, oAttr[k]);
+        }
+        return mMap;
+    };
     HelperMap.stringIsEmpty = function (cs) {
         return cs == undefined || cs == null || cs.length == 0;
     };
