@@ -1,18 +1,21 @@
 import {AenumNodeType} from './../../air/define/enumer';
 import {KjobPageOut, KjobFileInfo, KjobCurrentParse, KjobNodeInfo, KjobTemplateInfo} from './../../air/keep/job';
 import {EParseHtml} from "../../air/export/parse";
+import {IbaseKv} from '../../air/interfaces/base';
+import {TcoreHelperMap} from '../../tcore/index';
+import {FatherMake} from '../father/make';
 
-let sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"]);
+const sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"]);
 
-let sSetTemplage : Set < string >= new Set < string > ("template");
+const sSetTemplage : Set < string >= new Set < string > (["template"]);
 
-let sSetElement : Set < string >= new Set < string > (["div", "a"]);
+const sSetElement : Set < string >= new Set < string > (["div", "a"]);
 
-let sSetScript : Set < string >= new Set < string > ("script");
+const sSetScript : Set < string >= new Set < string > (["script"]);
 
 export class ParseHtml {
 
-    static parse(fileInfo : KjobFileInfo) : KjobPageOut {
+    static parse(fileInfo : KjobFileInfo, make : FatherMake) : KjobPageOut {
 
         let oResult: KjobPageOut = new KjobPageOut();
 
@@ -24,14 +27,23 @@ export class ParseHtml {
 
                 let oNodeInfo = ParseHtml.processNodeType(new KjobNodeInfo(), sName);
 
+                ParseHtml.processNodeAttr(oNodeInfo, oAttr);
+
                 switch (oNodeInfo.nodeType) {
                     case AenumNodeType.template:
                         oCurrentPage.templateContents = [];
                         oCurrentPage.templateFlag = true;
                         break;
+
+                    case AenumNodeType.element:
+
+                        make.makeElement(oNodeInfo);
+
+                        ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
+                        break;
                 }
 
-                ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
+                
 
                 oCurrentPage
                     .nodes
@@ -61,6 +73,8 @@ export class ParseHtml {
                         oTemplateInfo.content = oCurrentPage
                             .templateContents
                             .join('');
+
+                        oTemplateInfo.name = oNodeInfo.sourceId;
 
                         oResult
                             .templates
@@ -143,6 +157,7 @@ export class ParseHtml {
         } else if (sSetElement.has(sName)) {
             oNodeInfo.nodeType = AenumNodeType.element;
         } else if (sSetTemplage.has(sName)) {
+
             oNodeInfo.nodeType = AenumNodeType.template;
         } else if (sSetScript.has(sName)) {
             oNodeInfo.nodeType = AenumNodeType.script;
@@ -150,8 +165,29 @@ export class ParseHtml {
             oNodeInfo.nodeType = AenumNodeType.unknow;
         }
 
+        oNodeInfo.nodeName = sName;
+
         return oNodeInfo;
 
+    }
+
+    private static processNodeAttr(oNodeInfo : KjobNodeInfo, oAttr : IbaseKv) : KjobNodeInfo {
+
+        oNodeInfo.nodeAttr = TcoreHelperMap.objectToMap(oAttr);
+
+        if (oNodeInfo.nodeAttr.has("id")) {
+            oNodeInfo.sourceId = oNodeInfo
+                .nodeAttr
+                .get("id");
+        }
+
+        if (oNodeInfo.nodeAttr.has("classs")) {
+            oNodeInfo.sourceClass = oNodeInfo
+                .nodeAttr
+                .get("class");
+        }
+
+        return oNodeInfo;
     }
 
 }

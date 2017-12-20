@@ -1,3 +1,4 @@
+import { MakeNative } from './../../../src/tjob/make/native';
 import { KjobFileInfo } from './../../../src/air/keep/job';
 
 import { TjobParseHtml} from "../../../src/tjob/index";
@@ -21,9 +22,8 @@ test('upResourcePath', () => {
     oFileInfo.path=sPath;
 
 
-    
 
-    let oOut=TjobParseHtml.parse(oFileInfo);
+    let oOut=TjobParseHtml.parse(oFileInfo,new MakeNative());
 
    console.log(oOut);
 
