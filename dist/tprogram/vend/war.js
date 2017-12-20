@@ -17,18 +17,22 @@ var VendWar = /** @class */ (function () {
             },
             'init': {
                 alias: 'i',
-                describe: index_1.Tbase.upLangInfo(331003)
+                describe: index_1.Tbase.upLangInfo(331003),
+                type: "boolean"
             },
             'force': {
                 alias: 'f',
-                describe: index_1.Tbase.upLangInfo(331004)
+                describe: index_1.Tbase.upLangInfo(331004),
+                type: "boolean"
             },
             'upgrade': {
                 alias: 'u',
-                describe: index_1.Tbase.upLangInfo(331002)
+                describe: index_1.Tbase.upLangInfo(331002),
+                type: "boolean"
             },
             'updateManage': {
-                describe: index_1.Tbase.upLangInfo(331001)
+                describe: index_1.Tbase.upLangInfo(331001),
+                type: "boolean"
             }
         }).help().argv);
         if (a.init) {

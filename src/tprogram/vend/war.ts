@@ -17,18 +17,22 @@ export class VendWar {
             },
             'init':{
                 alias: 'i',
-                describe: Tbase.upLangInfo(331003)
+                describe: Tbase.upLangInfo(331003),
+                type:"boolean"
             },
             'force':{
                 alias: 'f',
-                describe: Tbase.upLangInfo(331004)
+                describe: Tbase.upLangInfo(331004),
+                type:"boolean"
             },
             'upgrade': {
                 alias: 'u',
-                describe: Tbase.upLangInfo(331002)
+                describe: Tbase.upLangInfo(331002),
+                type:"boolean"
             },
             'updateManage': {
-                describe: Tbase.upLangInfo(331001)
+                describe: Tbase.upLangInfo(331001),
+                type:"boolean"
             }
         }).help().argv);
 
