@@ -1,6 +1,6 @@
 
 
-export class CommonBase{
+export class CommonFunc{
 
 
     static jsonParse<T>(sText:string):T{

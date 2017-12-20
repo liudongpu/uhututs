@@ -1,7 +1,6 @@
-import { MakeNative } from './../../../src/tjob/make/native';
 import { KjobFileInfo } from './../../../src/air/keep/job';
 
-import { TjobParseHtml} from "../../../src/tjob/index";
+import { TjobParseHtml, TjobMakeNative} from "../../../src/tjob/index";
 
 import { TnodeIoFile,TnodeIoPath} from "../../../src/tnode/index";
 
@@ -23,7 +22,7 @@ test('upResourcePath', () => {
 
 
 
-    let oOut=TjobParseHtml.parse(oFileInfo,new MakeNative());
+    let oOut=TjobParseHtml.parse(oFileInfo,new TjobMakeNative());
 
    console.log(oOut);
 

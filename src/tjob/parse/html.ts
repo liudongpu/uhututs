@@ -3,7 +3,7 @@ import {KjobPageOut, KjobFileInfo, KjobCurrentParse, KjobNodeInfo, KjobTemplateI
 import {EParseHtml} from "../../air/export/parse";
 import {IbaseKv} from '../../air/interfaces/base';
 import {TcoreHelperMap} from '../../tcore/index';
-import {FatherMake} from '../father/make';
+import { TjobFatherMake } from '../index';
 
 const sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"]);
 
@@ -15,7 +15,7 @@ const sSetScript : Set < string >= new Set < string > (["script"]);
 
 export class ParseHtml {
 
-    static parse(fileInfo : KjobFileInfo, make : FatherMake) : KjobPageOut {
+    static parse(fileInfo : KjobFileInfo, make : TjobFatherMake) : KjobPageOut {
 
         let oResult: KjobPageOut = new KjobPageOut();
 

@@ -1,10 +1,10 @@
 
 import {KjobPageOut, KjobFileInfo, KjobCurrentParse, KjobNodeInfo, KjobTemplateInfo} from './../../air/keep/job';
-import { FatherMake } from '../father/make';
+import { TjobFatherMake } from '../index';
 
 
 
-export class MakeNative extends FatherMake{
+export class MakeNative extends TjobFatherMake{
 
 
      makeElement(oNodeInfo : KjobNodeInfo):KjobNodeInfo{
