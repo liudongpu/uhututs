@@ -96,10 +96,10 @@ export class EasyFile {
 
         let sStart = Tbase
             .defineBase()
-            .replaceContentBegin;
+            .replaceSignBegin;
         let sEnd = Tbase
             .defineBase()
-            .replaceContentEnd;
+            .replaceSignEnd;
 
         let sReturn = sSourceContent;
 

@@ -13,10 +13,18 @@ var VendInit = /** @class */ (function () {
         if (!index_1.TnodeIoFile.flagExist(sDir)) {
             index_1.TnodeIoFile.mkdir(sDir);
         }
-        else {
-            index_2.Tbase.logWarn(3711001, [sDir]);
-        }
         file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), launch_1.EasyLaunch.upSubPath('.gitignore'));
+        if (arg.init === index_2.Tbase.defineBase().projectGo) {
+            VendInit.initGo(arg);
+        }
+        return true;
+    };
+    VendInit.initGo = function (arg) {
+        var sDir = launch_1.EasyLaunch.upDevPath('');
+        index_2.Tbase.logDebug(3411002, [sDir]);
+        if (!index_1.TnodeIoFile.flagExist(sDir)) {
+            index_1.TnodeIoFile.mkdir(sDir);
+        }
         return true;
     };
     return VendInit;

@@ -5,7 +5,7 @@ export interface IargsStart{
 
 
 
-    init:boolean,
+    init:string,
 
     /**
      * 强制操作

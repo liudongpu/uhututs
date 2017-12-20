@@ -1,66 +1,65 @@
-
-
-
-
-
-const defineBase={
+const defineBase = {
 
     /**
      * 最基本根路径
      */
-    pathRoot:'uhutu_ts_root',
+    pathRoot: 'uhutu_ts_root',
 
-    pathRootTemp:'temp',
+    /**
+     * 临时文件
+    */
+    pathRootTemp: 'temp',
 
-    pathRootTempGit:'git',
+    /**
+     * Git项目文件夹
+    */
+    pathRootTempGit: 'git',
 
-    
-    replaceContentBegin:'uhutu_sign_begin_',
-    replaceContentEnd:'uhutu_sign_end_',
+    /**
+     * 自定义标记开始
+    */
+    replaceSignBegin: 'uhutu_sign_begin_',
+    /**
+     * 自定义标记结束
+    */
+    replaceSignEnd: 'uhutu_sign_end_',
 
+    /**
+     * 开发目录
+     */
+    pathDev: "dev",
 
-    tempDir:''
+    /**
+     * 客户端类项目名称标记
+     */
+    projectGo: "go",
+
+    projectManage:"manage"
+
 }
 
+const defineProgram = {
 
-
-const defineProgram={
-
-
-    pathManageName:'manage',
-
+   
 
     /**
      * 执行替换的文件扩展名
      */
-    fileExtReplace:'.ts,.html,.json',
+    fileExtReplace: '.ts,.html,.json',
 
-    pathSkipDir:'/.git',
+    pathSkipDir: '/.git',
 
-    gitManageUrl:'git@code.aliyun.com:liudongpu/zoomanage.git'
+    gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git'
 };
 
+export class AdefineStart {
 
-
-
-
-
-
-
-
-export class AdefineStart{
-
-
-    static upBase(){
+    static upBase() {
         return defineBase;
     }
 
-
-    static upProgram(){
+    static upProgram() {
         return defineProgram;
     }
 
 }
-
-
-

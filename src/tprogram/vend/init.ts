@@ -14,14 +14,37 @@ export class VendInit {
 
         if (!TnodeIoFile.flagExist(sDir)) {
             TnodeIoFile.mkdir(sDir);
-        } else {
-            Tbase.logWarn(3711001, [sDir]);
-        }
+        } 
 
         EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('.gitignore') );
 
+
+
+        if(arg.init===Tbase.defineBase().projectGo){
+            VendInit.initGo(arg);
+        }
+
+
         return true;
 
+    
+    
+    }
+
+
+
+    static initGo(arg:IargsStart):boolean{
+
+        
+
+        let sDir = EasyLaunch.upDevPath('');
+
+        Tbase.logDebug(3411002, [sDir]);
+        if (!TnodeIoFile.flagExist(sDir)) {
+            TnodeIoFile.mkdir(sDir);
+        }
+
+        return true;
     }
 
 }

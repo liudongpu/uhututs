@@ -24,4 +24,14 @@ export class EasyLaunch {
 
     }
 
+
+
+
+
+    static upDevPath(sPath:string){
+        return TnodeIoFile.pathJoin(TnodeIoPath.upCwdPath(), Tbase.defineBase().pathDev, sPath);
+    }
+
+
+
 }

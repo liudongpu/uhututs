@@ -78,10 +78,10 @@ var EasyFile = /** @class */ (function () {
         var oEasyFileContent = new EasyFileReplaceContent();
         var sStart = index_1.Tbase
             .defineBase()
-            .replaceContentBegin;
+            .replaceSignBegin;
         var sEnd = index_1.Tbase
             .defineBase()
-            .replaceContentEnd;
+            .replaceSignEnd;
         var sReturn = sSourceContent;
         var sCheckTarget = sTargetContent;
         var sRegexLeft = "([\r\n])(\s*)(.*)(";

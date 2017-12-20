@@ -17,6 +17,9 @@ var EasyLaunch = /** @class */ (function () {
     EasyLaunch.upResourcePath = function (sPath) {
         return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upResourcePath(), sPath);
     };
+    EasyLaunch.upDevPath = function (sPath) {
+        return index_1.TnodeIoFile.pathJoin(index_1.TnodeIoPath.upCwdPath(), index_2.Tbase.defineBase().pathDev, sPath);
+    };
     return EasyLaunch;
 }());
 exports.EasyLaunch = EasyLaunch;

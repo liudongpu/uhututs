@@ -14,8 +14,7 @@ var VendWar = /** @class */ (function () {
             'init': {
                 alias: 'i',
                 describe: index_1.Tbase.upLangInfo(331003),
-                type: "boolean",
-                default: false
+                type: "string"
             },
             'force': {
                 alias: 'f',

@@ -15,8 +15,7 @@ export class VendWar {
             'init':{
                 alias: 'i',
                 describe: Tbase.upLangInfo(331003),
-                type:"boolean",
-                default:false
+                type:"string"
             },
             'force':{
                 alias: 'f',
