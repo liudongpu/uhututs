@@ -1,5 +1,7 @@
+import { QueueNative } from './../queue/native';
 import { IArgsStart } from './../../air/interfaces/args';
 import { EasyStart } from '../easy/start';
+import { BootProgram } from '../boot/program';
 export class  RunGo {
    
 
@@ -7,6 +9,22 @@ export class  RunGo {
 
         EasyStart.start();
 
-        
+        let oConfig= BootProgram.upGoConfig();
+
+
+
+        if(oConfig.projectEnableNative){
+
+            QueueNative.run(oConfig);
+
+
+        }
+
+
+
     }
+
+
+
 }
+
