@@ -20,6 +20,12 @@
   },
   "homepage": "https://github.com/liudongpu/uhututs#readme",
   "dependencies": {
+    "css-to-react-native": "^2.0.4",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11",
     "htmlparser2": "^3.9.2",
     "log4js": "^2.3.12",
     "mustache": "^2.3.0",
@@ -32,9 +38,7 @@
     "@types/mustache": "^0.8.30",
     "@types/node": "^8.0.53",
     "@types/yargs": "^8.0.2",
-    "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.3",
-    "gulp-watch": "^4.3.11",
     "jest": "^21.2.1",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2"

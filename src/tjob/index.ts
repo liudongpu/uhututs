@@ -4,7 +4,8 @@ import { ParseHtml as TjobParseHtml} from './parse/html';
 import { FatherMake as TjobFatherMake } from './father/make';
 
 
+import { SupportParse as TJobSupportParse } from './support/parse';
 
 
 
-export {TjobParseHtml,TjobFatherMake,TjobMakeNative}
+export {TjobParseHtml,TjobFatherMake,TjobMakeNative,TJobSupportParse}

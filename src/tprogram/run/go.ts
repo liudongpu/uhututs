@@ -1,3 +1,4 @@
+import { ProcessGulp } from './../process/gulp';
 import { QueueNative } from './../queue/native';
 import { IArgsStart } from './../../air/interfaces/args';
 import { EasyStart } from '../easy/start';
@@ -19,6 +20,13 @@ export class  RunGo {
 
 
         }
+
+
+
+
+        let oProcessGulp=new ProcessGulp();
+        oProcessGulp.initStart();
+
 
 
 
