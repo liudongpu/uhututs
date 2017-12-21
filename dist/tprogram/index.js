@@ -4,3 +4,7 @@ var file_1 = require("./easy/file");
 exports.TprogramEasyFile = file_1.EasyFile;
 var launch_1 = require("./easy/launch");
 exports.TprogramEasyLanch = launch_1.EasyLaunch;
+var program_1 = require("./boot/program");
+exports.TProgramBootProgram = program_1.BootProgram;
+var parse_1 = require("./gulp/parse");
+exports.TProgramGulpParse = parse_1.GulpParse;

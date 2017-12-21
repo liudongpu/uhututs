@@ -12,6 +12,12 @@ export class IoPath{
 
 
 
+
+    static upBinPath():string{
+        return IoFile.parentTop(__dirname,3);
+    }
+
+
     static upResourcePath():string{
         return   IoFile.pathJoin(  IoFile.parentTop(__dirname,3),"resource");
     }

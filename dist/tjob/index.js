@@ -6,3 +6,5 @@ var html_1 = require("./parse/html");
 exports.TjobParseHtml = html_1.ParseHtml;
 var make_1 = require("./father/make");
 exports.TjobFatherMake = make_1.FatherMake;
+var parse_1 = require("./support/parse");
+exports.TJobSupportParse = parse_1.SupportParse;

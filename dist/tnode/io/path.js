@@ -7,6 +7,9 @@ var IoPath = /** @class */ (function () {
     IoPath.upCwdPath = function () {
         return process.cwd();
     };
+    IoPath.upBinPath = function () {
+        return file_1.IoFile.parentTop(__dirname, 3);
+    };
     IoPath.upResourcePath = function () {
         return file_1.IoFile.pathJoin(file_1.IoFile.parentTop(__dirname, 3), "resource");
     };

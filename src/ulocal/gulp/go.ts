@@ -1,4 +1,4 @@
-import {EasyLaunch} from './../easy/launch';
+
 import {IConfigInfo} from './../../air/interfaces/config';
 
 import gulp = require('gulp');
@@ -6,10 +6,9 @@ import sass = require('gulp-sass');
 import connect = require('gulp-connect');
 import rename = require('gulp-rename');
 import watch = require('gulp-watch');
-import {BootProgram} from '../boot/program';
 import {TNodeIoFile} from '../../tnode/index';
 import {TBase} from '../../tcore/index';
-import { GulpParse } from '../gulp/parse';
+import { TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse } from '../../tprogram/index';
 
 let oGulpDefine = {
     pathSass: [],
@@ -53,9 +52,13 @@ class GulpTask {
 
 }
 
-export class ProcessGulp {
+ class GulpGo {
 
     initStart() {
+
+       
+
+        oLocalConfig=TProgramBootProgram.upGoConfig();
 
         this.initGulp();
         this.taskConnect();
@@ -67,10 +70,10 @@ export class ProcessGulp {
     }
 
     initGulp() {
-        oGulpDefine.pathSass = [EasyLaunch.upDevPathForPages("") + "/**/*.scss"];
-        oGulpDefine.pathHtml = [EasyLaunch.upDevPathForPages("") + '/**/*.html'];
+        oGulpDefine.pathSass = [TprogramEasyLanch.upDevPathForPages("") + "/**/*.scss"];
+        oGulpDefine.pathHtml = [TprogramEasyLanch.upDevPathForPages("") + '/**/*.html'];
 
-        oGulpDefine.pathStatic = [EasyLaunch.upResourcePath("") + '/**/*'];
+        oGulpDefine.pathStatic = [TprogramEasyLanch.upResourcePath("") + '/**/*'];
 
     }
 
@@ -107,9 +110,9 @@ export class ProcessGulp {
             oTask
                 .inSubTask("react", function () {
                     return watch(oGulpDefine.pathHtml, {ignoreInitial: false})
-                        .pipe(GulpParse.gulpContent(oLocalConfig, TBase.defineBase().workNative))
+                        .pipe(TProgramGulpParse.gulpContent(oLocalConfig, TBase.defineBase().workNative))
                         .pipe(rename({extname: ".js"}))
-                        .pipe(gulp.dest(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)))
+                        .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)))
                         //.pipe(function(cb){console.log('aa');});
                     });
             }
@@ -127,3 +130,9 @@ export class ProcessGulp {
     }
 
 }
+
+
+
+let oGulpGo=new GulpGo();
+
+oGulpGo.initStart();
