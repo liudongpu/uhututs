@@ -74,7 +74,7 @@ var GulpGo = /** @class */ (function () {
         var oTask = new GulpTask("main_html");
         if (oLocalConfig.projectEnableNative) {
             oTask
-                .inSubTask("react", function () {
+                .inSubTask(index_2.TBase.defineBase().workNative, function () {
                 return watch(oGulpDefine.pathHtml, { ignoreInitial: false })
                     .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, index_2.TBase.defineBase().workNative))
                     .pipe(rename({ extname: ".js" }))

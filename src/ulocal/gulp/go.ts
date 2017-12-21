@@ -108,7 +108,7 @@ class GulpTask {
         if (oLocalConfig.projectEnableNative) {
 
             oTask
-                .inSubTask("react", function () {
+                .inSubTask(TBase.defineBase().workNative, function () {
                     return watch(oGulpDefine.pathHtml, {ignoreInitial: false})
                         .pipe(TProgramGulpParse.gulpContent(oLocalConfig, TBase.defineBase().workNative))
                         .pipe(rename({extname: ".js"}))
