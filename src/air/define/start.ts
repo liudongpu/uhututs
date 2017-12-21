@@ -37,7 +37,13 @@ const defineBase = {
 
     pathDevPages:"pages",
 
+    pathDevResources: "resources",
+    
+    pathDevScripts:"scripts",
+
     pathDevSetting: "setting",
+
+    
 
     /**
      * 客户端类项目名称标记

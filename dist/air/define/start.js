@@ -30,6 +30,8 @@ var defineBase = {
      */
     pathDev: "dev",
     pathDevPages: "pages",
+    pathDevResources: "resources",
+    pathDevScripts: "scripts",
     pathDevSetting: "setting",
     /**
      * 客户端类项目名称标记

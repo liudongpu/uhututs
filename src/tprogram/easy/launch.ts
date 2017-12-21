@@ -50,6 +50,10 @@ export class EasyLaunch {
         return TNodeIoFile.pathJoin(this.upDevPath(TBase.defineBase().pathDevPages), sPath);
     }
 
+    static upDevPathForScripts(sPath:string){
+        return TNodeIoFile.pathJoin(this.upDevPath(TBase.defineBase().pathDevScripts), sPath);
+    }
+
 
 
 
