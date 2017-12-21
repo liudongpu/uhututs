@@ -40,7 +40,7 @@ export class UpdateGo {
 
         oConfigCurrent = TCoreHelperObject.assign(oDefaultConfig, oConfigCurrent);
 
-        let sGenerateFile = EasyLaunch.upSubPathForGenerate(TNodeIoFile.pathJoin(TBase.defineBase().pathDevSetting, TBase.defineProgram().fileNameOfConfig));
+        let sGenerateFile = EasyLaunch.upSubPathForGenerate(TNodeIoFile.pathJoin(TBase.defineBase().pathDevSettings, TBase.defineProgram().fileNameOfConfig));
 
         TNodeIoFile.writeFile(sGenerateFile, TCoreCommonFunc.jsonStringify(oConfigCurrent));
 
