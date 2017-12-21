@@ -36,7 +36,7 @@ export class VendInit {
             TNodeIoFile.mkdir(sDir);
         }
 
-        let sConfigFile = EasyLaunch.upDevPathForSetting(TBase.defineProgram().fileNameOfConfig);
+        let sConfigFile = EasyLaunch.upDevPathForSettings(TBase.defineProgram().fileNameOfConfig);
 
         let bFlagExistConfigFile = TNodeIoFile.flagExist(sConfigFile);
 
@@ -50,14 +50,15 @@ export class VendInit {
             let oConfigDefault = TCoreCommonFunc.jsonParse < IConfigInfo > (TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-go/setting/config.json")));
             oConfigDefault.projectBaseName = TNodeIoFile.upBaseName(TNodeIoPath.upCwdPath(), "");
             oConfigCurrent = TCoreHelperObject.assign(oConfigDefault, oConfigCurrent);
-            TNodeIoFile.writeFile(sConfigFile, TCoreCommonFunc.jsonStringify(oConfigCurrent));
+            TNodeIoFile.writeFile(sConfigFile, TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
 
             TBase.logInfo(3611001);
         }
 
-        if (!TNodeIoFile.flagExist(EasyLaunch.upDevPathForPages(""))) {
-            TNodeIoFile.mkdir(EasyLaunch.upDevPathForPages(""));
-        }
+        TNodeIoFile.mkdir(EasyLaunch.upDevPathForPages(""));
+        TNodeIoFile.mkdir(EasyLaunch.upDevPathForScripts(""));
+
+       
 
         return true;
     }

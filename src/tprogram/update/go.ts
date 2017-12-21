@@ -32,7 +32,7 @@ export class UpdateGo {
      */
     private static generateConfig() {
 
-        let sConfigFile = EasyLaunch.upDevPathForSetting(TBase.defineProgram().fileNameOfConfig);
+        let sConfigFile = EasyLaunch.upDevPathForSettings(TBase.defineProgram().fileNameOfConfig);
 
         let oConfigCurrent = TCoreCommonFunc.jsonParse < IConfigInfo > (TNodeIoFile.readFile(sConfigFile));
 
@@ -42,7 +42,7 @@ export class UpdateGo {
 
         let sGenerateFile = EasyLaunch.upSubPathForGenerate(TNodeIoFile.pathJoin(TBase.defineBase().pathDevSettings, TBase.defineProgram().fileNameOfConfig));
 
-        TNodeIoFile.writeFile(sGenerateFile, TCoreCommonFunc.jsonStringify(oConfigCurrent));
+        TNodeIoFile.writeFile(sGenerateFile, TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
 
 
         AModelConfig.initConfig(oConfigCurrent);

@@ -70,7 +70,7 @@ const defineProgram = {
 
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git',
 
-    fileNameOfConfig: "config.json"
+    fileNameOfConfig: "config-go.json"
 
 };
 

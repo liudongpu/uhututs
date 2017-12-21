@@ -49,7 +49,7 @@ var defineProgram = {
     fileExtReplace: '.ts,.html,.json',
     pathSkipDir: '/.git',
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git',
-    fileNameOfConfig: "config.json"
+    fileNameOfConfig: "config-go.json"
 };
 var ADefineStart = /** @class */ (function () {
     function ADefineStart() {

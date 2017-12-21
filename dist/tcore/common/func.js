@@ -9,6 +9,9 @@ var CommonFunc = /** @class */ (function () {
     CommonFunc.jsonStringify = function (oT) {
         return JSON.stringify(oT);
     };
+    CommonFunc.jsonStringifyBeautify = function (oT) {
+        return JSON.stringify(oT, null, 2);
+    };
     return CommonFunc;
 }());
 exports.CommonFunc = CommonFunc;

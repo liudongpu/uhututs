@@ -24,7 +24,7 @@ var EasyLaunch = /** @class */ (function () {
     EasyLaunch.upDevPath = function (sPath) {
         return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upCwdPath(), index_2.TBase.defineBase().pathDev, sPath);
     };
-    EasyLaunch.upDevPathForSetting = function (sPath) {
+    EasyLaunch.upDevPathForSettings = function (sPath) {
         return index_1.TNodeIoFile.pathJoin(this.upDevPath(index_2.TBase.defineBase().pathDevSettings), sPath);
     };
     EasyLaunch.upDevPathForPages = function (sPath) {

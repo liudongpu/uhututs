@@ -12,4 +12,9 @@ export class CommonFunc{
         return JSON.stringify(oT);
     }
 
+
+    static jsonStringifyBeautify<T>(oT:T):string{
+        return JSON.stringify(oT,null,2);
+    }
+
 }

@@ -39,7 +39,7 @@ export class EasyLaunch {
     }
 
 
-    static upDevPathForSetting(sPath:string){
+    static upDevPathForSettings(sPath:string){
         return TNodeIoFile.pathJoin(this.upDevPath(TBase.defineBase().pathDevSettings), sPath);
     }
 

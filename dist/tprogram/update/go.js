@@ -23,12 +23,12 @@ var UpdateGo = /** @class */ (function () {
      * @memberof UpdateGo
      */
     UpdateGo.generateConfig = function () {
-        var sConfigFile = launch_1.EasyLaunch.upDevPathForSetting(index_1.TBase.defineProgram().fileNameOfConfig);
+        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(index_1.TBase.defineProgram().fileNameOfConfig);
         var oConfigCurrent = index_1.TCoreCommonFunc.jsonParse(index_2.TNodeIoFile.readFile(sConfigFile));
         var oDefaultConfig = config_1.AModelConfig.upConfig();
         oConfigCurrent = index_1.TCoreHelperObject.assign(oDefaultConfig, oConfigCurrent);
         var sGenerateFile = launch_1.EasyLaunch.upSubPathForGenerate(index_2.TNodeIoFile.pathJoin(index_1.TBase.defineBase().pathDevSettings, index_1.TBase.defineProgram().fileNameOfConfig));
-        index_2.TNodeIoFile.writeFile(sGenerateFile, index_1.TCoreCommonFunc.jsonStringify(oConfigCurrent));
+        index_2.TNodeIoFile.writeFile(sGenerateFile, index_1.TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
         config_1.AModelConfig.initConfig(oConfigCurrent);
     };
     UpdateGo.installNative = function (oConfig) {

@@ -25,7 +25,7 @@ var VendInit = /** @class */ (function () {
         if (!index_1.TNodeIoFile.flagExist(sDir)) {
             index_1.TNodeIoFile.mkdir(sDir);
         }
-        var sConfigFile = launch_1.EasyLaunch.upDevPathForSetting(index_2.TBase.defineProgram().fileNameOfConfig);
+        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(index_2.TBase.defineProgram().fileNameOfConfig);
         var bFlagExistConfigFile = index_1.TNodeIoFile.flagExist(sConfigFile);
         if (!bFlagExistConfigFile || arg.force) {
             var oConfigCurrent = index_2.TCoreHelperObject.parseTs({});
@@ -35,12 +35,11 @@ var VendInit = /** @class */ (function () {
             var oConfigDefault = index_2.TCoreCommonFunc.jsonParse(index_1.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-go/setting/config.json")));
             oConfigDefault.projectBaseName = index_1.TNodeIoFile.upBaseName(index_1.TNodeIoPath.upCwdPath(), "");
             oConfigCurrent = index_2.TCoreHelperObject.assign(oConfigDefault, oConfigCurrent);
-            index_1.TNodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringify(oConfigCurrent));
+            index_1.TNodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
             index_2.TBase.logInfo(3611001);
         }
-        if (!index_1.TNodeIoFile.flagExist(launch_1.EasyLaunch.upDevPathForPages(""))) {
-            index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForPages(""));
-        }
+        index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForPages(""));
+        index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForScripts(""));
         return true;
     };
     return VendInit;
