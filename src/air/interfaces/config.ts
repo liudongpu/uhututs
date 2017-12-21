@@ -29,4 +29,14 @@ export interface IConfigInfo{
 
     projectEnableWeapp:boolean
 
+
+
+    /**
+     * 标记 是否是自动生成的配置项
+     * 
+     * @type {boolean}
+     * @memberof IConfigInfo
+     */
+    badgeFlagGenerate:boolean
+
 }

@@ -5,11 +5,12 @@ import {IArgsStart} from './../../air/interfaces/args';
 import {TBase, TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile, TNodeProtoProcess} from '../../tnode/index';
 import { BootProgram } from '../boot/program';
+import { EasyStart } from '../easy/start';
 export class UpdateGo {
 
     static update(args : IArgsStart) {
 
-        this.generateConfig();
+        EasyStart.start();
          let oConfig= BootProgram.upGoConfig();
 
 

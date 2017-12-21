@@ -6,7 +6,11 @@ var BootProgram = /** @class */ (function () {
     function BootProgram() {
     }
     BootProgram.upGoConfig = function () {
-        return config_1.AModelConfig.upConfig();
+        var oConfig = config_1.AModelConfig.upConfig();
+        if (!oConfig.badgeFlagGenerate) {
+            index_1.TBase.logError(3911002);
+        }
+        return oConfig;
     };
     BootProgram.upGoWorkOfNative = function () {
         return index_1.TBase.defineBase().projectGo + index_1.TBase.defineBase().workNative + this.upGoConfig().projectBaseName;

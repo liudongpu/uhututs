@@ -7,6 +7,7 @@ var index_1 = require("../../tcore/index");
 var program_1 = require("../../air/export/program");
 var index_2 = require("../../tnode/index");
 var launch_1 = require("../easy/launch");
+var go_2 = require("../run/go");
 var VendWar = /** @class */ (function () {
     function VendWar() {
     }
@@ -38,6 +39,11 @@ var VendWar = /** @class */ (function () {
                 describe: index_1.TBase.upLangInfo(331005),
                 type: "boolean",
                 default: false
+            },
+            'runGo': {
+                describe: index_1.TBase.upLangInfo(331006),
+                type: "boolean",
+                default: false
             }
         }).help().argv);
         if (a.init) {
@@ -49,6 +55,9 @@ var VendWar = /** @class */ (function () {
             }
             if (a.updateGo) {
                 go_1.UpdateGo.update(a);
+            }
+            if (a.runGo) {
+                go_2.RunGo.run(a);
             }
         }
         else {

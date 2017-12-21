@@ -1,5 +1,6 @@
 import { AModelConfig } from './../../air/model/config';
-import { TBase } from '../../tcore/index';
+import { TBase, TCoreCommonFunc } from '../../tcore/index';
+import { TNodeIoFile } from '../../tnode/index';
 
 
 
@@ -7,9 +8,21 @@ export class BootProgram{
 
 
 
+    
+
 
     static upGoConfig(){
-        return AModelConfig.upConfig();
+
+
+        let oConfig=AModelConfig.upConfig();
+
+        if(!oConfig.badgeFlagGenerate){
+
+            TBase.logError(3911002);
+        }
+
+
+        return oConfig;
     }
 
 

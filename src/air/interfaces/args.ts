@@ -26,4 +26,7 @@ export interface IArgsStart{
 
     updateGo:boolean
 
+
+    runGo:boolean
+
 }

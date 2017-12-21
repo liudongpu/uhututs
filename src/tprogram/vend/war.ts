@@ -6,6 +6,7 @@ import {TCoreHelperObject, TBase} from "../../tcore/index";
 import {EProgramYargs} from '../../air/export/program';
 import {TNodeIoFile} from '../../tnode/index';
 import {EasyLaunch} from '../easy/launch';
+import {RunGo} from '../run/go';
 
 export class VendWar {
 
@@ -39,6 +40,11 @@ export class VendWar {
                 describe: TBase.upLangInfo(331005),
                 type: "boolean",
                 default: false
+            },
+            'runGo': {
+                describe: TBase.upLangInfo(331006),
+                type: "boolean",
+                default: false
             }
         }).help().argv);
 
@@ -54,6 +60,10 @@ export class VendWar {
 
             if (a.updateGo) {
                 UpdateGo.update(a);
+            }
+
+            if (a.runGo) {
+                RunGo.run(a);
             }
 
         } else {
