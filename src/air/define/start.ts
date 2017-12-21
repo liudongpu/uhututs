@@ -38,10 +38,10 @@ const defineBase = {
     pathDevPages:"pages",
 
     pathDevResources: "resources",
-    
+
     pathDevScripts:"scripts",
 
-    pathDevSetting: "setting",
+    pathDevSettings: "settings",
 
     
 
