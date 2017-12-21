@@ -40,6 +40,7 @@ var VendInit = /** @class */ (function () {
         }
         index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForPages(""));
         index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForScripts(""));
+        index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForResources(""));
         return true;
     };
     return VendInit;

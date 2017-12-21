@@ -57,7 +57,7 @@ export class VendInit {
 
         TNodeIoFile.mkdir(EasyLaunch.upDevPathForPages(""));
         TNodeIoFile.mkdir(EasyLaunch.upDevPathForScripts(""));
-
+        TNodeIoFile.mkdir(EasyLaunch.upDevPathForResources(""));
        
 
         return true;
