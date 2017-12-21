@@ -34,6 +34,9 @@ const defineBase = {
      */
     pathDev: "dev",
 
+
+    pathDevPages:"pages",
+
     pathDevSetting: "setting",
 
     /**

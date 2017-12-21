@@ -38,6 +38,9 @@ var VendInit = /** @class */ (function () {
             index_1.TNodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringify(oConfigCurrent));
             index_2.TBase.logInfo(3611001);
         }
+        if (!index_1.TNodeIoFile.flagExist(launch_1.EasyLaunch.upDevPathForPages(""))) {
+            index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForPages(""));
+        }
         return true;
     };
     return VendInit;

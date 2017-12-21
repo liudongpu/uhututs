@@ -55,6 +55,10 @@ export class VendInit {
             TBase.logInfo(3611001);
         }
 
+        if (!TNodeIoFile.flagExist(EasyLaunch.upDevPathForPages(""))) {
+            TNodeIoFile.mkdir(EasyLaunch.upDevPathForPages(""));
+        }
+
         return true;
     }
 

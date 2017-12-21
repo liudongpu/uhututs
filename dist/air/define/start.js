@@ -29,6 +29,7 @@ var defineBase = {
      * 开发目录
      */
     pathDev: "dev",
+    pathDevPages: "pages",
     pathDevSetting: "setting",
     /**
      * 客户端类项目名称标记
