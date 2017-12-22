@@ -10,7 +10,7 @@ const sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"])
 
 const sSetTemplage : Set < string >= new Set < string > (["template"]);
 
-const sSetElement : Set < string >= new Set < string > (["div", "a"]);
+const sSetElement : Set < string >= new Set < string > (["div", "a", "span","button","input","img","label","select"]);
 
 const sSetScript : Set < string >= new Set < string > (["script"]);
 
@@ -107,8 +107,7 @@ export class ParseHtml {
             .contents
             .join('');
 
-
-            make.makeResult(oResult,fileInfo);
+        make.makeResult(oResult, fileInfo);
 
         return oResult;
 

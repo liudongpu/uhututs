@@ -6,7 +6,7 @@ var parse_1 = require("../../air/export/parse");
 var index_1 = require("../../tcore/index");
 var sSetIgnore = new Set(["html", "head", "body"]);
 var sSetTemplage = new Set(["template"]);
-var sSetElement = new Set(["div", "a"]);
+var sSetElement = new Set(["div", "a", "span", "button", "input", "img", "label", "select"]);
 var sSetScript = new Set(["script"]);
 var ParseHtml = /** @class */ (function () {
     function ParseHtml() {

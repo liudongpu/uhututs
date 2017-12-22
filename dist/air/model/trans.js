@@ -11,7 +11,10 @@ var transNative = {
         name: "TouchableOpacity"
     },
     input: {
-        name: "input"
+        name: "TextInput"
+    },
+    span: {
+        name: "Text"
     }
 };
 var AModelTrans = /** @class */ (function () {

@@ -14,7 +14,11 @@ const transNative : IhtmlElementList = {
     },
 
     input: {
-        name: "input"
+        name: "TextInput"
+    },
+
+    span:{
+        name:"Text"
     }
 }
 

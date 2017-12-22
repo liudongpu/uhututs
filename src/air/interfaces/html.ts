@@ -15,6 +15,8 @@ export interface IhtmlElementList{
     a:IhtmlElementInfo
 
     input:IhtmlElementInfo
+
+    span:IhtmlElementInfo
 }
 
 
