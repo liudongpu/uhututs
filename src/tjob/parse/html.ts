@@ -1,9 +1,10 @@
+import {IConfigPage} from './../../air/interfaces/config';
 import {AEnumNodeType} from './../../air/define/enumer';
 import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
 import {EParseHtml} from "../../air/export/parse";
 import {IbaseKv} from '../../air/interfaces/base';
-import {TCoreHelperMap} from '../../tcore/index';
-import { TjobFatherMake } from '../index';
+import {TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
+import {TjobFatherMake} from '../index';
 
 const sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"]);
 
@@ -25,9 +26,11 @@ export class ParseHtml {
 
             onopentag(sName : string, oAttr) {
 
-                let oNodeInfo = ParseHtml.processNodeType(new KJobNodeInfo(), sName);
+                let oNodeInfo = new KJobNodeInfo();
 
                 ParseHtml.processNodeAttr(oNodeInfo, oAttr);
+
+                ParseHtml.processNodeType(oNodeInfo, sName);
 
                 switch (oNodeInfo.nodeType) {
                     case AEnumNodeType.template:
@@ -42,8 +45,6 @@ export class ParseHtml {
                         ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
                         break;
                 }
-
-                
 
                 oCurrentPage
                     .nodes
@@ -85,6 +86,9 @@ export class ParseHtml {
 
                         break;
 
+                    case AEnumNodeType.config:
+                        oResult.config = TCoreCommonFunc.jsonParse < IConfigPage > (oNodeInfo.nodeInfo);
+                        break;
                     default:
 
                         break;
@@ -160,7 +164,18 @@ export class ParseHtml {
 
             oNodeInfo.nodeType = AEnumNodeType.template;
         } else if (sSetScript.has(sName)) {
-            oNodeInfo.nodeType = AEnumNodeType.script;
+
+            switch (oNodeInfo.sourceType) {
+
+                case "json/config":
+                    oNodeInfo.nodeType = AEnumNodeType.config;
+                    break;
+
+                default:
+                    oNodeInfo.nodeType = AEnumNodeType.script;
+                    break;
+            }
+
         } else {
             oNodeInfo.nodeType = AEnumNodeType.unknow;
         }
@@ -181,10 +196,16 @@ export class ParseHtml {
                 .get("id");
         }
 
-        if (oNodeInfo.nodeAttr.has("classs")) {
+        if (oNodeInfo.nodeAttr.has("class")) {
             oNodeInfo.sourceClass = oNodeInfo
                 .nodeAttr
                 .get("class");
+        }
+
+        if (oNodeInfo.nodeAttr.has("type")) {
+            oNodeInfo.sourceType = oNodeInfo
+                .nodeAttr
+                .get("type");
         }
 
         return oNodeInfo;

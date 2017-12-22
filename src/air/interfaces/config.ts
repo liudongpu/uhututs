@@ -40,3 +40,24 @@ export interface IConfigInfo{
     badgeFlagGenerate:boolean
 
 }
+
+
+
+
+
+
+/**
+ * 页面的配置项目
+ * 
+ * @export
+ * @interface IConfigPage
+ */
+export interface IConfigPage{
+
+    pageTitle:string
+
+
+
+    macroUrl:string
+    
+}

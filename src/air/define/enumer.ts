@@ -23,6 +23,13 @@ export enum AEnumNodeType{
      */
     element,
 
+
+
+    /**
+     * 配置项
+     */
+    config,
+
     /**
      * 模板
      */
