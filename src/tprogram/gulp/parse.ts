@@ -35,8 +35,11 @@ export class GulpParse {
             var oParseFile = new KJobFileInfo();
             
             oParseFile.content = file.contents.toString();
-            oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
 
+           
+
+            //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
+            oParseFile.path=file.history[0];
             //var content = initWork.parseContent(oConfig, oParseFile);
             let content = TJobSupportParse.contentParse(oLocalConfig, oParseFile,sType);
 

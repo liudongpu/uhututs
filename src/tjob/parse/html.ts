@@ -107,6 +107,9 @@ export class ParseHtml {
             .contents
             .join('');
 
+
+            make.makeResult(oResult,fileInfo);
+
         return oResult;
 
     }

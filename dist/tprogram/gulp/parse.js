@@ -2,9 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var through = require("through2");
 var gutil = require("gulp-util");
-var index_1 = require("../../tnode/index");
 var job_1 = require("../../air/keep/job");
-var index_2 = require("../../tjob/index");
+var index_1 = require("../../tjob/index");
 var GulpParse = /** @class */ (function () {
     function GulpParse() {
     }
@@ -24,9 +23,10 @@ var GulpParse = /** @class */ (function () {
             // 然后将处理后的字符串，再转成Buffer形式
             var oParseFile = new job_1.KJobFileInfo();
             oParseFile.content = file.contents.toString();
-            oParseFile.path = index_1.TNodeIoFile.upBaseName(file.relative, undefined);
+            //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
+            oParseFile.path = file.history[0];
             //var content = initWork.parseContent(oConfig, oParseFile);
-            var content = index_2.TJobSupportParse.contentParse(oLocalConfig, oParseFile, sType);
+            var content = index_1.TJobSupportParse.contentParse(oLocalConfig, oParseFile, sType);
             file.contents = new Buffer(content);
             // 下面这两句基本是标配啦，可以参考下 through2 的API
             this.push(file);

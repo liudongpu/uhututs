@@ -21,11 +21,15 @@ var AEnumNodeType;
      */
     AEnumNodeType[AEnumNodeType["element"] = 2] = "element";
     /**
+     * 配置项
+     */
+    AEnumNodeType[AEnumNodeType["config"] = 3] = "config";
+    /**
      * 模板
      */
-    AEnumNodeType[AEnumNodeType["template"] = 3] = "template";
+    AEnumNodeType[AEnumNodeType["template"] = 4] = "template";
     /**
      * 脚本
      */
-    AEnumNodeType[AEnumNodeType["script"] = 4] = "script";
+    AEnumNodeType[AEnumNodeType["script"] = 5] = "script";
 })(AEnumNodeType = exports.AEnumNodeType || (exports.AEnumNodeType = {}));

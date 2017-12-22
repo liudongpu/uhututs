@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var string_1 = require("./helper/string");
+exports.TCoreHelperString = string_1.HelperString;
 var func_1 = require("./common/func");
 exports.TCoreCommonFunc = func_1.CommonFunc;
 var util_1 = require("./super/util");

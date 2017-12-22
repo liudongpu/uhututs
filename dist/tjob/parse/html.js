@@ -16,8 +16,9 @@ var ParseHtml = /** @class */ (function () {
         var oCurrentPage = new job_1.KJobCurrentParse();
         var oParse = new parse_1.EParseHtml({
             onopentag: function (sName, oAttr) {
-                var oNodeInfo = ParseHtml.processNodeType(new job_1.KJobNodeInfo(), sName);
+                var oNodeInfo = new job_1.KJobNodeInfo();
                 ParseHtml.processNodeAttr(oNodeInfo, oAttr);
+                ParseHtml.processNodeType(oNodeInfo, sName);
                 switch (oNodeInfo.nodeType) {
                     case enumer_1.AEnumNodeType.template:
                         oCurrentPage.templateContents = [];
@@ -55,6 +56,9 @@ var ParseHtml = /** @class */ (function () {
                         oCurrentPage.templateFlag = false;
                         oCurrentPage.templateContents = [];
                         break;
+                    case enumer_1.AEnumNodeType.config:
+                        oResult.config = index_1.TCoreCommonFunc.jsonParse(oNodeInfo.nodeInfo);
+                        break;
                     default:
                         break;
                 }
@@ -65,6 +69,7 @@ var ParseHtml = /** @class */ (function () {
         oResult.content = oCurrentPage
             .contents
             .join('');
+        make.makeResult(oResult, fileInfo);
         return oResult;
     };
     ParseHtml.processElementBegin = function (oNodeInfo, oCurrentPage) {
@@ -114,7 +119,14 @@ var ParseHtml = /** @class */ (function () {
             oNodeInfo.nodeType = enumer_1.AEnumNodeType.template;
         }
         else if (sSetScript.has(sName)) {
-            oNodeInfo.nodeType = enumer_1.AEnumNodeType.script;
+            switch (oNodeInfo.sourceType) {
+                case "json/config":
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.config;
+                    break;
+                default:
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.script;
+                    break;
+            }
         }
         else {
             oNodeInfo.nodeType = enumer_1.AEnumNodeType.unknow;
@@ -129,10 +141,15 @@ var ParseHtml = /** @class */ (function () {
                 .nodeAttr
                 .get("id");
         }
-        if (oNodeInfo.nodeAttr.has("classs")) {
+        if (oNodeInfo.nodeAttr.has("class")) {
             oNodeInfo.sourceClass = oNodeInfo
                 .nodeAttr
                 .get("class");
+        }
+        if (oNodeInfo.nodeAttr.has("type")) {
+            oNodeInfo.sourceType = oNodeInfo
+                .nodeAttr
+                .get("type");
         }
         return oNodeInfo;
     };

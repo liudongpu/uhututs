@@ -12,11 +12,15 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var trans_1 = require("../../air/model/trans");
 var make_1 = require("../father/make");
+var index_1 = require("../../tcore/index");
 var MakeNative = /** @class */ (function (_super) {
     __extends(MakeNative, _super);
     function MakeNative() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    MakeNative.prototype.subWorkType = function () {
+        return index_1.TBase.defineBase().workNative;
+    };
     MakeNative.prototype.subElementParse = function (oNodeInfo) {
         return oNodeInfo;
     };

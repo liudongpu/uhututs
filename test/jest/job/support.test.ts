@@ -16,12 +16,14 @@ test('upResourcePath', () => {
 
     let oOut = TjobParseHtml.parse(oFileInfo, new TjobMakeNative());
 
-    let sMacroFile = TNodeIoFile.pathJoin(TNodeIoPath.upTestPath(), "resource", "macro", 'native.mustache');
+    
+
+    let sMacroFile =oOut.config.macroUrl;
 
     let sMacroContent = TNodeIoFile.readFile(sMacroFile);
     let sOutInfo = EParseMustache.render(sMacroContent, {out:oOut});
 
-    console.log(sOutInfo);
+    //console.log(sOutInfo);
 
     expect(1).toBe(1);
 });

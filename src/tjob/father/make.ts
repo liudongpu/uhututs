@@ -1,6 +1,8 @@
-import {KJobNodeInfo, KJobPageOut} from './../../air/keep/job';
+import { IConfigPage } from './../../air/interfaces/config';
+import {KJobNodeInfo, KJobPageOut, KJobFileInfo} from './../../air/keep/job';
 import {IhtmlElementList, IhtmlElementInfo} from '../../air/interfaces/html';
-import {TCoreHelperMap, TCoreHelperString} from '../../tcore/index';
+import {TCoreHelperMap, TCoreHelperString, TCoreHelperObject} from '../../tcore/index';
+import {TNodeIoFile} from '../../tnode/index';
 
 export abstract class FatherMake {
 
@@ -31,10 +33,21 @@ export abstract class FatherMake {
 
     protected abstract subWorkType() : string;
 
-    makeResult(oPageOut : KJobPageOut) : KJobPageOut {
+    makeResult(oPageOut : KJobPageOut, fileInfo : KJobFileInfo) : KJobPageOut {
 
-        if(oPageOut.config && TCoreHelperString.isEmpty(oPageOut.config.macroUrl)) {
-            oPageOut.config.macroUrl = "resource/macro/" + this.subWorkType() + ".mustache";
+
+        if(oPageOut.config===undefined){
+            oPageOut.config=TCoreHelperObject.parseTs<IConfigPage>({});
+        }
+
+
+        if(oPageOut.config) {
+            if (TCoreHelperString.isEmpty(oPageOut.config.macroUrl)) {
+                oPageOut.config.macroUrl =    "dev/resources/macro/" + this.subWorkType() + ".mustache";
+            } else {
+                oPageOut.config.macroUrl = TNodeIoFile.pathNormalize(TNodeIoFile.pathJoin(TNodeIoFile.parentPath(fileInfo.path), oPageOut.config.macroUrl))
+            }
+
         }
 
         return oPageOut;
