@@ -2,7 +2,8 @@
 
 
 
-import {Parser} from 'htmlparser2';
+import {Parser as EParseHtml} from 'htmlparser2';
+import * as EParseMustache from 'mustache';
 
 
-export {Parser as EParseHtml};
+export {EParseHtml,EParseMustache};
