@@ -7,20 +7,21 @@ export class RunGo {
 
     static run(arg : IArgsStart) {
 
-        EasyStart.start();
+        EasyStart.refreshConfig();
+        
 
         let oConfig = BootProgram.upGoConfig();
-
+        
 
         let sConfigFile=TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(), "dist","ulocal","gulp","go.js");
-        console.log(sConfigFile)
-        TNodeProtoProcess.spawnSync("./node_modules/.bin/gulp", ["--gulpfile=" +sConfigFile ], {
-            cwd: TNodeIoPath.upBinPath()
-        });
+
+        let sGulp=TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(), "node_modules",".bin","gulp");
+        
+        TNodeProtoProcess.spawn(sGulp, ["--gulpfile=" +sConfigFile ,"--cwd="+TNodeIoPath.upCwdPath()],{cwd:TNodeIoPath.upCwdPath()});
 
         if (oConfig.projectEnableNative) {
 
-            //QueueNative.run(oConfig);
+            QueueNative.run(oConfig);
 
         }
 

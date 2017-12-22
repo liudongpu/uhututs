@@ -10,6 +10,12 @@ var EasyStart = /** @class */ (function () {
     EasyStart.start = function () {
         this.generateConfig();
     };
+    EasyStart.refreshConfig = function () {
+        var sGenerateFile = launch_1.EasyLaunch.upSubPathForGenerate(index_2.TNodeIoFile.pathJoin(index_1.TBase.defineBase().pathDevSettings, index_1.TBase.defineProgram().fileNameOfConfig));
+        var sContent = index_2.TNodeIoFile.readFile(sGenerateFile);
+        var oConfigCurrent = index_1.TCoreCommonFunc.jsonParse(sContent);
+        config_1.AModelConfig.initConfig(oConfigCurrent);
+    };
     /**
      * 生成配置文件
      *
@@ -25,7 +31,7 @@ var EasyStart = /** @class */ (function () {
         oConfigCurrent.badgeFlagGenerate = true;
         var sGenerateFile = launch_1.EasyLaunch.upSubPathForGenerate(index_2.TNodeIoFile.pathJoin(index_1.TBase.defineBase().pathDevSettings, index_1.TBase.defineProgram().fileNameOfConfig));
         index_2.TNodeIoFile.writeFile(sGenerateFile, index_1.TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
-        config_1.AModelConfig.initConfig(oConfigCurrent);
+        this.refreshConfig();
     };
     return EasyStart;
 }());

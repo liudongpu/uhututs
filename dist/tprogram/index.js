@@ -8,3 +8,5 @@ var program_1 = require("./boot/program");
 exports.TProgramBootProgram = program_1.BootProgram;
 var parse_1 = require("./gulp/parse");
 exports.TProgramGulpParse = parse_1.GulpParse;
+var start_1 = require("./easy/start");
+exports.TProgramEasyStart = start_1.EasyStart;

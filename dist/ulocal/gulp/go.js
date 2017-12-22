@@ -39,6 +39,7 @@ var GulpGo = /** @class */ (function () {
     function GulpGo() {
     }
     GulpGo.prototype.initStart = function () {
+        index_3.TProgramEasyStart.refreshConfig();
         oLocalConfig = index_3.TProgramBootProgram.upGoConfig();
         this.initGulp();
         this.taskConnect();

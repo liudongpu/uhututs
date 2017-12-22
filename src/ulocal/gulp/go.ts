@@ -8,7 +8,7 @@ import rename = require('gulp-rename');
 import watch = require('gulp-watch');
 import {TNodeIoFile} from '../../tnode/index';
 import {TBase} from '../../tcore/index';
-import { TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse } from '../../tprogram/index';
+import { TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse, TProgramEasyStart } from '../../tprogram/index';
 
 let oGulpDefine = {
     pathSass: [],
@@ -56,8 +56,9 @@ class GulpTask {
 
     initStart() {
 
-       
+     
 
+       TProgramEasyStart.refreshConfig();
         oLocalConfig=TProgramBootProgram.upGoConfig();
 
         this.initGulp();

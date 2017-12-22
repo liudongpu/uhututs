@@ -1,25 +1,30 @@
-import { AModelConfig } from './../../air/model/config';
-import { IConfigInfo } from './../../air/interfaces/config';
-import { EasyLaunch } from './launch';
-import { TBase, TCoreCommonFunc, TCoreHelperObject } from '../../tcore/index';
-import { TNodeIoFile } from '../../tnode/index';
-
-
+import {AModelConfig} from './../../air/model/config';
+import {IConfigInfo} from './../../air/interfaces/config';
+import {EasyLaunch} from './launch';
+import {TBase, TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
+import {TNodeIoFile} from '../../tnode/index';
 
 export class EasyStart {
-    
 
-
-
-   static start(){
+    static start() {
         this.generateConfig();
     }
 
+    public static refreshConfig() {
 
+
+        let sGenerateFile = EasyLaunch.upSubPathForGenerate(TNodeIoFile.pathJoin(TBase.defineBase().pathDevSettings, TBase.defineProgram().fileNameOfConfig));
+
+
+        let sContent=TNodeIoFile.readFile(sGenerateFile);
+
+        let oConfigCurrent = TCoreCommonFunc.jsonParse(sContent);
+        AModelConfig.initConfig(oConfigCurrent);
+    }
 
     /**
      * 生成配置文件
-     * 
+     *
      * @private
      * @static
      * @memberof UpdateGo
@@ -34,19 +39,13 @@ export class EasyStart {
 
         oConfigCurrent = TCoreHelperObject.assign(oDefaultConfig, oConfigCurrent);
 
-
-        oConfigCurrent.badgeFlagGenerate=true;
+        oConfigCurrent.badgeFlagGenerate = true;
 
         let sGenerateFile = EasyLaunch.upSubPathForGenerate(TNodeIoFile.pathJoin(TBase.defineBase().pathDevSettings, TBase.defineProgram().fileNameOfConfig));
 
-
         TNodeIoFile.writeFile(sGenerateFile, TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
 
-
-        AModelConfig.initConfig(oConfigCurrent);
-
-        
-
+        this.refreshConfig();
 
     }
 }

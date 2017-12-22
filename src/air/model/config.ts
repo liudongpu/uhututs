@@ -2,7 +2,7 @@ import { IConfigInfo } from './../interfaces/config';
 
 
 
-const configInfo:IConfigInfo={
+let configInfo:IConfigInfo={
 
     projectBaseName:"",
 
@@ -18,7 +18,10 @@ const configInfo:IConfigInfo={
 
     projectEnableVue:false,
 
-    projectEnableWeapp:false
+    projectEnableWeapp:false,
+
+
+    badgeFlagGenerate:false
 
 
 }
@@ -34,7 +37,7 @@ export class AModelConfig {
 
     static initConfig(source){
 
-        Object.assign(configInfo,source);
+        configInfo=Object.assign(configInfo,source);
     }
 
 }

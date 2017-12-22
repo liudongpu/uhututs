@@ -15,7 +15,7 @@ export class QueueNative{
 
        
 
-            TNodeProtoProcess.spawnSync("npm",["start"],{cwd:BootProgram.upGoWorkOfNative()});
+            TNodeProtoProcess.spawn("npm",["start"],{cwd:BootProgram.upGoWorkOfNative()});
        
 
 

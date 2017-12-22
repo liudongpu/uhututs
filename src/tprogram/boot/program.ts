@@ -15,7 +15,7 @@ export class BootProgram{
 
 
         let oConfig=AModelConfig.upConfig();
-
+        
         if(!oConfig.badgeFlagGenerate){
 
             TBase.logError(3911002);
@@ -34,6 +34,9 @@ export class BootProgram{
         return TBase.defineBase().projectGo+TBase.defineBase().workNative+this.upGoConfig().projectBaseName;
 
     }
+
+
+    
 
 
 

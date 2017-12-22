@@ -7,7 +7,8 @@ var configInfo = {
     projectVersionCode: 1,
     projectEnableNative: false,
     projectEnableVue: false,
-    projectEnableWeapp: false
+    projectEnableWeapp: false,
+    badgeFlagGenerate: false
 };
 var AModelConfig = /** @class */ (function () {
     function AModelConfig() {
@@ -16,7 +17,7 @@ var AModelConfig = /** @class */ (function () {
         return configInfo;
     };
     AModelConfig.initConfig = function (source) {
-        Object.assign(configInfo, source);
+        configInfo = Object.assign(configInfo, source);
     };
     return AModelConfig;
 }());
