@@ -17,6 +17,11 @@ export interface IConfigPlugList{
 
 
 
+export interface IConfigPackage{
+    
+}
+
+
 /**
  * 配置信息
  * 

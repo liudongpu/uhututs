@@ -1,3 +1,4 @@
+import { ProcessPackage } from './../process/package';
 import {AModelConfig} from './../../air/model/config';
 import {IConfigInfo} from './../../air/interfaces/config';
 import {EasyLaunch} from './../easy/launch';
@@ -42,7 +43,9 @@ export class UpdateGo {
 
 
 
-        
+
+        ProcessPackage.checkOrUpdate( TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(),TBase.defineProgram().fileNameOfPackage),oConfig.plugListNative  );
+
 
 
 
