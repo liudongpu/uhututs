@@ -2,21 +2,21 @@ import { IbaseKv } from "./base";
 
 
 
- export interface IhtmlElementInfo{
+ export interface IHtmlElementInfo{
     name:string
 
     typeName?:IbaseKv
 }
 
-export interface IhtmlElementList{
+export interface IHtmlElementList{
 
-    div:IhtmlElementInfo
+    div:IHtmlElementInfo
 
-    a:IhtmlElementInfo
+    a:IHtmlElementInfo
 
-    input:IhtmlElementInfo
+    input:IHtmlElementInfo
 
-    span:IhtmlElementInfo
+    span:IHtmlElementInfo
 }
 
 

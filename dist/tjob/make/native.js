@@ -10,9 +10,9 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var trans_1 = require("../../air/model/trans");
 var make_1 = require("../father/make");
 var index_1 = require("../../tcore/index");
+var native_1 = require("../bank/native");
 var MakeNative = /** @class */ (function (_super) {
     __extends(MakeNative, _super);
     function MakeNative() {
@@ -24,8 +24,8 @@ var MakeNative = /** @class */ (function (_super) {
     MakeNative.prototype.subElementParse = function (oNodeInfo) {
         return oNodeInfo;
     };
-    MakeNative.prototype.subElementTrans = function () {
-        return trans_1.AModelTrans.upNative();
+    MakeNative.prototype.subBank = function () {
+        return new native_1.BankNative();
     };
     return MakeNative;
 }(make_1.FatherMake));

@@ -1,8 +1,8 @@
 
 import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
-import { AModelTrans } from '../../air/model/trans';
 import { FatherMake } from '../father/make';
 import { TCoreHelperString, TBase } from '../../tcore/index';
+import { BankNative } from '../bank/native';
 
 
 
@@ -28,9 +28,11 @@ export class MakeNative extends FatherMake{
     }
 
 
-    subElementTrans(){
-        return AModelTrans.upNative();
+    subBank(){
+        return new BankNative();
     }
+
+
 
 
    

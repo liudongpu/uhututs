@@ -1,14 +1,15 @@
 import { IConfigPage } from './../../air/interfaces/config';
 import {KJobNodeInfo, KJobPageOut, KJobFileInfo} from './../../air/keep/job';
-import {IhtmlElementList, IhtmlElementInfo} from '../../air/interfaces/html';
+import {IHtmlElementList, IHtmlElementInfo} from '../../air/interfaces/html';
 import {TCoreHelperMap, TCoreHelperString, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile} from '../../tnode/index';
+import { IJobBank } from '../../air/interfaces/job';
 
 export abstract class FatherMake {
 
     makeElement(oNodeInfo : KJobNodeInfo) : KJobNodeInfo {
 
-        let mElement = TCoreHelperMap.parseMap < IhtmlElementInfo > (this.subElementTrans());
+        let mElement = TCoreHelperMap.parseMap < IHtmlElementInfo > (this.subBank().upElementList());
 
         let oInfo = mElement.get(oNodeInfo.nodeName);
 
@@ -19,7 +20,7 @@ export abstract class FatherMake {
         return oNodeInfo;
     }
 
-    protected abstract subElementTrans() : IhtmlElementList;
+    
 
     /**
      * 处理元素
@@ -32,6 +33,10 @@ export abstract class FatherMake {
     protected abstract subElementParse(oNodeInfo : KJobNodeInfo) : KJobNodeInfo;
 
     protected abstract subWorkType() : string;
+
+
+
+    protected abstract subBank():IJobBank;
 
     makeResult(oPageOut : KJobPageOut, fileInfo : KJobFileInfo) : KJobPageOut {
 
