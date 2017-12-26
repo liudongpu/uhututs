@@ -1,3 +1,28 @@
+
+/**
+ * 插件模型
+ * 
+ * @export
+ * @interface IConfigPlug
+ */
+export interface IConfigPlugInfo{
+
+    name:string,
+    version:string
+}
+
+export interface IConfigPlugList{
+    [key:string]:IConfigPlugInfo
+}
+
+
+
+/**
+ * 配置信息
+ * 
+ * @export
+ * @interface IConfigInfo
+ */
 export interface IConfigInfo{
 
     /**
@@ -38,6 +63,9 @@ export interface IConfigInfo{
      * @memberof IConfigInfo
      */
     badgeFlagGenerate:boolean
+
+
+    plugListNative:IConfigPlugList
 
 }
 

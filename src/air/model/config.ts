@@ -21,7 +21,15 @@ let configInfo:IConfigInfo={
     projectEnableWeapp:false,
 
 
-    badgeFlagGenerate:false
+    badgeFlagGenerate:false,
+
+
+    plugListNative:{
+        reactNavigation:{
+            name:"react-navigation",
+            version:"1.0.0-beta.22"
+        }
+    }
 
 
 }

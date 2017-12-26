@@ -8,7 +8,13 @@ var configInfo = {
     projectEnableNative: false,
     projectEnableVue: false,
     projectEnableWeapp: false,
-    badgeFlagGenerate: false
+    badgeFlagGenerate: false,
+    plugListNative: {
+        reactNavigation: {
+            name: "react-navigation",
+            version: "1.0.0-beta.22"
+        }
+    }
 };
 var AModelConfig = /** @class */ (function () {
     function AModelConfig() {
