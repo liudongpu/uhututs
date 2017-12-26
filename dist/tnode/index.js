@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var exec_1 = require("./way/exec");
+exports.TNodeWayExec = exec_1.WayExec;
 var file_1 = require("./io/file");
 exports.TNodeIoFile = file_1.IoFile;
 var path_1 = require("./io/path");

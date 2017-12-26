@@ -30,3 +30,47 @@ export interface IArgsStart{
     runGo:boolean
 
 }
+
+
+
+
+
+
+export interface IArgsExec{
+    /**
+     * 
+     * 
+     * @type {string}
+     * @memberof IArgsExec
+     */
+    name?:"execReplaceFileContentLine"|""
+
+
+    /**
+     * 源文件路径
+     * 
+     * @type {string}
+     * @memberof IArgsExec
+     */
+    fileSource?:string
+
+    filePath?:string
+    /**
+     * 目标文件路径
+     * 
+     * @type {string}
+     * @memberof IArgsExec
+     */
+    fileTarget?:string
+    
+
+
+    textBegin?:string
+
+    textInfo?:string
+    textEnd?:string
+
+    textReplace?:string
+
+
+}

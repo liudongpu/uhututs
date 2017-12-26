@@ -26,6 +26,14 @@ var defineBase = {
     */
     replaceSignEnd: 'uhutu_sign_end_',
     /**
+     * 自动生成开始
+     */
+    replaceAutoBegin: 'uhutu_auto_begin_',
+    /**
+     * 自动生成结束
+     */
+    replaceAutoEnd: 'uhutu_auto_end_',
+    /**
      * 开发目录
      */
     pathDev: "dev",

@@ -2,25 +2,28 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-const HomeScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Home Screen</Text>
-  </View>
-);
 
-const DetailsScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Details Screen</Text>
-  </View>
-);
+//uhutu_auto_begin_import
 
-const RootNavigator = StackNavigator({
-  Home: {
-    screen: HomeScreen,
-  },
-  Details: {
-    screen: DetailsScreen,
-  },
-});
+
+
+//uhutu_auto_end_import
+
+
+
+
+const RouteStack={
+  //uhutu_auto_begin_route
+  
+  //uhutu_auto_end_route
+  
+  }
+  
+  
+
+
+
+
+const RootNavigator = StackNavigator(RouteStack);
 
 export default RootNavigator;
