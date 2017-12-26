@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var file_1 = require("./../easy/file");
 var package_1 = require("./../process/package");
 var launch_1 = require("./../easy/launch");
 var index_1 = require("../../tcore/index");
@@ -22,6 +23,8 @@ var UpdateGo = /** @class */ (function () {
             index_2.TNodeProtoProcess.spawnSync("react-native", ["init", program_1.BootProgram.upGoWorkOfNative()]);
         }
         package_1.ProcessPackage.checkOrUpdate(index_2.TNodeIoFile.pathJoin(program_1.BootProgram.upGoWorkOfNative(), index_1.TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
+        file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/native.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/native.mustache"));
+        file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/indexs/App.js"), launch_1.EasyLaunch.upGoNativePath("App.js"));
     };
     return UpdateGo;
 }());

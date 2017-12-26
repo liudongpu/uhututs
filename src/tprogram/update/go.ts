@@ -1,3 +1,4 @@
+import { EasyFile } from './../easy/file';
 import { ProcessPackage } from './../process/package';
 import {AModelConfig} from './../../air/model/config';
 import {IConfigInfo} from './../../air/interfaces/config';
@@ -49,6 +50,10 @@ export class UpdateGo {
 
 
 
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/native.mustache"), EasyLaunch.upDevPathForResources("macro/native.mustache"));
+
+
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/indexs/App.js"), EasyLaunch.upGoNativePath("App.js"));
 
     }
 
