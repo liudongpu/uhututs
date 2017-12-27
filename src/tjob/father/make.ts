@@ -38,23 +38,21 @@ export abstract class FatherMake {
 
     protected abstract subBank():IJobBank;
 
+
+
+    public abstract subPageConfig(sJson:string,fileInfo:KJobFileInfo):IConfigPage;
+
+
+
     makeResult(oPageOut : KJobPageOut, fileInfo : KJobFileInfo) : KJobPageOut {
 
 
         if(oPageOut.config===undefined){
-            oPageOut.config=TCoreHelperObject.parseTs<IConfigPage>({});
+            oPageOut.config=this.subPageConfig("{}",fileInfo);
         }
 
 
-        if(oPageOut.config) {
-            if (TCoreHelperString.isEmpty(oPageOut.config.macroUrl)) {
-                oPageOut.config.macroUrl =    "dev/resources/macro/" + this.subWorkType() + ".mustache";
-            } else {
-                oPageOut.config.macroUrl = TNodeIoFile.pathNormalize(TNodeIoFile.pathJoin(TNodeIoFile.parentPath(fileInfo.path), oPageOut.config.macroUrl))
-            }
-
-        }
-
+       
         return oPageOut;
 
     }

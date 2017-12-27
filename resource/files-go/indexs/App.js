@@ -9,6 +9,7 @@ import { StackNavigator } from 'react-navigation';
 
 //uhutu_auto_end_import
 
+import styles from "./pages/agent/theme/layout-style";
 
 
 
@@ -24,6 +25,15 @@ const RouteStack={
 
 
 
-const RootNavigator = StackNavigator(RouteStack);
+const RootNavigator = StackNavigator(RouteStack,
+{
+  navigationOptions:{
+    headerTitleStyle:styles.theme_layout_nav_title,
+    headerStyle:styles.theme_layout_nav_header,
+    headerTintColor:'#ffffff',
+    headerBackTitle:' ',
+    headerBackTitleStyle:styles.theme_layout_nav_back
+  }
+});
 
 export default RootNavigator;

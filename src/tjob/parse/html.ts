@@ -96,7 +96,7 @@ export class ParseHtml {
                         break;
 
                     case AEnumNodeType.config:
-                        oResult.config = TCoreCommonFunc.jsonParse < IConfigPage > (oNodeInfo.nodeInfo);
+                        oResult.config = make.subPageConfig(oNodeInfo.nodeInfo,fileInfo);
                         break;
                     default:
 

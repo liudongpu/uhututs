@@ -15,6 +15,11 @@ import {
   View
 } from 'react-native';
 
+{{#out.config.styleUrl}}
+import styles from "{{{out.config.styleUrl}}}";
+{{/out.config.styleUrl}}
+
+
 export default class  extends Component {
 
 

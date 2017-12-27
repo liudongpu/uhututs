@@ -21,8 +21,24 @@ var MakeNative = /** @class */ (function (_super) {
     MakeNative.prototype.subWorkType = function () {
         return index_1.TBase.defineBase().workNative;
     };
+    MakeNative.prototype.subPageConfig = function (sJson, fileInfo) {
+        var oDefaultConfig = {
+            macroUrl: "dev/resources/macro/" + this.subWorkType() + ".mustache",
+            pageTitle: '',
+            styleUrl: './' + fileInfo.name + '-style'
+        };
+        return index_1.TCoreHelperObject.assign(oDefaultConfig, index_1.TCoreCommonFunc.jsonParse(sJson));
+    };
     MakeNative.prototype.subElementParse = function (oNodeInfo) {
         if (oNodeInfo.sourceClass != undefined) {
+            var aClass = oNodeInfo.sourceClass.split(' ');
+            var aStyles_1 = [];
+            aClass.forEach(function (fItem) {
+                if (fItem) {
+                    aStyles_1.push('styles.' + fItem);
+                }
+            });
+            oNodeInfo.itemAttr.set("style", "[" + aStyles_1.join(",") + "]");
         }
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo.itemAttr.set("onPress", "()=>{}");

@@ -1,8 +1,10 @@
+import { IConfigPage } from './../../air/interfaces/config';
 
 import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
 import { FatherMake } from '../father/make';
-import { TCoreHelperString, TBase } from '../../tcore/index';
+import { TCoreHelperString, TBase, TCoreHelperObject, TCoreHelperMap, TCoreCommonFunc } from '../../tcore/index';
 import { BankNative } from '../bank/native';
+import { access } from 'fs';
 
 
 
@@ -15,6 +17,28 @@ export class MakeNative extends FatherMake{
     }
 
 
+
+    subPageConfig(sJson:string,fileInfo:KJobFileInfo):IConfigPage{
+
+
+
+        let oDefaultConfig:IConfigPage={
+            macroUrl:"dev/resources/macro/" + this.subWorkType() + ".mustache",
+            pageTitle:'',
+            styleUrl:'./'+fileInfo.name+'-style'
+        }
+
+
+
+        return TCoreHelperObject.assign(oDefaultConfig,TCoreCommonFunc.jsonParse(sJson));
+
+
+
+    }
+
+
+
+
      subElementParse(oNodeInfo : KJobNodeInfo):KJobNodeInfo{
 
 
@@ -22,7 +46,20 @@ export class MakeNative extends FatherMake{
 
         if(oNodeInfo.sourceClass!=undefined){
 
-            
+
+            let aClass=oNodeInfo.sourceClass.split(' ');
+
+            let aStyles=[];
+
+            aClass.forEach(fItem=>{
+                if(fItem){
+                    aStyles.push('styles.'+fItem);
+                }
+            })
+
+
+            oNodeInfo.itemAttr.set("style","["+aStyles.join(",")+"]");
+
 
         }
 

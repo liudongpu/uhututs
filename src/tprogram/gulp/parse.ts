@@ -36,7 +36,7 @@ export class GulpParse {
             
             oParseFile.content = file.contents.toString();
 
-           
+           oParseFile.name=TNodeIoFile.upBaseName(file.relative, undefined);
 
             //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
             oParseFile.path=file.history[0];

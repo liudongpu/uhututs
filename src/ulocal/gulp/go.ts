@@ -6,6 +6,10 @@ import sass = require('gulp-sass');
 import connect = require('gulp-connect');
 import rename = require('gulp-rename');
 import watch = require('gulp-watch');
+
+import reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
+
+
 import {TNodeIoFile} from '../../tnode/index';
 import {TBase} from '../../tcore/index';
 import { TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse, TProgramEasyStart } from '../../tprogram/index';
@@ -124,7 +128,31 @@ class GulpTask {
 
     taskStatic() {}
 
-    taskSass() {}
+    taskSass() {
+
+
+        var oTask = new GulpTask("main_sass");
+
+        if (oLocalConfig.projectEnableNative) {
+            oTask.inSubTask(TBase.defineBase().workNative, function () {
+                return watch(oGulpDefine.pathSass, { ignoreInitial: false })
+
+                    .pipe(sass().on('error', sass.logError))
+                    .pipe(reactNativeStylesheetCss())
+                    .pipe(rename({
+                        suffix: "-style",
+                        extname: ".js"
+                    }))
+                    .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)));
+            });
+        }
+
+        oTask.inTopTask();
+
+    }
+
+
+
 
     taskDefault() {
         gulp.task('default', oGulpDefine.task_default);

@@ -23,6 +23,7 @@
     "css-to-react-native": "^2.0.4",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
+    "gulp-react-native-stylesheet-css": "^1.4.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-watch": "^4.3.11",

@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var gulp = require("gulp");
+var sass = require("gulp-sass");
 var rename = require("gulp-rename");
 var watch = require("gulp-watch");
+var reactNativeStylesheetCss = require("gulp-react-native-stylesheet-css");
 var index_1 = require("../../tnode/index");
 var index_2 = require("../../tcore/index");
 var index_3 = require("../../tprogram/index");
@@ -86,7 +88,22 @@ var GulpGo = /** @class */ (function () {
         oTask.inTopTask();
     };
     GulpGo.prototype.taskStatic = function () { };
-    GulpGo.prototype.taskSass = function () { };
+    GulpGo.prototype.taskSass = function () {
+        var oTask = new GulpTask("main_sass");
+        if (oLocalConfig.projectEnableNative) {
+            oTask.inSubTask(index_2.TBase.defineBase().workNative, function () {
+                return watch(oGulpDefine.pathSass, { ignoreInitial: false })
+                    .pipe(sass().on('error', sass.logError))
+                    .pipe(reactNativeStylesheetCss())
+                    .pipe(rename({
+                    suffix: "-style",
+                    extname: ".js"
+                }))
+                    .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevPages)));
+            });
+        }
+        oTask.inTopTask();
+    };
     GulpGo.prototype.taskDefault = function () {
         gulp.task('default', oGulpDefine.task_default);
     };

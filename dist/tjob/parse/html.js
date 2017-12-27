@@ -66,7 +66,7 @@ var ParseHtml = /** @class */ (function () {
                         oCurrentPage.templateContents = [];
                         break;
                     case enumer_1.AEnumNodeType.config:
-                        oResult.config = index_1.TCoreCommonFunc.jsonParse(oNodeInfo.nodeInfo);
+                        oResult.config = make.subPageConfig(oNodeInfo.nodeInfo, fileInfo);
                         break;
                     default:
                         break;

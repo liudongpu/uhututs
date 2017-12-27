@@ -11,6 +11,9 @@ export class KJobFileInfo{
 
     path:string
 
+
+    name:string
+
     content:string
 
 
