@@ -43,10 +43,23 @@ var MakeNative = /** @class */ (function (_super) {
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo.itemAttr.set("onPress", "()=>{}");
         }
+        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, "data-template-"));
         oNodeInfo.itemAttr.forEach(function (v, k) {
             oNodeInfo.itemAttr.set(k, "{" + v + "}");
         });
         return oNodeInfo;
+    };
+    MakeNative.prototype.attrTemplate = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case "call":
+                        oNodeInfo.nodeInfo = "{this.x_template_render_" + v + "()}";
+                        break;
+                }
+                ;
+            });
+        }
     };
     MakeNative.prototype.subBank = function () {
         return new native_1.BankNative();

@@ -2,9 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var elementList = {
     div: {
+        name: "View"
+    },
+    object: {
         name: "View",
         typeName: {
-            "scroll": "ScrollView"
+            "scroll": "ScrollView",
+            "list": "FlatList"
         }
     },
     a: {

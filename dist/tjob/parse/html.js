@@ -14,6 +14,7 @@ var sSetElement = new Set([
     "input",
     "img",
     "label",
+    "object",
     "select"
 ]);
 var sSetScript = new Set(["script"]);

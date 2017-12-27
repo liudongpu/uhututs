@@ -8,6 +8,12 @@ var FatherMake = /** @class */ (function () {
         var mElement = index_1.TCoreHelperMap.parseMap(this.subBank().upElementList());
         var oInfo = mElement.get(oNodeInfo.nodeName);
         oNodeInfo.itemName = oInfo.name;
+        if (oInfo.typeName) {
+            var mTypeName = index_1.TCoreHelperMap.objectToMap(oInfo.typeName);
+            if (mTypeName.has(oNodeInfo.sourceType)) {
+                oNodeInfo.itemName = mTypeName.get(oNodeInfo.sourceType);
+            }
+        }
         this.subElementParse(oNodeInfo);
         return oNodeInfo;
     };

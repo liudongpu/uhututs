@@ -18,6 +18,7 @@ const sSetElement : Set < string >= new Set < string > ([
     "input",
     "img",
     "label",
+    "object",
     "select"
 ]);
 

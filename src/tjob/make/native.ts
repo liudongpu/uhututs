@@ -72,6 +72,12 @@ export class MakeNative extends FatherMake{
 
 
 
+      
+
+
+       this.attrTemplate(oNodeInfo,TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr,"data-template-"));
+
+
 
        oNodeInfo.itemAttr.forEach((v,k)=>{
            oNodeInfo.itemAttr.set(k,"{"+v+"}");
@@ -82,6 +88,40 @@ export class MakeNative extends FatherMake{
         return oNodeInfo;
 
     }
+
+
+
+    private attrTemplate(oNodeInfo : KJobNodeInfo,mMap:Map<string,string>){
+
+        if(mMap.size>0){
+
+            mMap.forEach((v,k)=>{
+
+                switch(k){
+
+
+                    case "call":
+
+                        oNodeInfo.nodeInfo="{this.x_template_render_"+v+"()}";
+
+                    break;
+
+
+                };
+
+
+
+            });
+
+
+        }
+
+        
+    }
+
+
+
+
 
 
     subBank(){

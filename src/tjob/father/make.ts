@@ -15,6 +15,20 @@ export abstract class FatherMake {
 
         oNodeInfo.itemName = oInfo.name;
 
+
+        if(oInfo.typeName){
+
+
+            let mTypeName=TCoreHelperMap.objectToMap(oInfo.typeName);
+
+            if(mTypeName.has(oNodeInfo.sourceType)){
+                oNodeInfo.itemName=mTypeName.get(oNodeInfo.sourceType);
+            }
+
+        }
+
+
+
         this.subElementParse(oNodeInfo);
 
         return oNodeInfo;

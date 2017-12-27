@@ -33,6 +33,19 @@ export default class  extends Component {
   }
 
 
+
+
+
+  {{#out.templates}}
+    x_template_render_{{name}}(item){
+      return (
+      {{{content}}}
+      )
+    }
+  {{/out.templates}}
+
+
+
   
 
   render(){

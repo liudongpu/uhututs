@@ -12,6 +12,8 @@ export interface IHtmlElementList{
 
     div:IHtmlElementInfo
 
+    object:IHtmlElementInfo
+
     a:IHtmlElementInfo
 
     input:IHtmlElementInfo

@@ -118,4 +118,19 @@ export class HelperMap {
 
     }
 
+    static upChildrenMap < T > (mMap : Map < string, T >, sStart : string) : Map < string,
+    T > {
+
+        let mReturn = new Map < string,
+            T > ();
+
+        mMap.forEach((v, k) => {
+            if (k.startsWith(sStart)) {
+                mReturn.set(k.substr(sStart.length), v);
+            }
+        });
+        return mReturn;
+
+    }
+
 }

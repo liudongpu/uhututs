@@ -84,6 +84,15 @@ var HelperMap = /** @class */ (function () {
         oSet.forEach(function (f) { return aString.push(f); });
         return aString.join(',');
     };
+    HelperMap.upChildrenMap = function (mMap, sStart) {
+        var mReturn = new Map();
+        mMap.forEach(function (v, k) {
+            if (k.startsWith(sStart)) {
+                mReturn.set(k.substr(sStart.length), v);
+            }
+        });
+        return mReturn;
+    };
     return HelperMap;
 }());
 exports.HelperMap = HelperMap;

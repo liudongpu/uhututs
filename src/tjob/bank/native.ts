@@ -4,9 +4,14 @@ import { IJobBank } from '../../air/interfaces/job';
 const elementList : IHtmlElementList = {
 
     div: {
+        name: "View"
+    },
+
+    object:{
         name: "View",
         typeName: {
-            "scroll": "ScrollView"
+            "scroll": "ScrollView",
+            "list":"FlatList"
         }
     },
 
