@@ -6,7 +6,16 @@ var parse_1 = require("../../air/export/parse");
 var index_1 = require("../../tcore/index");
 var sSetIgnore = new Set(["html", "head", "body"]);
 var sSetTemplage = new Set(["template"]);
-var sSetElement = new Set(["div", "a", "span", "button", "input", "img", "label", "select"]);
+var sSetElement = new Set([
+    "div",
+    "a",
+    "span",
+    "button",
+    "input",
+    "img",
+    "label",
+    "select"
+]);
 var sSetScript = new Set(["script"]);
 var ParseHtml = /** @class */ (function () {
     function ParseHtml() {
@@ -73,7 +82,17 @@ var ParseHtml = /** @class */ (function () {
         return oResult;
     };
     ParseHtml.processElementBegin = function (oNodeInfo, oCurrentPage) {
-        var sContent = '<' + oNodeInfo.itemName + '>';
+        var aAttr = [];
+        aAttr.push("<" + oNodeInfo.itemName);
+        if (oNodeInfo.itemAttr.size > 0) {
+            oNodeInfo
+                .itemAttr
+                .forEach(function (v, k) {
+                aAttr.push(' ' + k + '=' + v);
+            });
+        }
+        aAttr.push(">");
+        var sContent = aAttr.join('');
         if (oCurrentPage.templateFlag) {
             oCurrentPage
                 .templateContents

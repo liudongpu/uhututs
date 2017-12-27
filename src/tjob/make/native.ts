@@ -17,9 +17,28 @@ export class MakeNative extends FatherMake{
 
      subElementParse(oNodeInfo : KJobNodeInfo):KJobNodeInfo{
 
+
+
+
+        if(oNodeInfo.sourceClass!=undefined){
+
+            
+
+        }
+
         
 
-       
+       if(oNodeInfo.nodeAttr.has("href")){
+           oNodeInfo.itemAttr.set("onPress","()=>{}");
+       }
+
+
+
+
+
+       oNodeInfo.itemAttr.forEach((v,k)=>{
+           oNodeInfo.itemAttr.set(k,"{"+v+"}");
+       })
 
 
 

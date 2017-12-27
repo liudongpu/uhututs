@@ -10,7 +10,16 @@ const sSetIgnore : Set < string >= new Set < string > (["html", "head", "body"])
 
 const sSetTemplage : Set < string >= new Set < string > (["template"]);
 
-const sSetElement : Set < string >= new Set < string > (["div", "a", "span","button","input","img","label","select"]);
+const sSetElement : Set < string >= new Set < string > ([
+    "div",
+    "a",
+    "span",
+    "button",
+    "input",
+    "img",
+    "label",
+    "select"
+]);
 
 const sSetScript : Set < string >= new Set < string > (["script"]);
 
@@ -115,7 +124,22 @@ export class ParseHtml {
 
     private static processElementBegin(oNodeInfo : KJobNodeInfo, oCurrentPage : KJobCurrentParse) {
 
-        let sContent = '<' + oNodeInfo.itemName + '>';
+        let aAttr = [];
+        aAttr.push("<" + oNodeInfo.itemName);
+
+        if (oNodeInfo.itemAttr.size > 0) {
+
+            oNodeInfo
+                .itemAttr
+                .forEach((v, k) => {
+
+                    aAttr.push(' ' + k + '=' + v);
+                });
+
+        }
+        aAttr.push(">");
+
+        let sContent = aAttr.join('');
 
         if (oCurrentPage.templateFlag) {
             oCurrentPage

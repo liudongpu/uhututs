@@ -22,6 +22,14 @@ var MakeNative = /** @class */ (function (_super) {
         return index_1.TBase.defineBase().workNative;
     };
     MakeNative.prototype.subElementParse = function (oNodeInfo) {
+        if (oNodeInfo.sourceClass != undefined) {
+        }
+        if (oNodeInfo.nodeAttr.has("href")) {
+            oNodeInfo.itemAttr.set("onPress", "()=>{}");
+        }
+        oNodeInfo.itemAttr.forEach(function (v, k) {
+            oNodeInfo.itemAttr.set(k, "{" + v + "}");
+        });
         return oNodeInfo;
     };
     MakeNative.prototype.subBank = function () {
