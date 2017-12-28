@@ -5,7 +5,6 @@ import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateI
 import {FatherMake} from '../father/make';
 import {TCoreHelperString, TBase, TCoreHelperObject, TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
 import {BankNative} from '../bank/native';
-import {access} from 'fs';
 
 export class MakeNative extends FatherMake {
 
