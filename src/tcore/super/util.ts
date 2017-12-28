@@ -1,7 +1,7 @@
+import { ADefineStart } from './../../air/define/start';
 import {HelperString} from './../helper/string';
 import {ADefineLang} from "../../air/define/lang";
 import {EUtilLog} from '../../air/export/util';
-import {ADefineStart} from '../../air/define/start';
 
 export class SuperUtil {
 
@@ -43,6 +43,12 @@ export class SuperUtil {
     static defineProgram() {
         return ADefineStart.upProgram();
     }
+
+
+    static defineData(){
+        return ADefineStart.upData();
+    }
+
 
     /**
      * 获取文本信息根据编号

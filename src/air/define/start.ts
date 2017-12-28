@@ -55,6 +55,12 @@ const defineBase = {
 
     pathDevSettings: "settings",
 
+
+
+    regexOutBegin: "[#",
+    regexOutEnd: "]",
+
+    regexBaseString: "(.*?):(.*?)",
     
 
     /**
@@ -89,6 +95,31 @@ const defineProgram = {
 
 };
 
+
+
+
+
+const defineData={
+
+
+    startTemplate:'data-template-',
+    startSource:'data-source-',
+
+    nameRecord:'record',
+    nameCall:'call',
+    nameRender:'render',
+
+    nameState:'state'
+
+
+
+
+
+}
+
+
+
+
 export class ADefineStart {
 
     static upBase() {
@@ -97,6 +128,12 @@ export class ADefineStart {
 
     static upProgram() {
         return defineProgram;
+    }
+
+
+
+    static upData(){
+        return defineData;
     }
 
 }

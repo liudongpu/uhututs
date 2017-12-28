@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+var enumer_1 = require("./../../air/define/enumer");
 var make_1 = require("../father/make");
 var index_1 = require("../../tcore/index");
 var native_1 = require("../bank/native");
@@ -19,7 +20,9 @@ var MakeNative = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MakeNative.prototype.subWorkType = function () {
-        return index_1.TBase.defineBase().workNative;
+        return index_1.TBase
+            .defineBase()
+            .workNative;
     };
     MakeNative.prototype.subPageConfig = function (sJson, fileInfo) {
         var oDefaultConfig = {
@@ -31,30 +34,68 @@ var MakeNative = /** @class */ (function (_super) {
     };
     MakeNative.prototype.subElementParse = function (oNodeInfo) {
         if (oNodeInfo.sourceClass != undefined) {
-            var aClass = oNodeInfo.sourceClass.split(' ');
+            var aClass = oNodeInfo
+                .sourceClass
+                .split(' ');
             var aStyles_1 = [];
             aClass.forEach(function (fItem) {
                 if (fItem) {
                     aStyles_1.push('styles.' + fItem);
                 }
             });
-            oNodeInfo.itemAttr.set("style", "[" + aStyles_1.join(",") + "]");
+            oNodeInfo
+                .itemAttr
+                .set("style", "[" + aStyles_1.join(",") + "]");
         }
         if (oNodeInfo.nodeAttr.has("href")) {
-            oNodeInfo.itemAttr.set("onPress", "()=>{}");
+            oNodeInfo
+                .itemAttr
+                .set("onPress", "()=>{}");
         }
-        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, "data-template-"));
-        oNodeInfo.itemAttr.forEach(function (v, k) {
-            oNodeInfo.itemAttr.set(k, "{" + v + "}");
+        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startTemplate));
+        this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startSource));
+        oNodeInfo
+            .itemAttr
+            .forEach(function (v, k) {
+            oNodeInfo
+                .itemAttr
+                .set(k, "{" + v + "}");
         });
         return oNodeInfo;
+    };
+    MakeNative.prototype.subFormat = function (eKey, sValue) {
+        var sReturn = "";
+        switch (eKey) {
+            case enumer_1.AEnumRegexKey.state:
+                sReturn = "{this.state." + sValue + "}";
+                break;
+            case enumer_1.AEnumRegexKey.item:
+                sReturn = "{item." + sValue + "}";
+                break;
+        }
+        return sReturn;
     };
     MakeNative.prototype.attrTemplate = function (oNodeInfo, mMap) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 switch (k) {
-                    case "call":
-                        oNodeInfo.nodeInfo = "{this.x_template_render_" + v + "()}";
+                    case index_1.TBase.defineData().nameCall:
+                        oNodeInfo.nodeInfo = "{this.x_template_render_" + v + "(" + mMap.get(index_1.TBase.defineData().nameRecord) + ")}";
+                        break;
+                    case index_1.TBase.defineData().nameRender:
+                        oNodeInfo.itemAttr.set("renderItem", "({item}) =>{return this.x_template_render_" + v + "(item)}");
+                        break;
+                }
+                ;
+            });
+        }
+    };
+    MakeNative.prototype.attrSource = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_1.TBase.defineData().nameState:
+                        oNodeInfo.itemAttr.set("data", "this.state." + v);
                         break;
                 }
                 ;

@@ -41,6 +41,9 @@ var defineBase = {
     pathDevResources: "resources",
     pathDevScripts: "scripts",
     pathDevSettings: "settings",
+    regexOutBegin: "[#",
+    regexOutEnd: "]",
+    regexBaseString: "(.*?):(.*?)",
     /**
      * 客户端类项目名称标记
      */
@@ -60,6 +63,14 @@ var defineProgram = {
     fileNameOfConfig: "config-go.json",
     fileNameOfPackage: "package.json"
 };
+var defineData = {
+    startTemplate: 'data-template-',
+    startSource: 'data-source-',
+    nameRecord: 'record',
+    nameCall: 'call',
+    nameRender: 'render',
+    nameState: 'state'
+};
 var ADefineStart = /** @class */ (function () {
     function ADefineStart() {
     }
@@ -68,6 +79,9 @@ var ADefineStart = /** @class */ (function () {
     };
     ADefineStart.upProgram = function () {
         return defineProgram;
+    };
+    ADefineStart.upData = function () {
+        return defineData;
     };
     return ADefineStart;
 }());

@@ -22,6 +22,7 @@ var KJobPageOut = /** @class */ (function () {
          * @memberof KjobPageOut
          */
         this.content = "";
+        this.state = "{}";
         this.templates = [];
     }
     return KJobPageOut;

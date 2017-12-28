@@ -1,5 +1,6 @@
 import { IConfigPage } from './../interfaces/config';
 import { AEnumNodeType } from "../define/enumer";
+import { IbaseKv } from '../interfaces/base';
 
 
 
@@ -38,6 +39,9 @@ export class KJobPageOut{
     content:string=""
 
     config:IConfigPage
+
+
+    state:string="{}"
 
 
     templates:KJobTemplateInfo[]=[]

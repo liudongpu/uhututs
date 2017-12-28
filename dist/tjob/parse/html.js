@@ -52,6 +52,7 @@ var ParseHtml = /** @class */ (function () {
                     .pop();
                 switch (oNodeInfo.nodeType) {
                     case enumer_1.AEnumNodeType.element:
+                        oNodeInfo.nodeInfo = make.makeFormat(oNodeInfo.nodeInfo);
                         ParseHtml.processElementEnd(oNodeInfo, oCurrentPage);
                         break;
                     case enumer_1.AEnumNodeType.template:
@@ -68,6 +69,9 @@ var ParseHtml = /** @class */ (function () {
                         break;
                     case enumer_1.AEnumNodeType.config:
                         oResult.config = make.subPageConfig(oNodeInfo.nodeInfo, fileInfo);
+                        break;
+                    case enumer_1.AEnumNodeType.state:
+                        oResult.state = oNodeInfo.nodeInfo;
                         break;
                     default:
                         break;
@@ -142,6 +146,9 @@ var ParseHtml = /** @class */ (function () {
             switch (oNodeInfo.sourceType) {
                 case "json/config":
                     oNodeInfo.nodeType = enumer_1.AEnumNodeType.config;
+                    break;
+                case "json/state":
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.state;
                     break;
                 default:
                     oNodeInfo.nodeType = enumer_1.AEnumNodeType.script;

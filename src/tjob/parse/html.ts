@@ -74,6 +74,8 @@ export class ParseHtml {
 
                     case AEnumNodeType.element:
 
+                        oNodeInfo.nodeInfo = make.makeFormat(oNodeInfo.nodeInfo);
+
                         ParseHtml.processElementEnd(oNodeInfo, oCurrentPage);
 
                         break;
@@ -97,8 +99,13 @@ export class ParseHtml {
                         break;
 
                     case AEnumNodeType.config:
-                        oResult.config = make.subPageConfig(oNodeInfo.nodeInfo,fileInfo);
+                        oResult.config = make.subPageConfig(oNodeInfo.nodeInfo, fileInfo);
                         break;
+
+                    case AEnumNodeType.state:
+                        oResult.state=oNodeInfo.nodeInfo;
+                        break;
+
                     default:
 
                         break;
@@ -196,6 +203,9 @@ export class ParseHtml {
 
                 case "json/config":
                     oNodeInfo.nodeType = AEnumNodeType.config;
+                    break;
+                case "json/state":
+                    oNodeInfo.nodeType = AEnumNodeType.state;
                     break;
 
                 default:

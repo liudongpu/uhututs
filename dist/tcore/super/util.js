@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var start_1 = require("./../../air/define/start");
 var string_1 = require("./../helper/string");
 var lang_1 = require("../../air/define/lang");
 var util_1 = require("../../air/export/util");
-var start_1 = require("../../air/define/start");
 var SuperUtil = /** @class */ (function () {
     function SuperUtil() {
     }
@@ -32,6 +32,9 @@ var SuperUtil = /** @class */ (function () {
     };
     SuperUtil.defineProgram = function () {
         return start_1.ADefineStart.upProgram();
+    };
+    SuperUtil.defineData = function () {
+        return start_1.ADefineStart.upData();
     };
     /**
      * 获取文本信息根据编号

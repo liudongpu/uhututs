@@ -30,6 +30,12 @@ export enum AEnumNodeType{
      */
     config,
 
+
+    /**
+     * 状态数据
+     */
+    state,
+
     /**
      * 模板
      */
@@ -42,5 +48,24 @@ export enum AEnumNodeType{
 
 }
 
+
+
+
+
+export enum AEnumRegexKey{
+
+    state,
+
+    item,
+
+    env,
+
+    this,
+
+    tag,
+
+    unknow
+
+}
 
 
