@@ -4,6 +4,9 @@ class Book {
 
     navigateUrl(that,sUrl:string) {
 
+
+        that.props.navigation.navigate(sUrl);
+
     }
 
 }

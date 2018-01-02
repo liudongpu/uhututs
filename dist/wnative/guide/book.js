@@ -4,6 +4,7 @@ var Book = /** @class */ (function () {
     function Book() {
     }
     Book.prototype.navigateUrl = function (that, sUrl) {
+        that.props.navigation.navigate(sUrl);
     };
     return Book;
 }());
