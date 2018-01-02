@@ -32,15 +32,16 @@ export class UpdateGo {
             TNodeProtoProcess.spawnSync("react-native", [
                 "init", BootProgram.upGoWorkOfNative()
             ]);
+        } else {
+
+            ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
+
+            EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/native.mustache"), EasyLaunch.upDevPathForResources("macro/native.mustache"));
+
+            EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/indexs/App.js"), EasyLaunch.upGoNativePath("App.js"));
+
+            this.updatePagesNavigation();
         }
-
-        ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
-
-        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/native.mustache"), EasyLaunch.upDevPathForResources("macro/native.mustache"));
-
-        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/indexs/App.js"), EasyLaunch.upGoNativePath("App.js"));
-
-        this.updatePagesNavigation();
 
     }
 
@@ -50,7 +51,7 @@ export class UpdateGo {
 
         let aImport = [];
 
-        let aRoute=[];
+        let aRoute = [];
         aFileInfo.forEach(fItem => {
             aImport.push(fItem.importName);
 
@@ -80,8 +81,6 @@ export class UpdateGo {
                 .replaceAutoEnd + "route",
             textReplace: aRoute.join('\r\n')
         });
-
-        
 
     }
 

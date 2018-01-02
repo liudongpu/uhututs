@@ -52,7 +52,7 @@ export class VendWar {
             VendInit.initProgram(a);
         }
 
-        if (this.checkInit()) {
+        else if (this.checkInit()) {
 
             if (a.updateManage) {
                 UpdateWeb.update(a);

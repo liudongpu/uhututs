@@ -49,7 +49,7 @@ var VendWar = /** @class */ (function () {
         if (a.init) {
             init_1.VendInit.initProgram(a);
         }
-        if (this.checkInit()) {
+        else if (this.checkInit()) {
             if (a.updateManage) {
                 web_1.UpdateWeb.update(a);
             }
