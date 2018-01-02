@@ -33,7 +33,8 @@ const RootNavigator = StackNavigator(RouteStack,
     headerTintColor:'#ffffff',
     headerBackTitle:' ',
     headerBackTitleStyle:styles.theme_layout_nav_back
-  }
+  },
+  cardStyle:styles.theme_layout_card_main
 });
 
 export default RootNavigator;

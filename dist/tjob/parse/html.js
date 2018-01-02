@@ -8,6 +8,7 @@ var sSetIgnore = new Set(["html", "head", "body"]);
 var sSetTemplage = new Set(["template"]);
 var sSetElement = new Set([
     "div",
+    "main",
     "a",
     "span",
     "button",

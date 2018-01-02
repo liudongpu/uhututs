@@ -16,7 +16,11 @@ export interface IHtmlElementList{
 
     a:IHtmlElementInfo
 
+    button:IHtmlElementInfo
+
     input:IHtmlElementInfo
+
+    main:IHtmlElementInfo
 
     span:IHtmlElementInfo
 }

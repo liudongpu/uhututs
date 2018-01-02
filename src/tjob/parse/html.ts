@@ -12,6 +12,7 @@ const sSetTemplage : Set < string >= new Set < string > (["template"]);
 
 const sSetElement : Set < string >= new Set < string > ([
     "div",
+    "main",
     "a",
     "span",
     "button",

@@ -40,7 +40,12 @@ var MakeNative = /** @class */ (function (_super) {
             var aStyles_1 = [];
             aClass.forEach(function (fItem) {
                 if (fItem) {
-                    aStyles_1.push('styles.' + fItem);
+                    if (fItem.startsWith("tg_")) {
+                        aStyles_1.push('styletg.' + fItem);
+                    }
+                    else {
+                        aStyles_1.push('styles.' + fItem);
+                    }
                 }
             });
             oNodeInfo

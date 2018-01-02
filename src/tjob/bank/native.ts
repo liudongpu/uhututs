@@ -6,6 +6,9 @@ const elementList : IHtmlElementList = {
     div: {
         name: "View"
     },
+    main: {
+        name: "View"
+    },
 
     object:{
         name: "View",
@@ -13,6 +16,11 @@ const elementList : IHtmlElementList = {
             "scroll": "ScrollView",
             "list":"FlatList"
         }
+    },
+
+    button:{
+
+        name:"TouchableOpacity"
     },
 
     a: {

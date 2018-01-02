@@ -4,12 +4,18 @@ var elementList = {
     div: {
         name: "View"
     },
+    main: {
+        name: "View"
+    },
     object: {
         name: "View",
         typeName: {
             "scroll": "ScrollView",
             "list": "FlatList"
         }
+    },
+    button: {
+        name: "TouchableOpacity"
     },
     a: {
         name: "TouchableOpacity"

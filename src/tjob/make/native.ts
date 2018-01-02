@@ -38,7 +38,15 @@ export class MakeNative extends FatherMake {
 
             aClass.forEach(fItem => {
                 if (fItem) {
-                    aStyles.push('styles.' + fItem);
+
+                    if(fItem.startsWith("tg_")){
+                        aStyles.push('styletg.' + fItem);
+                    }
+                    else{
+                        aStyles.push('styles.' + fItem);
+                    }
+
+                    
                 }
             })
 
