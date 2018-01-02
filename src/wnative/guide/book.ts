@@ -1,12 +1,40 @@
 import {IGuideBook} from "../../air/interfaces/guide";
+import {AsyncStorage} from 'react-native';
+import {TCoreCommonFunc} from "../../tcore/index";
 
 class Book {
 
-    navigateUrl(that,sUrl:string) {
+    navigateUrl(that, sUrl : string) {
 
+        that
+            .props
+            .navigation
+            .navigate(sUrl);
 
-        that.props.navigation.navigate(sUrl);
+    }
 
+    storeGetObject < T > (sKey : string) : Promise < T > {
+
+        return this
+            .storeGetItem(sKey)
+            .then((value) => {
+                return TCoreCommonFunc.jsonParse < T > (value)
+            });
+    }
+
+    storeSetObject < T > (sKey : string, tValue : T) : Promise < void > {
+
+        return this.storeSetItem(sKey, TCoreCommonFunc.jsonStringify(tValue));
+    }
+
+    storeGetItem(sKey : string) : Promise < string > {
+
+        return AsyncStorage.getItem(sKey);
+    }
+
+    storeSetItem(sKey : string, sValue : string) : Promise < void > {
+
+        return AsyncStorage.setItem(sKey, sValue);
     }
 
 }
