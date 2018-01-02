@@ -28,6 +28,10 @@ let configInfo:IConfigInfo={
         reactNavigation:{
             name:"react-navigation",
             version:"1.0.0-beta.22"
+        },
+        ts:{
+            name:"uhutu-ts",
+            version:"git://github.com/liudongpu/uhututs.git"
         }
     }
 

@@ -50,7 +50,7 @@ var MakeNative = /** @class */ (function (_super) {
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo
                 .itemAttr
-                .set("onPress", "()=>{}");
+                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
         }
         this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startTemplate));
         this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startSource));

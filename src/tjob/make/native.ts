@@ -51,7 +51,7 @@ export class MakeNative extends FatherMake {
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo
                 .itemAttr
-                .set("onPress", "()=>{}");
+                .set("onPress", "()=>{guidebook.navigateUrl(this,\""+oNodeInfo.nodeAttr.get("href")+"\")}");
         }
 
         this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));

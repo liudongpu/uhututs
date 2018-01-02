@@ -23,7 +23,7 @@ export class ProcessPackage {
         TNodeIoFile.writeFile(sPackageFile,TCoreCommonFunc.jsonStringifyBeautify(oPackage));
 
 
-        TNodeProtoProcess.spawnSync("yarn",["install"],{cwd:TNodeIoFile.parentPath(sPackageFile)});
+        TNodeProtoProcess.spawnSync("npm",["install"],{cwd:TNodeIoFile.parentPath(sPackageFile)});
 
 
     }
