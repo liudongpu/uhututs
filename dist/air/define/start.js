@@ -1,4 +1,6 @@
-const defineBase = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var defineBase = {
     /**
      * 最基本根路径
      */
@@ -51,7 +53,7 @@ const defineBase = {
     workVue: "vue",
     workWeapp: "weapp"
 };
-const defineProgram = {
+var defineProgram = {
     /**
      * 执行替换的文件扩展名
      */
@@ -61,7 +63,7 @@ const defineProgram = {
     fileNameOfConfig: "config-go.json",
     fileNameOfPackage: "package.json"
 };
-const defineData = {
+var defineData = {
     startTemplate: 'data-template-',
     startSource: 'data-source-',
     nameRecord: 'record',
@@ -69,14 +71,18 @@ const defineData = {
     nameRender: 'render',
     nameState: 'state'
 };
-export class ADefineStart {
-    static upBase() {
+var ADefineStart = /** @class */ (function () {
+    function ADefineStart() {
+    }
+    ADefineStart.upBase = function () {
         return defineBase;
-    }
-    static upProgram() {
+    };
+    ADefineStart.upProgram = function () {
         return defineProgram;
-    }
-    static upData() {
+    };
+    ADefineStart.upData = function () {
         return defineData;
-    }
-}
+    };
+    return ADefineStart;
+}());
+exports.ADefineStart = ADefineStart;

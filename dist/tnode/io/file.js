@@ -1,25 +1,29 @@
-import { TCoreCommonFunc } from './../../tcore/index';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var index_1 = require("./../../tcore/index");
 var fs = require('fs');
 var path = require('path');
-export class IoFile {
-    static chmodSync(sPath, iMode) {
+var IoFile = /** @class */ (function () {
+    function IoFile() {
+    }
+    IoFile.chmodSync = function (sPath, iMode) {
         if (iMode == undefined) {
             iMode = 774;
         }
         fs.chmodSync(sPath, iMode);
-    }
-    static upFilePath(sPath) {
+    };
+    IoFile.upFilePath = function (sPath) {
         return this.pathNormalize(sPath);
-    }
-    static upBaseName(sFile, sExt) {
+    };
+    IoFile.upBaseName = function (sFile, sExt) {
         if (sExt == undefined) {
             sExt = this.upExtName(sFile);
         }
         return path.basename(sFile, sExt);
-    }
-    static upExtName(sFile) {
+    };
+    IoFile.upExtName = function (sFile) {
         return path.extname(sFile);
-    }
+    };
     /**
      * 是否存在路径
      *
@@ -28,10 +32,10 @@ export class IoFile {
      * @returns {boolean}
      * @memberof IoFile
      */
-    static flagExist(sPath) {
+    IoFile.flagExist = function (sPath) {
         return fs.existsSync(sPath);
-    }
-    static mkdir(dirpath, mode) {
+    };
+    IoFile.mkdir = function (dirpath, mode) {
         var sFather = path.dirname(dirpath);
         if (!fs.existsSync(sFather)) {
             this.mkdir(sFather, mode);
@@ -40,12 +44,12 @@ export class IoFile {
             fs.mkdirSync(dirpath, mode);
         }
         return true;
-    }
-    static copyFileAsync(sSourcePath, sTargetPath) {
+    };
+    IoFile.copyFileAsync = function (sSourcePath, sTargetPath) {
         this.mkdir(path.dirname(sTargetPath));
         fs.createReadStream(sSourcePath).pipe(fs.createWriteStream(sTargetPath));
-    }
-    static listDir(sPath) {
+    };
+    IoFile.listDir = function (sPath) {
         var aList = [];
         var stat = fs.statSync(sPath);
         if (stat.isDirectory()) {
@@ -64,72 +68,78 @@ export class IoFile {
             aList.push(sPath);
         }
         return aList;
-    }
+    };
     //根据文件读取配置项
-    static upConfigByFile(sPath) {
+    IoFile.upConfigByFile = function (sPath) {
         var sContent = this.readFile(sPath);
-        return TCoreCommonFunc.jsonParse(sContent);
-    }
+        return index_1.TCoreCommonFunc.jsonParse(sContent);
+    };
     //将配置写入配置文件
-    static inFileByConfig(sPath, oJson) {
-        this.writeFile(sPath, TCoreCommonFunc.jsonStringify(oJson));
-    }
-    static writeFile(sPath, sContent) {
+    IoFile.inFileByConfig = function (sPath, oJson) {
+        this.writeFile(sPath, index_1.TCoreCommonFunc.jsonStringify(oJson));
+    };
+    IoFile.writeFile = function (sPath, sContent) {
         this.mkdir(path.dirname(sPath));
         fs.writeFileSync(sPath, sContent);
-    }
-    static deleteFile(sPath) {
+    };
+    IoFile.deleteFile = function (sPath) {
         fs.rmdirSync(sPath);
-    }
-    static readFile(sPath) {
+    };
+    IoFile.readFile = function (sPath) {
         return fs.readFileSync(sPath, 'UTF-8');
-    }
-    static copyFile(sSource, sTarget) {
+    };
+    IoFile.copyFile = function (sSource, sTarget) {
         this.mkdir(path.dirname(sTarget));
         fs.writeFileSync(sTarget, fs.readFileSync(sSource));
-    }
-    static contentIndexOf(sPath, sStr) {
+    };
+    IoFile.contentIndexOf = function (sPath, sStr) {
         var sContent = this.readFile(sPath);
         return sContent.indexOf(sStr);
-    }
-    static insertAfter(sPath, sIndex, sInsert) {
+    };
+    IoFile.insertAfter = function (sPath, sIndex, sInsert) {
         var sContent = this.readFile(sPath);
         var iIndex = sContent.indexOf(sIndex);
         var sWrite = sContent.substring(0, iIndex + sIndex.length) + sInsert + sContent.substr(iIndex + sIndex.length);
         this.writeFile(sPath, sWrite);
-    }
-    static insertAppend(sPath, sInsert) {
+    };
+    IoFile.insertAppend = function (sPath, sInsert) {
         var sContent = this.readFile(sPath);
         var sWrite = sContent + sInsert;
         this.writeFile(sPath, sWrite);
-    }
-    static parentPath(sPath) {
+    };
+    IoFile.parentPath = function (sPath) {
         return path.dirname(sPath);
-    }
-    static parentTop(sPath, iLevel) {
+    };
+    IoFile.parentTop = function (sPath, iLevel) {
         var sReturn = sPath;
         for (var i = 0; i < iLevel; i++) {
             sReturn = this.parentPath(sReturn);
         }
         return sReturn;
-    }
-    static pathJoin(...args) {
+    };
+    IoFile.pathJoin = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
         var sReturn = '';
         args.forEach(function (arg) {
             sReturn = path.join(sReturn, arg);
         });
         return sReturn;
-    }
-    static pathNormalize(sPath) {
+    };
+    IoFile.pathNormalize = function (sPath) {
         return path.normalize(sPath);
-    }
+    };
     /**
      * 平台的文件路径分隔符，'\\' 或 '/'。
      */
-    static upPathSeq() {
+    IoFile.upPathSeq = function () {
         return path.sep;
-    }
-    static upRowSeq() {
+    };
+    IoFile.upRowSeq = function () {
         return "\n";
-    }
-}
+    };
+    return IoFile;
+}());
+exports.IoFile = IoFile;

@@ -3,7 +3,7 @@
     "outDir": "./dist",
     "moduleResolution": "Node",
     "allowJs": true,
-    "target": "es6",
+    "target": "es5",
     "rootDir": "./src",
     "lib": [
       "es2017",

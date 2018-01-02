@@ -1,15 +1,21 @@
-import { IoFile } from './file';
-export class IoPath {
-    static upCwdPath() {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var file_1 = require("./file");
+var IoPath = /** @class */ (function () {
+    function IoPath() {
+    }
+    IoPath.upCwdPath = function () {
         return process.cwd();
-    }
-    static upBinPath() {
-        return IoFile.parentTop(__dirname, 3);
-    }
-    static upResourcePath() {
-        return IoFile.pathJoin(IoFile.parentTop(__dirname, 3), "resource");
-    }
-    static upTestPath() {
-        return IoFile.pathJoin(IoFile.parentTop(__dirname, 3), "test");
-    }
-}
+    };
+    IoPath.upBinPath = function () {
+        return file_1.IoFile.parentTop(__dirname, 3);
+    };
+    IoPath.upResourcePath = function () {
+        return file_1.IoFile.pathJoin(file_1.IoFile.parentTop(__dirname, 3), "resource");
+    };
+    IoPath.upTestPath = function () {
+        return file_1.IoFile.pathJoin(file_1.IoFile.parentTop(__dirname, 3), "test");
+    };
+    return IoPath;
+}());
+exports.IoPath = IoPath;

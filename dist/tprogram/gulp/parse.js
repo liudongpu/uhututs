@@ -1,10 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var through = require('through2');
 var gutil = require('gulp-util');
-import { TNodeIoFile } from '../../tnode/index';
-import { KJobFileInfo } from '../../air/keep/job';
-import { TJobSupportParse } from '../../tjob/index';
-export class GulpParse {
-    static gulpContent(oLocalConfig, sType) {
+var index_1 = require("../../tnode/index");
+var job_1 = require("../../air/keep/job");
+var index_2 = require("../../tjob/index");
+var GulpParse = /** @class */ (function () {
+    function GulpParse() {
+    }
+    GulpParse.gulpContent = function (oLocalConfig, sType) {
         return through.obj(function (file, enc, cb) {
             // 如果文件为空，不做任何操作，转入下一个操作，即下一个 .pipe()
             if (file.isNull()) {
@@ -18,17 +22,19 @@ export class GulpParse {
             }
             // 将文件内容转成字符串，并调用 preprocess 组件进行预处理
             // 然后将处理后的字符串，再转成Buffer形式
-            var oParseFile = new KJobFileInfo();
+            var oParseFile = new job_1.KJobFileInfo();
             oParseFile.content = file.contents.toString();
-            oParseFile.name = TNodeIoFile.upBaseName(file.relative, undefined);
+            oParseFile.name = index_1.TNodeIoFile.upBaseName(file.relative, undefined);
             //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
             oParseFile.path = file.history[0];
             //var content = initWork.parseContent(oConfig, oParseFile);
-            let content = TJobSupportParse.contentParse(oLocalConfig, oParseFile, sType);
+            var content = index_2.TJobSupportParse.contentParse(oLocalConfig, oParseFile, sType);
             file.contents = new Buffer(content);
             // 下面这两句基本是标配啦，可以参考下 through2 的API
             this.push(file);
             cb();
         });
-    }
-}
+    };
+    return GulpParse;
+}());
+exports.GulpParse = GulpParse;

@@ -1,6 +1,12 @@
-import { EasyFile as TprogramEasyFile } from './easy/file';
-import { EasyLaunch as TprogramEasyLanch } from './easy/launch';
-import { BootProgram as TProgramBootProgram } from './boot/program';
-import { GulpParse as TProgramGulpParse } from './gulp/parse';
-import { EasyStart as TProgramEasyStart } from './easy/start';
-export { TprogramEasyLanch, TprogramEasyFile, TProgramBootProgram, TProgramGulpParse, TProgramEasyStart };
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var file_1 = require("./easy/file");
+exports.TprogramEasyFile = file_1.EasyFile;
+var launch_1 = require("./easy/launch");
+exports.TprogramEasyLanch = launch_1.EasyLaunch;
+var program_1 = require("./boot/program");
+exports.TProgramBootProgram = program_1.BootProgram;
+var parse_1 = require("./gulp/parse");
+exports.TProgramGulpParse = parse_1.GulpParse;
+var start_1 = require("./easy/start");
+exports.TProgramEasyStart = start_1.EasyStart;

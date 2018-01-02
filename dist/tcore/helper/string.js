@@ -1,8 +1,12 @@
-export class HelperString {
-    static isEmpty(cs) {
-        return cs == undefined || cs == null || cs.length == 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var HelperString = /** @class */ (function () {
+    function HelperString() {
     }
-    static formatString(sString, oArgs) {
+    HelperString.isEmpty = function (cs) {
+        return cs == undefined || cs == null || cs.length == 0;
+    };
+    HelperString.formatString = function (sString, oArgs) {
         var result = sString;
         if (oArgs != undefined) {
             if (oArgs instanceof Array) {
@@ -27,7 +31,7 @@ export class HelperString {
             }
         }
         return result;
-    }
+    };
     /**
      *
      *
@@ -35,7 +39,7 @@ export class HelperString {
      * @param separator
      * @returns
      */
-    static substringAfterLast(str, separator) {
+    HelperString.substringAfterLast = function (str, separator) {
         if (this.isEmpty(str)) {
             return str;
         }
@@ -47,23 +51,23 @@ export class HelperString {
             return this.temp.EMPTY;
         }
         return str.substring(pos + separator.length);
-    }
-    static contains(seq, searchSeq) {
+    };
+    HelperString.contains = function (seq, searchSeq) {
         return seq.indexOf(searchSeq) > this.temp.INDEX_NOT_FOUND;
-    }
-    static split(source) {
+    };
+    HelperString.split = function (source) {
         return source.split(',');
-    }
-    static containsOfArrayString(source, searchofArray) {
-        let bReturn = false;
-        let aArr = this.split(searchofArray);
-        aArr.forEach(fItem => {
+    };
+    HelperString.containsOfArrayString = function (source, searchofArray) {
+        var bReturn = false;
+        var aArr = this.split(searchofArray);
+        aArr.forEach(function (fItem) {
             if (source.indexOf(fItem) > -1) {
                 bReturn = true;
             }
         });
         return bReturn;
-    }
+    };
     /**
      *
      * @param sInString
@@ -72,7 +76,7 @@ export class HelperString {
      * @param sWith
      * @param fRemove 标记是否将Start和end去掉
      */
-    static replaceBetween(sInString, sStart, sEnd, sWith, fRemove) {
+    HelperString.replaceBetween = function (sInString, sStart, sEnd, sWith, fRemove) {
         // var reg=new
         // RegExp("("+sStart.replace('/','\/')+")[\s\S]*?("+sEnd.replace('/','\/')+")","
         // g m");
@@ -87,7 +91,7 @@ export class HelperString {
             : sStart) + sWith + (fRemove
             ? ''
             : sEnd));
-    }
+    };
     /**
      *
      *
@@ -97,7 +101,7 @@ export class HelperString {
      * @param sWith 中间文本内容
      * @param sAfter 如果不存在则插入 插入在该字符串之后  如果为空 则添加到末尾
      */
-    static reaplaceBig(sInString, sStart, sEnd, sWith, sAfter) {
+    HelperString.reaplaceBig = function (sInString, sStart, sEnd, sWith, sAfter) {
         var sReturn = sInString;
         if (sReturn.indexOf(sStart) > -1) {
             sReturn = this.replaceBetween(sInString, sStart, sEnd, sWith, false);
@@ -112,14 +116,14 @@ export class HelperString {
             }
         }
         return sReturn;
-    }
-    static upSpace(iNumber) {
+    };
+    HelperString.upSpace = function (iNumber) {
         var aStr = [];
         for (var i = 0; i < iNumber; i++) {
             aStr.push(' ');
         }
         return aStr.join('');
-    }
+    };
     /**
      *
      *
@@ -130,13 +134,15 @@ export class HelperString {
      *
      * @memberOf Mexport
      */
-    static replaceAll(sInString, sReplace, sWith) {
+    HelperString.replaceAll = function (sInString, sReplace, sWith) {
         var sReturn = sInString.replace(new RegExp(sReplace, 'gm'), sWith);
         return sReturn;
-    }
-}
-HelperString.temp = {
-    EMPTY: "",
-    INDEX_NOT_FOUND: -1
-};
+    };
+    HelperString.temp = {
+        EMPTY: "",
+        INDEX_NOT_FOUND: -1
+    };
+    return HelperString;
+}());
+exports.HelperString = HelperString;
 ;

@@ -1,10 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 节点类型枚举
  *
  * @export
  * @enum {number}
  */
-export var AEnumNodeType;
+var AEnumNodeType;
 (function (AEnumNodeType) {
     /**
      * 未定义类型
@@ -34,8 +36,8 @@ export var AEnumNodeType;
      * 脚本
      */
     AEnumNodeType[AEnumNodeType["script"] = 6] = "script";
-})(AEnumNodeType || (AEnumNodeType = {}));
-export var AEnumRegexKey;
+})(AEnumNodeType = exports.AEnumNodeType || (exports.AEnumNodeType = {}));
+var AEnumRegexKey;
 (function (AEnumRegexKey) {
     AEnumRegexKey[AEnumRegexKey["state"] = 0] = "state";
     AEnumRegexKey[AEnumRegexKey["item"] = 1] = "item";
@@ -43,4 +45,4 @@ export var AEnumRegexKey;
     AEnumRegexKey[AEnumRegexKey["this"] = 3] = "this";
     AEnumRegexKey[AEnumRegexKey["tag"] = 4] = "tag";
     AEnumRegexKey[AEnumRegexKey["unknow"] = 5] = "unknow";
-})(AEnumRegexKey || (AEnumRegexKey = {}));
+})(AEnumRegexKey = exports.AEnumRegexKey || (exports.AEnumRegexKey = {}));

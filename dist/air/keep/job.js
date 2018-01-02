@@ -1,14 +1,20 @@
-import { AEnumNodeType } from "../define/enumer";
-export class KJobFileInfo {
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var enumer_1 = require("../define/enumer");
+var KJobFileInfo = /** @class */ (function () {
+    function KJobFileInfo() {
+    }
+    return KJobFileInfo;
+}());
+exports.KJobFileInfo = KJobFileInfo;
 /**
  * 页面输出
  *
  * @export
  * @class KJobPageOut
  */
-export class KJobPageOut {
-    constructor() {
+var KJobPageOut = /** @class */ (function () {
+    function KJobPageOut() {
         /**
          * 内容
          *
@@ -19,15 +25,19 @@ export class KJobPageOut {
         this.state = "{}";
         this.templates = [];
     }
-}
-export class KJobTemplateInfo {
-    constructor() {
+    return KJobPageOut;
+}());
+exports.KJobPageOut = KJobPageOut;
+var KJobTemplateInfo = /** @class */ (function () {
+    function KJobTemplateInfo() {
         this.name = "";
         this.content = "";
     }
-}
-export class KJobCurrentParse {
-    constructor() {
+    return KJobTemplateInfo;
+}());
+exports.KJobTemplateInfo = KJobTemplateInfo;
+var KJobCurrentParse = /** @class */ (function () {
+    function KJobCurrentParse() {
         /**
          * 节点元素
          *
@@ -39,15 +49,17 @@ export class KJobCurrentParse {
         this.templateFlag = false;
         this.templateContents = [];
     }
-}
+    return KJobCurrentParse;
+}());
+exports.KJobCurrentParse = KJobCurrentParse;
 /**
  * 元素的基本信息
  *
  * @export
  * @class KJobNodeInfo
  */
-export class KJobNodeInfo {
-    constructor() {
+var KJobNodeInfo = /** @class */ (function () {
+    function KJobNodeInfo() {
         /**
          * 节点名称
          */
@@ -58,7 +70,7 @@ export class KJobNodeInfo {
          * @type {AEnumNodeType}
          * @memberof KjobElementInfo
          */
-        this.nodeType = AEnumNodeType.unknow;
+        this.nodeType = enumer_1.AEnumNodeType.unknow;
         /**
          * 节点属性
          *
@@ -82,4 +94,6 @@ export class KJobNodeInfo {
          */
         this.itemAttr = new Map();
     }
-}
+    return KJobNodeInfo;
+}());
+exports.KJobNodeInfo = KJobNodeInfo;

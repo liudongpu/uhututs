@@ -1,16 +1,22 @@
-import { QueueNative } from './../queue/native';
-import { EasyStart } from '../easy/start';
-import { BootProgram } from '../boot/program';
-import { TNodeIoPath, TNodeIoFile, TNodeProtoProcess } from '../../tnode/index';
-export class RunGo {
-    static run(arg) {
-        EasyStart.refreshConfig();
-        let oConfig = BootProgram.upGoConfig();
-        let sConfigFile = TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(), "dist", "ulocal", "gulp", "go.js");
-        let sGulp = TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(), "node_modules", ".bin", "gulp");
-        TNodeProtoProcess.spawn(sGulp, ["--gulpfile=" + sConfigFile, "--cwd=" + TNodeIoPath.upCwdPath()], { cwd: TNodeIoPath.upCwdPath() });
-        if (oConfig.projectEnableNative) {
-            QueueNative.run(oConfig);
-        }
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var native_1 = require("./../queue/native");
+var start_1 = require("../easy/start");
+var program_1 = require("../boot/program");
+var index_1 = require("../../tnode/index");
+var RunGo = /** @class */ (function () {
+    function RunGo() {
     }
-}
+    RunGo.run = function (arg) {
+        start_1.EasyStart.refreshConfig();
+        var oConfig = program_1.BootProgram.upGoConfig();
+        var sConfigFile = index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upBinPath(), "dist", "ulocal", "gulp", "go.js");
+        var sGulp = index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upBinPath(), "node_modules", ".bin", "gulp");
+        index_1.TNodeProtoProcess.spawn(sGulp, ["--gulpfile=" + sConfigFile, "--cwd=" + index_1.TNodeIoPath.upCwdPath()], { cwd: index_1.TNodeIoPath.upCwdPath() });
+        if (oConfig.projectEnableNative) {
+            native_1.QueueNative.run(oConfig);
+        }
+    };
+    return RunGo;
+}());
+exports.RunGo = RunGo;

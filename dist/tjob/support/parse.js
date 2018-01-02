@@ -1,13 +1,19 @@
-import { MakeNative } from './../make/native';
-import { ParseHtml } from './../parse/html';
-import { EParseMustache } from '../../air/export/parse';
-import { TNodeIoFile } from '../../tnode/index';
-export class SupportParse {
-    static contentParse(oLocalConfig, oInfo, sType) {
-        let oOut = ParseHtml.parse(oInfo, new MakeNative());
-        let sMacroFile = oOut.config.macroUrl;
-        let sMacroContent = TNodeIoFile.readFile(sMacroFile);
-        let sOutInfo = EParseMustache.render(sMacroContent, { out: oOut });
-        return sOutInfo;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var native_1 = require("./../make/native");
+var html_1 = require("./../parse/html");
+var parse_1 = require("../../air/export/parse");
+var index_1 = require("../../tnode/index");
+var SupportParse = /** @class */ (function () {
+    function SupportParse() {
     }
-}
+    SupportParse.contentParse = function (oLocalConfig, oInfo, sType) {
+        var oOut = html_1.ParseHtml.parse(oInfo, new native_1.MakeNative());
+        var sMacroFile = oOut.config.macroUrl;
+        var sMacroContent = index_1.TNodeIoFile.readFile(sMacroFile);
+        var sOutInfo = parse_1.EParseMustache.render(sMacroContent, { out: oOut });
+        return sOutInfo;
+    };
+    return SupportParse;
+}());
+exports.SupportParse = SupportParse;

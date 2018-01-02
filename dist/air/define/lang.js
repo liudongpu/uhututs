@@ -1,4 +1,6 @@
-const ADefineLang = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ADefineLang = {
     0: "{0}",
     31: '#####以下是常规操作#####',
     31101: '确定',
@@ -26,4 +28,4 @@ const ADefineLang = {
     3911002: "配置项没有生成，请重新检查",
     99: ''
 };
-export { ADefineLang };
+exports.ADefineLang = ADefineLang;

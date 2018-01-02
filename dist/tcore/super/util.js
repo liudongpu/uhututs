@@ -1,8 +1,12 @@
-import { ADefineStart } from './../../air/define/start';
-import { HelperString } from './../helper/string';
-import { ADefineLang } from "../../air/define/lang";
-import { EUtilLog } from '../../air/export/util';
-export class SuperUtil {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var start_1 = require("./../../air/define/start");
+var string_1 = require("./../helper/string");
+var lang_1 = require("../../air/define/lang");
+var util_1 = require("../../air/export/util");
+var SuperUtil = /** @class */ (function () {
+    function SuperUtil() {
+    }
     /**
      * 调试日志
      *
@@ -11,27 +15,27 @@ export class SuperUtil {
      * @param {string[]} [params]
      * @memberof SuperUtil
      */
-    static logDebug(iCode, params) {
-        EUtilLog.debug(HelperString.formatString(this.upLangInfo(iCode), params));
-    }
-    static logWarn(iCode, params) {
-        EUtilLog.warn(HelperString.formatString(this.upLangInfo(iCode), params));
-    }
-    static logInfo(iCode, params) {
-        EUtilLog.info(HelperString.formatString(this.upLangInfo(iCode), params));
-    }
-    static logError(iCode, params) {
-        EUtilLog.error(HelperString.formatString(this.upLangInfo(iCode), params));
-    }
-    static defineBase() {
-        return ADefineStart.upBase();
-    }
-    static defineProgram() {
-        return ADefineStart.upProgram();
-    }
-    static defineData() {
-        return ADefineStart.upData();
-    }
+    SuperUtil.logDebug = function (iCode, params) {
+        util_1.EUtilLog.debug(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+    };
+    SuperUtil.logWarn = function (iCode, params) {
+        util_1.EUtilLog.warn(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+    };
+    SuperUtil.logInfo = function (iCode, params) {
+        util_1.EUtilLog.info(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+    };
+    SuperUtil.logError = function (iCode, params) {
+        util_1.EUtilLog.error(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+    };
+    SuperUtil.defineBase = function () {
+        return start_1.ADefineStart.upBase();
+    };
+    SuperUtil.defineProgram = function () {
+        return start_1.ADefineStart.upProgram();
+    };
+    SuperUtil.defineData = function () {
+        return start_1.ADefineStart.upData();
+    };
     /**
      * 获取文本信息根据编号
      *
@@ -40,5 +44,7 @@ export class SuperUtil {
      * @returns {string}
      * @memberof SuperUtil
      */
-    static upLangInfo(iCode) { return ADefineLang[iCode]; }
-}
+    SuperUtil.upLangInfo = function (iCode) { return lang_1.ADefineLang[iCode]; };
+    return SuperUtil;
+}());
+exports.SuperUtil = SuperUtil;

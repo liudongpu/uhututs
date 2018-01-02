@@ -1,4 +1,6 @@
-let configInfo = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var configInfo = {
     projectBaseName: "",
     projectVersionName: "1.0.1",
     projectDisplayName: "示例项目",
@@ -14,11 +16,15 @@ let configInfo = {
         }
     }
 };
-export class AModelConfig {
-    static upConfig() {
+var AModelConfig = /** @class */ (function () {
+    function AModelConfig() {
+    }
+    AModelConfig.upConfig = function () {
         return configInfo;
-    }
-    static initConfig(source) {
+    };
+    AModelConfig.initConfig = function (source) {
         configInfo = Object.assign(configInfo, source);
-    }
-}
+    };
+    return AModelConfig;
+}());
+exports.AModelConfig = AModelConfig;

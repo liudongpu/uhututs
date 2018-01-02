@@ -1,7 +1,9 @@
-import { TBase } from "../../tcore/index";
-import { TNodeIoFile } from "../../tnode/index";
-class EasyFileReplaceContent {
-    constructor() {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var index_1 = require("../../tcore/index");
+var index_2 = require("../../tnode/index");
+var EasyFileReplaceContent = /** @class */ (function () {
+    function EasyFileReplaceContent() {
         this.sourceContent = '';
         this.targetContent = '';
         /**
@@ -14,18 +16,21 @@ class EasyFileReplaceContent {
         this.sourceNotFound = [];
         this.targetNotFounc = [];
     }
-}
-export class EasyFile {
-    static copyFileAndReplace(sSourceFile, sTargetFile) {
-        if (!TNodeIoFile.flagExist(sTargetFile)) {
-            TNodeIoFile.copyFile(sSourceFile, sTargetFile);
+    return EasyFileReplaceContent;
+}());
+var EasyFile = /** @class */ (function () {
+    function EasyFile() {
+    }
+    EasyFile.copyFileAndReplace = function (sSourceFile, sTargetFile) {
+        if (!index_2.TNodeIoFile.flagExist(sTargetFile)) {
+            index_2.TNodeIoFile.copyFile(sSourceFile, sTargetFile);
         }
         else {
-            let sSourceContent = TNodeIoFile.readFile(sSourceFile);
-            let sTargetContent = TNodeIoFile.readFile(sTargetFile);
-            let oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
+            var sSourceContent = index_2.TNodeIoFile.readFile(sSourceFile);
+            var sTargetContent = index_2.TNodeIoFile.readFile(sTargetFile);
+            var oContentInfo = this.replaceContent(sSourceContent, sTargetContent);
             if (oContentInfo.sourceNotFound.length > 0) {
-                TBase.logWarn(3711002, [
+                index_1.TBase.logWarn(3711002, [
                     sSourceFile,
                     oContentInfo
                         .sourceNotFound
@@ -33,7 +38,7 @@ export class EasyFile {
                 ]);
             }
             if (oContentInfo.targetNotFounc.length > 0) {
-                TBase.logWarn(3711003, [
+                index_1.TBase.logWarn(3711003, [
                     sSourceFile,
                     oContentInfo
                         .targetNotFounc
@@ -41,58 +46,59 @@ export class EasyFile {
                 ]);
             }
             if (sTargetContent != oContentInfo.execContent) {
-                TNodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
+                index_2.TNodeIoFile.writeFile(sTargetFile, oContentInfo.execContent);
             }
         }
-    }
-    static copyDirAndReplace(sSourceDir, sTargetDir, sReplaceFileExt, sSkipDir) {
-        let aFiles = TNodeIoFile.listDir(sSourceDir);
-        let aSkip = sSkipDir.split(',');
-        aFiles.forEach(fItem => {
-            let sSubPath = fItem.substr(sSourceDir.length);
-            let bFlagSkip = false;
-            aSkip.forEach(fItem => {
+    };
+    EasyFile.copyDirAndReplace = function (sSourceDir, sTargetDir, sReplaceFileExt, sSkipDir) {
+        var _this = this;
+        var aFiles = index_2.TNodeIoFile.listDir(sSourceDir);
+        var aSkip = sSkipDir.split(',');
+        aFiles.forEach(function (fItem) {
+            var sSubPath = fItem.substr(sSourceDir.length);
+            var bFlagSkip = false;
+            aSkip.forEach(function (fItem) {
                 if (sSubPath.startsWith(fItem)) {
                     bFlagSkip = true;
                 }
             });
             if (!bFlagSkip) {
-                let sExtName = TNodeIoFile.upExtName(sSubPath);
-                let sTargetFile = TNodeIoFile.pathJoin(sTargetDir, sSubPath);
+                var sExtName = index_2.TNodeIoFile.upExtName(sSubPath);
+                var sTargetFile = index_2.TNodeIoFile.pathJoin(sTargetDir, sSubPath);
                 if (sReplaceFileExt.indexOf(sExtName) > -1) {
-                    this.copyFileAndReplace(fItem, sTargetFile);
+                    _this.copyFileAndReplace(fItem, sTargetFile);
                 }
                 else {
-                    TNodeIoFile.copyFileAsync(fItem, sTargetFile);
+                    index_2.TNodeIoFile.copyFileAsync(fItem, sTargetFile);
                 }
             }
         });
-    }
-    static replaceContent(sSourceContent, sTargetContent) {
-        let oEasyFileContent = new EasyFileReplaceContent();
-        let sStart = TBase
+    };
+    EasyFile.replaceContent = function (sSourceContent, sTargetContent) {
+        var oEasyFileContent = new EasyFileReplaceContent();
+        var sStart = index_1.TBase
             .defineBase()
             .replaceSignBegin;
-        let sEnd = TBase
+        var sEnd = index_1.TBase
             .defineBase()
             .replaceSignEnd;
-        let sReturn = sSourceContent;
-        let sCheckTarget = sTargetContent;
-        let sRegexLeft = "([\r\n])(\s*)(.*)(";
-        let sRegexRight = ")(\\w+)(\s|.)*([\r\n])";
-        let sRegexInfo = "(.|\s|\S|\r|\n)*?";
-        let sRegex = sRegexLeft + sStart + sRegexRight;
-        let oRegexBegin = new RegExp(sRegex, "g");
-        let oMapReplace = new Map();
-        let oSourceMatch = sSourceContent.match(oRegexBegin);
+        var sReturn = sSourceContent;
+        var sCheckTarget = sTargetContent;
+        var sRegexLeft = "([\r\n])(\s*)(.*)(";
+        var sRegexRight = ")(\\w+)(\s|.)*([\r\n])";
+        var sRegexInfo = "(.|\s|\S|\r|\n)*?";
+        var sRegex = sRegexLeft + sStart + sRegexRight;
+        var oRegexBegin = new RegExp(sRegex, "g");
+        var oMapReplace = new Map();
+        var oSourceMatch = sSourceContent.match(oRegexBegin);
         if (oSourceMatch != null) {
-            oSourceMatch.forEach(fItem => {
-                let oRegexItem = new RegExp(sRegex);
-                let oResult = oRegexItem.exec(fItem);
-                let sName = oResult[5];
-                let sRegexContent = sStart + sName + sRegexInfo + sEnd + sName;
-                let oRegexContent = new RegExp(sRegexContent, "g");
-                let oContentInfo = oRegexContent.exec(sTargetContent);
+            oSourceMatch.forEach(function (fItem) {
+                var oRegexItem = new RegExp(sRegex);
+                var oResult = oRegexItem.exec(fItem);
+                var sName = oResult[5];
+                var sRegexContent = sStart + sName + sRegexInfo + sEnd + sName;
+                var oRegexContent = new RegExp(sRegexContent, "g");
+                var oContentInfo = oRegexContent.exec(sTargetContent);
                 if (oContentInfo != null && oContentInfo.length > 0) {
                     oMapReplace.set(sName, oContentInfo[0]);
                     sCheckTarget = sCheckTarget.replace(oContentInfo[0], '');
@@ -104,19 +110,21 @@ export class EasyFile {
                 }
             });
         }
-        oMapReplace.forEach((fVal, fKey) => {
+        oMapReplace.forEach(function (fVal, fKey) {
             sReturn = sReturn.replace(new RegExp(sStart + fKey + sRegexInfo + sEnd + fKey, "g"), fVal);
         });
         oEasyFileContent.targetContent = sCheckTarget;
         oEasyFileContent.execContent = sReturn;
-        let oCheckMatch = sCheckTarget.match(new RegExp(sStart + ".*", "g"));
+        var oCheckMatch = sCheckTarget.match(new RegExp(sStart + ".*", "g"));
         if (oCheckMatch != null) {
-            oCheckMatch.forEach(fItem => {
+            oCheckMatch.forEach(function (fItem) {
                 oEasyFileContent
                     .targetNotFounc
                     .push(fItem);
             });
         }
         return oEasyFileContent;
-    }
-}
+    };
+    return EasyFile;
+}());
+exports.EasyFile = EasyFile;

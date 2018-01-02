@@ -1,10 +1,12 @@
-import { AEnumNodeType } from './../../air/define/enumer';
-import { KJobPageOut, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo } from './../../air/keep/job';
-import { EParseHtml } from "../../air/export/parse";
-import { TCoreHelperMap } from '../../tcore/index';
-const sSetIgnore = new Set(["html", "head", "body"]);
-const sSetTemplage = new Set(["template"]);
-const sSetElement = new Set([
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var enumer_1 = require("./../../air/define/enumer");
+var job_1 = require("./../../air/keep/job");
+var parse_1 = require("../../air/export/parse");
+var index_1 = require("../../tcore/index");
+var sSetIgnore = new Set(["html", "head", "body"]);
+var sSetTemplage = new Set(["template"]);
+var sSetElement = new Set([
     "div",
     "a",
     "span",
@@ -15,22 +17,24 @@ const sSetElement = new Set([
     "object",
     "select"
 ]);
-const sSetScript = new Set(["script"]);
-export class ParseHtml {
-    static parse(fileInfo, make) {
-        let oResult = new KJobPageOut();
-        let oCurrentPage = new KJobCurrentParse();
-        let oParse = new EParseHtml({
-            onopentag(sName, oAttr) {
-                let oNodeInfo = new KJobNodeInfo();
+var sSetScript = new Set(["script"]);
+var ParseHtml = /** @class */ (function () {
+    function ParseHtml() {
+    }
+    ParseHtml.parse = function (fileInfo, make) {
+        var oResult = new job_1.KJobPageOut();
+        var oCurrentPage = new job_1.KJobCurrentParse();
+        var oParse = new parse_1.EParseHtml({
+            onopentag: function (sName, oAttr) {
+                var oNodeInfo = new job_1.KJobNodeInfo();
                 ParseHtml.processNodeAttr(oNodeInfo, oAttr);
                 ParseHtml.processNodeType(oNodeInfo, sName);
                 switch (oNodeInfo.nodeType) {
-                    case AEnumNodeType.template:
+                    case enumer_1.AEnumNodeType.template:
                         oCurrentPage.templateContents = [];
                         oCurrentPage.templateFlag = true;
                         break;
-                    case AEnumNodeType.element:
+                    case enumer_1.AEnumNodeType.element:
                         make.makeElement(oNodeInfo);
                         ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
                         break;
@@ -39,20 +43,20 @@ export class ParseHtml {
                     .nodes
                     .push(oNodeInfo);
             },
-            ontext(sContent) {
+            ontext: function (sContent) {
                 oCurrentPage.nodes[oCurrentPage.nodes.length - 1].nodeInfo = sContent;
             },
-            onclosetag(sName) {
-                let oNodeInfo = oCurrentPage
+            onclosetag: function (sName) {
+                var oNodeInfo = oCurrentPage
                     .nodes
                     .pop();
                 switch (oNodeInfo.nodeType) {
-                    case AEnumNodeType.element:
+                    case enumer_1.AEnumNodeType.element:
                         oNodeInfo.nodeInfo = make.makeFormat(oNodeInfo.nodeInfo);
                         ParseHtml.processElementEnd(oNodeInfo, oCurrentPage);
                         break;
-                    case AEnumNodeType.template:
-                        let oTemplateInfo = new KJobTemplateInfo();
+                    case enumer_1.AEnumNodeType.template:
+                        var oTemplateInfo = new job_1.KJobTemplateInfo();
                         oTemplateInfo.content = oCurrentPage
                             .templateContents
                             .join('');
@@ -63,10 +67,10 @@ export class ParseHtml {
                         oCurrentPage.templateFlag = false;
                         oCurrentPage.templateContents = [];
                         break;
-                    case AEnumNodeType.config:
+                    case enumer_1.AEnumNodeType.config:
                         oResult.config = make.subPageConfig(oNodeInfo.nodeInfo, fileInfo);
                         break;
-                    case AEnumNodeType.state:
+                    case enumer_1.AEnumNodeType.state:
                         oResult.state = oNodeInfo.nodeInfo;
                         break;
                     default:
@@ -81,19 +85,19 @@ export class ParseHtml {
             .join('');
         make.makeResult(oResult, fileInfo);
         return oResult;
-    }
-    static processElementBegin(oNodeInfo, oCurrentPage) {
-        let aAttr = [];
+    };
+    ParseHtml.processElementBegin = function (oNodeInfo, oCurrentPage) {
+        var aAttr = [];
         aAttr.push("<" + oNodeInfo.itemName);
         if (oNodeInfo.itemAttr.size > 0) {
             oNodeInfo
                 .itemAttr
-                .forEach((v, k) => {
+                .forEach(function (v, k) {
                 aAttr.push(' ' + k + '=' + v);
             });
         }
         aAttr.push(">");
-        let sContent = aAttr.join('');
+        var sContent = aAttr.join('');
         if (oCurrentPage.templateFlag) {
             oCurrentPage
                 .templateContents
@@ -104,9 +108,9 @@ export class ParseHtml {
                 .contents
                 .push(sContent);
         }
-    }
-    static processElementEnd(oNodeInfo, oCurrentPage) {
-        let sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>';
+    };
+    ParseHtml.processElementEnd = function (oNodeInfo, oCurrentPage) {
+        var sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>';
         if (oCurrentPage.templateFlag) {
             oCurrentPage
                 .templateContents
@@ -117,7 +121,7 @@ export class ParseHtml {
                 .contents
                 .push(sContent);
         }
-    }
+    };
     /**
      * 处理基本类型标记
      *
@@ -128,37 +132,37 @@ export class ParseHtml {
      * @returns {KJobNodeInfo}
      * @memberof ParseHtml
      */
-    static processNodeType(oNodeInfo, sName) {
+    ParseHtml.processNodeType = function (oNodeInfo, sName) {
         if (sSetIgnore.has(sName)) {
-            oNodeInfo.nodeType = AEnumNodeType.ignore;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.ignore;
         }
         else if (sSetElement.has(sName)) {
-            oNodeInfo.nodeType = AEnumNodeType.element;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.element;
         }
         else if (sSetTemplage.has(sName)) {
-            oNodeInfo.nodeType = AEnumNodeType.template;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.template;
         }
         else if (sSetScript.has(sName)) {
             switch (oNodeInfo.sourceType) {
                 case "json/config":
-                    oNodeInfo.nodeType = AEnumNodeType.config;
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.config;
                     break;
                 case "json/state":
-                    oNodeInfo.nodeType = AEnumNodeType.state;
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.state;
                     break;
                 default:
-                    oNodeInfo.nodeType = AEnumNodeType.script;
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.script;
                     break;
             }
         }
         else {
-            oNodeInfo.nodeType = AEnumNodeType.unknow;
+            oNodeInfo.nodeType = enumer_1.AEnumNodeType.unknow;
         }
         oNodeInfo.nodeName = sName;
         return oNodeInfo;
-    }
-    static processNodeAttr(oNodeInfo, oAttr) {
-        oNodeInfo.nodeAttr = TCoreHelperMap.objectToMap(oAttr);
+    };
+    ParseHtml.processNodeAttr = function (oNodeInfo, oAttr) {
+        oNodeInfo.nodeAttr = index_1.TCoreHelperMap.objectToMap(oAttr);
         if (oNodeInfo.nodeAttr.has("id")) {
             oNodeInfo.sourceId = oNodeInfo
                 .nodeAttr
@@ -175,5 +179,7 @@ export class ParseHtml {
                 .get("type");
         }
         return oNodeInfo;
-    }
-}
+    };
+    return ParseHtml;
+}());
+exports.ParseHtml = ParseHtml;
