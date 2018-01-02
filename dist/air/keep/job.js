@@ -1,20 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var enumer_1 = require("../define/enumer");
-var KJobFileInfo = /** @class */ (function () {
-    function KJobFileInfo() {
-    }
-    return KJobFileInfo;
-}());
-exports.KJobFileInfo = KJobFileInfo;
+import { AEnumNodeType } from "../define/enumer";
+export class KJobFileInfo {
+}
 /**
  * 页面输出
  *
  * @export
  * @class KJobPageOut
  */
-var KJobPageOut = /** @class */ (function () {
-    function KJobPageOut() {
+export class KJobPageOut {
+    constructor() {
         /**
          * 内容
          *
@@ -25,19 +19,15 @@ var KJobPageOut = /** @class */ (function () {
         this.state = "{}";
         this.templates = [];
     }
-    return KJobPageOut;
-}());
-exports.KJobPageOut = KJobPageOut;
-var KJobTemplateInfo = /** @class */ (function () {
-    function KJobTemplateInfo() {
+}
+export class KJobTemplateInfo {
+    constructor() {
         this.name = "";
         this.content = "";
     }
-    return KJobTemplateInfo;
-}());
-exports.KJobTemplateInfo = KJobTemplateInfo;
-var KJobCurrentParse = /** @class */ (function () {
-    function KJobCurrentParse() {
+}
+export class KJobCurrentParse {
+    constructor() {
         /**
          * 节点元素
          *
@@ -49,17 +39,15 @@ var KJobCurrentParse = /** @class */ (function () {
         this.templateFlag = false;
         this.templateContents = [];
     }
-    return KJobCurrentParse;
-}());
-exports.KJobCurrentParse = KJobCurrentParse;
+}
 /**
  * 元素的基本信息
  *
  * @export
  * @class KJobNodeInfo
  */
-var KJobNodeInfo = /** @class */ (function () {
-    function KJobNodeInfo() {
+export class KJobNodeInfo {
+    constructor() {
         /**
          * 节点名称
          */
@@ -70,7 +58,7 @@ var KJobNodeInfo = /** @class */ (function () {
          * @type {AEnumNodeType}
          * @memberof KjobElementInfo
          */
-        this.nodeType = enumer_1.AEnumNodeType.unknow;
+        this.nodeType = AEnumNodeType.unknow;
         /**
          * 节点属性
          *
@@ -94,6 +82,4 @@ var KJobNodeInfo = /** @class */ (function () {
          */
         this.itemAttr = new Map();
     }
-    return KJobNodeInfo;
-}());
-exports.KJobNodeInfo = KJobNodeInfo;
+}

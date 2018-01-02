@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var htmlparser2_1 = require("htmlparser2");
-exports.EParseHtml = htmlparser2_1.Parser;
-var EParseMustache = require("mustache");
-exports.EParseMustache = EParseMustache;
+import { Parser as EParseHtml } from 'htmlparser2';
+import * as EParseMustache from 'mustache';
+export { EParseHtml, EParseMustache };

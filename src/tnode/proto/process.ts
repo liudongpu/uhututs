@@ -1,4 +1,4 @@
-import childProcess = require("child_process");
+var childProcess = require("child_process");
 
 import {TCoreHelperObject} from '../../tcore/index';
 

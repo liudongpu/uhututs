@@ -1,55 +1,50 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var HelperMap = /** @class */ (function () {
-    function HelperMap() {
+export class HelperMap {
+    static parseMap(oAttr) {
+        var mMap = new Map();
+        for (let k in oAttr) {
+            mMap.set(k, oAttr[k]);
+        }
+        return mMap;
     }
-    HelperMap.parseMap = function (oAttr) {
-        var mMap = new Map();
-        for (var k in oAttr) {
-            mMap.set(k, oAttr[k]);
-        }
-        return mMap;
-    };
-    HelperMap.stringIsEmpty = function (cs) {
+    static stringIsEmpty(cs) {
         return cs == undefined || cs == null || cs.length == 0;
-    };
-    HelperMap.objectToMap = function (oAttr) {
+    }
+    static objectToMap(oAttr) {
         var mMap = new Map();
-        for (var k in oAttr) {
+        for (let k in oAttr) {
             mMap.set(k, oAttr[k]);
         }
         return mMap;
-    };
-    HelperMap.mapToObject = function (oMap) {
-        var oReturn = {};
-        oMap.forEach(function (v, k) { return oReturn[k] = v; });
+    }
+    static mapToObject(oMap) {
+        let oReturn = {};
+        oMap.forEach((v, k) => oReturn[k] = v);
         return oReturn;
-    };
-    HelperMap.stringToObject = function (sParm) {
+    }
+    static stringToObject(sParm) {
         return this.mapToObject(this.stringToMap(sParm));
-    };
-    HelperMap.stringToMapArray = function (sParm) {
-        var oMap = this.stringToMap(sParm);
-        var aItems = [];
-        oMap.forEach(function (v, k) {
+    }
+    static stringToMapArray(sParm) {
+        let oMap = this.stringToMap(sParm);
+        let aItems = [];
+        oMap.forEach((v, k) => {
             aItems.push({ key: k, value: v });
         });
         return aItems;
-    };
-    HelperMap.stringToMap = function (sParm) {
-        var _this = this;
-        var oReturn = new Map();
+    }
+    static stringToMap(sParm) {
+        let oReturn = new Map();
         if (sParm)
-            sParm.split('&').forEach(function (fItem) {
-                if (!_this.stringIsEmpty(fItem)) {
-                    var sKey = fItem.split('=')[0];
-                    var sValue = fItem.substr(sKey.length + 1);
+            sParm.split('&').forEach((fItem) => {
+                if (!this.stringIsEmpty(fItem)) {
+                    let sKey = fItem.split('=')[0];
+                    let sValue = fItem.substr(sKey.length + 1);
                     oReturn.set(sKey, sValue);
                 }
             });
         return oReturn;
-    };
-    HelperMap.formatMapbyObject = function (oObject, sPropName) {
+    }
+    static formatMapbyObject(oObject, sPropName) {
         var oMap = new Map();
         if (oObject.hasOwnProperty(sPropName)) {
             for (var sKey in oObject[sPropName]) {
@@ -58,19 +53,19 @@ var HelperMap = /** @class */ (function () {
             }
         }
         return oMap;
-    };
-    HelperMap.mapAssign = function (oTarget, oSource) {
-        oSource.forEach(function (v, k) {
+    }
+    static mapAssign(oTarget, oSource) {
+        oSource.forEach((v, k) => {
             oTarget.set(k, v);
         });
         return oTarget;
-    };
-    HelperMap.stringToSet = function (sString) {
-        var oSet = new Set();
+    }
+    static stringToSet(sString) {
+        let oSet = new Set();
         if (sString != undefined && sString != null) {
             sString
                 .split(',')
-                .forEach(function (s) {
+                .forEach(s => {
                 if (s != '') {
                     oSet.add(s);
                 }
@@ -78,21 +73,19 @@ var HelperMap = /** @class */ (function () {
         }
         ;
         return oSet;
-    };
-    HelperMap.setToString = function (oSet) {
-        var aString = [];
-        oSet.forEach(function (f) { return aString.push(f); });
+    }
+    static setToString(oSet) {
+        let aString = [];
+        oSet.forEach(f => aString.push(f));
         return aString.join(',');
-    };
-    HelperMap.upChildrenMap = function (mMap, sStart) {
-        var mReturn = new Map();
-        mMap.forEach(function (v, k) {
+    }
+    static upChildrenMap(mMap, sStart) {
+        let mReturn = new Map();
+        mMap.forEach((v, k) => {
             if (k.startsWith(sStart)) {
                 mReturn.set(k.substr(sStart.length), v);
             }
         });
         return mReturn;
-    };
-    return HelperMap;
-}());
-exports.HelperMap = HelperMap;
+    }
+}

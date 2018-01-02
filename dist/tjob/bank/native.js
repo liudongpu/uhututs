@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var elementList = {
+const elementList = {
     div: {
         name: "View"
     },
@@ -21,12 +19,8 @@ var elementList = {
         name: "Text"
     }
 };
-var BankNative = /** @class */ (function () {
-    function BankNative() {
-    }
-    BankNative.prototype.upElementList = function () {
+export class BankNative {
+    upElementList() {
         return elementList;
-    };
-    return BankNative;
-}());
-exports.BankNative = BankNative;
+    }
+}

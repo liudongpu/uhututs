@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var gulp = require('gulp');
 var tsGulp = require("gulp-typescript");
 //var tsProject = tsGulp.createProject("../../../tsconfig.json");

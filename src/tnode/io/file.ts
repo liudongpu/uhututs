@@ -1,6 +1,6 @@
 import { TCoreCommonFunc } from './../../tcore/index';
-import fs = require('fs');
-import path = require('path');
+var fs = require('fs');
+var path = require('path');
 
 
 

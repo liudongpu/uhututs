@@ -1,8 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var HelperObject = /** @class */ (function () {
-    function HelperObject() {
-    }
+export class HelperObject {
     /**
      * 浅层克隆
      *
@@ -13,10 +9,10 @@ var HelperObject = /** @class */ (function () {
      * @param {U} source
      * @returns
      */
-    HelperObject.assign = function (target, source) {
+    static assign(target, source) {
         return Object.assign(target, source);
-    };
-    HelperObject.formatReplace = function (sInput, oReplace) {
+    }
+    static formatReplace(sInput, oReplace) {
         var re = new RegExp("\\[\\[(\\w*:\\w*)\\]\\]", "gi");
         var sReturn = sInput;
         if (sInput == undefined || sInput == null) {
@@ -40,7 +36,7 @@ var HelperObject = /** @class */ (function () {
         }
         // console.log(sReturn);
         return sReturn;
-    };
+    }
     /**
      * 转换操作  该操作无实际意义  仅仅用于定义的转换
      *
@@ -49,7 +45,5 @@ var HelperObject = /** @class */ (function () {
      * @param {*} source
      * @returns
      */
-    HelperObject.parseTs = function (source) { return source; };
-    return HelperObject;
-}());
-exports.HelperObject = HelperObject;
+    static parseTs(source) { return source; }
+}

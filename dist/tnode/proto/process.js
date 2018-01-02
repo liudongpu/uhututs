@@ -1,10 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var childProcess = require("child_process");
-var index_1 = require("../../tcore/index");
-var ProtoProcess = /** @class */ (function () {
-    function ProtoProcess() {
-    }
+import { TCoreHelperObject } from '../../tcore/index';
+export class ProtoProcess {
     /**
      * 同步执行命令
      *
@@ -14,8 +10,8 @@ var ProtoProcess = /** @class */ (function () {
      *
      * @memberOf MutilsHelper
      */
-    ProtoProcess.spawnSync = function (sCommand, aArgs, oOption) {
-        var result = childProcess.spawnSync(sCommand, aArgs, index_1.TCoreHelperObject.assign({
+    static spawnSync(sCommand, aArgs, oOption) {
+        var result = childProcess.spawnSync(sCommand, aArgs, TCoreHelperObject.assign({
             stdio: 'inherit'
         }, oOption));
         if (result.status !== 0) {
@@ -35,7 +31,7 @@ var ProtoProcess = /** @class */ (function () {
             }
         }
         //console.log(free.stdout.toString()); free.stdout.pipe(process.stdout);
-    };
+    }
     /**
      * 异步执行命令
      *
@@ -45,11 +41,11 @@ var ProtoProcess = /** @class */ (function () {
      *
      * @memberOf MutilsHelper
      */
-    ProtoProcess.spawn = function (sCommand, aArgs, oOption) {
+    static spawn(sCommand, aArgs, oOption) {
         oOption.stdio = 'inherit';
         childProcess.spawn(sCommand, aArgs, oOption);
-    };
-    ProtoProcess.exitProcess = function (iState, oError) {
+    }
+    static exitProcess(iState, oError) {
         if (!oError) {
             oError = "undefined error from exit";
         }
@@ -57,7 +53,5 @@ var ProtoProcess = /** @class */ (function () {
             .stderr
             .write(oError);
         process.exit(iState);
-    };
-    return ProtoProcess;
-}());
-exports.ProtoProcess = ProtoProcess;
+    }
+}

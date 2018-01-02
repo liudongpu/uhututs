@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var tsGulp = require("gulp-typescript");
 //var tsProject = tsGulp.createProject("../../../tsconfig.json");
 var watch=require('gulp-watch');
-import childProcess = require("child_process");
+var childProcess = require("child_process");
 
 
 var sTargetDept="/usr/local/lib/node_modules/uhutu-ts/";

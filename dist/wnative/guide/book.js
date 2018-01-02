@@ -1,11 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Book = /** @class */ (function () {
-    function Book() {
+class Book {
+    navigateUrl(that, sUrl) {
     }
-    Book.prototype.navigateUrl = function (that, sUrl) {
-    };
-    return Book;
-}());
-var GuideBook = new Book();
-exports.GuideBook = GuideBook;
+}
+const GuideBook = new Book();
+export { GuideBook };

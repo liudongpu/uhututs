@@ -6,7 +6,7 @@ import {TNodeProtoProcess} from '../tnode/index';
 
 
 
-import childProcess = require("child_process");
+var childProcess = require("child_process");
 
 
 

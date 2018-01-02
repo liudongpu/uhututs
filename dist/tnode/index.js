@@ -1,10 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var exec_1 = require("./way/exec");
-exports.TNodeWayExec = exec_1.WayExec;
-var file_1 = require("./io/file");
-exports.TNodeIoFile = file_1.IoFile;
-var path_1 = require("./io/path");
-exports.TNodeIoPath = path_1.IoPath;
-var process_1 = require("./proto/process");
-exports.TNodeProtoProcess = process_1.ProtoProcess;
+import { WayExec as TNodeWayExec } from './way/exec';
+import { IoFile as TNodeIoFile } from './io/file';
+import { IoPath as TNodeIoPath } from './io/path';
+import { ProtoProcess as TNodeProtoProcess } from './proto/process';
+export { TNodeProtoProcess, TNodeIoFile, TNodeIoPath, TNodeWayExec };

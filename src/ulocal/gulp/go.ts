@@ -1,13 +1,13 @@
 
 import {IConfigInfo} from './../../air/interfaces/config';
 
-import gulp = require('gulp');
-import sass = require('gulp-sass');
-import connect = require('gulp-connect');
-import rename = require('gulp-rename');
-import watch = require('gulp-watch');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var connect = require('gulp-connect');
+var rename = require('gulp-rename');
+var watch = require('gulp-watch');
 
-import reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
+var reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
 
 
 import {TNodeIoFile} from '../../tnode/index';

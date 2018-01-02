@@ -1,10 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var native_1 = require("./make/native");
-exports.TjobMakeNative = native_1.MakeNative;
-var html_1 = require("./parse/html");
-exports.TjobParseHtml = html_1.ParseHtml;
-var make_1 = require("./father/make");
-exports.TjobFatherMake = make_1.FatherMake;
-var parse_1 = require("./support/parse");
-exports.TJobSupportParse = parse_1.SupportParse;
+import { MakeNative as TjobMakeNative } from './make/native';
+import { ParseHtml as TjobParseHtml } from './parse/html';
+import { FatherMake as TjobFatherMake } from './father/make';
+import { SupportParse as TJobSupportParse } from './support/parse';
+export { TjobParseHtml, TjobFatherMake, TjobMakeNative, TJobSupportParse };

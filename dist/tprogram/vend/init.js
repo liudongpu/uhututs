@@ -1,48 +1,42 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("../../tnode/index");
-var launch_1 = require("../easy/launch");
-var index_2 = require("../../tcore/index");
-var file_1 = require("../easy/file");
-var VendInit = /** @class */ (function () {
-    function VendInit() {
-    }
-    VendInit.initProgram = function (arg) {
-        var sDir = launch_1.EasyLaunch.upSubPath('');
-        index_2.TBase.logDebug(3411002, [sDir]);
-        if (!index_1.TNodeIoFile.flagExist(sDir)) {
-            index_1.TNodeIoFile.mkdir(sDir);
+import { TNodeIoFile, TNodeIoPath } from "../../tnode/index";
+import { EasyLaunch } from "../easy/launch";
+import { TBase, TCoreCommonFunc, TCoreHelperObject } from "../../tcore/index";
+import { EasyFile } from "../easy/file";
+export class VendInit {
+    static initProgram(arg) {
+        let sDir = EasyLaunch.upSubPath('');
+        TBase.logDebug(3411002, [sDir]);
+        if (!TNodeIoFile.flagExist(sDir)) {
+            TNodeIoFile.mkdir(sDir);
         }
-        file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), launch_1.EasyLaunch.upSubPath('.gitignore'));
-        if (arg.init === index_2.TBase.defineBase().projectGo) {
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-root/gitconfig/.gitignore"), EasyLaunch.upSubPath('.gitignore'));
+        if (arg.init === TBase.defineBase().projectGo) {
             VendInit.initGo(arg);
         }
         return true;
-    };
-    VendInit.initGo = function (arg) {
-        var sDir = launch_1.EasyLaunch.upDevPath('');
-        index_2.TBase.logDebug(3411004, [sDir]);
-        if (!index_1.TNodeIoFile.flagExist(sDir)) {
-            index_1.TNodeIoFile.mkdir(sDir);
+    }
+    static initGo(arg) {
+        let sDir = EasyLaunch.upDevPath('');
+        TBase.logDebug(3411004, [sDir]);
+        if (!TNodeIoFile.flagExist(sDir)) {
+            TNodeIoFile.mkdir(sDir);
         }
-        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(index_2.TBase.defineProgram().fileNameOfConfig);
-        var bFlagExistConfigFile = index_1.TNodeIoFile.flagExist(sConfigFile);
+        let sConfigFile = EasyLaunch.upDevPathForSettings(TBase.defineProgram().fileNameOfConfig);
+        let bFlagExistConfigFile = TNodeIoFile.flagExist(sConfigFile);
         if (!bFlagExistConfigFile || arg.force) {
-            var oConfigCurrent = index_2.TCoreHelperObject.parseTs({});
+            let oConfigCurrent = TCoreHelperObject.parseTs({});
             if (bFlagExistConfigFile) {
-                oConfigCurrent = index_2.TCoreCommonFunc.jsonParse(index_1.TNodeIoFile.readFile(sConfigFile));
+                oConfigCurrent = TCoreCommonFunc.jsonParse(TNodeIoFile.readFile(sConfigFile));
             }
-            var oConfigDefault = index_2.TCoreCommonFunc.jsonParse(index_1.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-go/setting/config.json")));
-            oConfigDefault.projectBaseName = index_1.TNodeIoFile.upBaseName(index_1.TNodeIoPath.upCwdPath(), "");
-            oConfigCurrent = index_2.TCoreHelperObject.assign(oConfigDefault, oConfigCurrent);
-            index_1.TNodeIoFile.writeFile(sConfigFile, index_2.TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
-            index_2.TBase.logInfo(3611001);
+            let oConfigDefault = TCoreCommonFunc.jsonParse(TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-go/setting/config.json")));
+            oConfigDefault.projectBaseName = TNodeIoFile.upBaseName(TNodeIoPath.upCwdPath(), "");
+            oConfigCurrent = TCoreHelperObject.assign(oConfigDefault, oConfigCurrent);
+            TNodeIoFile.writeFile(sConfigFile, TCoreCommonFunc.jsonStringifyBeautify(oConfigCurrent));
+            TBase.logInfo(3611001);
         }
-        index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForPages(""));
-        index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForScripts(""));
-        index_1.TNodeIoFile.mkdir(launch_1.EasyLaunch.upDevPathForResources(""));
+        TNodeIoFile.mkdir(EasyLaunch.upDevPathForPages(""));
+        TNodeIoFile.mkdir(EasyLaunch.upDevPathForScripts(""));
+        TNodeIoFile.mkdir(EasyLaunch.upDevPathForResources(""));
         return true;
-    };
-    return VendInit;
-}());
-exports.VendInit = VendInit;
+    }
+}

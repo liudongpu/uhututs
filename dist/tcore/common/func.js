@@ -1,17 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var CommonFunc = /** @class */ (function () {
-    function CommonFunc() {
-    }
-    CommonFunc.jsonParse = function (sText) {
+export class CommonFunc {
+    static jsonParse(sText) {
         return JSON.parse(sText);
-    };
-    CommonFunc.jsonStringify = function (oT) {
+    }
+    static jsonStringify(oT) {
         return JSON.stringify(oT);
-    };
-    CommonFunc.jsonStringifyBeautify = function (oT) {
+    }
+    static jsonStringifyBeautify(oT) {
         return JSON.stringify(oT, null, 2);
-    };
-    return CommonFunc;
-}());
-exports.CommonFunc = CommonFunc;
+    }
+}

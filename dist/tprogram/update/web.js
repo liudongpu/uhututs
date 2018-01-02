@@ -1,20 +1,16 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var file_1 = require("./../easy/file");
-var git_1 = require("./../process/git");
-var index_1 = require("../../tnode/index");
-var index_2 = require("../../tcore/index");
-var launch_1 = require("../easy/launch");
-var UpdateWeb = /** @class */ (function () {
-    function UpdateWeb() {
-    }
-    UpdateWeb.update = function (args) {
-        index_2.TBase.logDebug(3411003);
+import { EasyFile } from './../easy/file';
+import { ProcessGit } from './../process/git';
+import { TNodeIoFile, TNodeIoPath } from '../../tnode/index';
+import { TBase } from '../../tcore/index';
+import { EasyLaunch } from '../easy/launch';
+export class UpdateWeb {
+    static update(args) {
+        TBase.logDebug(3411003);
         if (args.force) {
-            index_1.TNodeIoFile.deleteFile(launch_1.EasyLaunch.upSubPathForTempGit(''));
+            TNodeIoFile.deleteFile(EasyLaunch.upSubPathForTempGit(''));
         }
-        git_1.ProcessGit.checkOrUpdate(index_2.TBase.defineBase().projectManage, index_2.TBase.defineProgram().gitManageUrl);
-        file_1.EasyFile.copyDirAndReplace(launch_1.EasyLaunch.upSubPathForTempGit(index_2.TBase.defineBase().projectManage), index_1.TNodeIoPath.upCwdPath(), index_2.TBase.defineProgram().fileExtReplace, index_2.TBase.defineProgram().pathSkipDir);
+        ProcessGit.checkOrUpdate(TBase.defineBase().projectManage, TBase.defineProgram().gitManageUrl);
+        EasyFile.copyDirAndReplace(EasyLaunch.upSubPathForTempGit(TBase.defineBase().projectManage), TNodeIoPath.upCwdPath(), TBase.defineProgram().fileExtReplace, TBase.defineProgram().pathSkipDir);
         /*
         TnodeProtoProcess.spawnSync("git", [
             "clone",
@@ -27,7 +23,5 @@ var UpdateWeb = /** @class */ (function () {
                 .tempDir
         });
         */
-    };
-    return UpdateWeb;
-}());
-exports.UpdateWeb = UpdateWeb;
+    }
+}

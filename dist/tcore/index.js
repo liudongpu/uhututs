@@ -1,12 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var string_1 = require("./helper/string");
-exports.TCoreHelperString = string_1.HelperString;
-var func_1 = require("./common/func");
-exports.TCoreCommonFunc = func_1.CommonFunc;
-var util_1 = require("./super/util");
-exports.TBase = util_1.SuperUtil;
-var map_1 = require("./helper/map");
-exports.TCoreHelperMap = map_1.HelperMap;
-var object_1 = require("./helper/object");
-exports.TCoreHelperObject = object_1.HelperObject;
+import { HelperString as TCoreHelperString } from './helper/string';
+import { CommonFunc as TCoreCommonFunc } from './common/func';
+import { SuperUtil as TBase } from './super/util';
+import { HelperMap as TCoreHelperMap } from './helper/map';
+import { HelperObject as TCoreHelperObject } from './helper/object';
+export { TCoreCommonFunc, TCoreHelperMap, TCoreHelperObject, TCoreHelperString, TBase };

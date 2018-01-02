@@ -1,7 +1,7 @@
 import { IConfigInfo } from './../../air/interfaces/config';
 
-import through = require('through2');
-import gutil = require('gulp-util');
+var through = require('through2');
+var gutil = require('gulp-util');
 import { TNodeIoFile } from '../../tnode/index';
 import { KJobFileInfo } from '../../air/keep/job';
 import { TJobSupportParse } from '../../tjob/index';
