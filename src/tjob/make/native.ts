@@ -66,6 +66,8 @@ export class MakeNative extends FatherMake {
 
         this.attrSource(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource));
 
+        this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
+
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
@@ -128,6 +130,33 @@ export class MakeNative extends FatherMake {
         }
 
     }
+
+
+    private attrProp(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                switch (k) {
+
+                    case "placeholder":
+
+                    oNodeInfo.itemAttr.set("placeholder", '"'+v+'"');
+
+                        break;
+
+                    
+
+                };
+
+            });
+
+        }
+
+    }
+
+
 
 
     private attrSource(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {

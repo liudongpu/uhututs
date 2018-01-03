@@ -66,6 +66,7 @@ var defineProgram = {
 var defineData = {
     startTemplate: 'data-template-',
     startSource: 'data-source-',
+    startProp: 'data-prop-',
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',

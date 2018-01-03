@@ -17,6 +17,14 @@ var configInfo = {
         ts: {
             name: "uhutu-ts",
             version: "git://github.com/liudongpu/uhututs.git"
+        },
+        icon: {
+            name: "react-native-vector-icons",
+            version: "4.4.3"
+        },
+        element: {
+            name: "react-native-elements",
+            version: "0.18.5"
         }
     }
 };
