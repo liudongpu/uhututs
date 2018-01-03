@@ -94,7 +94,9 @@ export interface IConfigPage{
     macroUrl:string
 
 
+    headerLeft:string
 
+    headerRight:string
 
     styleUrl:string
 

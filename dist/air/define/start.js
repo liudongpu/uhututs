@@ -69,6 +69,7 @@ var defineData = {
     startProp: 'data-prop-',
     startStyle: 'data-style-',
     startIcon: 'data-icon-',
+    startNumber: 'data-number-',
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',

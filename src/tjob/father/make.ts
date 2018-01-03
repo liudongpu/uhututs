@@ -50,13 +50,18 @@ export abstract class FatherMake {
 
     public abstract subPageConfig(sJson : string, fileInfo : KJobFileInfo) : IConfigPage;
 
+
+    protected abstract subPageOut(oPageOut : KJobPageOut):KJobPageOut;
+
     makeResult(oPageOut : KJobPageOut, fileInfo : KJobFileInfo) : KJobPageOut {
 
         if(oPageOut.config === undefined) {
             oPageOut.config = this.subPageConfig("{}", fileInfo);
         }
 
-        return oPageOut;
+
+
+        return this.subPageOut(oPageOut);
 
     }
 

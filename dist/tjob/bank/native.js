@@ -14,7 +14,8 @@ var elementList = {
         name: "View",
         typeName: {
             "scroll": "ScrollView",
-            "list": "FlatList"
+            "list": "FlatList",
+            "qrcode": "QRCode"
         }
     },
     button: {

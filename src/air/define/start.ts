@@ -108,6 +108,8 @@ const defineData={
     startStyle:'data-style-',
     startIcon:'data-icon-',
 
+    startNumber:'data-number-',
+
     nameRecord:'record',
     nameCall:'call',
     nameRender:'render',

@@ -18,7 +18,12 @@ import {
   View
 } from 'react-native';
 
+
+
 import { SearchBar,Icon } from 'react-native-elements';
+
+
+import QRCode from 'react-native-qrcode';
 
 
 {{#out.config.styleUrl}}
@@ -35,6 +40,18 @@ export default class  extends Component {
 
   static navigationOptions = {
     title: '{{{out.config.pageTitle}}}',
+
+
+  {{#out.config.headerRight}}
+    headerRight:{{{out.config.headerRight}}},
+
+  {{/out.config.headerRight}}
+
+  {{#out.config.headerLeft}}
+    headerLeft:{{{out.config.headerLeft}}},
+
+  {{/out.config.headerLeft}}
+
   };
 
 

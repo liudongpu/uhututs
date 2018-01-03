@@ -16,12 +16,11 @@ export class MakeNative extends FatherMake {
 
     subPageConfig(sJson : string, fileInfo : KJobFileInfo) : IConfigPage {
 
-        let oDefaultConfig: IConfigPage = {
+        let oDefaultConfig = TCoreHelperObject.parseTs < IConfigPage > ({
             macroUrl: "dev/resources/macro/" + this.subWorkType() + ".mustache",
             pageTitle: '',
             styleUrl: './' + fileInfo.name + '-style'
-        }
-
+        });
         return TCoreHelperObject.assign(oDefaultConfig, TCoreCommonFunc.jsonParse(sJson));
 
     }
@@ -39,14 +38,12 @@ export class MakeNative extends FatherMake {
             aClass.forEach(fItem => {
                 if (fItem) {
 
-                    if(fItem.startsWith("tg_")){
+                    if (fItem.startsWith("tg_")) {
                         aStyles.push('styletg.' + fItem);
-                    }
-                    else{
+                    } else {
                         aStyles.push('styles.' + fItem);
                     }
 
-                    
                 }
             })
 
@@ -59,7 +56,7 @@ export class MakeNative extends FatherMake {
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo
                 .itemAttr
-                .set("onPress", "()=>{guidebook.navigateUrl(this,\""+oNodeInfo.nodeAttr.get("href")+"\")}");
+                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
         }
 
         this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
@@ -70,6 +67,9 @@ export class MakeNative extends FatherMake {
         this.attrStyle(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startStyle));
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startIcon));
+
+
+        this.attrNumber(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startNumber));
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
@@ -112,16 +112,21 @@ export class MakeNative extends FatherMake {
 
                 switch (k) {
 
-                    case TBase.defineData().nameCall:
+                        case TBase
+                            .defineData()
+                            .nameCall:
 
                         oNodeInfo.nodeInfo = "{this.x_template_render_" + v + "(" + mMap.get(TBase.defineData().nameRecord) + ")}";
 
                         break;
 
-                    case TBase.defineData().nameRender:
+                    case TBase
+                            .defineData()
+                            .nameRender:
 
-
-                    oNodeInfo.itemAttr.set("renderItem", "({item}) =>{return this.x_template_render_"+v+"(item)}");
+                        oNodeInfo
+                            .itemAttr
+                            .set("renderItem", "({item}) =>{return this.x_template_render_" + v + "(item)}");
 
                         break;
 
@@ -133,21 +138,35 @@ export class MakeNative extends FatherMake {
 
     }
 
-
     private attrProp(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
         if (mMap.size > 0) {
 
             mMap.forEach((v, k) => {
 
-                oNodeInfo.itemAttr.set(k, '"'+v+'"');
+                oNodeInfo
+                    .itemAttr
+                    .set(k, '"' + v + '"');
             });
 
         }
 
     }
 
+    private attrNumber(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                oNodeInfo
+                    .itemAttr
+                    .set(k, v);
+            });
+
+        }
+
+    }
 
     private attrStyle(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
@@ -155,21 +174,15 @@ export class MakeNative extends FatherMake {
 
             mMap.forEach((v, k) => {
 
-               
-
-                    oNodeInfo.itemAttr.set(k, 'styles.'+v);
-
-                       
+                oNodeInfo
+                    .itemAttr
+                    .set(k, 'styles.' + v);
 
             });
 
         }
 
     }
-
-
-
-
 
     private attrSource(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
@@ -179,13 +192,15 @@ export class MakeNative extends FatherMake {
 
                 switch (k) {
 
-                    case TBase.defineData().nameState:
+                        case TBase
+                            .defineData()
+                            .nameState:
 
-                    oNodeInfo.itemAttr.set("data", "this.state."+v);
+                        oNodeInfo
+                            .itemAttr
+                            .set("data", "this.state." + v);
 
                         break;
-
-                    
 
                 };
 
@@ -198,5 +213,41 @@ export class MakeNative extends FatherMake {
     subBank() {
         return new BankNative();
     }
+
+
+
+
+     subPageOut(oPageOut : KJobPageOut):KJobPageOut{
+
+
+
+        if(oPageOut.config.headerLeft){
+
+
+            oPageOut.templates.forEach(fItem=>{
+
+                if(fItem.name===oPageOut.config.headerLeft){
+                    oPageOut.config.headerLeft=fItem.content;
+                }
+            });
+
+        };
+        if(oPageOut.config.headerRight){
+
+
+            oPageOut.templates.forEach(fItem=>{
+
+                if(fItem.name===oPageOut.config.headerRight){
+                    oPageOut.config.headerRight=fItem.content;
+                }
+            });
+
+        };
+
+
+        return oPageOut;
+    }
+
+
 
 }

@@ -22,7 +22,7 @@ var FatherMake = /** @class */ (function () {
         if (oPageOut.config === undefined) {
             oPageOut.config = this.subPageConfig("{}", fileInfo);
         }
-        return oPageOut;
+        return this.subPageOut(oPageOut);
     };
     FatherMake.prototype.makeFormat = function (sStr) {
         var sReturn = sStr;

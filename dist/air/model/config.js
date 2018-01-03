@@ -22,6 +22,10 @@ var configInfo = {
             name: "react-native-vector-icons",
             version: "4.4.3"
         },
+        qrcode: {
+            name: "react-native-qrcode",
+            version: "0.2.6"
+        },
         element: {
             name: "react-native-elements",
             version: "0.18.5"

@@ -17,7 +17,9 @@ const elementList : IHtmlElementList = {
         name: "View",
         typeName: {
             "scroll": "ScrollView",
-            "list":"FlatList"
+            "list":"FlatList",
+
+            "qrcode":"QRCode"
         }
     },
 
