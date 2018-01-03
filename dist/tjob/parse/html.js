@@ -16,6 +16,7 @@ var sSetElement = new Set([
     "img",
     "label",
     "object",
+    "i",
     "select"
 ]);
 var sSetScript = new Set(["script"]);
@@ -78,7 +79,7 @@ var ParseHtml = /** @class */ (function () {
                         break;
                 }
             }
-        }, { decodeEntities: true });
+        }, { decodeEntities: true, lowerCaseAttributeNames: false });
         oParse.write(fileInfo.content);
         oParse.end();
         oResult.content = oCurrentPage

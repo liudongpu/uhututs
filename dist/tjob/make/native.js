@@ -60,6 +60,8 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startTemplate));
         this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startSource));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startProp));
+        this.attrStyle(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startStyle));
+        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startIcon));
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -99,12 +101,14 @@ var MakeNative = /** @class */ (function (_super) {
     MakeNative.prototype.attrProp = function (oNodeInfo, mMap) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
-                switch (k) {
-                    case "placeholder":
-                        oNodeInfo.itemAttr.set("placeholder", '"' + v + '"');
-                        break;
-                }
-                ;
+                oNodeInfo.itemAttr.set(k, '"' + v + '"');
+            });
+        }
+    };
+    MakeNative.prototype.attrStyle = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                oNodeInfo.itemAttr.set(k, 'styles.' + v);
             });
         }
     };

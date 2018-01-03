@@ -9,6 +9,9 @@ const elementList : IHtmlElementList = {
     main: {
         name: "View"
     },
+    i: {
+        name: "Icon"
+    },
 
     object:{
         name: "View",
@@ -28,7 +31,10 @@ const elementList : IHtmlElementList = {
     },
 
     input: {
-        name: "TextInput"
+        name: "TextInput",
+        typeName:{
+            "search":"SearchBar"
+        }
     },
 
     span:{

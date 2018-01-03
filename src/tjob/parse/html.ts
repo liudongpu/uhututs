@@ -20,6 +20,7 @@ const sSetElement : Set < string >= new Set < string > ([
     "img",
     "label",
     "object",
+    "i",
     "select"
 ]);
 
@@ -115,7 +116,7 @@ export class ParseHtml {
 
             }
 
-        }, {decodeEntities: true});
+        }, {decodeEntities: true,lowerCaseAttributeNames:false});
 
         oParse.write(fileInfo.content);
 

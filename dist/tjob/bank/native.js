@@ -7,6 +7,9 @@ var elementList = {
     main: {
         name: "View"
     },
+    i: {
+        name: "Icon"
+    },
     object: {
         name: "View",
         typeName: {
@@ -21,7 +24,10 @@ var elementList = {
         name: "TouchableOpacity"
     },
     input: {
-        name: "TextInput"
+        name: "TextInput",
+        typeName: {
+            "search": "SearchBar"
+        }
     },
     span: {
         name: "Text"

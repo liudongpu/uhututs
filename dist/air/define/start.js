@@ -67,6 +67,8 @@ var defineData = {
     startTemplate: 'data-template-',
     startSource: 'data-source-',
     startProp: 'data-prop-',
+    startStyle: 'data-style-',
+    startIcon: 'data-icon-',
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',
