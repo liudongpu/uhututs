@@ -36,6 +36,11 @@ export class UpdateGo {
 
             ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
 
+
+            TNodeProtoProcess.spawnSync("react-native", [
+                "link"
+            ],{cwd: BootProgram.upGoWorkOfNative()});
+
             EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/native.mustache"), EasyLaunch.upDevPathForResources("macro/native.mustache"));
 
             EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/indexs/App.js"), EasyLaunch.upGoNativePath("App.js"));
