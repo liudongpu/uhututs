@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/liudongpu/uhututs#readme",
   "dependencies": {
-    
+    "@types/react": "^16.0.34",
     "css-to-react-native": "^2.0.4",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",

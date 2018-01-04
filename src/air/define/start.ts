@@ -114,7 +114,9 @@ const defineData={
     nameCall:'call',
     nameRender:'render',
 
-    nameState:'state'
+    nameState:'state',
+
+    nameOption:'option'
 
 
 

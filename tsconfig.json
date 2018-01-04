@@ -4,6 +4,7 @@
     "moduleResolution": "Node",
     "allowJs": true,
     "target": "es5",
+    "jsx":"react-native",
     "rootDir": "./src",
     "lib": [
       "es2017",

@@ -73,7 +73,8 @@ var defineData = {
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',
-    nameState: 'state'
+    nameState: 'state',
+    nameOption: 'option'
 };
 var ADefineStart = /** @class */ (function () {
     function ADefineStart() {
