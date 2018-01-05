@@ -29,6 +29,10 @@ var configInfo = {
         element: {
             name: "react-native-elements",
             version: "0.18.5"
+        },
+        dropdown: {
+            name: "react-native-modal-dropdown",
+            version: "0.5.0"
         }
     }
 };

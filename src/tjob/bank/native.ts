@@ -32,6 +32,11 @@ const elementList : IHtmlElementList = {
         name: "TouchableOpacity"
     },
 
+    select:{
+
+        name:"ModalDropdown"
+    },
+
     input: {
         name: "TextInput",
         typeName:{

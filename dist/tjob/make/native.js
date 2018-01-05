@@ -143,6 +143,11 @@ var MakeNative = /** @class */ (function (_super) {
                             .itemAttr
                             .set("data", "this.state." + v);
                         break;
+                    case index_1.TBase.defineData().nameOption:
+                        oNodeInfo
+                            .itemAttr
+                            .set("options", v);
+                        break;
                 }
                 ;
             });

@@ -202,6 +202,14 @@ export class MakeNative extends FatherMake {
 
                         break;
 
+                        case TBase.defineData().nameOption:
+
+                        oNodeInfo
+                        .itemAttr
+                        .set("options",  v);
+
+                        break;
+
                 };
 
             });

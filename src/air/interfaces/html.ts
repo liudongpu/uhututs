@@ -20,6 +20,8 @@ export interface IHtmlElementList{
 
     i:IHtmlElementInfo
 
+    select:IHtmlElementInfo
+
     input:IHtmlElementInfo
 
     main:IHtmlElementInfo
