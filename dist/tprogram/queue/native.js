@@ -6,7 +6,7 @@ var QueueNative = /** @class */ (function () {
     function QueueNative() {
     }
     QueueNative.run = function (oConfig) {
-        index_1.TNodeProtoProcess.spawn("npm", ["start"], { cwd: program_1.BootProgram.upGoWorkOfNative() });
+        index_1.TNodeProtoProcess.spawn("yarn", ["start"], { cwd: program_1.BootProgram.upGoWorkOfNative() });
     };
     return QueueNative;
 }());

@@ -40,6 +40,9 @@ var elementList = {
     input_search: {
         name: "SearchBar"
     },
+    input_date: {
+        name: "DatePicker"
+    },
     span: {
         name: "Text"
     }

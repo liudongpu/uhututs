@@ -53,6 +53,11 @@ const elementList : IHtmlElementList = {
         name: "SearchBar"
     },
 
+    input_date:{
+
+        name:"DatePicker"
+    },
+
     span: {
         name: "Text"
     }

@@ -12,32 +12,25 @@ export abstract class FatherMake {
 
         let mElement = TCoreHelperMap.parseMap < IHtmlElementInfo > (this.subBank().upElementList());
 
-
-        let sName=oNodeInfo.nodeName;
-        if(oNodeInfo.sourceType){
-            sName=sName+"_"+oNodeInfo.sourceType;
+        let sName = oNodeInfo.nodeName;
+        if (oNodeInfo.sourceType) {
+            sName = sName + "_" + oNodeInfo.sourceType;
         }
 
+        if (!mElement.has(sName)) {
+            
+            TBase.logError(3911003, [sName]);
+            sName = "div";
+        } 
 
-
-        if(mElement.has(sName)){
+        if (mElement.has(sName)) {
             let oInfo = mElement.get(sName);
 
-
-        
-
             oNodeInfo.itemName = oInfo.name;
-    
+
             this.subElementParse(oNodeInfo);
-    
-        }
-        else{
-            TBase.logError(3911003,[sName])
-        }
 
-        
-
-        
+        }
 
         return oNodeInfo;
     }
@@ -58,16 +51,13 @@ export abstract class FatherMake {
 
     public abstract subPageConfig(sJson : string, fileInfo : KJobFileInfo) : IConfigPage;
 
-
-    protected abstract subPageOut(oPageOut : KJobPageOut):KJobPageOut;
+    protected abstract subPageOut(oPageOut : KJobPageOut) : KJobPageOut;
 
     makeResult(oPageOut : KJobPageOut, fileInfo : KJobFileInfo) : KJobPageOut {
 
         if(oPageOut.config === undefined) {
             oPageOut.config = this.subPageConfig("{}", fileInfo);
         }
-
-
 
         return this.subPageOut(oPageOut);
 
@@ -119,7 +109,8 @@ export abstract class FatherMake {
 
             }
 
-            // 这里hack一个bug 属性已经加了双引号 sReturn = sReturn.replace("{{", "{").replace("}}", "}");
+            // 这里hack一个bug 属性已经加了双引号 sReturn = sReturn.replace("{{", "{").replace("}}",
+            // "}");
 
         }
         return sReturn;

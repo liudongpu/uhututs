@@ -29,17 +29,15 @@ export class UpdateGo {
         let sNativePath = EasyLaunch.upGoNativePath("");
         if (!TNodeIoFile.flagExist(sNativePath)) {
 
-            TNodeProtoProcess.spawnSync("react-native", [
-                "init", BootProgram.upGoWorkOfNative()
+            TNodeProtoProcess.spawnSync("create-react-native-app", [
+                BootProgram.upGoWorkOfNative()
             ]);
         } else {
 
             ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
 
 
-            TNodeProtoProcess.spawnSync("react-native", [
-                "link"
-            ],{cwd: BootProgram.upGoWorkOfNative()});
+
 
             EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/native.mustache"), EasyLaunch.upDevPathForResources("macro/native.mustache"));
 

@@ -14,14 +14,6 @@ var configInfo = {
             name: "react-navigation",
             version: "1.0.0-beta.22"
         },
-        ts: {
-            name: "uhutu-ts",
-            version: "git://github.com/liudongpu/uhututs.git"
-        },
-        icon: {
-            name: "react-native-vector-icons",
-            version: "4.4.3"
-        },
         qrcode: {
             name: "react-native-qrcode",
             version: "0.2.6"
@@ -34,9 +26,9 @@ var configInfo = {
             name: "antd-mobile",
             version: "2.1.3"
         },
-        dropdown: {
-            name: "react-native-modal-dropdown",
-            version: "0.5.0"
+        babel: {
+            name: "babel-plugin-import",
+            version: "1.6.3"
         }
     }
 };

@@ -21,15 +21,12 @@ var UpdateGo = /** @class */ (function () {
     UpdateGo.installNative = function (oConfig) {
         var sNativePath = launch_1.EasyLaunch.upGoNativePath("");
         if (!index_2.TNodeIoFile.flagExist(sNativePath)) {
-            index_2.TNodeProtoProcess.spawnSync("react-native", [
-                "init", program_1.BootProgram.upGoWorkOfNative()
+            index_2.TNodeProtoProcess.spawnSync("create-react-native-app", [
+                program_1.BootProgram.upGoWorkOfNative()
             ]);
         }
         else {
             package_1.ProcessPackage.checkOrUpdate(index_2.TNodeIoFile.pathJoin(program_1.BootProgram.upGoWorkOfNative(), index_1.TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
-            index_2.TNodeProtoProcess.spawnSync("react-native", [
-                "link"
-            ], { cwd: program_1.BootProgram.upGoWorkOfNative() });
             file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/native.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/native.mustache"));
             file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/indexs/App.js"), launch_1.EasyLaunch.upGoNativePath("App.js"));
             this.updatePagesNavigation();

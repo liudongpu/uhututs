@@ -11,13 +11,14 @@ var FatherMake = /** @class */ (function () {
         if (oNodeInfo.sourceType) {
             sName = sName + "_" + oNodeInfo.sourceType;
         }
+        if (!mElement.has(sName)) {
+            index_1.TBase.logError(3911003, [sName]);
+            sName = "div";
+        }
         if (mElement.has(sName)) {
             var oInfo = mElement.get(sName);
             oNodeInfo.itemName = oInfo.name;
             this.subElementParse(oNodeInfo);
-        }
-        else {
-            index_1.TBase.logError(3911003, [sName]);
         }
         return oNodeInfo;
     };
@@ -62,7 +63,8 @@ var FatherMake = /** @class */ (function () {
                     sReturn = sReturn.replace(r[0], this.subFormat(eKey, r[2]));
                 }
             }
-            // 这里hack一个bug 属性已经加了双引号 sReturn = sReturn.replace("{{", "{").replace("}}", "}");
+            // 这里hack一个bug 属性已经加了双引号 sReturn = sReturn.replace("{{", "{").replace("}}",
+            // "}");
         }
         return sReturn;
     };
