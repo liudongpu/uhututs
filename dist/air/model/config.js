@@ -30,6 +30,10 @@ var configInfo = {
             name: "react-native-elements",
             version: "0.18.5"
         },
+        antd: {
+            name: "antd-mobile",
+            version: "2.1.3"
+        },
         dropdown: {
             name: "react-native-modal-dropdown",
             version: "0.5.0"

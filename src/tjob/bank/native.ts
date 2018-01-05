@@ -1,11 +1,18 @@
-import { IHtmlElementList } from './../../air/interfaces/html';
-import { IJobBank } from '../../air/interfaces/job';
+import {IHtmlElementList} from './../../air/interfaces/html';
+import {IJobBank} from '../../air/interfaces/job';
 
 const elementList : IHtmlElementList = {
 
     div: {
         name: "View"
     },
+    div_scroll: {
+        name: "ScrollView"
+    },
+    div_list: {
+        name: "FlatList"
+    },
+
     main: {
         name: "View"
     },
@@ -13,45 +20,47 @@ const elementList : IHtmlElementList = {
         name: "Icon"
     },
 
-    object:{
-        name: "View",
-        typeName: {
-            "scroll": "ScrollView",
-            "list":"FlatList",
-
-            "qrcode":"QRCode"
-        }
+    object: {
+        name: "View"
     },
 
-    button:{
+    object_qrcode: {
+        name: "QRCode"
+    },
 
-        name:"TouchableOpacity"
+    button: {
+
+        name: "TouchableOpacity"
     },
 
     a: {
         name: "TouchableOpacity"
     },
 
-    select:{
+    select: {
 
-        name:"ModalDropdown"
+        name: "ModalDropdown"
     },
 
     input: {
-        name: "TextInput",
-        typeName:{
-            "search":"SearchBar"
-        }
+        name: "TextInput"
+    },
+    input_text: {
+        name: "TextInput"
     },
 
-    span:{
-        name:"Text"
+    input_search: {
+        name: "SearchBar"
+    },
+
+    span: {
+        name: "Text"
     }
 }
 
 export class BankNative implements IJobBank {
 
-     upElementList() {
+    upElementList() {
         return elementList;
     }
 }

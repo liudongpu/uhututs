@@ -1,3 +1,4 @@
+import { IHtmlElementInfo } from './html';
 import { IbaseKv } from "./base";
 
 
@@ -12,7 +13,14 @@ export interface IHtmlElementList{
 
     div:IHtmlElementInfo
 
+
+    div_scroll:IHtmlElementInfo
+
+    div_list:IHtmlElementInfo
+
     object:IHtmlElementInfo
+
+    object_qrcode:IHtmlElementInfo
 
     a:IHtmlElementInfo
 
@@ -23,6 +31,9 @@ export interface IHtmlElementList{
     select:IHtmlElementInfo
 
     input:IHtmlElementInfo
+
+    input_text:IHtmlElementInfo
+    input_search:IHtmlElementInfo
 
     main:IHtmlElementInfo
 

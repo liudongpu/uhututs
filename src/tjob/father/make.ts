@@ -12,22 +12,30 @@ export abstract class FatherMake {
 
         let mElement = TCoreHelperMap.parseMap < IHtmlElementInfo > (this.subBank().upElementList());
 
-        let oInfo = mElement.get(oNodeInfo.nodeName);
 
-        oNodeInfo.itemName = oInfo.name;
-
-        if (oInfo.typeName) {
-
-            let mTypeName = TCoreHelperMap.objectToMap(oInfo.typeName);
-
-            if (mTypeName.has(oNodeInfo.sourceType)) {
-                oNodeInfo.itemName = mTypeName.get(oNodeInfo.sourceType);
-            }
-
+        let sName=oNodeInfo.nodeName;
+        if(oNodeInfo.sourceType){
+            sName=sName+"_"+oNodeInfo.sourceType;
         }
 
-        this.subElementParse(oNodeInfo);
 
+
+        if(mElement.has(sName)){
+            let oInfo = mElement.get(sName);
+
+
+        
+
+            oNodeInfo.itemName = oInfo.name;
+    
+            this.subElementParse(oNodeInfo);
+    
+        }
+        else{
+            TBase.logError(3911003,[sName])
+        }
+
+        
 
         
 

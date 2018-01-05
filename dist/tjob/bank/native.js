@@ -4,6 +4,12 @@ var elementList = {
     div: {
         name: "View"
     },
+    div_scroll: {
+        name: "ScrollView"
+    },
+    div_list: {
+        name: "FlatList"
+    },
     main: {
         name: "View"
     },
@@ -11,12 +17,10 @@ var elementList = {
         name: "Icon"
     },
     object: {
-        name: "View",
-        typeName: {
-            "scroll": "ScrollView",
-            "list": "FlatList",
-            "qrcode": "QRCode"
-        }
+        name: "View"
+    },
+    object_qrcode: {
+        name: "QRCode"
     },
     button: {
         name: "TouchableOpacity"
@@ -28,10 +32,13 @@ var elementList = {
         name: "ModalDropdown"
     },
     input: {
-        name: "TextInput",
-        typeName: {
-            "search": "SearchBar"
-        }
+        name: "TextInput"
+    },
+    input_text: {
+        name: "TextInput"
+    },
+    input_search: {
+        name: "SearchBar"
     },
     span: {
         name: "Text"

@@ -7,15 +7,18 @@ var FatherMake = /** @class */ (function () {
     }
     FatherMake.prototype.makeElement = function (oNodeInfo) {
         var mElement = index_1.TCoreHelperMap.parseMap(this.subBank().upElementList());
-        var oInfo = mElement.get(oNodeInfo.nodeName);
-        oNodeInfo.itemName = oInfo.name;
-        if (oInfo.typeName) {
-            var mTypeName = index_1.TCoreHelperMap.objectToMap(oInfo.typeName);
-            if (mTypeName.has(oNodeInfo.sourceType)) {
-                oNodeInfo.itemName = mTypeName.get(oNodeInfo.sourceType);
-            }
+        var sName = oNodeInfo.nodeName;
+        if (oNodeInfo.sourceType) {
+            sName = sName + "_" + oNodeInfo.sourceType;
         }
-        this.subElementParse(oNodeInfo);
+        if (mElement.has(sName)) {
+            var oInfo = mElement.get(sName);
+            oNodeInfo.itemName = oInfo.name;
+            this.subElementParse(oNodeInfo);
+        }
+        else {
+            index_1.TBase.logError(3911003, [sName]);
+        }
         return oNodeInfo;
     };
     FatherMake.prototype.makeResult = function (oPageOut, fileInfo) {
