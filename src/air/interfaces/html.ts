@@ -35,7 +35,13 @@ export interface IHtmlElementList{
     input_text:IHtmlElementInfo
     input_search:IHtmlElementInfo
 
-    input_date:IHtmlElementInfo
+    
+
+
+    forminput:IHtmlElementInfo
+
+
+    formdate:IHtmlElementInfo
 
     main:IHtmlElementInfo
 
