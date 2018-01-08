@@ -70,6 +70,9 @@ export class MakeNative extends FatherMake {
 
 
         this.attrNumber(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startNumber));
+
+        this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
+
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
@@ -168,6 +171,47 @@ export class MakeNative extends FatherMake {
 
     }
 
+
+
+    private attrForm(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+
+
+                switch (k) {
+
+                    case TBase
+                    .defineData()
+                    .nameLabel:
+
+
+                    oNodeInfo.nodeInfo=v;
+
+
+                    break;
+
+
+                    case TBase.defineData().nameArrow:
+
+                    oNodeInfo.nodeInfo='<List.Item arrow="horizontal">'+v+'</List.Item>';
+
+                    break;
+
+                }
+
+
+                
+            });
+
+        }
+
+    }
+
+
+
     private attrStyle(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
         if (mMap.size > 0) {
@@ -206,7 +250,7 @@ export class MakeNative extends FatherMake {
 
                         oNodeInfo
                         .itemAttr
-                        .set("options",  v);
+                        .set("data",  v);
 
                         break;
 

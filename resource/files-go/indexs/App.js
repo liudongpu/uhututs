@@ -29,7 +29,7 @@ const RootNavigator = StackNavigator(RouteStack,
 {
   navigationOptions:{
     headerTitleStyle:styles.theme_layout_nav_title,
-    headerStyle:styles.theme_layout_nav_header,
+    headerStyle:[styles.theme_layout_nav_header,{elevation:0}],
     headerTintColor:'#ffffff',
     headerBackTitle:' ',
     headerBackTitleStyle:styles.theme_layout_nav_back

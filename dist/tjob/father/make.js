@@ -18,6 +18,9 @@ var FatherMake = /** @class */ (function () {
         if (mElement.has(sName)) {
             var oInfo = mElement.get(sName);
             oNodeInfo.itemName = oInfo.name;
+            if (oInfo.attrDefault) {
+                oNodeInfo.itemAttr = index_1.TCoreHelperMap.parseMap(oInfo.attrDefault);
+            }
             this.subElementParse(oNodeInfo);
         }
         return oNodeInfo;

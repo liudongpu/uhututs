@@ -14,7 +14,7 @@ var elementList = {
         name: "View"
     },
     i: {
-        name: "Icon"
+        name: "MaterialCommunityIcons"
     },
     object: {
         name: "View"
@@ -40,7 +40,16 @@ var elementList = {
     input_search: {
         name: "SearchBar"
     },
-    input_date: {
+    select_formpicker: {
+        name: "Picker",
+        attrDefault: {
+            "cols": '1'
+        }
+    },
+    input_forminput: {
+        name: "InputItem"
+    },
+    input_formdate: {
         name: "DatePicker"
     },
     span: {

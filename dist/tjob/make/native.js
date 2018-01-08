@@ -63,6 +63,7 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrStyle(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startStyle));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startIcon));
         this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startNumber));
+        this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startForm));
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -123,6 +124,22 @@ var MakeNative = /** @class */ (function (_super) {
             });
         }
     };
+    MakeNative.prototype.attrForm = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_1.TBase
+                        .defineData()
+                        .nameLabel:
+                        oNodeInfo.nodeInfo = v;
+                        break;
+                    case index_1.TBase.defineData().nameArrow:
+                        oNodeInfo.nodeInfo = '<List.Item arrow="horizontal">' + v + '</List.Item>';
+                        break;
+                }
+            });
+        }
+    };
     MakeNative.prototype.attrStyle = function (oNodeInfo, mMap) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
@@ -146,7 +163,7 @@ var MakeNative = /** @class */ (function (_super) {
                     case index_1.TBase.defineData().nameOption:
                         oNodeInfo
                             .itemAttr
-                            .set("options", v);
+                            .set("data", v);
                         break;
                 }
                 ;

@@ -17,7 +17,7 @@ const elementList : IHtmlElementList = {
         name: "View"
     },
     i: {
-        name: "Icon"
+        name: "MaterialCommunityIcons"
     },
 
     object: {
@@ -53,16 +53,24 @@ const elementList : IHtmlElementList = {
         name: "SearchBar"
     },
 
-    
+    select_formpicker:{
 
-    forminput:{
+        name:"Picker",
+
+        attrDefault:{
+            "cols":'1'
+        }
+    },
+
+    input_forminput:{
         name: "InputItem"
     },
 
-    formdate:{
-        name:""
+    input_formdate:{
+        name: "DatePicker"
     },
 
+    
 
 
     span: {

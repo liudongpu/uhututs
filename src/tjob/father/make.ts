@@ -18,15 +18,21 @@ export abstract class FatherMake {
         }
 
         if (!mElement.has(sName)) {
-            
+
             TBase.logError(3911003, [sName]);
             sName = "div";
-        } 
+        }
 
         if (mElement.has(sName)) {
             let oInfo = mElement.get(sName);
 
             oNodeInfo.itemName = oInfo.name;
+
+            if (oInfo.attrDefault) {
+
+                oNodeInfo.itemAttr = TCoreHelperMap.parseMap(oInfo.attrDefault);
+
+            }
 
             this.subElementParse(oNodeInfo);
 

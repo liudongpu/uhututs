@@ -7,6 +7,12 @@ import { IbaseKv } from "./base";
     name:string
 
     typeName?:IbaseKv
+
+
+
+
+    attrDefault?:IbaseKv
+
 }
 
 export interface IHtmlElementList{
@@ -35,13 +41,15 @@ export interface IHtmlElementList{
     input_text:IHtmlElementInfo
     input_search:IHtmlElementInfo
 
-    
+    input_formdate:IHtmlElementInfo
 
 
-    forminput:IHtmlElementInfo
+    input_forminput:IHtmlElementInfo
+
+    select_formpicker:IHtmlElementInfo
 
 
-    formdate:IHtmlElementInfo
+   
 
     main:IHtmlElementInfo
 

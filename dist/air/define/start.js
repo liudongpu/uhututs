@@ -70,10 +70,13 @@ var defineData = {
     startStyle: 'data-style-',
     startIcon: 'data-icon-',
     startNumber: 'data-number-',
+    startForm: 'data-form-',
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',
     nameState: 'state',
+    nameLabel: 'label',
+    nameArrow: 'arrow',
     nameOption: 'option'
 };
 var ADefineStart = /** @class */ (function () {
