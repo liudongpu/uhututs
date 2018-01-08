@@ -11,7 +11,7 @@ var sTargetDept="/usr/local/lib/node_modules/uhutu-ts/";
 
 
 
-gulp.task("ts:compile", function () {
+gulp.task("world:compile", function () {
     var tsProject = tsGulp.createProject("../../../resource/files-project/ts/tsconfig.json");
     return tsProject.src()
         .pipe(tsProject())
@@ -27,7 +27,7 @@ gulp.task("ts:copy", function () {
 
 
 
-gulp.task("ts",["ts:compile"]),
+gulp.task("world",["world:compile"]),
 
 
 gulp.task("watch:ts", function () {

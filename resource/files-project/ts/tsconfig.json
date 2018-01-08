@@ -1,19 +1,26 @@
+
+
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "moduleResolution": "Node",
-    "allowJs": true,
-    "target": "es5",
-    "jsx":"react-native",
-    "rootDir": "./src",
-    "lib": [
-      "es2017",
-      "es2015.iterable",
-      "dom",
-      "es2015"
-    ]
+      "outDir": "../../../../clock/dev/scripts/world/",
+      "lib": [
+          "dom","es6","es7","es2015"
+      ],
+      "allowJs": true,
+     "jsx":"react-native",
+     "target": "es2015",
+      "module": "es2015",
+      "rootDir": "../../../src/",
+      "allowSyntheticDefaultImports": true,
+     
+      "experimentalDecorators": true,
+      "preserveConstEnums": true
+      
+      
+      //"watch": true
   },
   "include": [
-    "./src/**/*"
-  ]
+    "../../../src/wnative/**/*"
+  ],
+  "compileOnSave": true
 }
