@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var enumer_1 = require("./../../air/define/enumer");
 var index_1 = require("../../tcore/index");
+var index_2 = require("../../tdaemon/index");
 var FatherMake = /** @class */ (function () {
     function FatherMake() {
     }
@@ -12,7 +13,7 @@ var FatherMake = /** @class */ (function () {
             sName = sName + "_" + oNodeInfo.sourceType;
         }
         if (!mElement.has(sName)) {
-            index_1.TBase.logError(3911003, [sName]);
+            index_2.TBase.logError(3911003, [sName]);
             sName = "div";
         }
         if (mElement.has(sName)) {
@@ -33,8 +34,8 @@ var FatherMake = /** @class */ (function () {
     };
     FatherMake.prototype.makeFormat = function (sStr) {
         var sReturn = sStr;
-        if (sStr.indexOf(index_1.TBase.defineBase().regexOutBegin) > -1) {
-            var reg = new RegExp("\\" + index_1.TBase.defineBase().regexOutBegin + index_1.TBase.defineBase().regexBaseString + "\\" + index_1.TBase.defineBase().regexOutEnd, "g");
+        if (sStr.indexOf(index_2.TBase.defineBase().regexOutBegin) > -1) {
+            var reg = new RegExp("\\" + index_2.TBase.defineBase().regexOutBegin + index_2.TBase.defineBase().regexBaseString + "\\" + index_2.TBase.defineBase().regexOutEnd, "g");
             var r = [];
             var eKey = enumer_1.AEnumRegexKey.unknow;
             while (r = reg.exec(sStr)) {

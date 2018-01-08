@@ -1,6 +1,7 @@
 import { AModelConfig } from './../../air/model/config';
-import { TBase, TCoreCommonFunc } from '../../tcore/index';
+import { TCoreCommonFunc } from '../../tcore/index';
 import { TNodeIoFile } from '../../tnode/index';
+import { TBase } from '../../tdaemon/index';
 
 
 

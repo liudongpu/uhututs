@@ -7,12 +7,12 @@ var rename = require('gulp-rename');
 var watch = require('gulp-watch');
 var reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
 var index_1 = require("../../tnode/index");
-var index_2 = require("../../tcore/index");
+var index_2 = require("../../tdaemon/index");
 var index_3 = require("../../tprogram/index");
 var oGulpDefine = {
     pathSass: [],
     pathHtml: [],
-    pathStatic: [],
+    pathScript: [],
     task_default: []
 };
 var oLocalConfig;
@@ -48,14 +48,14 @@ var GulpGo = /** @class */ (function () {
         this.taskConnect();
         this.taskHtml();
         this.taskSass();
-        this.taskStatic();
+        this.taskScript();
         //this.taskWatch();
         this.taskDefault();
     };
     GulpGo.prototype.initGulp = function () {
         oGulpDefine.pathSass = [index_3.TprogramEasyLanch.upDevPathForPages("") + "/**/*.scss"];
         oGulpDefine.pathHtml = [index_3.TprogramEasyLanch.upDevPathForPages("") + '/**/*.html'];
-        oGulpDefine.pathStatic = [index_3.TprogramEasyLanch.upResourcePath("") + '/**/*'];
+        oGulpDefine.pathScript = [index_3.TprogramEasyLanch.upDevPathForScripts("") + '/**/*.js'];
     };
     /**
      * 监听任务  该任务已删除 替换为gulp-watch插件进行监听修改
@@ -88,7 +88,16 @@ var GulpGo = /** @class */ (function () {
         }
         oTask.inTopTask();
     };
-    GulpGo.prototype.taskStatic = function () { };
+    GulpGo.prototype.taskScript = function () {
+        var oTask = new GulpTask("main_script");
+        if (oLocalConfig.projectEnableNative) {
+            oTask.inSubTask(index_2.TBase.defineBase().workNative, function () {
+                return watch(oGulpDefine.pathScript, { ignoreInitial: false })
+                    .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevScripts)));
+            });
+        }
+        oTask.inTopTask();
+    };
     GulpGo.prototype.taskSass = function () {
         var oTask = new GulpTask("main_sass");
         if (oLocalConfig.projectEnableNative) {

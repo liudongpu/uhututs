@@ -11,13 +11,13 @@ var reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
 
 
 import {TNodeIoFile} from '../../tnode/index';
-import {TBase} from '../../tcore/index';
+import { TBase } from '../../tdaemon/index';
 import { TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse, TProgramEasyStart } from '../../tprogram/index';
 
 let oGulpDefine = {
     pathSass: [],
     pathHtml: [],
-    pathStatic: [],
+    pathScript: [],
     task_default: []
 };
 
@@ -69,7 +69,7 @@ class GulpTask {
         this.taskConnect();
         this.taskHtml();
         this.taskSass();
-        this.taskStatic();
+        this.taskScript();
         //this.taskWatch();
         this.taskDefault();
     }
@@ -78,7 +78,7 @@ class GulpTask {
         oGulpDefine.pathSass = [TprogramEasyLanch.upDevPathForPages("") + "/**/*.scss"];
         oGulpDefine.pathHtml = [TprogramEasyLanch.upDevPathForPages("") + '/**/*.html'];
 
-        oGulpDefine.pathStatic = [TprogramEasyLanch.upResourcePath("") + '/**/*'];
+        oGulpDefine.pathScript = [TprogramEasyLanch.upDevPathForScripts("") + '/**/*.js'];
 
     }
 
@@ -126,7 +126,22 @@ class GulpTask {
 
     }
 
-    taskStatic() {}
+    taskScript() {
+
+        var oTask = new GulpTask("main_script");
+
+        if (oLocalConfig.projectEnableNative) {
+            oTask.inSubTask(TBase.defineBase().workNative, function () {
+                return watch(oGulpDefine.pathScript, { ignoreInitial: false })
+
+                    
+                    .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevScripts)));
+            });
+        }
+
+        oTask.inTopTask();
+
+    }
 
     taskSass() {
 

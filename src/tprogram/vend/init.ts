@@ -1,9 +1,10 @@
 import {IArgsStart} from "../../air/interfaces/args";
 import {TNodeIoFile, TNodeIoPath} from "../../tnode/index";
 import {EasyLaunch} from "../easy/launch";
-import {TBase, TCoreCommonFunc, TCoreHelperObject} from "../../tcore/index";
+import { TCoreCommonFunc, TCoreHelperObject} from "../../tcore/index";
 import {EasyFile} from "../easy/file";
 import {IConfigInfo} from "../../air/interfaces/config";
+import { TBase } from '../../tdaemon/index';
 
 export class VendInit {
 

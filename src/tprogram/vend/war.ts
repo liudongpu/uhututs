@@ -2,11 +2,12 @@ import {UpdateGo} from './../update/go';
 import {VendInit} from './init';
 import {UpdateWeb} from './../update/web';
 import {IArgsStart} from './../../air/interfaces/args';
-import {TCoreHelperObject, TBase} from "../../tcore/index";
+import {TCoreHelperObject} from "../../tcore/index";
 import {EProgramYargs} from '../../air/export/program';
 import {TNodeIoFile} from '../../tnode/index';
 import {EasyLaunch} from '../easy/launch';
 import {RunGo} from '../run/go';
+import { TBase } from '../../tdaemon/index';
 
 export class VendWar {
 

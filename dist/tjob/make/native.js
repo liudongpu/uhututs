@@ -14,13 +14,14 @@ var enumer_1 = require("./../../air/define/enumer");
 var make_1 = require("../father/make");
 var index_1 = require("../../tcore/index");
 var native_1 = require("../bank/native");
+var index_2 = require("../../tdaemon/index");
 var MakeNative = /** @class */ (function (_super) {
     __extends(MakeNative, _super);
     function MakeNative() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MakeNative.prototype.subWorkType = function () {
-        return index_1.TBase
+        return index_2.TBase
             .defineBase()
             .workNative;
     };
@@ -54,13 +55,13 @@ var MakeNative = /** @class */ (function (_super) {
                 .set("style", "[" + aStyles_1.join(",") + "]");
         }
         this.processBaseAttr(oNodeInfo);
-        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startTemplate));
-        this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startSource));
-        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startProp));
-        this.attrStyle(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startStyle));
-        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startIcon));
-        this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startNumber));
-        this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startForm));
+        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startTemplate));
+        this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startSource));
+        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
+        this.attrStyle(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startStyle));
+        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startIcon));
+        this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startNumber));
+        this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -86,7 +87,7 @@ var MakeNative = /** @class */ (function (_super) {
         if (oNodeInfo.nodeAttr.has("src")) {
             if (oNodeInfo.nodeName === "img") {
                 var sVal = oNodeInfo.nodeAttr.get("src");
-                if (sVal.indexOf(index_1.TBase.defineBase().regexOutBegin) > -1) {
+                if (sVal.indexOf(index_2.TBase.defineBase().regexOutBegin) > -1) {
                     oNodeInfo.itemAttr.set("source", "{uri: " + sVal + "}");
                 }
                 else {
@@ -116,12 +117,12 @@ var MakeNative = /** @class */ (function (_super) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 switch (k) {
-                    case index_1.TBase
+                    case index_2.TBase
                         .defineData()
                         .nameCall:
-                        oNodeInfo.nodeInfo = "{this.x_template_render_" + v + "(" + mMap.get(index_1.TBase.defineData().nameRecord) + ")}";
+                        oNodeInfo.nodeInfo = "{this.x_template_render_" + v + "(" + mMap.get(index_2.TBase.defineData().nameRecord) + ")}";
                         break;
-                    case index_1.TBase
+                    case index_2.TBase
                         .defineData()
                         .nameRender:
                         oNodeInfo
@@ -155,12 +156,12 @@ var MakeNative = /** @class */ (function (_super) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 switch (k) {
-                    case index_1.TBase
+                    case index_2.TBase
                         .defineData()
                         .nameLabel:
                         oNodeInfo.nodeInfo = v;
                         break;
-                    case index_1.TBase.defineData().nameArrow:
+                    case index_2.TBase.defineData().nameArrow:
                         oNodeInfo.nodeInfo = '<List.Item arrow="horizontal">' + v + '</List.Item>';
                         break;
                 }
@@ -180,14 +181,14 @@ var MakeNative = /** @class */ (function (_super) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 switch (k) {
-                    case index_1.TBase
+                    case index_2.TBase
                         .defineData()
                         .nameState:
                         oNodeInfo
                             .itemAttr
                             .set("data", "this.state." + v);
                         break;
-                    case index_1.TBase.defineData().nameOption:
+                    case index_2.TBase.defineData().nameOption:
                         oNodeInfo
                             .itemAttr
                             .set("data", v);

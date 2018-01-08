@@ -1,5 +1,5 @@
 import {IArgsExec} from './../../air/interfaces/args';
-import {TBase} from '../../tcore/index';
+import { TBase } from '../../tdaemon/index';
 import {TNodeIoFile} from '../index';
 import {IoFile} from '../io/file';
 

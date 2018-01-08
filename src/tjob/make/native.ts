@@ -3,8 +3,9 @@ import {IConfigPage} from './../../air/interfaces/config';
 
 import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
 import {FatherMake} from '../father/make';
-import {TCoreHelperString, TBase, TCoreHelperObject, TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
+import {TCoreHelperString, TCoreHelperObject, TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
 import {BankNative} from '../bank/native';
+import { TBase } from '../../tdaemon/index';
 
 export class MakeNative extends FatherMake {
 

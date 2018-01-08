@@ -1,5 +1,5 @@
 import {TprogramEasyLanch, TprogramEasyFile} from "../../../src/tprogram/index";
-import {TBase} from "../../../src/tcore/index";
+import {TBase} from "../../../src/tdaemon/index";
 
 
 

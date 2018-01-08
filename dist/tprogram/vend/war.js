@@ -8,6 +8,7 @@ var program_1 = require("../../air/export/program");
 var index_2 = require("../../tnode/index");
 var launch_1 = require("../easy/launch");
 var go_2 = require("../run/go");
+var index_3 = require("../../tdaemon/index");
 var VendWar = /** @class */ (function () {
     function VendWar() {
     }
@@ -15,33 +16,33 @@ var VendWar = /** @class */ (function () {
         var a = index_1.TCoreHelperObject.parseTs(program_1.EProgramYargs({}).options({
             'init': {
                 alias: 'i',
-                describe: index_1.TBase.upLangInfo(331003),
+                describe: index_3.TBase.upLangInfo(331003),
                 type: "string"
             },
             'force': {
                 alias: 'f',
-                describe: index_1.TBase.upLangInfo(331004),
+                describe: index_3.TBase.upLangInfo(331004),
                 type: "boolean",
                 default: false
             },
             'upgrade': {
                 alias: 'u',
-                describe: index_1.TBase.upLangInfo(331002),
+                describe: index_3.TBase.upLangInfo(331002),
                 type: "boolean",
                 default: false
             },
             'updateManage': {
-                describe: index_1.TBase.upLangInfo(331001),
+                describe: index_3.TBase.upLangInfo(331001),
                 type: "boolean",
                 default: false
             },
             'updateGo': {
-                describe: index_1.TBase.upLangInfo(331005),
+                describe: index_3.TBase.upLangInfo(331005),
                 type: "boolean",
                 default: false
             },
             'runGo': {
-                describe: index_1.TBase.upLangInfo(331006),
+                describe: index_3.TBase.upLangInfo(331006),
                 type: "boolean",
                 default: false
             }
@@ -61,7 +62,7 @@ var VendWar = /** @class */ (function () {
             }
         }
         else {
-            index_1.TBase.logError(3911001, [launch_1.EasyLaunch.upSubPath('')]);
+            index_3.TBase.logError(3911001, [launch_1.EasyLaunch.upSubPath('')]);
         }
     };
     VendWar.checkInit = function () {

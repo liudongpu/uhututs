@@ -1,4 +1,4 @@
-import {TBase} from "../../tcore/index";
+import { TBase } from '../../tdaemon/index';
 import {TNodeIoFile} from "../../tnode/index";
 
 class EasyFileReplaceContent {

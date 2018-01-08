@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("../../tcore/index");
+var index_1 = require("../../tdaemon/index");
 var index_2 = require("../../tnode/index");
 var EasyFileReplaceContent = /** @class */ (function () {
     function EasyFileReplaceContent() {

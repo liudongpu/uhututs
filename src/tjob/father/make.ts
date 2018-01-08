@@ -2,9 +2,10 @@ import {AEnumRegexKey} from './../../air/define/enumer';
 import {IConfigPage} from './../../air/interfaces/config';
 import {KJobNodeInfo, KJobPageOut, KJobFileInfo} from './../../air/keep/job';
 import {IHtmlElementList, IHtmlElementInfo} from '../../air/interfaces/html';
-import {TCoreHelperMap, TCoreHelperString, TCoreHelperObject, TBase} from '../../tcore/index';
+import {TCoreHelperMap, TCoreHelperString, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile} from '../../tnode/index';
 import {IJobBank} from '../../air/interfaces/job';
+import { TBase } from '../../tdaemon/index';
 
 export abstract class FatherMake {
 

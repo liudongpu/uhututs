@@ -1,5 +1,5 @@
 import {TNodeIoFile, TNodeIoPath} from "../../tnode/index";
-import {TBase} from "../../tcore/index";
+import { TBase } from '../../tdaemon/index';
 import { BootProgram } from "../boot/program";
 
 export class EasyLaunch {

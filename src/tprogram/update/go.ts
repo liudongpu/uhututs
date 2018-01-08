@@ -6,10 +6,12 @@ import {AModelConfig} from './../../air/model/config';
 import {IConfigInfo} from './../../air/interfaces/config';
 import {EasyLaunch} from './../easy/launch';
 import {IArgsStart} from './../../air/interfaces/args';
-import {TBase, TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
+import { TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec} from '../../tnode/index';
 import {BootProgram} from '../boot/program';
 import {EasyStart} from '../easy/start';
+import { TBase } from '../../tdaemon/index';
+
 export class UpdateGo {
 
     static update(args : IArgsStart) {

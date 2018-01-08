@@ -1,8 +1,9 @@
 import {AModelConfig} from './../../air/model/config';
 import {IConfigInfo} from './../../air/interfaces/config';
 import {EasyLaunch} from './launch';
-import {TBase, TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
+import {TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile} from '../../tnode/index';
+import { TBase } from '../../tdaemon/index';
 
 export class EasyStart {
 

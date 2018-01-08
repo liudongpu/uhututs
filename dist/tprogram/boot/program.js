@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var config_1 = require("./../../air/model/config");
-var index_1 = require("../../tcore/index");
+var index_1 = require("../../tdaemon/index");
 var BootProgram = /** @class */ (function () {
     function BootProgram() {
     }

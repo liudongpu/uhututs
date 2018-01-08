@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../../tnode/index");
-var index_2 = require("../../tcore/index");
+var index_2 = require("../../tdaemon/index");
 var program_1 = require("../boot/program");
 var EasyLaunch = /** @class */ (function () {
     function EasyLaunch() {
