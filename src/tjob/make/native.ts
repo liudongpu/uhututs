@@ -53,11 +53,7 @@ export class MakeNative extends FatherMake {
 
         }
 
-        if (oNodeInfo.nodeAttr.has("href")) {
-            oNodeInfo
-                .itemAttr
-                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
-        }
+        this.processBaseAttr(oNodeInfo);
 
         this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
 
@@ -76,13 +72,63 @@ export class MakeNative extends FatherMake {
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
-                oNodeInfo
+
+
+                if(v.startsWith("@")){
+                    oNodeInfo
                     .itemAttr
-                    .set(k, "{" + v + "}");
+                    .set(k, this.makeFormat(v.substr(1)) );
+                }
+                else{
+                    oNodeInfo
+                    .itemAttr
+                    .set(k, "{" +this.makeFormat(v)  + "}");
+                }
+
+                
             });
         return oNodeInfo;
 
     }
+
+    private processBaseAttr(oNodeInfo : KJobNodeInfo){
+
+        if (oNodeInfo.nodeAttr.has("href")) {
+            oNodeInfo
+                .itemAttr
+                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
+        }
+
+
+
+
+        if(oNodeInfo.nodeAttr.has("src")){
+
+            if(oNodeInfo.nodeName==="img"){
+
+                let sVal=oNodeInfo.nodeAttr.get("src");
+
+                if(sVal.indexOf(TBase.defineBase().regexOutBegin)>-1){
+                    oNodeInfo.itemAttr.set("source","{uri: "+sVal+"}");
+                }
+                else{
+                    oNodeInfo.itemAttr.set("source","{uri: '"+sVal+"'}");
+                }
+
+                
+            }
+
+        }
+
+
+
+    }
+
+
+
+
+
+
 
     protected subFormat(eKey : AEnumRegexKey, sValue : string) : string {
 
@@ -98,7 +144,14 @@ export class MakeNative extends FatherMake {
 
             case AEnumRegexKey.item:
 
-                sReturn = "{item." + sValue + "}";
+                if(sValue.startsWith("@")){
+                    sReturn = "item." + sValue .substr(1)+ "";
+                }
+                else{
+                    sReturn = "{item." + sValue + "}";
+                }
+
+                
                 break;
 
         }

@@ -54,6 +54,9 @@ export interface IHtmlElementList{
     main:IHtmlElementInfo
 
     span:IHtmlElementInfo
+
+
+    img:IHtmlElementInfo
 }
 
 

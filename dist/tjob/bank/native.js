@@ -54,6 +54,9 @@ var elementList = {
     },
     span: {
         name: "Text"
+    },
+    img: {
+        name: "Image"
     }
 };
 var BankNative = /** @class */ (function () {

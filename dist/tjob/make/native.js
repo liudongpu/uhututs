@@ -33,6 +33,7 @@ var MakeNative = /** @class */ (function (_super) {
         return index_1.TCoreHelperObject.assign(oDefaultConfig, index_1.TCoreCommonFunc.jsonParse(sJson));
     };
     MakeNative.prototype.subElementParse = function (oNodeInfo) {
+        var _this = this;
         if (oNodeInfo.sourceClass != undefined) {
             var aClass = oNodeInfo
                 .sourceClass
@@ -52,11 +53,7 @@ var MakeNative = /** @class */ (function (_super) {
                 .itemAttr
                 .set("style", "[" + aStyles_1.join(",") + "]");
         }
-        if (oNodeInfo.nodeAttr.has("href")) {
-            oNodeInfo
-                .itemAttr
-                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
-        }
+        this.processBaseAttr(oNodeInfo);
         this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startTemplate));
         this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startSource));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_1.TBase.defineData().startProp));
@@ -67,11 +64,36 @@ var MakeNative = /** @class */ (function (_super) {
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
-            oNodeInfo
-                .itemAttr
-                .set(k, "{" + v + "}");
+            if (v.startsWith("@")) {
+                oNodeInfo
+                    .itemAttr
+                    .set(k, _this.makeFormat(v.substr(1)));
+            }
+            else {
+                oNodeInfo
+                    .itemAttr
+                    .set(k, "{" + _this.makeFormat(v) + "}");
+            }
         });
         return oNodeInfo;
+    };
+    MakeNative.prototype.processBaseAttr = function (oNodeInfo) {
+        if (oNodeInfo.nodeAttr.has("href")) {
+            oNodeInfo
+                .itemAttr
+                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
+        }
+        if (oNodeInfo.nodeAttr.has("src")) {
+            if (oNodeInfo.nodeName === "img") {
+                var sVal = oNodeInfo.nodeAttr.get("src");
+                if (sVal.indexOf(index_1.TBase.defineBase().regexOutBegin) > -1) {
+                    oNodeInfo.itemAttr.set("source", "{uri: " + sVal + "}");
+                }
+                else {
+                    oNodeInfo.itemAttr.set("source", "{uri: '" + sVal + "'}");
+                }
+            }
+        }
     };
     MakeNative.prototype.subFormat = function (eKey, sValue) {
         var sReturn = "";
@@ -80,7 +102,12 @@ var MakeNative = /** @class */ (function (_super) {
                 sReturn = "{this.state." + sValue + "}";
                 break;
             case enumer_1.AEnumRegexKey.item:
-                sReturn = "{item." + sValue + "}";
+                if (sValue.startsWith("@")) {
+                    sReturn = "item." + sValue.substr(1) + "";
+                }
+                else {
+                    sReturn = "{item." + sValue + "}";
+                }
                 break;
         }
         return sReturn;

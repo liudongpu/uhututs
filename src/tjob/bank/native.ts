@@ -75,6 +75,9 @@ const elementList : IHtmlElementList = {
 
     span: {
         name: "Text"
+    },
+    img:{
+        name:"Image"
     }
 }
 
