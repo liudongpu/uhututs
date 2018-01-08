@@ -8,8 +8,11 @@ var childProcess = require("child_process");
 var sTargetDept="/usr/local/lib/node_modules/uhutu-ts/";
 
 
+
+
+
 gulp.task("ts:compile", function () {
-    var tsProject = tsGulp.createProject("../../../tsconfig.json");
+    var tsProject = tsGulp.createProject("../../../resource/files-project/ts/tsconfig.json");
     return tsProject.src()
         .pipe(tsProject())
         .js.pipe(gulp.dest(tsProject.options.outDir));
@@ -24,7 +27,7 @@ gulp.task("ts:copy", function () {
 
 
 
-gulp.task("ts",["ts:compile","ts:copy"]),
+gulp.task("ts",["ts:compile"]),
 
 
 gulp.task("watch:ts", function () {
