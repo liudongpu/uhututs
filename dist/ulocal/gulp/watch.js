@@ -4,7 +4,7 @@ var tsGulp = require("gulp-typescript");
 var watch = require('gulp-watch');
 var childProcess = require("child_process");
 var sTargetDept = "/usr/local/lib/node_modules/uhutu-ts/";
-gulp.task("world:compile", function () {
+gulp.task("adapter:compile", function () {
     var tsProject = tsGulp.createProject("../../../resource/files-project/ts/tsconfig.json");
     return tsProject.src()
         .pipe(tsProject())
@@ -13,7 +13,7 @@ gulp.task("world:compile", function () {
 gulp.task("ts:copy", function () {
     return gulp.src(['../../../**/*', '!../../../node_modules/**/*', '!../../../.git/**/*']).pipe(gulp.dest(sTargetDept));
 });
-gulp.task("world", ["world:compile"]),
+gulp.task("adapter", ["adapter:compile"]),
     gulp.task("watch:ts", function () {
         return watch("../../../src/**/*.ts", { ignoreInitial: false }, function (s) {
             childProcess.spawnSync("tsc", { cwd: "../../../" });

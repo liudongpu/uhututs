@@ -2,7 +2,7 @@
 
 {
   "compilerOptions": {
-      "outDir": "../../../../clock/dev/scripts/world/",
+      "outDir": "../../../../clock/dev/scripts/adapter/",
       "lib": [
           "dom","es6","es7","es2015"
       ],
