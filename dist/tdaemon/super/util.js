@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var start_1 = require("./../../air/define/start");
-var string_1 = require("./../helper/string");
 var lang_1 = require("../../air/define/lang");
 var util_1 = require("../../air/export/util");
+var index_1 = require("../../tcore/index");
 var SuperUtil = /** @class */ (function () {
     function SuperUtil() {
     }
@@ -16,16 +16,16 @@ var SuperUtil = /** @class */ (function () {
      * @memberof SuperUtil
      */
     SuperUtil.logDebug = function (iCode, params) {
-        util_1.EUtilLog.debug(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.debug(index_1.TCoreHelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.logWarn = function (iCode, params) {
-        util_1.EUtilLog.warn(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.warn(index_1.TCoreHelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.logInfo = function (iCode, params) {
-        util_1.EUtilLog.info(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.info(index_1.TCoreHelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.logError = function (iCode, params) {
-        util_1.EUtilLog.error(string_1.HelperString.formatString(this.upLangInfo(iCode), params));
+        util_1.EUtilLog.error(index_1.TCoreHelperString.formatString(this.upLangInfo(iCode), params));
     };
     SuperUtil.defineBase = function () {
         return start_1.ADefineStart.upBase();

@@ -1,7 +1,7 @@
 import { ADefineStart } from './../../air/define/start';
-import {HelperString} from './../helper/string';
 import {ADefineLang} from "../../air/define/lang";
 import {EUtilLog} from '../../air/export/util';
+import { TCoreHelperString } from '../../tcore/index';
 
 export class SuperUtil {
 
@@ -15,24 +15,24 @@ export class SuperUtil {
      */
     static logDebug(iCode : number, params?: string[]) {
 
-        EUtilLog.debug(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.debug(TCoreHelperString.formatString(this.upLangInfo(iCode), params));
 
     }
 
     static logWarn(iCode : number, params?: string[]) {
 
-        EUtilLog.warn(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.warn(TCoreHelperString.formatString(this.upLangInfo(iCode), params));
 
     }
     static logInfo(iCode : number, params?: string[]) {
 
-        EUtilLog.info(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.info(TCoreHelperString.formatString(this.upLangInfo(iCode), params));
 
     }
 
     static logError(iCode : number, params?: string[]) {
 
-        EUtilLog.error(HelperString.formatString(this.upLangInfo(iCode), params));
+        EUtilLog.error(TCoreHelperString.formatString(this.upLangInfo(iCode), params));
 
     }
 

@@ -20,7 +20,7 @@
       //"watch": true
   },
   "include": [
-    "../../../src/wnative/**/*","../../../src/tcore/**/*","../../../src/air/define/**/*"
+    "../../../src/wnative/**/*","../../../src/tcore/**/*"
   ],
   "compileOnSave": true
 }
