@@ -46,6 +46,9 @@ var Book = /** @class */ (function () {
     Book.prototype.storeSetItem = function (sKey, sValue) {
         return react_native_1.AsyncStorage.setItem(sKey, sValue);
     };
+    Book.prototype.storeRemoveItem = function (sKey) {
+        return react_native_1.AsyncStorage.removeItem(sKey);
+    };
     Book.prototype.fetchPost = function (sUrl, oJsonInput) {
         return fetch(sUrl, {
             method: 'POST',
@@ -59,6 +62,9 @@ var Book = /** @class */ (function () {
             bReturn = false;
         }
         return bReturn;
+    };
+    Book.prototype.componentMessageAlert = function (sTitle, sMessage) {
+        react_native_1.Alert.alert(sTitle, sMessage);
     };
     return Book;
 }());

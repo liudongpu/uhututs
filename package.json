@@ -8,7 +8,6 @@
     "test": "jest",
     "dev": "node dist/ulocal/publish.js",
     "dev-watch": "./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp/watch.js",
-
     "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/watch.js"
   },
   "repository": {
@@ -36,12 +35,13 @@
     "yargs": "^10.0.3"
   },
   "devDependencies": {
+    "@types/expo": "^24.0.2",
     "@types/htmlparser2": "^3.7.31",
-    "@types/react-native": "^0.51.7",
     "@types/jest": "^21.1.8",
     "@types/log4js": "^2.3.5",
     "@types/mustache": "^0.8.30",
     "@types/node": "^8.0.53",
+    "@types/react-native": "^0.51.7",
     "@types/yargs": "^8.0.2",
     "gulp-typescript": "^3.2.3",
     "jest": "^21.2.1",

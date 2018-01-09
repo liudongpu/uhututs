@@ -1,6 +1,8 @@
 import {IGuideBook} from "../../air/interfaces/guide";
-import {AsyncStorage} from 'react-native';
+import {AsyncStorage,Alert} from 'react-native';
 import {TCoreCommonFunc} from "../../tcore/index";
+
+
 
 class Book {
 
@@ -65,6 +67,14 @@ class Book {
         return AsyncStorage.setItem(sKey, sValue);
     }
 
+
+    storeRemoveItem(sKey : string) : Promise < void > {
+
+        return AsyncStorage.removeItem(sKey);
+    }
+
+
+
     fetchPost(sUrl : string, oJsonInput : any) : Promise < any > {
 
         return fetch(sUrl, {
@@ -83,6 +93,19 @@ class Book {
         }
         return bReturn;
     }
+
+
+
+    componentMessageAlert(sTitle:string,sMessage:string){
+
+        Alert.alert(sTitle,sMessage);
+    }
+
+
+
+
+    
+
 
 
 
