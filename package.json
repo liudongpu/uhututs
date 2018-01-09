@@ -42,6 +42,7 @@
     "@types/mustache": "^0.8.30",
     "@types/node": "^8.0.53",
     "@types/react-native": "^0.51.7",
+    "@types/react-navigation": "^1.0.26",
     "@types/yargs": "^8.0.2",
     "gulp-typescript": "^3.2.3",
     "jest": "^21.2.1",

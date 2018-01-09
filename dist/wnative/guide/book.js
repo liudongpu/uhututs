@@ -2,10 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
 var index_1 = require("../../tcore/index");
+var react_navigation_1 = require("react-navigation");
 var Book = /** @class */ (function () {
     function Book() {
     }
-    Book.prototype.navigateUrl = function (that, sUrl) {
+    Book.prototype.navigateUrl = function (that, sPageUrl) {
         var oPageNavTemp = null;
         if (that && that.props && that.props.navigation) {
             oPageNavTemp = that.props.navigation;
@@ -14,7 +15,33 @@ var Book = /** @class */ (function () {
             oPageNavTemp = that;
         }
         if (oPageNavTemp) {
-            oPageNavTemp.navigate(sUrl);
+            var urlInfo = index_1.TCoreHelperUrl.parseUrl(sPageUrl);
+            if (urlInfo.baseJump === "reset") {
+                var resetAction = react_navigation_1.NavigationActions.reset({
+                    index: 0,
+                    actions: [
+                        react_navigation_1.NavigationActions.navigate({ routeName: urlInfo.pageName, params: { url: sPageUrl } })
+                    ]
+                });
+                oPageNavTemp.dispatch(resetAction);
+            }
+            else if (urlInfo.baseJump === "replace") {
+                var aAction = {
+                    type: 'CustomNav/replace',
+                    routeName: urlInfo.pageName,
+                    params: { url: sPageUrl }
+                };
+                oPageNavTemp.dispatch(aAction);
+            }
+            else if (urlInfo.baseJump == "back") {
+                oPageNavTemp.goBack();
+            }
+            else {
+                //if (sTemplateUrl !== sPageUrl) {
+                oPageNavTemp.navigate(urlInfo.pageName, { url: sPageUrl });
+                //}
+            }
+            oPageNavTemp.navigate(sPageUrl);
         }
     };
     Book.prototype.stateInValue = function (that, sKey, sVal) {

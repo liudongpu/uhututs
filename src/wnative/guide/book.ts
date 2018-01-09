@@ -1,12 +1,12 @@
 import {IGuideBook} from "../../air/interfaces/guide";
 import {AsyncStorage,Alert} from 'react-native';
-import {TCoreCommonFunc} from "../../tcore/index";
+import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
-
+import { NavigationActions } from 'react-navigation';
 
 class Book {
 
-    navigateUrl(that, sUrl : string) {
+    navigateUrl(that, sPageUrl : string) {
 
         let oPageNavTemp = null;
 
@@ -18,7 +18,49 @@ class Book {
         }
 
         if (oPageNavTemp) {
-            oPageNavTemp.navigate(sUrl);
+
+
+            let urlInfo=TCoreHelperUrl.parseUrl(sPageUrl);
+
+            if (urlInfo.baseJump === "reset") {
+                
+
+                const resetAction = NavigationActions.reset({
+                    index: 0,
+                    actions: [
+                        NavigationActions.navigate({ routeName: urlInfo.pageName, params: { url: sPageUrl } })
+                    ]
+                })
+                
+                oPageNavTemp.dispatch(resetAction);
+    
+            }
+            else if (urlInfo.baseJump === "replace") {
+    
+                let aAction = {
+                    type: 'CustomNav/replace',
+                    routeName: urlInfo.pageName,
+                    params: { url: sPageUrl }
+    
+                }
+    
+    
+    
+                oPageNavTemp.dispatch(aAction);
+    
+            } else if (urlInfo.baseJump == "back") {
+    
+                oPageNavTemp.goBack();
+    
+            }
+            else {
+                //if (sTemplateUrl !== sPageUrl) {
+                
+                oPageNavTemp.navigate(urlInfo.pageName, { url: sPageUrl });
+                //}
+            }
+
+            oPageNavTemp.navigate(sPageUrl);
         }
 
     }

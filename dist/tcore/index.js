@@ -8,3 +8,5 @@ var map_1 = require("./helper/map");
 exports.TCoreHelperMap = map_1.HelperMap;
 var object_1 = require("./helper/object");
 exports.TCoreHelperObject = object_1.HelperObject;
+var url_1 = require("./helper/url");
+exports.TCoreHelperUrl = url_1.HelperUrl;
