@@ -52,6 +52,20 @@ class Book {
         return AsyncStorage.setItem(sKey, sValue);
     }
 
+
+
+
+
+    fetchPost(sUrl:string,oJsonInput:any):Promise<any>{
+
+        return fetch(sUrl,{
+            method: 'POST',
+            body:TCoreCommonFunc.jsonStringify(oJsonInput)
+        })
+        .then((response) => response.json())
+    }
+
+
 }
 
 const GuideBook = new Book();

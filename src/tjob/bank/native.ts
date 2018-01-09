@@ -30,7 +30,10 @@ const elementList : IHtmlElementList = {
 
     button: {
 
-        name: "TouchableOpacity"
+        name: "Button",
+        attrDefault:{
+            "type":'"primary"'
+        }
     },
 
     a: {

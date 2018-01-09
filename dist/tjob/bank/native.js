@@ -23,7 +23,10 @@ var elementList = {
         name: "QRCode"
     },
     button: {
-        name: "TouchableOpacity"
+        name: "Button",
+        attrDefault: {
+            "type": '"primary"'
+        }
     },
     a: {
         name: "TouchableOpacity"

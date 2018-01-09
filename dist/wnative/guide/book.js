@@ -34,6 +34,13 @@ var Book = /** @class */ (function () {
     Book.prototype.storeSetItem = function (sKey, sValue) {
         return react_native_1.AsyncStorage.setItem(sKey, sValue);
     };
+    Book.prototype.fetchPost = function (sUrl, oJsonInput) {
+        return fetch(sUrl, {
+            method: 'POST',
+            body: index_1.TCoreCommonFunc.jsonStringify(oJsonInput)
+        })
+            .then(function (response) { return response.json(); });
+    };
     return Book;
 }());
 var GuideBook = new Book();
