@@ -129,6 +129,10 @@ export class ParseHtml {
                         oResult.state = oNodeInfo.nodeInfo;
                         break;
 
+                    case AEnumNodeType.init:
+                        oResult.init = oNodeInfo.nodeInfo;
+                        break;
+
                     case AEnumNodeType.import:
 
                         let oImport = new kJobImportJs();
@@ -252,6 +256,9 @@ export class ParseHtml {
 
                 case "js/import":
                     oNodeInfo.nodeType = AEnumNodeType.import;
+                    break;
+                case "js/init":
+                    oNodeInfo.nodeType = AEnumNodeType.init;
                     break;
                 default:
                     oNodeInfo.nodeType = AEnumNodeType.script;

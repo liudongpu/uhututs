@@ -25,6 +25,7 @@ var KJobPageOut = /** @class */ (function () {
         this.state = "{}";
         this.templates = [];
         this.imports = [];
+        this.init = "";
     }
     return KJobPageOut;
 }());

@@ -70,7 +70,11 @@ export default class  extends Component {
     this.state = {{{out.state}}};
   }
 
-
+  {{#out.init}}
+  componentDidMount() {
+    {{{out.init}}}
+  }
+  {{/out.init}}
 
 
 

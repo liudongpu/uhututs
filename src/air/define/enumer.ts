@@ -18,6 +18,9 @@ export enum AEnumNodeType{
      */
     ignore,
 
+
+    init,
+
     /**
      * 基本元素
      */

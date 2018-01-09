@@ -49,6 +49,9 @@ export class KJobPageOut{
 
     imports:kJobImportJs[]=[]
 
+
+    init:string=""
+
 }
 
 

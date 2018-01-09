@@ -16,28 +16,29 @@ var AEnumNodeType;
      * 忽略类型
      */
     AEnumNodeType[AEnumNodeType["ignore"] = 1] = "ignore";
+    AEnumNodeType[AEnumNodeType["init"] = 2] = "init";
     /**
      * 基本元素
      */
-    AEnumNodeType[AEnumNodeType["element"] = 2] = "element";
-    AEnumNodeType[AEnumNodeType["form"] = 3] = "form";
-    AEnumNodeType[AEnumNodeType["import"] = 4] = "import";
+    AEnumNodeType[AEnumNodeType["element"] = 3] = "element";
+    AEnumNodeType[AEnumNodeType["form"] = 4] = "form";
+    AEnumNodeType[AEnumNodeType["import"] = 5] = "import";
     /**
      * 配置项
      */
-    AEnumNodeType[AEnumNodeType["config"] = 5] = "config";
+    AEnumNodeType[AEnumNodeType["config"] = 6] = "config";
     /**
      * 状态数据
      */
-    AEnumNodeType[AEnumNodeType["state"] = 6] = "state";
+    AEnumNodeType[AEnumNodeType["state"] = 7] = "state";
     /**
      * 模板
      */
-    AEnumNodeType[AEnumNodeType["template"] = 7] = "template";
+    AEnumNodeType[AEnumNodeType["template"] = 8] = "template";
     /**
      * 脚本
      */
-    AEnumNodeType[AEnumNodeType["script"] = 8] = "script";
+    AEnumNodeType[AEnumNodeType["script"] = 9] = "script";
 })(AEnumNodeType = exports.AEnumNodeType || (exports.AEnumNodeType = {}));
 var AEnumRegexKey;
 (function (AEnumRegexKey) {

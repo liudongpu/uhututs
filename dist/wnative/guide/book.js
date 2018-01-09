@@ -17,6 +17,11 @@ var Book = /** @class */ (function () {
             oPageNavTemp.navigate(sUrl);
         }
     };
+    Book.prototype.stateInValue = function (that, sKey, sVal) {
+        var oObject = {};
+        oObject[sKey] = sVal;
+        that.setState(oObject);
+    };
     Book.prototype.stateUpValue = function (that, sKey) {
         return that.state[sKey];
     };
@@ -34,7 +39,12 @@ var Book = /** @class */ (function () {
         return this
             .storeGetItem(sKey)
             .then(function (value) {
-            return index_1.TCoreCommonFunc.jsonParse(value);
+            if (value) {
+                return index_1.TCoreCommonFunc.jsonParse(value);
+            }
+            else {
+                return null;
+            }
         });
     };
     Book.prototype.storeSetObject = function (sKey, tValue) {

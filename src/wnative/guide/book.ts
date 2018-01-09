@@ -23,6 +23,14 @@ class Book {
 
     }
 
+    stateInValue(that, sKey : string,sVal:string) {
+
+        let oObject={};
+        oObject[sKey]=sVal;
+        that.setState(oObject);
+
+    }
+
     stateUpValue(that, sKey : string) {
 
         return that.state[sKey];
@@ -48,7 +56,13 @@ class Book {
         return this
             .storeGetItem(sKey)
             .then((value) => {
-                return TCoreCommonFunc.jsonParse < T > (value)
+                if(value){
+                    return TCoreCommonFunc.jsonParse < T > (value);
+                }
+                else{
+                    return null;
+                }
+                
             });
     }
 
