@@ -46,6 +46,17 @@ export class KJobPageOut{
 
     templates:KJobTemplateInfo[]=[]
 
+
+    imports:kJobImportJs[]=[]
+
+}
+
+
+
+
+export class  kJobImportJs {
+    name:string=""
+    from:string=""
 }
 
 
@@ -69,6 +80,9 @@ export class KJobCurrentParse{
 
 
     contents:string[]=[]
+
+
+    formName:string=""
 
 
     templateFlag:boolean=false
@@ -122,6 +136,7 @@ export class KJobNodeInfo{
     sourceClass:string
     sourceType:string
 
+    sourceName:string
 
 
 

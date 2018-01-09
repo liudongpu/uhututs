@@ -115,6 +115,8 @@ const defineData={
 
     startForm:'data-form-',
 
+    startOn:'data-on-',
+
     nameRecord:'record',
     nameCall:'call',
     nameRender:'render',
@@ -124,6 +126,12 @@ const defineData={
     nameLabel:'label',
 
     nameUrl:'url',
+
+
+    nameChange:'change',
+
+    nameClick:'click',
+
     nameNavigation:'navigation',
 
 

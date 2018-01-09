@@ -14,9 +14,21 @@ var Book = /** @class */ (function () {
             oPageNavTemp = that;
         }
         if (oPageNavTemp) {
-            oPageNavTemp
-                .navigate(sUrl);
+            oPageNavTemp.navigate(sUrl);
         }
+    };
+    Book.prototype.stateUpValue = function (that, sKey) {
+        return that.state[sKey];
+    };
+    Book.prototype.stateUpForm = function (that, sStart) {
+        var oValue = {};
+        var sFormStart = 'form_' + sStart + '_';
+        for (var p in that.state) {
+            if (p.startsWith(sFormStart)) {
+                oValue[p.substr(sFormStart.length)] = that.state[p];
+            }
+        }
+        return oValue;
     };
     Book.prototype.storeGetObject = function (sKey) {
         return this
@@ -38,8 +50,15 @@ var Book = /** @class */ (function () {
         return fetch(sUrl, {
             method: 'POST',
             body: index_1.TCoreCommonFunc.jsonStringify(oJsonInput)
-        })
-            .then(function (response) { return response.json(); });
+        }).then(function (response) { return response.json(); });
+    };
+    Book.prototype.checkFlagProduct = function () {
+        var bReturn = true;
+        if (__DEV__ != undefined && __DEV__ === true) {
+            console.log(__DEV__);
+            bReturn = false;
+        }
+        return bReturn;
     };
     return Book;
 }());

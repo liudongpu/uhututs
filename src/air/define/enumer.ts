@@ -24,6 +24,12 @@ export enum AEnumNodeType{
     element,
 
 
+    form,
+
+
+    import,
+
+
 
     /**
      * 配置项

@@ -20,22 +20,24 @@ var AEnumNodeType;
      * 基本元素
      */
     AEnumNodeType[AEnumNodeType["element"] = 2] = "element";
+    AEnumNodeType[AEnumNodeType["form"] = 3] = "form";
+    AEnumNodeType[AEnumNodeType["import"] = 4] = "import";
     /**
      * 配置项
      */
-    AEnumNodeType[AEnumNodeType["config"] = 3] = "config";
+    AEnumNodeType[AEnumNodeType["config"] = 5] = "config";
     /**
      * 状态数据
      */
-    AEnumNodeType[AEnumNodeType["state"] = 4] = "state";
+    AEnumNodeType[AEnumNodeType["state"] = 6] = "state";
     /**
      * 模板
      */
-    AEnumNodeType[AEnumNodeType["template"] = 5] = "template";
+    AEnumNodeType[AEnumNodeType["template"] = 7] = "template";
     /**
      * 脚本
      */
-    AEnumNodeType[AEnumNodeType["script"] = 6] = "script";
+    AEnumNodeType[AEnumNodeType["script"] = 8] = "script";
 })(AEnumNodeType = exports.AEnumNodeType || (exports.AEnumNodeType = {}));
 var AEnumRegexKey;
 (function (AEnumRegexKey) {

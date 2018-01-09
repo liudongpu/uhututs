@@ -24,10 +24,19 @@ var KJobPageOut = /** @class */ (function () {
         this.content = "";
         this.state = "{}";
         this.templates = [];
+        this.imports = [];
     }
     return KJobPageOut;
 }());
 exports.KJobPageOut = KJobPageOut;
+var kJobImportJs = /** @class */ (function () {
+    function kJobImportJs() {
+        this.name = "";
+        this.from = "";
+    }
+    return kJobImportJs;
+}());
+exports.kJobImportJs = kJobImportJs;
 var KJobTemplateInfo = /** @class */ (function () {
     function KJobTemplateInfo() {
         this.name = "";
@@ -46,6 +55,7 @@ var KJobCurrentParse = /** @class */ (function () {
          */
         this.nodes = [];
         this.contents = [];
+        this.formName = "";
         this.templateFlag = false;
         this.templateContents = [];
     }

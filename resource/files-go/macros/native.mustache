@@ -38,6 +38,11 @@ import styletg from "../../agent/theme/global-style";
 import { guidebook} from '../../../scripts/base/index';
 
 
+{{#out.imports}}
+import {{{name}}} from "{{{from}}}";
+{{/out.imports}}
+
+
 
 export default class  extends Component {
 

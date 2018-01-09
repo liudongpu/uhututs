@@ -55,6 +55,7 @@ var MakeNative = /** @class */ (function (_super) {
                 .set("style", "[" + aStyles_1.join(",") + "]");
         }
         this.processBaseAttr(oNodeInfo);
+        this.processBaseForm(oNodeInfo);
         this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startTemplate));
         this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startSource));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
@@ -63,6 +64,7 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrHref(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startHref));
         this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startNumber));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
+        this.attrOn(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startOn));
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -87,13 +89,36 @@ var MakeNative = /** @class */ (function (_super) {
         }
         if (oNodeInfo.nodeAttr.has("src")) {
             if (oNodeInfo.nodeName === "img") {
-                var sVal = oNodeInfo.nodeAttr.get("src");
+                var sVal = oNodeInfo
+                    .nodeAttr
+                    .get("src");
                 if (sVal.indexOf(index_2.TBase.defineBase().regexOutBegin) > -1) {
-                    oNodeInfo.itemAttr.set("source", "{uri: " + sVal + "}");
+                    oNodeInfo
+                        .itemAttr
+                        .set("source", "{uri: " + sVal + "}");
                 }
                 else {
-                    oNodeInfo.itemAttr.set("source", "{uri: '" + sVal + "'}");
+                    oNodeInfo
+                        .itemAttr
+                        .set("source", "{uri: '" + sVal + "'}");
                 }
+            }
+        }
+        if (oNodeInfo.nodeAttr.has("onclick")) {
+            oNodeInfo
+                .nodeAttr
+                .set(index_2.TBase.defineData().startOn + index_2.TBase.defineData().nameClick, oNodeInfo.nodeAttr.get("onclick"));
+        }
+    };
+    MakeNative.prototype.processBaseForm = function (oNodeInfo) {
+        if (oNodeInfo.sourceName) {
+            oNodeInfo
+                .itemAttr
+                .set('value', 'this.state.' + oNodeInfo.sourceName);
+            if (oNodeInfo.sourceType.startsWith('form')) {
+                oNodeInfo
+                    .itemAttr
+                    .set("onChange", "(value)=>{this.setState({" + oNodeInfo.sourceName + ":value})}");
             }
         }
     };
@@ -162,7 +187,9 @@ var MakeNative = /** @class */ (function (_super) {
                         .nameLabel:
                         oNodeInfo.nodeInfo = v;
                         break;
-                    case index_2.TBase.defineData().nameArrow:
+                    case index_2.TBase
+                        .defineData()
+                        .nameArrow:
                         oNodeInfo.nodeInfo = '<List.Item arrow="horizontal">' + v + '</List.Item>';
                         break;
                 }
@@ -189,10 +216,29 @@ var MakeNative = /** @class */ (function (_super) {
                             .itemAttr
                             .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + v + "\")}");
                         break;
-                    case index_2.TBase.defineData().nameNavigation:
+                    case index_2.TBase
+                        .defineData()
+                        .nameNavigation:
                         oNodeInfo
                             .itemAttr
                             .set("onPress", "()=>{guidebook.navigateUrl(navigation,\"" + v + "\")}");
+                        break;
+                }
+                ;
+            });
+        }
+    };
+    MakeNative.prototype.attrOn = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_2.TBase
+                        .defineData()
+                        .nameChange:
+                        if (v === '') { }
+                        break;
+                    case index_2.TBase.defineData().nameClick:
+                        oNodeInfo.itemAttr.set('onClick', "()=>{" + v + "}");
                         break;
                 }
                 ;
@@ -210,7 +256,9 @@ var MakeNative = /** @class */ (function (_super) {
                             .itemAttr
                             .set("data", "this.state." + v);
                         break;
-                    case index_2.TBase.defineData().nameOption:
+                    case index_2.TBase
+                        .defineData()
+                        .nameOption:
                         oNodeInfo
                             .itemAttr
                             .set("data", v);
@@ -225,7 +273,9 @@ var MakeNative = /** @class */ (function (_super) {
     };
     MakeNative.prototype.subPageOut = function (oPageOut) {
         if (oPageOut.config.headerLeft) {
-            oPageOut.templates.forEach(function (fItem) {
+            oPageOut
+                .templates
+                .forEach(function (fItem) {
                 if (fItem.name === oPageOut.config.headerLeft) {
                     oPageOut.config.headerLeft = fItem.content;
                 }
@@ -233,13 +283,20 @@ var MakeNative = /** @class */ (function (_super) {
         }
         ;
         if (oPageOut.config.headerRight) {
-            oPageOut.templates.forEach(function (fItem) {
+            oPageOut
+                .templates
+                .forEach(function (fItem) {
                 if (fItem.name === oPageOut.config.headerRight) {
                     oPageOut.config.headerRight = fItem.content;
                 }
             });
         }
         ;
+        if (oPageOut.imports.length > 0) {
+            oPageOut.imports.forEach(function (fItem) {
+                fItem.name = "{" + fItem.name + "}";
+            });
+        }
         return oPageOut;
     };
     return MakeNative;
