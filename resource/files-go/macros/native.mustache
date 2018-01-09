@@ -42,7 +42,7 @@ import { guidebook} from '../../../scripts/base/index';
 export default class  extends Component {
 
 
-  static navigationOptions = {
+  static navigationOptions = ({ navigation, screenProps }) => ({
     title: '{{{out.config.pageTitle}}}',
 
 
@@ -56,7 +56,7 @@ export default class  extends Component {
 
   {{/out.config.headerLeft}}
 
-  };
+  });
 
 
   constructor(props) {
@@ -71,6 +71,7 @@ export default class  extends Component {
 
   {{#out.templates}}
     x_template_render_{{name}}(item){
+     
       return (
       {{{content}}}
       )
@@ -83,7 +84,7 @@ export default class  extends Component {
 
   render(){
 
-    const { navigate } = this.props.navigation;
+    
 
     return (
       {{{out.content}}}

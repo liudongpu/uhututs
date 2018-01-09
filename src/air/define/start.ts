@@ -108,6 +108,8 @@ const defineData={
     startStyle:'data-style-',
     startIcon:'data-icon-',
 
+    startHref:'data-href-',
+
     startNumber:'data-number-',
 
 
@@ -120,6 +122,9 @@ const defineData={
     nameState:'state',
 
     nameLabel:'label',
+
+    nameUrl:'url',
+    nameNavigation:'navigation',
 
 
     nameArrow:'arrow',

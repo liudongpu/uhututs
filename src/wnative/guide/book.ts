@@ -6,10 +6,25 @@ class Book {
 
     navigateUrl(that, sUrl : string) {
 
-        that
-            .props
-            .navigation
+        let oPageNavTemp = null;
+
+        if (that && that.props && that.props.navigation) {
+            oPageNavTemp = that.props.navigation;
+
+        }
+        else if (that && that.navigate) {
+            oPageNavTemp = that;
+        }
+
+
+        if(oPageNavTemp){
+            oPageNavTemp
             .navigate(sUrl);
+        }
+        
+
+
+        
 
     }
 

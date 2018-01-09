@@ -34,6 +34,9 @@ const RootNavigator = StackNavigator(RouteStack,
     headerBackTitle:' ',
     headerBackTitleStyle:styles.theme_layout_nav_back
   },
+  //uhutu_sign_begin_navigator
+  
+  //uhutu_sign_end_navigator
   cardStyle:styles.theme_layout_card_main
 });
 

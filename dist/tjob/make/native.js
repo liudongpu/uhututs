@@ -60,6 +60,7 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
         this.attrStyle(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startStyle));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startIcon));
+        this.attrHref(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startHref));
         this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startNumber));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
         oNodeInfo
@@ -81,8 +82,8 @@ var MakeNative = /** @class */ (function (_super) {
     MakeNative.prototype.processBaseAttr = function (oNodeInfo) {
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo
-                .itemAttr
-                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
+                .nodeAttr
+                .set(index_2.TBase.defineData().startHref + index_2.TBase.defineData().nameUrl, oNodeInfo.nodeAttr.get("href"));
         }
         if (oNodeInfo.nodeAttr.has("src")) {
             if (oNodeInfo.nodeName === "img") {
@@ -174,6 +175,27 @@ var MakeNative = /** @class */ (function (_super) {
                 oNodeInfo
                     .itemAttr
                     .set(k, 'styles.' + v);
+            });
+        }
+    };
+    MakeNative.prototype.attrHref = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_2.TBase
+                        .defineData()
+                        .nameUrl:
+                        oNodeInfo
+                            .itemAttr
+                            .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + v + "\")}");
+                        break;
+                    case index_2.TBase.defineData().nameNavigation:
+                        oNodeInfo
+                            .itemAttr
+                            .set("onPress", "()=>{guidebook.navigateUrl(navigation,\"" + v + "\")}");
+                        break;
+                }
+                ;
             });
         }
     };

@@ -6,10 +6,17 @@ var Book = /** @class */ (function () {
     function Book() {
     }
     Book.prototype.navigateUrl = function (that, sUrl) {
-        that
-            .props
-            .navigation
-            .navigate(sUrl);
+        var oPageNavTemp = null;
+        if (that && that.props && that.props.navigation) {
+            oPageNavTemp = that.props.navigation;
+        }
+        else if (that && that.navigate) {
+            oPageNavTemp = that;
+        }
+        if (oPageNavTemp) {
+            oPageNavTemp
+                .navigate(sUrl);
+        }
     };
     Book.prototype.storeGetObject = function (sKey) {
         return this

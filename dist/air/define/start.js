@@ -69,6 +69,7 @@ var defineData = {
     startProp: 'data-prop-',
     startStyle: 'data-style-',
     startIcon: 'data-icon-',
+    startHref: 'data-href-',
     startNumber: 'data-number-',
     startForm: 'data-form-',
     nameRecord: 'record',
@@ -76,6 +77,8 @@ var defineData = {
     nameRender: 'render',
     nameState: 'state',
     nameLabel: 'label',
+    nameUrl: 'url',
+    nameNavigation: 'navigation',
     nameArrow: 'arrow',
     nameOption: 'option'
 };

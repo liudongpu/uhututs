@@ -65,6 +65,8 @@ export class MakeNative extends FatherMake {
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startIcon));
 
+        this.attrHref(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startHref));
+
 
         this.attrNumber(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startNumber));
 
@@ -96,8 +98,8 @@ export class MakeNative extends FatherMake {
 
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo
-                .itemAttr
-                .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + oNodeInfo.nodeAttr.get("href") + "\")}");
+                .nodeAttr
+                .set(TBase.defineData().startHref+TBase.defineData().nameUrl,  oNodeInfo.nodeAttr.get("href"));
         }
 
 
@@ -281,6 +283,42 @@ export class MakeNative extends FatherMake {
         }
 
     }
+
+
+    private attrHref(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                switch (k) {
+
+                        case TBase
+                            .defineData()
+                            .nameUrl:
+
+                            oNodeInfo
+                            .itemAttr
+                            .set("onPress", "()=>{guidebook.navigateUrl(this,\"" +v + "\")}");
+
+                        break;
+
+                        case TBase.defineData().nameNavigation:
+
+                        oNodeInfo
+                            .itemAttr
+                            .set("onPress", "()=>{guidebook.navigateUrl(navigation,\"" + v + "\")}");
+
+                        break;
+
+                };
+
+            });
+
+        }
+
+    }
+
 
     private attrSource(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
