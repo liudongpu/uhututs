@@ -136,6 +136,9 @@ const defineData={
 
     nameClick:'click',
 
+
+    namePress:'press',
+
     nameCancel:'cancel',
 
     nameEnd:'end',

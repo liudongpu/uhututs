@@ -402,6 +402,12 @@ export class MakeNative extends FatherMake {
                         oNodeInfo.itemAttr.set('onClick',"()=>{"+v+"}");
 
                         break;
+                        case TBase.defineData().namePress:
+
+
+                        oNodeInfo.itemAttr.set('onPress',"()=>{"+v+"}");
+
+                        break;
 
                         case TBase.defineData().nameCancel:
 

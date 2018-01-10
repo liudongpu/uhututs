@@ -268,6 +268,9 @@ var MakeNative = /** @class */ (function (_super) {
                     case index_2.TBase.defineData().nameClick:
                         oNodeInfo.itemAttr.set('onClick', "()=>{" + v + "}");
                         break;
+                    case index_2.TBase.defineData().namePress:
+                        oNodeInfo.itemAttr.set('onPress', "()=>{" + v + "}");
+                        break;
                     case index_2.TBase.defineData().nameCancel:
                         oNodeInfo.itemAttr.set('onCancel', "(value)=>{" + v + "}");
                         break;

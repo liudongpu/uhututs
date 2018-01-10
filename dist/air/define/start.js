@@ -83,6 +83,7 @@ var defineData = {
     nameUrl: 'url',
     nameChange: 'change',
     nameClick: 'click',
+    namePress: 'press',
     nameCancel: 'cancel',
     nameEnd: 'end',
     nameRefresh: 'refresh',
