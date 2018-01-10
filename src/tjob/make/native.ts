@@ -207,6 +207,18 @@ export class MakeNative extends FatherMake {
 
                         break;
 
+
+
+                        case TBase
+                            .defineData()
+                            .nameFooter:
+
+                        oNodeInfo
+                            .itemAttr
+                            .set("ListFooterComponent", "() =>{return this.x_template_render_" + v + "()}");
+
+                        break;
+
                 };
 
             });
@@ -349,6 +361,13 @@ export class MakeNative extends FatherMake {
 
 
                         oNodeInfo.itemAttr.set('onClick',"()=>{"+v+"}");
+
+                        break;
+
+                        case TBase.defineData().nameEnd:
+
+
+                        oNodeInfo.itemAttr.set('onEndReached',"()=>{"+v+"}");
 
                         break;
 

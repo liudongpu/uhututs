@@ -76,11 +76,13 @@ var defineData = {
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',
+    nameFooter: 'footer',
     nameState: 'state',
     nameLabel: 'label',
     nameUrl: 'url',
     nameChange: 'change',
     nameClick: 'click',
+    nameEnd: 'end',
     nameNavigation: 'navigation',
     nameArrow: 'arrow',
     nameOption: 'option'

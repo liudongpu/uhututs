@@ -155,6 +155,13 @@ var MakeNative = /** @class */ (function (_super) {
                             .itemAttr
                             .set("renderItem", "({item}) =>{return this.x_template_render_" + v + "(item)}");
                         break;
+                    case index_2.TBase
+                        .defineData()
+                        .nameFooter:
+                        oNodeInfo
+                            .itemAttr
+                            .set("ListFooterComponent", "() =>{return this.x_template_render_" + v + "()}");
+                        break;
                 }
                 ;
             });
@@ -239,6 +246,9 @@ var MakeNative = /** @class */ (function (_super) {
                         break;
                     case index_2.TBase.defineData().nameClick:
                         oNodeInfo.itemAttr.set('onClick', "()=>{" + v + "}");
+                        break;
+                    case index_2.TBase.defineData().nameEnd:
+                        oNodeInfo.itemAttr.set('onEndReached', "()=>{" + v + "}");
                         break;
                 }
                 ;

@@ -121,6 +121,8 @@ const defineData={
     nameCall:'call',
     nameRender:'render',
 
+    nameFooter:'footer',
+
     nameState:'state',
 
     nameLabel:'label',
@@ -131,6 +133,8 @@ const defineData={
     nameChange:'change',
 
     nameClick:'click',
+
+    nameEnd:'end',
 
     nameNavigation:'navigation',
 
