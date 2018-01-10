@@ -73,6 +73,9 @@ export class MakeNative extends FatherMake {
 
         this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
 
+
+        this.attrState(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startState));
+
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         oNodeInfo
@@ -305,6 +308,25 @@ export class MakeNative extends FatherMake {
 
     }
 
+
+    private attrState(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                oNodeInfo
+                    .itemAttr
+                    .set(k, 'this.state.' + v);
+
+            });
+
+        }
+
+    }
+
+
+
     private attrHref(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
         if (mMap.size > 0) {
@@ -353,7 +375,7 @@ export class MakeNative extends FatherMake {
                             .defineData()
                             .nameChange:
 
-                        if (v === '') {}
+                            oNodeInfo.itemAttr.set('onChange',"(value)=>{"+v+"}");
 
                         break;
 
@@ -364,10 +386,25 @@ export class MakeNative extends FatherMake {
 
                         break;
 
+                        case TBase.defineData().nameCancel:
+
+
+                        oNodeInfo.itemAttr.set('onCancel',"(value)=>{"+v+"}");
+
+                        break;
+
                         case TBase.defineData().nameEnd:
 
 
                         oNodeInfo.itemAttr.set('onEndReached',"()=>{"+v+"}");
+
+                        break;
+
+
+                        case TBase.defineData().nameRefresh:
+
+
+                        oNodeInfo.itemAttr.set('onRefresh',"()=>{"+v+"}");
 
                         break;
 

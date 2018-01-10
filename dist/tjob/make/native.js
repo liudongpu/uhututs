@@ -64,6 +64,7 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrHref(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startHref));
         this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startNumber));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
+        this.attrState(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startState));
         this.attrOn(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startOn));
         oNodeInfo
             .itemAttr
@@ -212,6 +213,15 @@ var MakeNative = /** @class */ (function (_super) {
             });
         }
     };
+    MakeNative.prototype.attrState = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                oNodeInfo
+                    .itemAttr
+                    .set(k, 'this.state.' + v);
+            });
+        }
+    };
     MakeNative.prototype.attrHref = function (oNodeInfo, mMap) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
@@ -242,13 +252,19 @@ var MakeNative = /** @class */ (function (_super) {
                     case index_2.TBase
                         .defineData()
                         .nameChange:
-                        if (v === '') { }
+                        oNodeInfo.itemAttr.set('onChange', "(value)=>{" + v + "}");
                         break;
                     case index_2.TBase.defineData().nameClick:
                         oNodeInfo.itemAttr.set('onClick', "()=>{" + v + "}");
                         break;
+                    case index_2.TBase.defineData().nameCancel:
+                        oNodeInfo.itemAttr.set('onCancel', "(value)=>{" + v + "}");
+                        break;
                     case index_2.TBase.defineData().nameEnd:
                         oNodeInfo.itemAttr.set('onEndReached', "()=>{" + v + "}");
+                        break;
+                    case index_2.TBase.defineData().nameRefresh:
+                        oNodeInfo.itemAttr.set('onRefresh', "()=>{" + v + "}");
                         break;
                 }
                 ;
