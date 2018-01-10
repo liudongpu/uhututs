@@ -151,7 +151,7 @@ class Book {
         return fetch(sUrl, {
             method: 'POST',
             body: TCoreCommonFunc.jsonStringify(oJsonInput)
-        }).then((response) =>{ return response.json();})
+        }).then((response) =>{if(response.ok){ return response.json();}})
     }
 
 

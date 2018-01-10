@@ -94,7 +94,9 @@ var Book = /** @class */ (function () {
         return fetch(sUrl, {
             method: 'POST',
             body: index_1.TCoreCommonFunc.jsonStringify(oJsonInput)
-        }).then(function (response) { return response.json(); });
+        }).then(function (response) { if (response.ok) {
+            return response.json();
+        } });
     };
     Book.prototype.checkFlagProduct = function () {
         var bReturn = true;
