@@ -97,6 +97,23 @@ export class MakeNative extends FatherMake {
 
     }
 
+
+
+    private formatStart(sInput:string,sLeft:string,sRight:string):string{
+
+        if (sInput.startsWith("@")) {
+           sInput=sInput.substr(1);
+        }
+        else{
+            sInput=sLeft+sInput+sRight;
+        }
+        return sInput;
+
+    }
+
+
+
+
     private processBaseAttr(oNodeInfo : KJobNodeInfo) {
 
         if (oNodeInfo.nodeAttr.has("href")) {
@@ -341,7 +358,7 @@ export class MakeNative extends FatherMake {
 
                         oNodeInfo
                             .itemAttr
-                            .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + v + "\")}");
+                            .set("onPress", "()=>{guidebook.navigateUrl(this," + this.formatStart(v,'"','"')  + ")}");
 
                         break;
 
@@ -351,7 +368,7 @@ export class MakeNative extends FatherMake {
 
                         oNodeInfo
                             .itemAttr
-                            .set("onPress", "()=>{guidebook.navigateUrl(navigation,\"" + v + "\")}");
+                            .set("onPress", "()=>{guidebook.navigateUrl(navigation," + this.formatStart(v,'"','"')  + ")}");
 
                         break;
 

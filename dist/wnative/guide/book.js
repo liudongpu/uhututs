@@ -41,8 +41,12 @@ var Book = /** @class */ (function () {
                 oPageNavTemp.navigate(urlInfo.pageName, { url: sPageUrl });
                 //}
             }
-            oPageNavTemp.navigate(sPageUrl);
         }
+    };
+    Book.prototype.urlCurrentInfo = function (that) {
+        var sPageUrl = that.props.navigation.state.params.url;
+        var oUrlInfo = index_1.TCoreHelperUrl.parseUrl(sPageUrl);
+        return oUrlInfo;
     };
     Book.prototype.stateInValue = function (that, sKey, sVal) {
         var oObject = {};

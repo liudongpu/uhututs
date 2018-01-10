@@ -82,6 +82,15 @@ var MakeNative = /** @class */ (function (_super) {
         });
         return oNodeInfo;
     };
+    MakeNative.prototype.formatStart = function (sInput, sLeft, sRight) {
+        if (sInput.startsWith("@")) {
+            sInput = sInput.substr(1);
+        }
+        else {
+            sInput = sLeft + sInput + sRight;
+        }
+        return sInput;
+    };
     MakeNative.prototype.processBaseAttr = function (oNodeInfo) {
         if (oNodeInfo.nodeAttr.has("href")) {
             oNodeInfo
@@ -223,6 +232,7 @@ var MakeNative = /** @class */ (function (_super) {
         }
     };
     MakeNative.prototype.attrHref = function (oNodeInfo, mMap) {
+        var _this = this;
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 switch (k) {
@@ -231,14 +241,14 @@ var MakeNative = /** @class */ (function (_super) {
                         .nameUrl:
                         oNodeInfo
                             .itemAttr
-                            .set("onPress", "()=>{guidebook.navigateUrl(this,\"" + v + "\")}");
+                            .set("onPress", "()=>{guidebook.navigateUrl(this," + _this.formatStart(v, '"', '"') + ")}");
                         break;
                     case index_2.TBase
                         .defineData()
                         .nameNavigation:
                         oNodeInfo
                             .itemAttr
-                            .set("onPress", "()=>{guidebook.navigateUrl(navigation,\"" + v + "\")}");
+                            .set("onPress", "()=>{guidebook.navigateUrl(navigation," + _this.formatStart(v, '"', '"') + ")}");
                         break;
                 }
                 ;

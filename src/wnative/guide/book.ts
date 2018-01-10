@@ -60,10 +60,25 @@ class Book {
                 //}
             }
 
-            oPageNavTemp.navigate(sPageUrl);
+            
         }
 
     }
+
+
+
+    urlCurrentInfo(that){
+        let sPageUrl=that.props.navigation.state.params.url;
+
+        let oUrlInfo=TCoreHelperUrl.parseUrl(sPageUrl);
+
+        return oUrlInfo; 
+
+    }
+
+
+
+
 
     stateInValue(that, sKey : string,sVal:string) {
 
