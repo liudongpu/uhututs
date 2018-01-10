@@ -51,10 +51,20 @@ var Book = /** @class */ (function () {
     Book.prototype.stateInValue = function (that, sKey, sVal) {
         var oObject = {};
         oObject[sKey] = sVal;
-        that.setState(oObject);
+        this.stateInObject(that, oObject);
     };
     Book.prototype.stateUpValue = function (that, sKey) {
         return that.state[sKey];
+    };
+    Book.prototype.stateInObject = function (that, oObject) {
+        that.setState(oObject);
+    };
+    Book.prototype.stateInForm = function (that, sStart, oObject) {
+        var oState = {};
+        for (var p in oObject) {
+            oState['form_' + sStart + '_' + p] = oObject[p];
+        }
+        this.stateInObject(that, oState);
     };
     Book.prototype.stateUpForm = function (that, sStart) {
         var oValue = {};
@@ -98,7 +108,7 @@ var Book = /** @class */ (function () {
             return response.json();
         }
         else {
-            console.warn(response);
+            console.error(response);
         } });
     };
     Book.prototype.checkFlagProduct = function () {

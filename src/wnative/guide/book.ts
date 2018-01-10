@@ -84,7 +84,8 @@ class Book {
 
         let oObject={};
         oObject[sKey]=sVal;
-        that.setState(oObject);
+        
+        this.stateInObject(that,oObject);
 
     }
 
@@ -93,6 +94,26 @@ class Book {
         return that.state[sKey];
 
     }
+
+
+
+    stateInObject(that,oObject){
+        that.setState(oObject);
+    }
+
+    stateInForm(that,sStart:string,oObject:any){
+
+        let oState={};
+
+        for(var p in oObject){
+            oState['form_' + sStart + '_'+p]=oObject[p];
+        }
+
+        this.stateInObject(that,oState);
+
+    }
+
+
 
     stateUpForm(that, sStart : string) {
         let oValue = {};
