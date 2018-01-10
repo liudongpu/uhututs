@@ -30,9 +30,12 @@ const RootNavigator = StackNavigator(RouteStack,
   navigationOptions:{
     headerTitleStyle:styles.theme_layout_nav_title,
     headerStyle:[styles.theme_layout_nav_header,{elevation:0}],
-    headerTintColor:'#ffffff',
+    
     headerBackTitle:' ',
-    headerBackTitleStyle:styles.theme_layout_nav_back
+    headerBackTitleStyle:styles.theme_layout_nav_back,
+    //uhutu_sign_begin_navoption
+  
+    //uhutu_sign_end_navoption
   },
   //uhutu_sign_begin_navigator
   
