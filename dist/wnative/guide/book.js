@@ -96,6 +96,9 @@ var Book = /** @class */ (function () {
             body: index_1.TCoreCommonFunc.jsonStringify(oJsonInput)
         }).then(function (response) { if (response.ok) {
             return response.json();
+        }
+        else {
+            console.warn(response);
         } });
     };
     Book.prototype.checkFlagProduct = function () {

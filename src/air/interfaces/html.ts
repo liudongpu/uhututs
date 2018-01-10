@@ -49,7 +49,7 @@ export interface IHtmlElementList{
     select_formpicker:IHtmlElementInfo
 
 
-   
+    textarea_formtextarea:IHtmlElementInfo
 
     main:IHtmlElementInfo
 

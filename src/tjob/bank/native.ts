@@ -69,6 +69,10 @@ const elementList : IHtmlElementList = {
         name: "InputItem"
     },
 
+    textarea_formtextarea:{
+        name: "TextareaItem"
+    },
+
     input_formdate:{
         name: "DatePicker"
     },

@@ -17,6 +17,7 @@ var sSetElement = new Set([
     "img",
     "label",
     "object",
+    "textarea",
     "i",
     "select"
 ]);

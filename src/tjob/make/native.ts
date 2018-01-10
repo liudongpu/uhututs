@@ -255,7 +255,7 @@ export class MakeNative extends FatherMake {
 
                 oNodeInfo
                     .itemAttr
-                    .set(k, '"' + v + '"');
+                    .set(k,  this.formatStart(v,'"','"'));
             });
 
         }

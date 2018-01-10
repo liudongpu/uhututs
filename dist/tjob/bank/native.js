@@ -52,6 +52,9 @@ var elementList = {
     input_forminput: {
         name: "InputItem"
     },
+    textarea_formtextarea: {
+        name: "TextareaItem"
+    },
     input_formdate: {
         name: "DatePicker"
     },

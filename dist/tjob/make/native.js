@@ -178,11 +178,12 @@ var MakeNative = /** @class */ (function (_super) {
         }
     };
     MakeNative.prototype.attrProp = function (oNodeInfo, mMap) {
+        var _this = this;
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 oNodeInfo
                     .itemAttr
-                    .set(k, '"' + v + '"');
+                    .set(k, _this.formatStart(v, '"', '"'));
             });
         }
     };
