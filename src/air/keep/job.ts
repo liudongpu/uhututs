@@ -52,6 +52,9 @@ export class KJobPageOut{
 
     init:string=""
 
+
+    unload:string=""
+
 }
 
 

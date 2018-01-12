@@ -35,7 +35,7 @@ var WayExec = /** @class */ (function () {
         else {
             sInfo = oArg.textInfo;
         }
-        var sRegex = "([\r\n]\s*.*" + oArg.textBegin + "\s*[\r\n])(.|\s|\S|\n)*([\r\n]\s*.*" + oArg.textEnd + "\s*[\r\n])";
+        var sRegex = "([\r\n]\s*.*" + oArg.textBegin + "\s*[\r\n])(.|\s|\S|\n)*?([\r\n]\s*.*" + oArg.textEnd + "\s*[\r\n])";
         var oRegexItem = new RegExp(sRegex, "g");
         var oResult = oRegexItem.exec(sInfo);
         if (oResult) {

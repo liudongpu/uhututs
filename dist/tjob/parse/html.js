@@ -87,6 +87,9 @@ var ParseHtml = /** @class */ (function () {
                     case enumer_1.AEnumNodeType.init:
                         oResult.init = oNodeInfo.nodeInfo;
                         break;
+                    case enumer_1.AEnumNodeType.unload:
+                        oResult.unload = oNodeInfo.nodeInfo;
+                        break;
                     case enumer_1.AEnumNodeType.import:
                         var oImport = new job_1.kJobImportJs();
                         oImport.name = oNodeInfo.sourceId;
@@ -185,6 +188,9 @@ var ParseHtml = /** @class */ (function () {
                     break;
                 case "js/init":
                     oNodeInfo.nodeType = enumer_1.AEnumNodeType.init;
+                    break;
+                case "js/unload":
+                    oNodeInfo.nodeType = enumer_1.AEnumNodeType.unload;
                     break;
                 default:
                     oNodeInfo.nodeType = enumer_1.AEnumNodeType.script;

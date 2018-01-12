@@ -33,6 +33,12 @@ export enum AEnumNodeType{
     import,
 
 
+    /**
+     * 离开前
+     */
+    unload,
+
+
 
     /**
      * 配置项

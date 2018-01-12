@@ -31,7 +31,7 @@ export class WayExec {
      * @memberof WayExec
      */
     public static execReplaceFileContentLine(oArg : IArgsExec) : string {
-
+        
         let sInfo = "";
         let sReturn: string = "";
 
@@ -42,9 +42,10 @@ export class WayExec {
         }
 
        
-        let sRegex = "([\r\n]\s*.*" + oArg.textBegin + "\s*[\r\n])(.|\s|\S|\n)*([\r\n]\s*.*" + oArg.textEnd + "\s*[\r\n])";
-
+        let sRegex = "([\r\n]\s*.*" + oArg.textBegin + "\s*[\r\n])(.|\s|\S|\n)*?([\r\n]\s*.*" + oArg.textEnd + "\s*[\r\n])";
+        
         let oRegexItem = new RegExp(sRegex,"g");
+       
         let oResult = oRegexItem.exec(sInfo);
 
         

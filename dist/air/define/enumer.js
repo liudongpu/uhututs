@@ -24,21 +24,25 @@ var AEnumNodeType;
     AEnumNodeType[AEnumNodeType["form"] = 4] = "form";
     AEnumNodeType[AEnumNodeType["import"] = 5] = "import";
     /**
+     * 离开前
+     */
+    AEnumNodeType[AEnumNodeType["unload"] = 6] = "unload";
+    /**
      * 配置项
      */
-    AEnumNodeType[AEnumNodeType["config"] = 6] = "config";
+    AEnumNodeType[AEnumNodeType["config"] = 7] = "config";
     /**
      * 状态数据
      */
-    AEnumNodeType[AEnumNodeType["state"] = 7] = "state";
+    AEnumNodeType[AEnumNodeType["state"] = 8] = "state";
     /**
      * 模板
      */
-    AEnumNodeType[AEnumNodeType["template"] = 8] = "template";
+    AEnumNodeType[AEnumNodeType["template"] = 9] = "template";
     /**
      * 脚本
      */
-    AEnumNodeType[AEnumNodeType["script"] = 9] = "script";
+    AEnumNodeType[AEnumNodeType["script"] = 10] = "script";
 })(AEnumNodeType = exports.AEnumNodeType || (exports.AEnumNodeType = {}));
 var AEnumRegexKey;
 (function (AEnumRegexKey) {

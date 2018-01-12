@@ -38,12 +38,15 @@ export class UpdateGo {
 
             ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
 
-
+           
 
 
             EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/native.mustache"), EasyLaunch.upDevPathForResources("macro/native.mustache"));
 
             EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/indexs/App.js"), EasyLaunch.upGoNativePath("App.js"));
+
+
+            
 
             this.updatePagesNavigation();
         }
@@ -51,6 +54,9 @@ export class UpdateGo {
     }
 
     private static updatePagesNavigation() {
+
+        
+
 
         let aFileInfo : KProgramFileInfo[] = ProcessPath.upPagesPath();
 
@@ -62,6 +68,7 @@ export class UpdateGo {
 
             aRoute.push(fItem.screenName);
         })
+       
 
         let sFilePath = EasyLaunch.upGoNativePath("App.js");
 
@@ -75,6 +82,7 @@ export class UpdateGo {
                 .replaceAutoEnd + "import",
             textReplace: aImport.join('\r\n')
         });
+        
 
         TNodeWayExec.execReplaceFileContentLine({
             filePath: sFilePath,

@@ -78,6 +78,13 @@ export default class  extends Component {
 
 
 
+  {{#out.unload}}
+  componentWillUnmount() {
+    {{{out.unload}}}
+  }
+  {{/out.unload}}
+
+
   {{#out.templates}}
     x_template_render_{{name}}(item){
      
