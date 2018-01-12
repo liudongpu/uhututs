@@ -13,6 +13,10 @@ const elementList : IHtmlElementList = {
         name: "FlatList"
     },
 
+    div_form: {
+        name: "List"
+    },
+
     main: {
         name: "View"
     },

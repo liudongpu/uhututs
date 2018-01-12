@@ -24,6 +24,9 @@ export interface IHtmlElementList{
 
     div_list:IHtmlElementInfo
 
+
+    div_form:IHtmlElementInfo
+
     object:IHtmlElementInfo
 
     object_qrcode:IHtmlElementInfo

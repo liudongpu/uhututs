@@ -10,6 +10,9 @@ var elementList = {
     div_list: {
         name: "FlatList"
     },
+    div_form: {
+        name: "List"
+    },
     main: {
         name: "View"
     },
