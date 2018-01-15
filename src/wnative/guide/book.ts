@@ -195,6 +195,14 @@ class Book {
 
 
 
+    componentMessageConfirm(sTitle:string,sMessage:string,fCall:Function){
+
+        Alert.alert(sTitle,sMessage,[{text: '取消', onPress: () => console.log('Cancel Pressed!')},
+        {text: '确认', onPress: ()=>{fCall();}}]);
+    }
+
+
+
 
     
 

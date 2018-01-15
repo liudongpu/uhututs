@@ -122,6 +122,10 @@ var Book = /** @class */ (function () {
     Book.prototype.componentMessageAlert = function (sTitle, sMessage) {
         react_native_1.Alert.alert(sTitle, sMessage);
     };
+    Book.prototype.componentMessageConfirm = function (sTitle, sMessage, fCall) {
+        react_native_1.Alert.alert(sTitle, sMessage, [{ text: '取消', onPress: function () { return console.log('Cancel Pressed!'); } },
+            { text: '确认', onPress: function () { fCall(); } }]);
+    };
     return Book;
 }());
 var GuideBook = new Book();
