@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
 var index_1 = require("../../tcore/index");
 var react_navigation_1 = require("react-navigation");
+var antd_mobile_1 = require("antd-mobile");
 var Book = /** @class */ (function () {
     function Book() {
     }
@@ -125,6 +126,12 @@ var Book = /** @class */ (function () {
     Book.prototype.componentMessageConfirm = function (sTitle, sMessage, fCall) {
         react_native_1.Alert.alert(sTitle, sMessage, [{ text: '取消', onPress: function () { return console.log('Cancel Pressed!'); } },
             { text: '确认', onPress: function () { fCall(); } }]);
+    };
+    Book.prototype.componentToast = function (sInfo, iSecond) {
+        if (iSecond === undefined) {
+            iSecond = 3;
+        }
+        antd_mobile_1.Toast.info(sInfo, iSecond);
     };
     return Book;
 }());

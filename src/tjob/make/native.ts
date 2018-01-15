@@ -239,6 +239,16 @@ export class MakeNative extends FatherMake {
 
                         break;
 
+                        case TBase
+                            .defineData()
+                            .nameEmpty:
+
+                        oNodeInfo
+                            .itemAttr
+                            .set("ListEmptyComponent", "() =>{return this.x_template_render_" + v + "()}");
+
+                        break;
+
                 };
 
             });

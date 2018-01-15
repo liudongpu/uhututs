@@ -172,6 +172,13 @@ var MakeNative = /** @class */ (function (_super) {
                             .itemAttr
                             .set("ListFooterComponent", "() =>{return this.x_template_render_" + v + "()}");
                         break;
+                    case index_2.TBase
+                        .defineData()
+                        .nameEmpty:
+                        oNodeInfo
+                            .itemAttr
+                            .set("ListEmptyComponent", "() =>{return this.x_template_render_" + v + "()}");
+                        break;
                 }
                 ;
             });

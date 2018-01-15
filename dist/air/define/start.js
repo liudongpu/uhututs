@@ -77,6 +77,7 @@ var defineData = {
     nameRecord: 'record',
     nameCall: 'call',
     nameRender: 'render',
+    nameEmpty: 'empty',
     nameFooter: 'footer',
     nameState: 'state',
     nameLabel: 'label',

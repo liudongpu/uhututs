@@ -123,6 +123,8 @@ const defineData={
     nameCall:'call',
     nameRender:'render',
 
+    nameEmpty:'empty',
+
     nameFooter:'footer',
 
     nameState:'state',
