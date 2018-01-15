@@ -3,6 +3,7 @@ import {AsyncStorage,Alert} from 'react-native';
 import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
 import { NavigationActions } from 'react-navigation';
+import { Toast } from 'antd-mobile';
 
 class Book {
 
@@ -199,6 +200,16 @@ class Book {
 
         Alert.alert(sTitle,sMessage,[{text: '取消', onPress: () => console.log('Cancel Pressed!')},
         {text: '确认', onPress: ()=>{fCall();}}]);
+    }
+
+
+    componentToast(sInfo:string,iSecond:number){
+
+        if(iSecond===undefined){
+            iSecond=3;
+        }
+
+        Toast.info(sInfo,iSecond);
     }
 
 
