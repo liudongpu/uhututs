@@ -137,10 +137,14 @@ export class MakeNative extends FatherMake {
                     oNodeInfo
                         .itemAttr
                         .set("source", "{uri: " + sVal + "}");
-                } else {
+                } else if(sVal.startsWith('http')) {
                     oNodeInfo
                         .itemAttr
-                        .set("source", "{uri: '" + sVal + "'}");
+                        .set("source", "{uri:'" + sVal + "'}");
+                }else {
+                    oNodeInfo
+                        .itemAttr
+                        .set("source", "require('" + sVal + "')");
                 }
 
             }

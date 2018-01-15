@@ -108,10 +108,15 @@ var MakeNative = /** @class */ (function (_super) {
                         .itemAttr
                         .set("source", "{uri: " + sVal + "}");
                 }
+                else if (sVal.startsWith('http')) {
+                    oNodeInfo
+                        .itemAttr
+                        .set("source", "{uri:'" + sVal + "'}");
+                }
                 else {
                     oNodeInfo
                         .itemAttr
-                        .set("source", "{uri: '" + sVal + "'}");
+                        .set("source", "require('" + sVal + "')");
                 }
             }
         }
