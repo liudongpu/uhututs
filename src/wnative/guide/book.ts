@@ -1,9 +1,9 @@
 import {IGuideBook} from "../../air/interfaces/guide";
-import {AsyncStorage,Alert} from 'react-native';
+import {AsyncStorage, Alert} from 'react-native';
 import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
-import { NavigationActions } from 'react-navigation';
-import { Toast } from 'antd-mobile';
+import {NavigationActions} from 'react-navigation';
+import {Toast} from 'antd-mobile';
 
 class Book {
 
@@ -20,73 +20,65 @@ class Book {
 
         if (oPageNavTemp) {
 
-
-            let urlInfo=TCoreHelperUrl.parseUrl(sPageUrl);
+            let urlInfo = TCoreHelperUrl.parseUrl(sPageUrl);
 
             if (urlInfo.baseJump === "reset") {
-                
 
                 const resetAction = NavigationActions.reset({
                     index: 0,
-                    actions: [
-                        NavigationActions.navigate({ routeName: urlInfo.pageName, params: { url: sPageUrl } })
-                    ]
+                    actions: [NavigationActions.navigate({
+                            routeName: urlInfo.pageName,
+                            params: {
+                                url: sPageUrl
+                            }
+                        })]
                 })
-                
+
                 oPageNavTemp.dispatch(resetAction);
-    
-            }
-            else if (urlInfo.baseJump === "replace") {
-    
+
+            } else if (urlInfo.baseJump === "replace") {
+
                 let aAction = {
                     type: 'CustomNav/replace',
                     routeName: urlInfo.pageName,
-                    params: { url: sPageUrl }
-    
+                    params: {
+                        url: sPageUrl
+                    }
+
                 }
-    
-    
-    
+
                 oPageNavTemp.dispatch(aAction);
-    
+
             } else if (urlInfo.baseJump == "back") {
-    
+
                 oPageNavTemp.goBack();
-    
-            }
-            else {
+
+            } else {
                 //if (sTemplateUrl !== sPageUrl) {
-                
-                oPageNavTemp.navigate(urlInfo.pageName, { url: sPageUrl });
+
+                oPageNavTemp.navigate(urlInfo.pageName, {url: sPageUrl});
                 //}
             }
 
-            
         }
 
     }
 
+    urlCurrentInfo(that) {
+        let sPageUrl = that.props.navigation.state.params.url;
 
+        let oUrlInfo = TCoreHelperUrl.parseUrl(sPageUrl);
 
-    urlCurrentInfo(that){
-        let sPageUrl=that.props.navigation.state.params.url;
-
-        let oUrlInfo=TCoreHelperUrl.parseUrl(sPageUrl);
-
-        return oUrlInfo; 
+        return oUrlInfo;
 
     }
 
+    stateInValue(that, sKey : string, sVal : string) {
 
+        let oObject = {};
+        oObject[sKey] = sVal;
 
-
-
-    stateInValue(that, sKey : string,sVal:string) {
-
-        let oObject={};
-        oObject[sKey]=sVal;
-        
-        this.stateInObject(that,oObject);
+        this.stateInObject(that, oObject);
 
     }
 
@@ -96,25 +88,21 @@ class Book {
 
     }
 
-
-
-    stateInObject(that,oObject){
+    stateInObject(that, oObject) {
         that.setState(oObject);
     }
 
-    stateInForm(that,sStart:string,oObject:any){
+    stateInForm(that, sStart : string, oObject : any) {
 
-        let oState={};
+        let oState = {};
 
-        for(var p in oObject){
-            oState['form_' + sStart + '_'+p]=oObject[p];
+        for (var p in oObject) {
+            oState['form_' + sStart + '_' + p] = oObject[p];
         }
 
-        this.stateInObject(that,oState);
+        this.stateInObject(that, oState);
 
     }
-
-
 
     stateUpForm(that, sStart : string) {
         let oValue = {};
@@ -135,13 +123,12 @@ class Book {
         return this
             .storeGetItem(sKey)
             .then((value) => {
-                if(value){
+                if (value) {
                     return TCoreCommonFunc.jsonParse < T > (value);
-                }
-                else{
+                } else {
                     return null;
                 }
-                
+
             });
     }
 
@@ -160,25 +147,26 @@ class Book {
         return AsyncStorage.setItem(sKey, sValue);
     }
 
-
     storeRemoveItem(sKey : string) : Promise < void > {
 
         return AsyncStorage.removeItem(sKey);
     }
-
-
 
     fetchPost(sUrl : string, oJsonInput : any) : Promise < any > {
 
         return fetch(sUrl, {
             method: 'POST',
             body: TCoreCommonFunc.jsonStringify(oJsonInput)
-        }).then((response) =>{if(response.ok){ return response.json();}else{console.error(response)}})
+        }).then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error(response)
+            }
+        })
     }
 
-
-
-     checkFlagProduct():boolean {
+    checkFlagProduct() : boolean {
         let bReturn = true;
         if (__DEV__ != undefined && __DEV__ === true) {
             console.log(__DEV__);
@@ -187,38 +175,42 @@ class Book {
         return bReturn;
     }
 
+    componentMessageAlert(sTitle : string, sMessage : string) {
 
-
-    componentMessageAlert(sTitle:string,sMessage:string){
-
-        Alert.alert(sTitle,sMessage);
+        Alert.alert(sTitle, sMessage,[{text:'确认'}]);
     }
 
+    componentMessageConfirm(sTitle : string, sMessage : string, fCall : Function) {
 
-
-    componentMessageConfirm(sTitle:string,sMessage:string,fCall:Function){
-
-        Alert.alert(sTitle,sMessage,[{text: '取消', onPress: () => console.log('Cancel Pressed!')},
-        {text: '确认', onPress: ()=>{fCall();}}]);
+        Alert.alert(sTitle, sMessage, [
+            {
+                text: '取消',
+                onPress: () => console.log('Cancel Pressed!')
+            }, {
+                text: '确认',
+                onPress: () => {
+                    fCall();
+                }
+            }
+        ]);
     }
 
+    componentToast(sInfo : string, iSecond : number, sType : string) {
 
-    componentToast(sInfo:string,iSecond:number){
-
-        if(iSecond===undefined){
-            iSecond=3;
+        if (iSecond === undefined) {
+            iSecond = 3;
         }
 
-        Toast.info(sInfo,iSecond);
+        switch (sType) {
+            case "fail":
+                Toast.fail(sInfo, iSecond);
+                break;
+            default:
+                Toast.info(sInfo, iSecond);
+                break;
+        }
+
     }
-
-
-
-
-    
-
-
-
 
 }
 

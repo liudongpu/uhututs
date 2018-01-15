@@ -20,9 +20,12 @@ var Book = /** @class */ (function () {
             if (urlInfo.baseJump === "reset") {
                 var resetAction = react_navigation_1.NavigationActions.reset({
                     index: 0,
-                    actions: [
-                        react_navigation_1.NavigationActions.navigate({ routeName: urlInfo.pageName, params: { url: sPageUrl } })
-                    ]
+                    actions: [react_navigation_1.NavigationActions.navigate({
+                            routeName: urlInfo.pageName,
+                            params: {
+                                url: sPageUrl
+                            }
+                        })]
                 });
                 oPageNavTemp.dispatch(resetAction);
             }
@@ -30,7 +33,9 @@ var Book = /** @class */ (function () {
                 var aAction = {
                     type: 'CustomNav/replace',
                     routeName: urlInfo.pageName,
-                    params: { url: sPageUrl }
+                    params: {
+                        url: sPageUrl
+                    }
                 };
                 oPageNavTemp.dispatch(aAction);
             }
@@ -105,12 +110,14 @@ var Book = /** @class */ (function () {
         return fetch(sUrl, {
             method: 'POST',
             body: index_1.TCoreCommonFunc.jsonStringify(oJsonInput)
-        }).then(function (response) { if (response.ok) {
-            return response.json();
-        }
-        else {
-            console.error(response);
-        } });
+        }).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+            else {
+                console.error(response);
+            }
+        });
     };
     Book.prototype.checkFlagProduct = function () {
         var bReturn = true;
@@ -121,17 +128,33 @@ var Book = /** @class */ (function () {
         return bReturn;
     };
     Book.prototype.componentMessageAlert = function (sTitle, sMessage) {
-        react_native_1.Alert.alert(sTitle, sMessage);
+        react_native_1.Alert.alert(sTitle, sMessage, [{ text: '确认' }]);
     };
     Book.prototype.componentMessageConfirm = function (sTitle, sMessage, fCall) {
-        react_native_1.Alert.alert(sTitle, sMessage, [{ text: '取消', onPress: function () { return console.log('Cancel Pressed!'); } },
-            { text: '确认', onPress: function () { fCall(); } }]);
+        react_native_1.Alert.alert(sTitle, sMessage, [
+            {
+                text: '取消',
+                onPress: function () { return console.log('Cancel Pressed!'); }
+            }, {
+                text: '确认',
+                onPress: function () {
+                    fCall();
+                }
+            }
+        ]);
     };
-    Book.prototype.componentToast = function (sInfo, iSecond) {
+    Book.prototype.componentToast = function (sInfo, iSecond, sType) {
         if (iSecond === undefined) {
             iSecond = 3;
         }
-        antd_mobile_1.Toast.info(sInfo, iSecond);
+        switch (sType) {
+            case "fail":
+                antd_mobile_1.Toast.fail(sInfo, iSecond);
+                break;
+            default:
+                antd_mobile_1.Toast.info(sInfo, iSecond);
+                break;
+        }
     };
     return Book;
 }());
