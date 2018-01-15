@@ -72,6 +72,7 @@ var defineData = {
     startState: 'data-state-',
     startHref: 'data-href-',
     startNumber: 'data-number-',
+    startExec: 'data-exec-',
     startForm: 'data-form-',
     startOn: 'data-on-',
     nameRecord: 'record',
@@ -89,6 +90,7 @@ var defineData = {
     nameEnd: 'end',
     nameRefresh: 'refresh',
     nameNavigation: 'navigation',
+    nameStyle: 'style',
     nameArrow: 'arrow',
     nameOption: 'option'
 };

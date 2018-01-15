@@ -64,6 +64,7 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrHref(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startHref));
         this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startNumber));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
+        this.attrExec(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startExec));
         this.attrState(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startState));
         this.attrOn(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startOn));
         oNodeInfo
@@ -309,6 +310,22 @@ var MakeNative = /** @class */ (function (_super) {
                         oNodeInfo
                             .itemAttr
                             .set("data", v);
+                        break;
+                }
+                ;
+            });
+        }
+    };
+    MakeNative.prototype.attrExec = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_2.TBase
+                        .defineData()
+                        .nameStyle:
+                        oNodeInfo
+                            .itemAttr
+                            .set("style", v);
                         break;
                 }
                 ;

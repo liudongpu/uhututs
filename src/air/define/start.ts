@@ -115,6 +115,9 @@ const defineData={
     startNumber:'data-number-',
 
 
+    startExec:'data-exec-',
+
+
     startForm:'data-form-',
 
     startOn:'data-on-',
@@ -149,6 +152,9 @@ const defineData={
 
 
     nameNavigation:'navigation',
+
+
+    nameStyle:'style',
 
 
     nameArrow:'arrow',

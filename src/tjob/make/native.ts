@@ -74,6 +74,9 @@ export class MakeNative extends FatherMake {
         this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
 
 
+        this.attrExec(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startExec));
+
+
         this.attrState(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startState));
 
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
@@ -484,6 +487,36 @@ export class MakeNative extends FatherMake {
         }
 
     }
+
+    private attrExec(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                switch (k) {
+
+                        case TBase
+                            .defineData()
+                            .nameStyle:
+
+                        oNodeInfo
+                            .itemAttr
+                            .set("style", v);
+
+                        break;
+
+                    
+
+                };
+
+            });
+
+        }
+
+    }
+
+
 
     subBank() {
         return new BankNative();
