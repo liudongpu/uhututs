@@ -2,6 +2,11 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+//uhutu_sign_begin_header
+
+//uhutu_sign_end_header
+
+
 
 //uhutu_auto_begin_import
 
