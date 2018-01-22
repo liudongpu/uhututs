@@ -18,6 +18,7 @@ var sSetElement = new Set([
     "label",
     "object",
     "textarea",
+    "iframe",
     "i",
     "select"
 ]);

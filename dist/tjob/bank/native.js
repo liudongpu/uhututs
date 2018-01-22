@@ -66,6 +66,9 @@ var elementList = {
     },
     img: {
         name: "Image"
+    },
+    iframe: {
+        name: "WebView"
     }
 };
 var BankNative = /** @class */ (function () {

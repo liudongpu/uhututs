@@ -99,7 +99,7 @@ var MakeNative = /** @class */ (function (_super) {
                 .set(index_2.TBase.defineData().startHref + index_2.TBase.defineData().nameUrl, oNodeInfo.nodeAttr.get("href"));
         }
         if (oNodeInfo.nodeAttr.has("src")) {
-            if (oNodeInfo.nodeName === "img") {
+            if (oNodeInfo.nodeName === "img" || oNodeInfo.nodeName === "iframe") {
                 var sVal = oNodeInfo
                     .nodeAttr
                     .get("src");

@@ -30,6 +30,7 @@ const sSetElement: Set<string> = new Set<string>([
     "label",
     "object",
     "textarea",
+    "iframe",
     "i",
     "select"
 ]);

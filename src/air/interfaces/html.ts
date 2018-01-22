@@ -60,6 +60,8 @@ export interface IHtmlElementList{
 
 
     img:IHtmlElementInfo
+
+    iframe:IHtmlElementInfo
 }
 
 

@@ -127,7 +127,7 @@ export class MakeNative extends FatherMake {
 
         if (oNodeInfo.nodeAttr.has("src")) {
 
-            if (oNodeInfo.nodeName === "img") {
+            if (oNodeInfo.nodeName === "img"||oNodeInfo.nodeName==="iframe") {
 
                 let sVal = oNodeInfo
                     .nodeAttr

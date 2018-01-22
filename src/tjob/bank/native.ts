@@ -89,6 +89,9 @@ const elementList : IHtmlElementList = {
     },
     img:{
         name:"Image"
+    },
+    iframe:{
+        name:"WebView"
     }
 }
 
