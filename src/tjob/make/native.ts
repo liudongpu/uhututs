@@ -202,6 +202,12 @@ export class MakeNative extends FatherMake {
 
                 break;
 
+
+                case AEnumRegexKey.env:
+                sReturn = "{" + sValue + "}";
+
+                break;
+
         }
 
         return sReturn;

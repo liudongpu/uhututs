@@ -152,6 +152,9 @@ var MakeNative = /** @class */ (function (_super) {
                     sReturn = "{item." + sValue + "}";
                 }
                 break;
+            case enumer_1.AEnumRegexKey.env:
+                sReturn = "{" + sValue + "}";
+                break;
         }
         return sReturn;
     };
