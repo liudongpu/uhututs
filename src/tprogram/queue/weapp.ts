@@ -1,3 +1,4 @@
+import { BootProgram } from './../boot/program';
 import { EasyLaunch } from './../easy/launch';
 import { IConfigInfo } from './../../air/interfaces/config';
 
@@ -35,7 +36,22 @@ export class QueueWeapp{
 
     static update(oConfig:IConfigInfo){
         
-        
+        let sWeappPath=EasyLaunch.upGoWeappPath("");
+
+        if(!TNodeIoFile.flagExist(sWeappPath)){
+
+           
+            TNodeIoFile.copyDir(EasyLaunch.upResourcePath("init-weapp"),sWeappPath);
+        }
+
+
+        let sProjectFile=  EasyLaunch.upGoWeappPath("project.config.json");
+
+        let oJsonProject=TCoreCommonFunc.jsonParse<any>(TNodeIoFile.readFile( sProjectFile));
+
+        oJsonProject.projectname=oConfig.projectBaseName;
+        oJsonProject.appid=oConfig.envWeappId;
+        TNodeIoFile.writeFile(sProjectFile,TCoreCommonFunc.jsonStringifyBeautify(oJsonProject));
 
     }
 

@@ -3,7 +3,12 @@ var fs = require('fs');
 var path = require('path');
 
 
-
+/**
+ * 文件操作相关
+ * 
+ * @export
+ * @class IoFile
+ */
 export class IoFile{
 
 
@@ -53,11 +58,48 @@ export class IoFile{
         return true;
     }
 
-    static copyFileAsync(sSourcePath, sTargetPath) {
+    /**
+     * 异步文件复制  一般用于大文件拷贝
+     * 
+     * @static
+     * @param {string} sSourcePath 
+     * @param {string} sTargetPath 
+     * @memberof IoFile
+     */
+    static copyFileAsync(sSourcePath:string, sTargetPath:string) {
         this.mkdir(path.dirname(sTargetPath));
         fs.createReadStream(sSourcePath).pipe(fs.createWriteStream(sTargetPath));
     }
 
+
+
+
+
+    static copyDir(sSourcePath:string, sTargetPath:string){
+
+
+        sSourcePath=this.pathNormalize(sSourcePath);
+        sTargetPath=this.pathNormalize(sTargetPath);
+        let aFiles=this.listDir(sSourcePath);
+        
+        aFiles.forEach(fItem=>{
+
+            let sTarget=this.pathJoin(sTargetPath,fItem.substr(sSourcePath.length));
+            this.copyFile(fItem,sTarget);
+
+        });
+
+    }
+
+
+    /**
+     * 列出路径下的子文件
+     * 
+     * @static
+     * @param {string} sPath 
+     * @returns {string[]} 
+     * @memberof IoFile
+     */
     static listDir(sPath:string) :string[]{
         var aList = [];
 
@@ -86,13 +128,28 @@ export class IoFile{
         return aList;
 
     }
-    //根据文件读取配置项
-    static upConfigByFile(sPath) {
+    /**
+     * 根据文件读取配置项
+     * 
+     * @static
+     * @param {string} sPath 
+     * @returns 
+     * @memberof IoFile
+     */
+    static upConfigByFile(sPath:string) {
         var sContent = this.readFile(sPath);
         return TCoreCommonFunc.jsonParse(sContent);
     }
-    //将配置写入配置文件
-    static inFileByConfig(sPath, oJson) {
+
+    /**
+     * 将配置写入配置文件
+     * 
+     * @static
+     * @param {string} sPath 
+     * @param {any} oJson 
+     * @memberof IoFile
+     */
+    static inFileByConfig(sPath:string, oJson) {
         this.writeFile(sPath, TCoreCommonFunc.jsonStringify(oJson));
     }
 
@@ -113,7 +170,16 @@ export class IoFile{
     static readFile(sPath:string) {
         return fs.readFileSync(sPath, 'UTF-8');
     }
-    static copyFile(sSource, sTarget) {
+
+    /**
+     * 文件复制
+     * 
+     * @static
+     * @param {any} sSource 
+     * @param {any} sTarget 
+     * @memberof IoFile
+     */
+    static copyFile(sSource:string, sTarget:string) {
         this.mkdir(path.dirname(sTarget));
         fs.writeFileSync(sTarget, fs.readFileSync(sSource));
 

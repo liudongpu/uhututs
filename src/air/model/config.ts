@@ -14,6 +14,8 @@ let configInfo:IConfigInfo={
     projectVersionCode:1,
 
 
+    
+
     projectEnableNative:false,
 
     projectEnableVue:false,

@@ -3,6 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("./../../tcore/index");
 var fs = require('fs');
 var path = require('path');
+/**
+ * 文件操作相关
+ *
+ * @export
+ * @class IoFile
+ */
 var IoFile = /** @class */ (function () {
     function IoFile() {
     }
@@ -45,10 +51,36 @@ var IoFile = /** @class */ (function () {
         }
         return true;
     };
+    /**
+     * 异步文件复制  一般用于大文件拷贝
+     *
+     * @static
+     * @param {string} sSourcePath
+     * @param {string} sTargetPath
+     * @memberof IoFile
+     */
     IoFile.copyFileAsync = function (sSourcePath, sTargetPath) {
         this.mkdir(path.dirname(sTargetPath));
         fs.createReadStream(sSourcePath).pipe(fs.createWriteStream(sTargetPath));
     };
+    IoFile.copyDir = function (sSourcePath, sTargetPath) {
+        var _this = this;
+        sSourcePath = this.pathNormalize(sSourcePath);
+        sTargetPath = this.pathNormalize(sTargetPath);
+        var aFiles = this.listDir(sSourcePath);
+        aFiles.forEach(function (fItem) {
+            var sTarget = _this.pathJoin(sTargetPath, fItem.substr(sSourcePath.length));
+            _this.copyFile(fItem, sTarget);
+        });
+    };
+    /**
+     * 列出路径下的子文件
+     *
+     * @static
+     * @param {string} sPath
+     * @returns {string[]}
+     * @memberof IoFile
+     */
     IoFile.listDir = function (sPath) {
         var aList = [];
         var stat = fs.statSync(sPath);
@@ -69,12 +101,26 @@ var IoFile = /** @class */ (function () {
         }
         return aList;
     };
-    //根据文件读取配置项
+    /**
+     * 根据文件读取配置项
+     *
+     * @static
+     * @param {string} sPath
+     * @returns
+     * @memberof IoFile
+     */
     IoFile.upConfigByFile = function (sPath) {
         var sContent = this.readFile(sPath);
         return index_1.TCoreCommonFunc.jsonParse(sContent);
     };
-    //将配置写入配置文件
+    /**
+     * 将配置写入配置文件
+     *
+     * @static
+     * @param {string} sPath
+     * @param {any} oJson
+     * @memberof IoFile
+     */
     IoFile.inFileByConfig = function (sPath, oJson) {
         this.writeFile(sPath, index_1.TCoreCommonFunc.jsonStringify(oJson));
     };
@@ -88,6 +134,14 @@ var IoFile = /** @class */ (function () {
     IoFile.readFile = function (sPath) {
         return fs.readFileSync(sPath, 'UTF-8');
     };
+    /**
+     * 文件复制
+     *
+     * @static
+     * @param {any} sSource
+     * @param {any} sTarget
+     * @memberof IoFile
+     */
     IoFile.copyFile = function (sSource, sTarget) {
         this.mkdir(path.dirname(sTarget));
         fs.writeFileSync(sTarget, fs.readFileSync(sSource));

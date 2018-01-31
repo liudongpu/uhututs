@@ -46,10 +46,20 @@ export interface IConfigInfo{
      */
     projectVersionName:string
 
-
+    /**
+     * 项目显示名称
+     * 
+     * @type {string}
+     * @memberof IConfigInfo
+     */
     projectDisplayName:string
 
-
+    /**
+     * 项目版本编号
+     * 
+     * @type {number}
+     * @memberof IConfigInfo
+     */
     projectVersionCode:number
 
 
@@ -60,9 +70,17 @@ export interface IConfigInfo{
     projectEnableWeapp:boolean
 
 
+    /**
+     * 微信小程序编号
+     * 
+     * @type {string}
+     * @memberof IConfigInfo
+     */
+    envWeappId?:string
+
 
     /**
-     * 标记 是否是自动生成的配置项
+     * 标记 是否是自动生成的配置项 该参数用于代码的逻辑判断  勿定义
      * 
      * @type {boolean}
      * @memberof IConfigInfo
