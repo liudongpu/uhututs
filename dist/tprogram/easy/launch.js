@@ -39,6 +39,9 @@ var EasyLaunch = /** @class */ (function () {
     EasyLaunch.upGoNativePath = function (sPath) {
         return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upCwdPath(), program_1.BootProgram.upGoWorkOfNative(), sPath);
     };
+    EasyLaunch.upGoWeappPath = function (sPath) {
+        return index_1.TNodeIoFile.pathJoin(index_1.TNodeIoPath.upCwdPath(), program_1.BootProgram.upGoWorkOfWeapp(), sPath);
+    };
     return EasyLaunch;
 }());
 exports.EasyLaunch = EasyLaunch;

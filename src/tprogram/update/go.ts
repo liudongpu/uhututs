@@ -24,7 +24,25 @@ export class UpdateGo {
             this.installNative(oConfig);
         }
 
+
+        if(oConfig.projectEnableWeapp){
+            this.installWeapp(oConfig);
+        }
     }
+
+
+
+
+    private static installWeapp(oConfig : IConfigInfo){
+
+
+        
+    }
+
+
+
+
+
 
     private static installNative(oConfig : IConfigInfo) {
 

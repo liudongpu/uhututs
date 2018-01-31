@@ -17,6 +17,11 @@ var UpdateGo = /** @class */ (function () {
         if (oConfig.projectEnableNative) {
             this.installNative(oConfig);
         }
+        if (oConfig.projectEnableWeapp) {
+            this.installWeapp(oConfig);
+        }
+    };
+    UpdateGo.installWeapp = function (oConfig) {
     };
     UpdateGo.installNative = function (oConfig) {
         var sNativePath = launch_1.EasyLaunch.upGoNativePath("");

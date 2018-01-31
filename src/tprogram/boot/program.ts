@@ -37,6 +37,15 @@ export class BootProgram{
     }
 
 
+
+    static upGoWorkOfWeapp(){
+
+
+        return TBase.defineBase().projectGo+TBase.defineBase().workWeapp+this.upGoConfig().projectBaseName;
+
+    }
+
+
     
 
 
