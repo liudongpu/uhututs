@@ -59,6 +59,8 @@ export class QueueWeapp{
 
         EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/weapp.mustache"), EasyLaunch.upDevPathForResources("macro/weapp.mustache"));
 
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/weapp_js.mustache"), EasyLaunch.upDevPathForResources("macro/weapp_js.mustache"));
+
 
     }
 

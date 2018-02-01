@@ -111,24 +111,44 @@ class GulpGo {
             oTask
                 .inSubTask(TBase.defineBase().workNative, function () {
                     return watch(oGulpDefine.pathHtml, {ignoreInitial: false})
-                        .pipe(TProgramGulpParse.gulpContent(oLocalConfig, TBase.defineBase().workNative))
+                        .pipe(TProgramGulpParse.gulpContent(oLocalConfig, {
+                        type: TBase
+                            .defineBase()
+                            .workNative
+                    }))
                         .pipe(rename({extname: ".js"}))
                         .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)))
                     //.pipe(function(cb){console.log('aa');});
                 });
         }
 
-
         if (oLocalConfig.projectEnableWeapp) {
 
             oTask
                 .inSubTask(TBase.defineBase().workWeapp, function () {
                     return watch(oGulpDefine.pathHtml, {ignoreInitial: false})
-                        .pipe(TProgramGulpParse.gulpContent(oLocalConfig, TBase.defineBase().workWeapp))
+                        .pipe(TProgramGulpParse.gulpContent(oLocalConfig, {
+                        type: TBase
+                            .defineBase()
+                            .workWeapp
+                    }))
                         .pipe(rename({extname: ".wxml"}))
                         .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfWeapp(), TBase.defineBase().pathDevPages)))
                     //.pipe(function(cb){console.log('aa');});
                 });
+
+            oTask.inSubTask(TBase.defineBase().workWeapp + "_js", function () {
+                return watch(oGulpDefine.pathHtml, {ignoreInitial: false})
+                    .pipe(TProgramGulpParse.gulpContent(oLocalConfig, {
+                    type: TBase
+                        .defineBase()
+                        .workWeapp,
+                    extend: "_js"
+                }))
+                    .pipe(rename({extname: ".js"}))
+                    .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfWeapp(), TBase.defineBase().pathDevPages)))
+                //.pipe(function(cb){console.log('aa');});
+            });
         }
 
         oTask.inTopTask();
@@ -165,13 +185,11 @@ class GulpGo {
                 });
         }
 
-
         if (oLocalConfig.projectEnableWeapp) {
             oTask
                 .inSubTask(TBase.defineBase().workWeapp, function () {
                     return watch(oGulpDefine.pathSass, {ignoreInitial: false})
                         .pipe(sass().on('error', sass.logError))
-                        
                         .pipe(rename({suffix: "", extname: ".wxss"}))
                         .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfWeapp(), TBase.defineBase().pathDevPages)));
                 });

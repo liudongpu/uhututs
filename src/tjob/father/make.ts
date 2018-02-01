@@ -1,13 +1,21 @@
 import {AEnumRegexKey} from './../../air/define/enumer';
-import {IConfigPage} from './../../air/interfaces/config';
+import {IConfigPage, IConfigParse} from './../../air/interfaces/config';
 import {KJobNodeInfo, KJobPageOut, KJobFileInfo} from './../../air/keep/job';
 import {IHtmlElementList, IHtmlElementInfo} from '../../air/interfaces/html';
 import {TCoreHelperMap, TCoreHelperString, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile} from '../../tnode/index';
 import {IJobBank} from '../../air/interfaces/job';
-import { TBase } from '../../tdaemon/index';
+import {TBase} from '../../tdaemon/index';
 
 export abstract class FatherMake {
+
+    init(configParse : IConfigParse) {
+        this.oConfigParse=configParse;
+    }
+
+    private oConfigParse : IConfigParse;
+
+    upConfigParse() : IConfigParse {return this.oConfigParse;}
 
     makeElement(oNodeInfo : KJobNodeInfo) : KJobNodeInfo {
 

@@ -8,7 +8,7 @@ var index_2 = require("../../tjob/index");
 var GulpParse = /** @class */ (function () {
     function GulpParse() {
     }
-    GulpParse.gulpContent = function (oLocalConfig, sType) {
+    GulpParse.gulpContent = function (oLocalConfig, oParse) {
         return through.obj(function (file, enc, cb) {
             // 如果文件为空，不做任何操作，转入下一个操作，即下一个 .pipe()
             if (file.isNull()) {
@@ -28,7 +28,7 @@ var GulpParse = /** @class */ (function () {
             //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
             oParseFile.path = file.history[0];
             //var content = initWork.parseContent(oConfig, oParseFile);
-            var content = index_2.TJobSupportParse.contentParse(oLocalConfig, oParseFile, sType);
+            var content = index_2.TJobSupportParse.contentParse(oLocalConfig, oParseFile, oParse);
             file.contents = new Buffer(content);
             // 下面这两句基本是标配啦，可以参考下 through2 的API
             this.push(file);

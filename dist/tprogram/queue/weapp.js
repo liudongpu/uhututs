@@ -22,6 +22,7 @@ var QueueWeapp = /** @class */ (function () {
         index_2.TNodeIoFile.writeFile(sProjectFile, index_1.TCoreCommonFunc.jsonStringifyBeautify(oJsonProject));
         this.pageImport(oConfig);
         file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/weapp.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/weapp.mustache"));
+        file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/weapp_js.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/weapp_js.mustache"));
     };
     QueueWeapp.pageImport = function (oConfig) {
         var aFileInfo = path_1.ProcessPath.upPagesPath();

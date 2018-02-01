@@ -120,3 +120,16 @@ export interface IConfigPage{
 
     
 }
+
+
+
+
+export interface IConfigParse{
+    type:string
+
+    extend?:string
+}
+
+
+
+

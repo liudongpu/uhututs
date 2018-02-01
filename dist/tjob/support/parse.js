@@ -9,9 +9,9 @@ var index_2 = require("../../tdaemon/index");
 var SupportParse = /** @class */ (function () {
     function SupportParse() {
     }
-    SupportParse.contentParse = function (oLocalConfig, oInfo, sType) {
+    SupportParse.contentParse = function (oLocalConfig, oInfo, oParse) {
         var oParseMake = null;
-        switch (sType) {
+        switch (oParse.type) {
             case index_2.TBase
                 .defineBase()
                 .workWeapp:
@@ -21,6 +21,7 @@ var SupportParse = /** @class */ (function () {
                 oParseMake = new native_1.MakeNative();
                 break;
         }
+        oParseMake.init(oParse);
         var oOut = html_1.ParseHtml.parse(oInfo, oParseMake);
         var sMacroFile = oOut.config.macroUrl;
         var sMacroContent = index_1.TNodeIoFile.readFile(sMacroFile);

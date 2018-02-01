@@ -6,6 +6,10 @@ var index_2 = require("../../tdaemon/index");
 var FatherMake = /** @class */ (function () {
     function FatherMake() {
     }
+    FatherMake.prototype.init = function (configParse) {
+        this.oConfigParse = configParse;
+    };
+    FatherMake.prototype.upConfigParse = function () { return this.oConfigParse; };
     FatherMake.prototype.makeElement = function (oNodeInfo) {
         var mElement = index_1.TCoreHelperMap.parseMap(this.subBank().upElementList());
         var sName = oNodeInfo.nodeName;

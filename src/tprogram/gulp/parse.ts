@@ -1,4 +1,4 @@
-import { IConfigInfo } from './../../air/interfaces/config';
+import { IConfigInfo, IConfigParse } from './../../air/interfaces/config';
 
 var through = require('through2');
 var gutil = require('gulp-util');
@@ -9,7 +9,7 @@ import { TJobSupportParse } from '../../tjob/index';
 export class GulpParse {
 
 
-    static gulpContent(oLocalConfig: IConfigInfo, sType: string) {
+    static gulpContent(oLocalConfig: IConfigInfo, oParse: IConfigParse) {
 
 
         return through.obj(function (file, enc, cb) {
@@ -41,7 +41,7 @@ export class GulpParse {
             //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
             oParseFile.path=file.history[0];
             //var content = initWork.parseContent(oConfig, oParseFile);
-            let content = TJobSupportParse.contentParse(oLocalConfig, oParseFile,sType);
+            let content = TJobSupportParse.contentParse(oLocalConfig, oParseFile,oParse);
 
             file.contents = new Buffer(content);
 

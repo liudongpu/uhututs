@@ -80,7 +80,11 @@ var GulpGo = /** @class */ (function () {
             oTask
                 .inSubTask(index_2.TBase.defineBase().workNative, function () {
                 return watch(oGulpDefine.pathHtml, { ignoreInitial: false })
-                    .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, index_2.TBase.defineBase().workNative))
+                    .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, {
+                    type: index_2.TBase
+                        .defineBase()
+                        .workNative
+                }))
                     .pipe(rename({ extname: ".js" }))
                     .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevPages)));
                 //.pipe(function(cb){console.log('aa');});
@@ -90,8 +94,24 @@ var GulpGo = /** @class */ (function () {
             oTask
                 .inSubTask(index_2.TBase.defineBase().workWeapp, function () {
                 return watch(oGulpDefine.pathHtml, { ignoreInitial: false })
-                    .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, index_2.TBase.defineBase().workWeapp))
+                    .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, {
+                    type: index_2.TBase
+                        .defineBase()
+                        .workWeapp
+                }))
                     .pipe(rename({ extname: ".wxml" }))
+                    .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfWeapp(), index_2.TBase.defineBase().pathDevPages)));
+                //.pipe(function(cb){console.log('aa');});
+            });
+            oTask.inSubTask(index_2.TBase.defineBase().workWeapp + "_js", function () {
+                return watch(oGulpDefine.pathHtml, { ignoreInitial: false })
+                    .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, {
+                    type: index_2.TBase
+                        .defineBase()
+                        .workWeapp,
+                    extend: "_js"
+                }))
+                    .pipe(rename({ extname: ".js" }))
                     .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfWeapp(), index_2.TBase.defineBase().pathDevPages)));
                 //.pipe(function(cb){console.log('aa');});
             });

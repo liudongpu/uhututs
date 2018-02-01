@@ -17,8 +17,13 @@ export class MakeWeapp extends FatherMake {
 
     subPageConfig(sJson : string, fileInfo : KJobFileInfo) : IConfigPage {
 
+        let sExtend="";
+        if(this.upConfigParse().extend){
+            sExtend=this.upConfigParse().extend;
+        }
+
         let oDefaultConfig = TCoreHelperObject.parseTs < IConfigPage > ({
-            macroUrl: "dev/resources/macro/" + this.subWorkType() + ".mustache",
+            macroUrl: "dev/resources/macro/" +   this.subWorkType()+sExtend + ".mustache",
             pageTitle: ''
         });
         return TCoreHelperObject.assign(oDefaultConfig, TCoreCommonFunc.jsonParse(sJson));

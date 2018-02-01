@@ -26,8 +26,12 @@ var MakeWeapp = /** @class */ (function (_super) {
             .workWeapp;
     };
     MakeWeapp.prototype.subPageConfig = function (sJson, fileInfo) {
+        var sExtend = "";
+        if (this.upConfigParse().extend) {
+            sExtend = this.upConfigParse().extend;
+        }
         var oDefaultConfig = index_1.TCoreHelperObject.parseTs({
-            macroUrl: "dev/resources/macro/" + this.subWorkType() + ".mustache",
+            macroUrl: "dev/resources/macro/" + this.subWorkType() + sExtend + ".mustache",
             pageTitle: ''
         });
         return index_1.TCoreHelperObject.assign(oDefaultConfig, index_1.TCoreCommonFunc.jsonParse(sJson));
