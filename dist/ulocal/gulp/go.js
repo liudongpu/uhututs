@@ -120,6 +120,15 @@ var GulpGo = /** @class */ (function () {
                     .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevPages)));
             });
         }
+        if (oLocalConfig.projectEnableWeapp) {
+            oTask
+                .inSubTask(index_2.TBase.defineBase().workWeapp, function () {
+                return watch(oGulpDefine.pathSass, { ignoreInitial: false })
+                    .pipe(sass().on('error', sass.logError))
+                    .pipe(rename({ suffix: "", extname: ".wxss" }))
+                    .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfWeapp(), index_2.TBase.defineBase().pathDevPages)));
+            });
+        }
         oTask.inTopTask();
     };
     GulpGo.prototype.taskDefault = function () {

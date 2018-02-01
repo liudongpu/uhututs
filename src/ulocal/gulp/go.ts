@@ -165,6 +165,18 @@ class GulpGo {
                 });
         }
 
+
+        if (oLocalConfig.projectEnableWeapp) {
+            oTask
+                .inSubTask(TBase.defineBase().workWeapp, function () {
+                    return watch(oGulpDefine.pathSass, {ignoreInitial: false})
+                        .pipe(sass().on('error', sass.logError))
+                        
+                        .pipe(rename({suffix: "", extname: ".wxss"}))
+                        .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfWeapp(), TBase.defineBase().pathDevPages)));
+                });
+        }
+
         oTask.inTopTask();
 
     }

@@ -35,37 +35,39 @@ var MakeWeapp = /** @class */ (function (_super) {
     MakeWeapp.prototype.subElementParse = function (oNodeInfo) {
         var _this = this;
         if (oNodeInfo.sourceClass != undefined) {
-            var aClass = oNodeInfo
-                .sourceClass
-                .split(' ');
-            var aStyles_1 = [];
-            aClass.forEach(function (fItem) {
-                if (fItem) {
-                    if (fItem.startsWith("tg_")) {
-                        aStyles_1.push('styletg.' + fItem);
-                    }
-                    else {
-                        aStyles_1.push('styles.' + fItem);
-                    }
-                }
-            });
             oNodeInfo
                 .itemAttr
-                .set("style", "[" + aStyles_1.join(",") + "]");
+                .set("class", oNodeInfo.sourceClass);
         }
+        /*
         this.processBaseAttr(oNodeInfo);
+
         this.processBaseForm(oNodeInfo);
-        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startTemplate));
-        this.attrSource(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startSource));
-        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
-        this.attrStyle(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startStyle));
-        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startIcon));
-        this.attrHref(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startHref));
-        this.attrNumber(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startNumber));
-        this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
-        this.attrExec(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startExec));
-        this.attrState(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startState));
-        this.attrOn(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startOn));
+
+        this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
+
+        this.attrSource(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource));
+
+        this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
+        this.attrStyle(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startStyle));
+
+        this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startIcon));
+
+        this.attrHref(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startHref));
+
+        this.attrNumber(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startNumber));
+
+        this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
+
+
+        this.attrExec(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startExec));
+
+
+        this.attrState(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startState));
+
+        this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
+
+        */
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -77,7 +79,7 @@ var MakeWeapp = /** @class */ (function (_super) {
             else {
                 oNodeInfo
                     .itemAttr
-                    .set(k, "{" + _this.makeFormat(v) + "}");
+                    .set(k, "\"" + _this.makeFormat(v) + "\"");
             }
         });
         return oNodeInfo;

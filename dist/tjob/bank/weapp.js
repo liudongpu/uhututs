@@ -26,10 +26,7 @@ var elementList = {
         name: "QRCode"
     },
     button: {
-        name: "Button",
-        attrDefault: {
-            "type": '"primary"'
-        }
+        name: "button"
     },
     a: {
         name: "TouchableOpacity"
@@ -38,13 +35,13 @@ var elementList = {
         name: "ModalDropdown"
     },
     input: {
-        name: "TextInput"
+        name: "input"
     },
     input_text: {
-        name: "TextInput"
+        name: "input"
     },
     input_search: {
-        name: "SearchBar"
+        name: "input"
     },
     select_formpicker: {
         name: "Picker",
@@ -53,19 +50,19 @@ var elementList = {
         }
     },
     input_forminput: {
-        name: "InputItem"
+        name: "input"
     },
     textarea_formtextarea: {
-        name: "TextareaItem"
+        name: "input"
     },
     input_formdate: {
-        name: "DatePicker"
+        name: "input"
     },
     span: {
         name: "text"
     },
     img: {
-        name: "Image"
+        name: "image"
     },
     iframe: {
         name: "WebView"

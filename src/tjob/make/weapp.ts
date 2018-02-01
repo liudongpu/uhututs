@@ -27,32 +27,20 @@ export class MakeWeapp extends FatherMake {
 
     subElementParse(oNodeInfo : KJobNodeInfo) : KJobNodeInfo {
 
+
+        
+
         if(oNodeInfo.sourceClass != undefined) {
 
-            let aClass = oNodeInfo
-                .sourceClass
-                .split(' ');
-
-            let aStyles = [];
-
-            aClass.forEach(fItem => {
-                if (fItem) {
-
-                    if (fItem.startsWith("tg_")) {
-                        aStyles.push('styletg.' + fItem);
-                    } else {
-                        aStyles.push('styles.' + fItem);
-                    }
-
-                }
-            })
+            
 
             oNodeInfo
                 .itemAttr
-                .set("style", "[" + aStyles.join(",") + "]");
+                .set("class", oNodeInfo.sourceClass);
 
         }
 
+        /*
         this.processBaseAttr(oNodeInfo);
 
         this.processBaseForm(oNodeInfo);
@@ -80,6 +68,7 @@ export class MakeWeapp extends FatherMake {
 
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
+        */
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
@@ -91,10 +80,11 @@ export class MakeWeapp extends FatherMake {
                 } else {
                     oNodeInfo
                         .itemAttr
-                        .set(k, "{" + this.makeFormat(v) + "}");
+                        .set(k, "\"" + this.makeFormat(v) + "\"");
                 }
 
             });
+        
         return oNodeInfo;
 
     }
