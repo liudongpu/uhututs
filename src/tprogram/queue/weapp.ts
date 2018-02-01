@@ -53,6 +53,36 @@ export class QueueWeapp{
         oJsonProject.appid=oConfig.envWeappId;
         TNodeIoFile.writeFile(sProjectFile,TCoreCommonFunc.jsonStringifyBeautify(oJsonProject));
 
+
+        this.pageImport(oConfig);
+
+    }
+
+
+
+    private static pageImport(oConfig:IConfigInfo){
+        let aFileInfo : KProgramFileInfo[] = ProcessPath.upPagesPath();
+
+        let aImport = [];
+
+        
+
+        aFileInfo.forEach(fItem => {
+
+           
+            aImport.push(fItem.filePath);
+
+        });
+
+
+        let sProjectFile=  EasyLaunch.upGoWeappPath("app.json");
+        let oAppJson=TCoreCommonFunc.jsonParse<any>(TNodeIoFile.readFile( sProjectFile));
+
+        oAppJson.pages=aImport;
+
+        TNodeIoFile.writeFile(sProjectFile,TCoreCommonFunc.jsonStringifyBeautify(oAppJson));
+
+
     }
 
 
