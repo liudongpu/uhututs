@@ -1,4 +1,3 @@
-
 import {IConfigInfo} from './../../air/interfaces/config';
 
 var gulp = require('gulp');
@@ -9,10 +8,9 @@ var watch = require('gulp-watch');
 
 var reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
 
-
 import {TNodeIoFile} from '../../tnode/index';
-import { TBase } from '../../tdaemon/index';
-import { TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse, TProgramEasyStart } from '../../tprogram/index';
+import {TBase} from '../../tdaemon/index';
+import {TProgramBootProgram, TprogramEasyLanch, TProgramGulpParse, TProgramEasyStart} from '../../tprogram/index';
 
 let oGulpDefine = {
     pathSass: [],
@@ -56,14 +54,12 @@ class GulpTask {
 
 }
 
- class GulpGo {
+class GulpGo {
 
     initStart() {
 
-     
-
-       TProgramEasyStart.refreshConfig();
-        oLocalConfig=TProgramBootProgram.upGoConfig();
+        TProgramEasyStart.refreshConfig();
+        oLocalConfig = TProgramBootProgram.upGoConfig();
 
         this.initGulp();
         this.taskConnect();
@@ -118,9 +114,22 @@ class GulpTask {
                         .pipe(TProgramGulpParse.gulpContent(oLocalConfig, TBase.defineBase().workNative))
                         .pipe(rename({extname: ".js"}))
                         .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)))
-                        //.pipe(function(cb){console.log('aa');});
-                    });
-            }
+                    //.pipe(function(cb){console.log('aa');});
+                });
+        }
+
+
+        if (oLocalConfig.projectEnableWeapp) {
+
+            oTask
+                .inSubTask(TBase.defineBase().workWeapp, function () {
+                    return watch(oGulpDefine.pathHtml, {ignoreInitial: false})
+                        .pipe(TProgramGulpParse.gulpContent(oLocalConfig, TBase.defineBase().workWeapp))
+                        .pipe(rename({extname: ".wxml"}))
+                        .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfWeapp(), TBase.defineBase().pathDevPages)))
+                    //.pipe(function(cb){console.log('aa');});
+                });
+        }
 
         oTask.inTopTask();
 
@@ -131,12 +140,10 @@ class GulpTask {
         var oTask = new GulpTask("main_script");
 
         if (oLocalConfig.projectEnableNative) {
-            oTask.inSubTask(TBase.defineBase().workNative, function () {
-                return watch(oGulpDefine.pathScript, { ignoreInitial: false })
-
-                    
-                    .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevScripts)));
-            });
+            oTask
+                .inSubTask(TBase.defineBase().workNative, function () {
+                    return watch(oGulpDefine.pathScript, {ignoreInitial: false}).pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevScripts)));
+                });
         }
 
         oTask.inTopTask();
@@ -145,29 +152,22 @@ class GulpTask {
 
     taskSass() {
 
-
         var oTask = new GulpTask("main_sass");
 
         if (oLocalConfig.projectEnableNative) {
-            oTask.inSubTask(TBase.defineBase().workNative, function () {
-                return watch(oGulpDefine.pathSass, { ignoreInitial: false })
-
-                    .pipe(sass().on('error', sass.logError))
-                    .pipe(reactNativeStylesheetCss())
-                    .pipe(rename({
-                        suffix: "-style",
-                        extname: ".js"
-                    }))
-                    .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)));
-            });
+            oTask
+                .inSubTask(TBase.defineBase().workNative, function () {
+                    return watch(oGulpDefine.pathSass, {ignoreInitial: false})
+                        .pipe(sass().on('error', sass.logError))
+                        .pipe(reactNativeStylesheetCss())
+                        .pipe(rename({suffix: "-style", extname: ".js"}))
+                        .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevPages)));
+                });
         }
 
         oTask.inTopTask();
 
     }
-
-
-
 
     taskDefault() {
         gulp.task('default', oGulpDefine.task_default);
@@ -175,8 +175,6 @@ class GulpTask {
 
 }
 
-
-
-let oGulpGo=new GulpGo();
+let oGulpGo = new GulpGo();
 
 oGulpGo.initStart();

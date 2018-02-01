@@ -56,6 +56,10 @@ export class QueueWeapp{
 
         this.pageImport(oConfig);
 
+
+        EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/weapp.mustache"), EasyLaunch.upDevPathForResources("macro/weapp.mustache"));
+
+
     }
 
 

@@ -86,14 +86,24 @@ var GulpGo = /** @class */ (function () {
                 //.pipe(function(cb){console.log('aa');});
             });
         }
+        if (oLocalConfig.projectEnableWeapp) {
+            oTask
+                .inSubTask(index_2.TBase.defineBase().workWeapp, function () {
+                return watch(oGulpDefine.pathHtml, { ignoreInitial: false })
+                    .pipe(index_3.TProgramGulpParse.gulpContent(oLocalConfig, index_2.TBase.defineBase().workWeapp))
+                    .pipe(rename({ extname: ".wxml" }))
+                    .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfWeapp(), index_2.TBase.defineBase().pathDevPages)));
+                //.pipe(function(cb){console.log('aa');});
+            });
+        }
         oTask.inTopTask();
     };
     GulpGo.prototype.taskScript = function () {
         var oTask = new GulpTask("main_script");
         if (oLocalConfig.projectEnableNative) {
-            oTask.inSubTask(index_2.TBase.defineBase().workNative, function () {
-                return watch(oGulpDefine.pathScript, { ignoreInitial: false })
-                    .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevScripts)));
+            oTask
+                .inSubTask(index_2.TBase.defineBase().workNative, function () {
+                return watch(oGulpDefine.pathScript, { ignoreInitial: false }).pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevScripts)));
             });
         }
         oTask.inTopTask();
@@ -101,14 +111,12 @@ var GulpGo = /** @class */ (function () {
     GulpGo.prototype.taskSass = function () {
         var oTask = new GulpTask("main_sass");
         if (oLocalConfig.projectEnableNative) {
-            oTask.inSubTask(index_2.TBase.defineBase().workNative, function () {
+            oTask
+                .inSubTask(index_2.TBase.defineBase().workNative, function () {
                 return watch(oGulpDefine.pathSass, { ignoreInitial: false })
                     .pipe(sass().on('error', sass.logError))
                     .pipe(reactNativeStylesheetCss())
-                    .pipe(rename({
-                    suffix: "-style",
-                    extname: ".js"
-                }))
+                    .pipe(rename({ suffix: "-style", extname: ".js" }))
                     .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevPages)));
             });
         }
