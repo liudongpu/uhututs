@@ -53,10 +53,13 @@ var elementList = {
         name: "input"
     },
     textarea_formtextarea: {
-        name: "input"
+        name: "textarea"
     },
     input_formdate: {
-        name: "input"
+        name: "picker",
+        attrDefault: {
+            "mode": 'date'
+        }
     },
     span: {
         name: "text"

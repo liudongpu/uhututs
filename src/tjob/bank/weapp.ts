@@ -71,11 +71,14 @@ const elementList : IHtmlElementList = {
     },
 
     textarea_formtextarea:{
-        name: "input"
+        name: "textarea"
     },
 
     input_formdate:{
-        name: "input"
+        name: "picker",
+        attrDefault:{
+            "mode":'date'
+        }
     },
 
     
