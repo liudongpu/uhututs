@@ -45,10 +45,14 @@ export class MakeWeapp extends FatherMake {
 
         }
 
+
+
+        this.processBaseForm(oNodeInfo);
+
         /*
         this.processBaseAttr(oNodeInfo);
 
-        this.processBaseForm(oNodeInfo);
+        
 
         this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
 
@@ -63,7 +67,7 @@ export class MakeWeapp extends FatherMake {
 
         this.attrNumber(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startNumber));
 
-        this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
+        
 
 
         this.attrExec(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startExec));
@@ -74,6 +78,13 @@ export class MakeWeapp extends FatherMake {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+
+
+        this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
+
+        this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
+
+
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
@@ -160,14 +171,16 @@ export class MakeWeapp extends FatherMake {
 
         if (oNodeInfo.sourceName) {
 
-            oNodeInfo
-                .itemAttr
-                .set('value', 'this.state.' + oNodeInfo.sourceName);
+           
 
             if (oNodeInfo.sourceType.startsWith('form')) {
-                oNodeInfo
-                    .itemAttr
-                    .set("onChange", "(value)=>{this.setState({" + oNodeInfo.sourceName + ":value})}");
+                
+
+                
+
+
+                
+
             }
 
         }
@@ -272,7 +285,7 @@ export class MakeWeapp extends FatherMake {
 
                 oNodeInfo
                     .itemAttr
-                    .set(k,  this.formatStart(v,'"','"'));
+                    .set(k,  this.formatStart(v,'',''));
             });
 
         }
@@ -306,7 +319,7 @@ export class MakeWeapp extends FatherMake {
                             .defineData()
                             .nameLabel:
 
-                        oNodeInfo.nodeInfo = v;
+                        oNodeInfo.contentBefore="<label>"+v+"</label>";
 
                         break;
 

@@ -43,10 +43,11 @@ var MakeWeapp = /** @class */ (function (_super) {
                 .itemAttr
                 .set("class", oNodeInfo.sourceClass);
         }
+        this.processBaseForm(oNodeInfo);
         /*
         this.processBaseAttr(oNodeInfo);
 
-        this.processBaseForm(oNodeInfo);
+        
 
         this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
 
@@ -61,7 +62,7 @@ var MakeWeapp = /** @class */ (function (_super) {
 
         this.attrNumber(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startNumber));
 
-        this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
+        
 
 
         this.attrExec(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startExec));
@@ -72,6 +73,8 @@ var MakeWeapp = /** @class */ (function (_super) {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+        this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
+        this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -133,13 +136,7 @@ var MakeWeapp = /** @class */ (function (_super) {
     };
     MakeWeapp.prototype.processBaseForm = function (oNodeInfo) {
         if (oNodeInfo.sourceName) {
-            oNodeInfo
-                .itemAttr
-                .set('value', 'this.state.' + oNodeInfo.sourceName);
             if (oNodeInfo.sourceType.startsWith('form')) {
-                oNodeInfo
-                    .itemAttr
-                    .set("onChange", "(value)=>{this.setState({" + oNodeInfo.sourceName + ":value})}");
             }
         }
     };
@@ -204,7 +201,7 @@ var MakeWeapp = /** @class */ (function (_super) {
             mMap.forEach(function (v, k) {
                 oNodeInfo
                     .itemAttr
-                    .set(k, _this.formatStart(v, '"', '"'));
+                    .set(k, _this.formatStart(v, '', ''));
             });
         }
     };
@@ -224,7 +221,7 @@ var MakeWeapp = /** @class */ (function (_super) {
                     case index_2.TBase
                         .defineData()
                         .nameLabel:
-                        oNodeInfo.nodeInfo = v;
+                        oNodeInfo.contentBefore = "<label>" + v + "</label>";
                         break;
                     case index_2.TBase
                         .defineData()

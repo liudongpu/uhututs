@@ -183,6 +183,9 @@ export class ParseHtml {
     private static processElementBegin(oNodeInfo: KJobNodeInfo, oCurrentPage: KJobCurrentParse) {
 
         let aAttr = [];
+
+        aAttr.push(oNodeInfo.contentBefore);
+
         aAttr.push("<" + oNodeInfo.itemName);
 
         if (oNodeInfo.itemAttr.size > 0) {
@@ -213,7 +216,7 @@ export class ParseHtml {
 
     private static processElementEnd(oNodeInfo: KJobNodeInfo, oCurrentPage: KJobCurrentParse) {
 
-        let sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>';
+        let sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>'+oNodeInfo.contentAfter;
 
         if (oCurrentPage.templateFlag) {
             oCurrentPage

@@ -133,15 +133,43 @@ export class KJobNodeInfo{
     nodeAttr:Map<string,string>=new Map<string,string>()
 
 
-
+    /**
+     * 节点内容
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
     nodeInfo:string=""
 
 
-
+    /**
+     * 源id
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
     sourceId:string
+    /**
+     * 源样式
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
     sourceClass:string
+    /**
+     * 源类型
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
     sourceType:string
 
+    /**
+     * 源名称
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
     sourceName:string
 
 
@@ -165,6 +193,21 @@ export class KJobNodeInfo{
 
 
 
+    /**
+     * 内容前插入
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
+    contentBefore:string=""
+
+    /**
+     * 内容后插入
+     * 
+     * @type {string}
+     * @memberof KJobNodeInfo
+     */
+    contentAfter:string=""
     
 
     

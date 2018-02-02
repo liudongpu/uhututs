@@ -90,6 +90,12 @@ var KJobNodeInfo = /** @class */ (function () {
          * @memberof KjobElementInfo
          */
         this.nodeAttr = new Map();
+        /**
+         * 节点内容
+         *
+         * @type {string}
+         * @memberof KJobNodeInfo
+         */
         this.nodeInfo = "";
         /**
          * 元素名称
@@ -105,6 +111,20 @@ var KJobNodeInfo = /** @class */ (function () {
          * @memberof KjobElementInfo
          */
         this.itemAttr = new Map();
+        /**
+         * 内容前插入
+         *
+         * @type {string}
+         * @memberof KJobNodeInfo
+         */
+        this.contentBefore = "";
+        /**
+         * 内容后插入
+         *
+         * @type {string}
+         * @memberof KJobNodeInfo
+         */
+        this.contentAfter = "";
     }
     return KJobNodeInfo;
 }());

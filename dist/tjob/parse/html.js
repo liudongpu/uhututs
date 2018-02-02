@@ -119,6 +119,7 @@ var ParseHtml = /** @class */ (function () {
     };
     ParseHtml.processElementBegin = function (oNodeInfo, oCurrentPage) {
         var aAttr = [];
+        aAttr.push(oNodeInfo.contentBefore);
         aAttr.push("<" + oNodeInfo.itemName);
         if (oNodeInfo.itemAttr.size > 0) {
             oNodeInfo
@@ -141,7 +142,7 @@ var ParseHtml = /** @class */ (function () {
         }
     };
     ParseHtml.processElementEnd = function (oNodeInfo, oCurrentPage) {
-        var sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>';
+        var sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>' + oNodeInfo.contentAfter;
         if (oCurrentPage.templateFlag) {
             oCurrentPage
                 .templateContents
