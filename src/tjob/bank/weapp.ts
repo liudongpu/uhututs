@@ -14,7 +14,7 @@ const elementList : IHtmlElementList = {
     },
 
     div_form: {
-        name: "List"
+        name: "form"
     },
 
     main: {
@@ -43,7 +43,7 @@ const elementList : IHtmlElementList = {
 
     select: {
 
-        name: "ModalDropdown"
+        name: "picker"
     },
 
     input: {
@@ -59,7 +59,7 @@ const elementList : IHtmlElementList = {
 
     select_formpicker:{
 
-        name:"Picker",
+        name:"picker",
 
         attrDefault:{
             "cols":'1'

@@ -221,12 +221,9 @@ var MakeWeapp = /** @class */ (function (_super) {
                     case index_2.TBase
                         .defineData()
                         .nameLabel:
-                        oNodeInfo.contentBefore = "<label>" + v + "</label>";
-                        break;
-                    case index_2.TBase
-                        .defineData()
-                        .nameArrow:
-                        oNodeInfo.nodeInfo = '<List.Item arrow="horizontal">' + v + '</List.Item>';
+                    case index_2.TBase.defineData().nameArrow:
+                        oNodeInfo.contentBefore = '<view class="th_form_item"><label>' + v + "</label>";
+                        oNodeInfo.contentAfter = "</view>";
                         break;
                 }
             });

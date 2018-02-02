@@ -318,19 +318,15 @@ export class MakeWeapp extends FatherMake {
                         case TBase
                             .defineData()
                             .nameLabel:
+                            case TBase.defineData().nameArrow:
 
-                        oNodeInfo.contentBefore="<label>"+v+"</label>";
+                        oNodeInfo.contentBefore='<view class="th_form_item"><label>'+v+"</label>";
 
-                        break;
-
-                    case TBase
-                            .defineData()
-                            .nameArrow:
-
-                        oNodeInfo.nodeInfo = '<List.Item arrow="horizontal">' + v + '</List.Item>';
+                        oNodeInfo.contentAfter="</view>";
 
                         break;
 
+                   
                 }
 
             });

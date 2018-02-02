@@ -11,7 +11,7 @@ var elementList = {
         name: "view"
     },
     div_form: {
-        name: "List"
+        name: "form"
     },
     main: {
         name: "view"
@@ -32,7 +32,7 @@ var elementList = {
         name: "TouchableOpacity"
     },
     select: {
-        name: "ModalDropdown"
+        name: "picker"
     },
     input: {
         name: "input"
@@ -44,7 +44,7 @@ var elementList = {
         name: "input"
     },
     select_formpicker: {
-        name: "Picker",
+        name: "picker",
         attrDefault: {
             "cols": '1'
         }
