@@ -2,6 +2,9 @@ import {IGuideBook} from "../../air/interfaces/guide";
 
 import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
+
+declare var wx;
+
 class Book {
 
     navigateUrl(that, sPageUrl : string) {
@@ -137,10 +140,7 @@ class Book {
 
     checkFlagProduct() : boolean {
         let bReturn = true;
-        if (__DEV__ != undefined && __DEV__ === true) {
-            console.log(__DEV__);
-            bReturn = false;
-        }
+        
         return bReturn;
     }
 

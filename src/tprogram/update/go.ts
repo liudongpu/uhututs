@@ -9,7 +9,7 @@ import {IConfigInfo} from './../../air/interfaces/config';
 import {EasyLaunch} from './../easy/launch';
 import {IArgsStart} from './../../air/interfaces/args';
 import { TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
-import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec} from '../../tnode/index';
+import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec, TNodeIoPath} from '../../tnode/index';
 import {BootProgram} from '../boot/program';
 import {EasyStart} from '../easy/start';
 import { TBase } from '../../tdaemon/index';
@@ -20,6 +20,9 @@ export class UpdateGo {
 
         EasyStart.start();
         let oConfig = BootProgram.upGoConfig();
+
+
+        this.copySrcTs(oConfig);
 
         if (oConfig.projectEnableNative) {
 
@@ -35,9 +38,12 @@ export class UpdateGo {
 
 
 
-    private static installWeapp(oConfig : IConfigInfo){
+    private static copySrcTs(oConfig : IConfigInfo){
 
 
+        
+
+        //TNodeIoFile.copyDir(TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(),"src"),EasyLaunch.upSubPathForGenerate("ts-src"));
         
     }
 

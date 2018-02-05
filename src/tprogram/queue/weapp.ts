@@ -2,7 +2,6 @@ import { BootProgram } from './../boot/program';
 import { EasyLaunch } from './../easy/launch';
 import { IConfigInfo } from './../../air/interfaces/config';
 
-import { BootProgram } from '../boot/program';
 import {ProcessPath} from './../process/path';
 import {KProgramFileInfo} from './../../air/keep/program';
 import {EasyFile} from './../easy/file';
@@ -11,7 +10,7 @@ import {AModelConfig} from './../../air/model/config';
 
 import {IArgsStart} from './../../air/interfaces/args';
 import { TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
-import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec} from '../../tnode/index';
+import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec, TNodeIoPath} from '../../tnode/index';
 import {EasyStart} from '../easy/start';
 import { TBase } from '../../tdaemon/index';
 
@@ -57,6 +56,9 @@ export class QueueWeapp{
         this.pageImport(oConfig);
 
 
+        this.processScript(oConfig);
+
+
         EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/weapp.mustache"), EasyLaunch.upDevPathForResources("macro/weapp.mustache"));
 
         EasyFile.copyFileAndReplace(EasyLaunch.upResourcePath("files-go/macros/weapp_js.mustache"), EasyLaunch.upDevPathForResources("macro/weapp_js.mustache"));
@@ -90,6 +92,27 @@ export class QueueWeapp{
 
 
     }
+
+
+
+
+    private static processScript(oConfig:IConfigInfo){
+
+        let oTsConfig=TCoreCommonFunc.jsonParse<any>( TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
+
+
+        oTsConfig.compilerOptions.rootDir=TNodeIoPath.upBinPath()+"/src/";
+        oTsConfig.include=[TNodeIoPath.upBinPath()+"/src/wweapp/**/*",TNodeIoPath.upBinPath()+"/src/tcore/**/*"];
+        oTsConfig.compilerOptions.outDir=EasyLaunch.upGoWeappPath("scripts/adapter");
+
+        TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-src-weapp/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
+
+
+        TNodeProtoProcess.spawnSync("tsc", [
+            
+        ],{cwd:EasyLaunch.upSubPathForGenerate("ts-src-weapp")});
+    }
+
 
 
 

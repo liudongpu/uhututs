@@ -16,8 +16,6 @@
       "experimentalDecorators": true,
       "preserveConstEnums": true
       
-      
-      //"watch": true
   },
   "include": [
     "../../../src/wnative/**/*","../../../src/tcore/**/*"

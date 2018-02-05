@@ -21,6 +21,7 @@ var QueueWeapp = /** @class */ (function () {
         oJsonProject.appid = oConfig.envWeappId;
         index_2.TNodeIoFile.writeFile(sProjectFile, index_1.TCoreCommonFunc.jsonStringifyBeautify(oJsonProject));
         this.pageImport(oConfig);
+        this.processScript(oConfig);
         file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/weapp.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/weapp.mustache"));
         file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/weapp_js.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/weapp_js.mustache"));
     };
@@ -34,6 +35,14 @@ var QueueWeapp = /** @class */ (function () {
         var oAppJson = index_1.TCoreCommonFunc.jsonParse(index_2.TNodeIoFile.readFile(sProjectFile));
         oAppJson.pages = aImport;
         index_2.TNodeIoFile.writeFile(sProjectFile, index_1.TCoreCommonFunc.jsonStringifyBeautify(oAppJson));
+    };
+    QueueWeapp.processScript = function (oConfig) {
+        var oTsConfig = index_1.TCoreCommonFunc.jsonParse(index_2.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
+        oTsConfig.compilerOptions.rootDir = index_2.TNodeIoPath.upBinPath() + "/src/";
+        oTsConfig.include = [index_2.TNodeIoPath.upBinPath() + "/src/wweapp/**/*", index_2.TNodeIoPath.upBinPath() + "/src/tcore/**/*"];
+        oTsConfig.compilerOptions.outDir = launch_1.EasyLaunch.upGoWeappPath("scripts/adapter");
+        index_2.TNodeIoFile.writeFile(launch_1.EasyLaunch.upSubPathForGenerate("ts-src-weapp/tsconfig.json"), index_1.TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
+        index_2.TNodeProtoProcess.spawnSync("tsc", [], { cwd: launch_1.EasyLaunch.upSubPathForGenerate("ts-src-weapp") });
     };
     return QueueWeapp;
 }());
