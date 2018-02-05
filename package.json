@@ -1,6 +1,6 @@
 {
   "name": "uhutu-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ts",
   "main": "index.js",
   "bin": "resource/exec/nodebin.js",
