@@ -40,8 +40,30 @@ export class UpdateGo {
 
     private static copySrcTs(oConfig : IConfigInfo){
 
+        TNodeIoFile.copyFile(TNodeIoPath.upBinPath()+"/src/air/interfaces/guide.ts",EasyLaunch.upDevPathForScripts("base/guide.ts"));
+
+
+        var baseIndex=`
+        import {IGuideBook} from "./guide";
+        var guidebook:IGuideBook;
+        export {guidebook};`;
+
+       
+        TNodeIoFile.writeFile(EasyLaunch.upDevPathForScripts("base/index.ts"),baseIndex);
+        
+        
 
         
+        let oTsConfig=TCoreCommonFunc.jsonParse<any>( TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
+
+
+        oTsConfig.compilerOptions.rootDir=EasyLaunch.upDevPathForScripts("");
+        oTsConfig.include=[EasyLaunch.upDevPathForScripts("")+"/**/*.ts"];
+        oTsConfig.compilerOptions.outDir=EasyLaunch.upSubPathForGenerate("ts-dev-dist");
+
+        TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-dev/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
+
+
 
         //TNodeIoFile.copyDir(TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(),"src"),EasyLaunch.upSubPathForGenerate("ts-src"));
         

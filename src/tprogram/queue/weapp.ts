@@ -98,6 +98,14 @@ export class QueueWeapp{
 
     private static processScript(oConfig:IConfigInfo){
 
+
+
+        var baseIndex=`import {WWeappGuideBook} from '../adapter/wweapp/index';export {WWeappGuideBook as guidebook};`;
+
+
+        TNodeIoFile.writeFile(EasyLaunch.upGoWeappPath("scripts/base/index.js"),baseIndex);
+
+
         let oTsConfig=TCoreCommonFunc.jsonParse<any>( TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
 
 

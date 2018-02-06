@@ -1,7 +1,7 @@
 export interface  IGuideBook{
 
 
-    navigateBook()
+    navigateUrl(that,sPageUrl : string)
     
     
 

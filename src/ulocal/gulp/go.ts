@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var rename = require('gulp-rename');
 var watch = require('gulp-watch');
+var childProcess = require("child_process");
 
 var reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
 
@@ -74,7 +75,7 @@ class GulpGo {
         oGulpDefine.pathSass = [TprogramEasyLanch.upDevPathForPages("") + "/**/*.scss"];
         oGulpDefine.pathHtml = [TprogramEasyLanch.upDevPathForPages("") + '/**/*.html'];
 
-        oGulpDefine.pathScript = [TprogramEasyLanch.upDevPathForScripts("") + '/**/*.js'];
+        oGulpDefine.pathScript = [TprogramEasyLanch.upDevPathForScripts("") + '/**/*.ts'];
 
     }
 
@@ -159,12 +160,49 @@ class GulpGo {
 
         var oTask = new GulpTask("main_script");
 
+        /*
         if (oLocalConfig.projectEnableNative) {
             oTask
                 .inSubTask(TBase.defineBase().workNative, function () {
                     return watch(oGulpDefine.pathScript, {ignoreInitial: false}).pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevScripts)));
                 });
         }
+        */
+
+        oTask
+            .inSubTask("ts-dev", function () {
+
+                return watch(oGulpDefine.pathScript, {
+                    ignoreInitial: false
+                }, function (s) {
+
+                    childProcess.spawnSync("tsc", {
+                        cwd: TprogramEasyLanch.upSubPathForGenerate("ts-dev")
+                    });
+
+                    let sDistDir = TprogramEasyLanch.upSubPathForGenerate("ts-dev-dist");
+
+                    let aSrc = [
+                        sDistDir + "/**/*.js",
+                        "!" + sDistDir + "/base/*.js"
+                    ];
+
+
+                    if (oLocalConfig.projectEnableNative) {
+                        gulp
+                        .src(aSrc)
+                        .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevScripts)))
+                    }
+
+                    if (oLocalConfig.projectEnableWeapp) {
+
+                        gulp
+                            .src(aSrc)
+                            .pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfWeapp(), TBase.defineBase().pathDevScripts)))
+
+                    }
+                })
+            });
 
         oTask.inTopTask();
 

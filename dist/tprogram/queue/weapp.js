@@ -37,6 +37,8 @@ var QueueWeapp = /** @class */ (function () {
         index_2.TNodeIoFile.writeFile(sProjectFile, index_1.TCoreCommonFunc.jsonStringifyBeautify(oAppJson));
     };
     QueueWeapp.processScript = function (oConfig) {
+        var baseIndex = "import {WWeappGuideBook} from '../adapter/wweapp/index';export {WWeappGuideBook as guidebook};";
+        index_2.TNodeIoFile.writeFile(launch_1.EasyLaunch.upGoWeappPath("scripts/base/index.js"), baseIndex);
         var oTsConfig = index_1.TCoreCommonFunc.jsonParse(index_2.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
         oTsConfig.compilerOptions.rootDir = index_2.TNodeIoPath.upBinPath() + "/src/";
         oTsConfig.include = [index_2.TNodeIoPath.upBinPath() + "/src/wweapp/**/*", index_2.TNodeIoPath.upBinPath() + "/src/tcore/**/*"];

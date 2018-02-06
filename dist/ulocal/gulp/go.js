@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var rename = require('gulp-rename');
 var watch = require('gulp-watch');
+var childProcess = require("child_process");
 var reactNativeStylesheetCss = require('gulp-react-native-stylesheet-css');
 var index_1 = require("../../tnode/index");
 var index_2 = require("../../tdaemon/index");
@@ -55,7 +56,7 @@ var GulpGo = /** @class */ (function () {
     GulpGo.prototype.initGulp = function () {
         oGulpDefine.pathSass = [index_3.TprogramEasyLanch.upDevPathForPages("") + "/**/*.scss"];
         oGulpDefine.pathHtml = [index_3.TprogramEasyLanch.upDevPathForPages("") + '/**/*.html'];
-        oGulpDefine.pathScript = [index_3.TprogramEasyLanch.upDevPathForScripts("") + '/**/*.js'];
+        oGulpDefine.pathScript = [index_3.TprogramEasyLanch.upDevPathForScripts("") + '/**/*.ts'];
     };
     /**
      * 监听任务  该任务已删除 替换为gulp-watch插件进行监听修改
@@ -120,12 +121,39 @@ var GulpGo = /** @class */ (function () {
     };
     GulpGo.prototype.taskScript = function () {
         var oTask = new GulpTask("main_script");
+        /*
         if (oLocalConfig.projectEnableNative) {
             oTask
-                .inSubTask(index_2.TBase.defineBase().workNative, function () {
-                return watch(oGulpDefine.pathScript, { ignoreInitial: false }).pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevScripts)));
-            });
+                .inSubTask(TBase.defineBase().workNative, function () {
+                    return watch(oGulpDefine.pathScript, {ignoreInitial: false}).pipe(gulp.dest(TNodeIoFile.pathJoin(TProgramBootProgram.upGoWorkOfNative(), TBase.defineBase().pathDevScripts)));
+                });
         }
+        */
+        oTask
+            .inSubTask("ts-dev", function () {
+            return watch(oGulpDefine.pathScript, {
+                ignoreInitial: false
+            }, function (s) {
+                childProcess.spawnSync("tsc", {
+                    cwd: index_3.TprogramEasyLanch.upSubPathForGenerate("ts-dev")
+                });
+                var sDistDir = index_3.TprogramEasyLanch.upSubPathForGenerate("ts-dev-dist");
+                var aSrc = [
+                    sDistDir + "/**/*.js",
+                    "!" + sDistDir + "/base/*.js"
+                ];
+                if (oLocalConfig.projectEnableNative) {
+                    gulp
+                        .src(aSrc)
+                        .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfNative(), index_2.TBase.defineBase().pathDevScripts)));
+                }
+                if (oLocalConfig.projectEnableWeapp) {
+                    gulp
+                        .src(aSrc)
+                        .pipe(gulp.dest(index_1.TNodeIoFile.pathJoin(index_3.TProgramBootProgram.upGoWorkOfWeapp(), index_2.TBase.defineBase().pathDevScripts)));
+                }
+            });
+        });
         oTask.inTopTask();
     };
     GulpGo.prototype.taskSass = function () {

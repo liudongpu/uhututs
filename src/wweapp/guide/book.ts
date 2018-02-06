@@ -5,7 +5,7 @@ import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
 declare var wx;
 
-class Book {
+class Book implements IGuideBook{
 
     navigateUrl(that, sPageUrl : string) {
 
