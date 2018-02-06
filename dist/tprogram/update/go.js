@@ -27,7 +27,7 @@ var UpdateGo = /** @class */ (function () {
         index_2.TNodeIoFile.writeFile(launch_1.EasyLaunch.upDevPathForScripts("base/index.ts"), baseIndex);
         var oTsConfig = index_1.TCoreCommonFunc.jsonParse(index_2.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
         oTsConfig.compilerOptions.rootDir = launch_1.EasyLaunch.upDevPathForScripts("");
-        oTsConfig.include = [launch_1.EasyLaunch.upDevPathForScripts("") + "/**/*.ts"];
+        oTsConfig.include = [launch_1.EasyLaunch.upDevPathForScripts("") + "/**/*"];
         oTsConfig.compilerOptions.outDir = launch_1.EasyLaunch.upSubPathForGenerate("ts-dev-dist");
         index_2.TNodeIoFile.writeFile(launch_1.EasyLaunch.upSubPathForGenerate("ts-dev/tsconfig.json"), index_1.TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
         //TNodeIoFile.copyDir(TNodeIoFile.pathJoin(TNodeIoPath.upBinPath(),"src"),EasyLaunch.upSubPathForGenerate("ts-src"));

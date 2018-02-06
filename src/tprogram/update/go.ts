@@ -58,7 +58,7 @@ export class UpdateGo {
 
 
         oTsConfig.compilerOptions.rootDir=EasyLaunch.upDevPathForScripts("");
-        oTsConfig.include=[EasyLaunch.upDevPathForScripts("")+"/**/*.ts"];
+        oTsConfig.include=[EasyLaunch.upDevPathForScripts("")+"/**/*"];
         oTsConfig.compilerOptions.outDir=EasyLaunch.upSubPathForGenerate("ts-dev-dist");
 
         TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-dev/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
