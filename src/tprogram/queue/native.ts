@@ -10,7 +10,7 @@ import {AModelConfig} from './../../air/model/config';
 
 import {IArgsStart} from './../../air/interfaces/args';
 import { TCoreCommonFunc, TCoreHelperObject} from '../../tcore/index';
-import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec} from '../../tnode/index';
+import {TNodeIoFile, TNodeProtoProcess, TNodeWayExec, TNodeIoPath} from '../../tnode/index';
 import {EasyStart} from '../easy/start';
 import { TBase } from '../../tdaemon/index';
 
@@ -55,6 +55,9 @@ export class QueueNative{
             
 
             this.updatePagesNavigation();
+
+
+            this.processScript(oConfig);
         }
 
 
@@ -106,5 +109,34 @@ export class QueueNative{
         });
 
     }
+
+
+
+    private static processScript(oConfig:IConfigInfo){
+
+
+
+        
+        var baseIndex=`import {WNativeGuideBook} from '../adapter/wnative/index';export {WNativeGuideBook as guidebook};`;
+
+
+        TNodeIoFile.writeFile(EasyLaunch.upGoNativePath("scripts/base/index.js"),baseIndex);
+
+
+        let oTsConfig=TCoreCommonFunc.jsonParse<any>( TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
+
+
+        oTsConfig.compilerOptions.rootDir=TNodeIoPath.upBinPath()+"/src/";
+        oTsConfig.include=[TNodeIoPath.upBinPath()+"/src/wnative/**/*",TNodeIoPath.upBinPath()+"/src/tcore/**/*"];
+        oTsConfig.compilerOptions.outDir=EasyLaunch.upGoNativePath("scripts/adapter");
+
+        TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-src-native/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
+
+
+        TNodeProtoProcess.spawnSync("tsc", [
+            
+        ],{cwd:EasyLaunch.upSubPathForGenerate("ts-src-native")});
+    }
+
 
 }

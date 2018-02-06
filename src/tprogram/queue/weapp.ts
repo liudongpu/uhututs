@@ -100,6 +100,7 @@ export class QueueWeapp{
 
 
 
+        
         var baseIndex=`import {WWeappGuideBook} from '../adapter/wweapp/index';export {WWeappGuideBook as guidebook};`;
 
 
