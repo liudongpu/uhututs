@@ -12,7 +12,9 @@
       "module": "es2015",
       "rootDir": "../../../src/",
       "allowSyntheticDefaultImports": true,
-     
+     "emitDecoratorMetadata":false,
+     "removeComments": false,
+     "noImplicitAny": false,
       "experimentalDecorators": true,
       "preserveConstEnums": true
       

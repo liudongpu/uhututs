@@ -47,7 +47,7 @@ let configInfo:IConfigInfo={
         antd:{
 
             name:"antd-mobile",
-            version:"2.1.3"
+            version:"2.1.6"
         },
 
         babel:{
