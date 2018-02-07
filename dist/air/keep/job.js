@@ -23,6 +23,13 @@ var KJobPageOut = /** @class */ (function () {
          */
         this.content = "";
         this.state = "{}";
+        /**
+         * 方法
+         *
+         * @type {KJobMethodInfo[]}
+         * @memberof KJobPageOut
+         */
+        this.methods = [];
         this.templates = [];
         this.imports = [];
         this.init = "";
@@ -31,6 +38,14 @@ var KJobPageOut = /** @class */ (function () {
     return KJobPageOut;
 }());
 exports.KJobPageOut = KJobPageOut;
+var KJobMethodInfo = /** @class */ (function () {
+    function KJobMethodInfo() {
+        this.name = "";
+        this.method = "";
+    }
+    return KJobMethodInfo;
+}());
+exports.KJobMethodInfo = KJobMethodInfo;
 var kJobImportJs = /** @class */ (function () {
     function kJobImportJs() {
         this.name = "";

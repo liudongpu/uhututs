@@ -1,16 +1,15 @@
-import { IConfigInfo, IConfigParse } from './../../air/interfaces/config';
+import {IConfigInfo, IConfigParse} from './../../air/interfaces/config';
 
 var through = require('through2');
 var gutil = require('gulp-util');
-import { TNodeIoFile } from '../../tnode/index';
-import { KJobFileInfo } from '../../air/keep/job';
-import { TJobSupportParse } from '../../tjob/index';
+import {TNodeIoFile} from '../../tnode/index';
+import {KJobFileInfo} from '../../air/keep/job';
+import {TJobSupportParse} from '../../tjob/index';
+import {TCoreHelperString} from '../../tcore/index';
 
 export class GulpParse {
 
-
-    static gulpContent(oLocalConfig: IConfigInfo, oParse: IConfigParse) {
-
+    static gulpContent(oLocalConfig : IConfigInfo, oParse : IConfigParse) {
 
         return through.obj(function (file, enc, cb) {
 
@@ -26,25 +25,34 @@ export class GulpParse {
                 return cb();
             }
 
-            // 将文件内容转成字符串，并调用 preprocess 组件进行预处理
-            // 然后将处理后的字符串，再转成Buffer形式
-
-
-
+            // 将文件内容转成字符串，并调用 preprocess 组件进行预处理 然后将处理后的字符串，再转成Buffer形式
 
             var oParseFile = new KJobFileInfo();
-            
-            oParseFile.content = file.contents.toString();
 
-           oParseFile.name=TNodeIoFile.upBaseName(file.relative, undefined);
+            oParseFile.content = file
+                .contents
+                .toString();
+
+            oParseFile.name = TNodeIoFile.upBaseName(file.relative, undefined);
 
             //oParseFile.path = TNodeIoFile.upBaseName(file.relative, undefined);
-            oParseFile.path=file.history[0];
+            oParseFile.path = file.history[0];
+
+            if (oParseFile.path) {
+
+                let sTsFile = TCoreHelperString.subStringBeforeLast(oParseFile.path, ".") + ".ts";
+
+                if (TNodeIoFile.flagExist(sTsFile)) {
+                    oParseFile.script = TNodeIoFile.readFile(sTsFile);
+                } else {
+                    oParseFile.script = "";
+                }
+            }
+
             //var content = initWork.parseContent(oConfig, oParseFile);
-            let content = TJobSupportParse.contentParse(oLocalConfig, oParseFile,oParse);
+            let content = TJobSupportParse.contentParse(oLocalConfig, oParseFile, oParse);
 
             file.contents = new Buffer(content);
-
 
             // 下面这两句基本是标配啦，可以参考下 through2 的API
             this.push(file);
@@ -52,11 +60,6 @@ export class GulpParse {
             cb();
         });
 
-
     }
 
-
-
-   
 }
-

@@ -147,4 +147,22 @@ export class HelperString {
         var sReturn = sInString.replace(new RegExp(sReplace, 'gm'), sWith);
         return sReturn;
     }
+
+
+
+
+
+
+    static subStringBeforeLast(sInString:string,sAfter:string){
+
+        let aArr=sInString.split(sAfter);
+
+        if(aArr.length>1){
+            aArr.splice(aArr.length-1,1);
+        }
+
+        return aArr.join(sAfter);
+
+    }
+
 };

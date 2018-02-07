@@ -4,6 +4,7 @@ var enumer_1 = require("./../../air/define/enumer");
 var job_1 = require("./../../air/keep/job");
 var parse_1 = require("../../air/export/parse");
 var index_1 = require("../../tcore/index");
+var index_2 = require("../../tdaemon/index");
 var sSetIgnore = new Set(["html", "head", "body"]);
 var sSetTemplage = new Set(["template"]);
 var sSetForm = new Set(["form"]);
@@ -28,6 +29,7 @@ var ParseHtml = /** @class */ (function () {
     }
     ParseHtml.parse = function (fileInfo, make) {
         var oResult = new job_1.KJobPageOut();
+        this.processScript(oResult, fileInfo, make);
         var oCurrentPage = new job_1.KJobCurrentParse();
         var oParse = new parse_1.EParseHtml({
             onopentag: function (sName, oAttr) {
@@ -116,6 +118,44 @@ var ParseHtml = /** @class */ (function () {
             .join('');
         make.makeResult(oResult, fileInfo);
         return oResult;
+    };
+    ParseHtml.processScript = function (oResult, fileInfo, make) {
+        if (fileInfo.script != "") {
+            var oScriptInfo = {};
+            try {
+                oScriptInfo = eval(fileInfo.script);
+            }
+            catch (e) {
+                index_2.TBase.logError(3911004, [fileInfo.path, e.toString()]);
+            }
+            for (var p in oScriptInfo) {
+                var v = oScriptInfo[p];
+                switch (p) {
+                    case "state":
+                        oResult.state = JSON.stringify(v);
+                        break;
+                    case "config":
+                        oResult.config = make.subPageConfig(JSON.stringify(v), fileInfo);
+                        break;
+                    case "init":
+                        oResult.init = v;
+                        break;
+                    case "unload":
+                        oResult.unload = v;
+                        break;
+                    default:
+                        if (p.startsWith("on")) {
+                            var oMethod = new job_1.KJobMethodInfo();
+                            oMethod.name = p.substr(2);
+                            oMethod.method = v.toString();
+                            oResult
+                                .methods
+                                .push(oMethod);
+                        }
+                        break;
+                }
+            }
+        }
     };
     ParseHtml.processElementBegin = function (oNodeInfo, oCurrentPage) {
         var aAttr = [];

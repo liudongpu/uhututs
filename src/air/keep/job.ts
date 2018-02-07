@@ -18,6 +18,9 @@ export class KJobFileInfo{
     content:string
 
 
+    script:string
+
+
 }
 
 
@@ -43,6 +46,13 @@ export class KJobPageOut{
 
     state:string="{}"
 
+    /**
+     * 方法
+     * 
+     * @type {KJobMethodInfo[]}
+     * @memberof KJobPageOut
+     */
+    methods:KJobMethodInfo[]=[]
 
     templates:KJobTemplateInfo[]=[]
 
@@ -56,6 +66,14 @@ export class KJobPageOut{
     unload:string=""
 
 }
+
+
+
+export class KJobMethodInfo{
+    name:string=""
+    method:string=""
+}
+
 
 
 

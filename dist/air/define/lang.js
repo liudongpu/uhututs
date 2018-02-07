@@ -27,6 +27,7 @@ var ADefineLang = {
     3911001: "没有找到配置目录{0}，请先执行uhutu-ts --init=go 初始化项目",
     3911002: "配置项没有生成，请重新检查",
     3911003: "没有找到元素{0},请检查",
+    3911004: "转换文件{0}的配置script文件时出错{1}",
     99: ''
 };
 exports.ADefineLang = ADefineLang;

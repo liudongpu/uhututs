@@ -138,6 +138,13 @@ var HelperString = /** @class */ (function () {
         var sReturn = sInString.replace(new RegExp(sReplace, 'gm'), sWith);
         return sReturn;
     };
+    HelperString.subStringBeforeLast = function (sInString, sAfter) {
+        var aArr = sInString.split(sAfter);
+        if (aArr.length > 1) {
+            aArr.splice(aArr.length - 1, 1);
+        }
+        return aArr.join(sAfter);
+    };
     HelperString.temp = {
         EMPTY: "",
         INDEX_NOT_FOUND: -1
