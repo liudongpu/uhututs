@@ -119,6 +119,13 @@ export class KJobCurrentParse{
 
 
 
+export class KJobEffectScript {
+    imports:kJobImportJs[]=[]
+    script:IbaseKv={}
+} 
+
+
+
 /**
  * 元素的基本信息
  * 

@@ -1,3 +1,11 @@
+
+
+
+{{#out.imports}}
+import {{{name}}} from "{{{from}}}";
+{{/out.imports}}
+
+
 Page({
 
 
@@ -11,5 +19,13 @@ Page({
 
     onLoad: function(options) {
     
-    }
+    },
+
+    {{#out.methods}}
+
+    bind{{{name}}}:{{{method}}}
+    ,
+
+    {{/out.methods}}
+
 })

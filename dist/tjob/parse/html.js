@@ -5,6 +5,7 @@ var job_1 = require("./../../air/keep/job");
 var parse_1 = require("../../air/export/parse");
 var index_1 = require("../../tcore/index");
 var index_2 = require("../../tdaemon/index");
+var script_1 = require("../effect/script");
 var sSetIgnore = new Set(["html", "head", "body"]);
 var sSetTemplage = new Set(["template"]);
 var sSetForm = new Set(["form"]);
@@ -121,15 +122,16 @@ var ParseHtml = /** @class */ (function () {
     };
     ParseHtml.processScript = function (oResult, fileInfo, make) {
         if (fileInfo.script != "") {
-            var oScriptInfo = {};
+            var oScriptInfo = void 0;
             try {
-                oScriptInfo = eval(fileInfo.script);
+                oScriptInfo = script_1.EffectScript.analyseScript(fileInfo.script);
             }
             catch (e) {
                 index_2.TBase.logError(3911004, [fileInfo.path, e.toString()]);
             }
-            for (var p in oScriptInfo) {
-                var v = oScriptInfo[p];
+            oResult.imports = oResult.imports.concat(oScriptInfo.imports);
+            for (var p in oScriptInfo.script) {
+                var v = oScriptInfo.script[p];
                 switch (p) {
                     case "state":
                         oResult.state = JSON.stringify(v);
@@ -144,9 +146,9 @@ var ParseHtml = /** @class */ (function () {
                         oResult.unload = v;
                         break;
                     default:
-                        if (p.startsWith("on")) {
+                        if (p.startsWith(index_2.TBase.defineBase().nameBind)) {
                             var oMethod = new job_1.KJobMethodInfo();
-                            oMethod.name = p.substr(2);
+                            oMethod.name = p.substr(index_2.TBase.defineBase().nameBind.length);
                             oMethod.method = v.toString();
                             oResult
                                 .methods

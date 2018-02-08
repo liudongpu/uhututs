@@ -73,7 +73,9 @@ const defineBase = {
     workNative: "native",
     workVue: "vue",
 
-    workWeapp: "weapp"
+    workWeapp: "weapp",
+
+    nameBind:"bind"
 
 }
 

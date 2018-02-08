@@ -8,13 +8,15 @@ import {
     KJobNodeInfo,
     KJobTemplateInfo,
     kJobImportJs,
-    KJobMethodInfo
+    KJobMethodInfo,
+    KJobEffectScript
 } from './../../air/keep/job';
 import {EParseHtml} from "../../air/export/parse";
 import {IbaseKv} from '../../air/interfaces/base';
 import {TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
 import {TjobFatherMake} from '../index';
 import { TBase } from '../../tdaemon/index';
+import { EffectScript } from '../effect/script';
 
 const sSetIgnore : Set < string > = new Set < string > (["html", "head", "body"]);
 
@@ -189,17 +191,25 @@ export class ParseHtml {
 
         if (fileInfo.script != "") {
 
-            let oScriptInfo = {};
+            let oScriptInfo :KJobEffectScript;
+
+            
 
             try {
-                oScriptInfo = eval(fileInfo.script);
+                oScriptInfo = EffectScript.analyseScript(fileInfo.script);
+
+
+
             } catch (e) {
                 TBase.logError(3911004,[fileInfo.path,e.toString()]);
             }
 
-            for (var p in oScriptInfo) {
+            oResult.imports=oResult.imports.concat(oScriptInfo.imports);
+           
 
-                let v = oScriptInfo[p];
+            for (var p in oScriptInfo.script) {
+
+                let v = oScriptInfo.script[p];
 
                 switch (p) {
 
@@ -221,10 +231,10 @@ export class ParseHtml {
 
                     default:
 
-                        if (p.startsWith("on")) {
+                        if (p.startsWith(TBase.defineBase().nameBind)) {
 
                             let oMethod = new KJobMethodInfo();
-                            oMethod.name = p.substr(2);
+                            oMethod.name = p.substr(TBase.defineBase().nameBind.length);
                             oMethod.method = v.toString();
                             oResult
                                 .methods

@@ -1,42 +1,49 @@
+import {TJobEffectScript} from '../../../src/tjob/index';
 
+var js=`import {LogicDemo} from '../../../scripts/logic/demo';
 
-var js=`
+({
 
-( {
-
-
-    data:{
-
-        "da":"daa",
-        "db":"dbb"
+    config: {
+        "pageTitle": "项目维护",
+        "headerRight": "t_occupy"
     },
 
-    a:function(){
+    data: {
+
+        "da": "daa",
+        "db": "dbb"
+    },
+
+    bindLogA: function () {
         console.log("aa");
-        
+
     },
 
-    b:function(){
+    bindLogB: function () {
         console.log("bb");
-        guidebook.fa("");
     },
-    c:"cc",
-    d:function(){
+    c: "cc",
+    bindLogC: function () {
         console.log("dd");
     }
-}
-
-)
+})
 `;
 
 
 test('upResourcePath', () => {
 
 
-    var g=eval(''+js+'');
+    
+    
+   let oScript= TJobEffectScript.analyseScript(js);
+
+   console.log(oScript);
+
+    //var g=eval(''+js+'');
 
     
    
 
-    expect(g.c).toBe("cc");
+    expect("cc").toBe("cc");
 });

@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var script_1 = require("./effect/script");
+exports.TJobEffectScript = script_1.EffectScript;
 var native_1 = require("./make/native");
 exports.TjobMakeNative = native_1.MakeNative;
 var html_1 = require("./parse/html");

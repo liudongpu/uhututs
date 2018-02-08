@@ -363,11 +363,6 @@ var MakeWeapp = /** @class */ (function (_super) {
             });
         }
         ;
-        if (oPageOut.imports.length > 0) {
-            oPageOut.imports.forEach(function (fItem) {
-                fItem.name = "{" + fItem.name + "}";
-            });
-        }
         return oPageOut;
     };
     return MakeWeapp;

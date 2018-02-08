@@ -51,7 +51,8 @@ var defineBase = {
     projectManage: "manage",
     workNative: "native",
     workVue: "vue",
-    workWeapp: "weapp"
+    workWeapp: "weapp",
+    nameBind: "bind"
 };
 var defineProgram = {
     /**

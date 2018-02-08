@@ -79,6 +79,14 @@ var KJobCurrentParse = /** @class */ (function () {
     return KJobCurrentParse;
 }());
 exports.KJobCurrentParse = KJobCurrentParse;
+var KJobEffectScript = /** @class */ (function () {
+    function KJobEffectScript() {
+        this.imports = [];
+        this.script = {};
+    }
+    return KJobEffectScript;
+}());
+exports.KJobEffectScript = KJobEffectScript;
 /**
  * 元素的基本信息
  *
