@@ -75,6 +75,7 @@ var defineData = {
     startNumber: 'data-number-',
     startExec: 'data-exec-',
     startForm: 'data-form-',
+    startBind: 'data-bind-',
     startOn: 'data-on-',
     nameRecord: 'record',
     nameCall: 'call',

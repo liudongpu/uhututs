@@ -80,6 +80,8 @@ export class MakeWeapp extends FatherMake {
         */
 
 
+        this.attrBind(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startBind));
+
         this.attrForm(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startForm));
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
@@ -405,6 +407,70 @@ export class MakeWeapp extends FatherMake {
         }
 
     }
+
+
+    private attrBind(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                switch (k) {
+
+                        case TBase
+                            .defineData()
+                            .nameChange:
+
+                            oNodeInfo.itemAttr.set('onChange',"(value)=>{"+v+"}");
+
+                        break;
+
+                        case TBase.defineData().nameClick:
+
+
+                        oNodeInfo.itemAttr.set('onClick',"()=>{"+v+"}");
+
+                        break;
+                        case TBase.defineData().namePress:
+
+
+                        oNodeInfo.itemAttr.set('bindtap',v);
+
+                        break;
+
+                        case TBase.defineData().nameCancel:
+
+
+                        oNodeInfo.itemAttr.set('onCancel',"(value)=>{"+v+"}");
+
+                        break;
+
+                        case TBase.defineData().nameEnd:
+
+
+                        oNodeInfo.itemAttr.set('onEndReached',"()=>{"+v+"}");
+
+                        break;
+
+
+                        case TBase.defineData().nameRefresh:
+
+
+                        oNodeInfo.itemAttr.set('onRefresh',"()=>{"+v+"}");
+
+                        break;
+
+                };
+
+            });
+
+        }
+
+    }
+
+
+
+
 
     private attrOn(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 

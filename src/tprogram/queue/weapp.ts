@@ -101,7 +101,7 @@ export class QueueWeapp{
 
 
         
-        var baseIndex=`import {WWeappGuideBook} from '../adapter/wweapp/index';export {WWeappGuideBook as guidebook};`;
+        var baseIndex=`import {GuideBook} from '../adapter/wweapp/guide/book';export {GuideBook as guidebook};`;
 
 
         TNodeIoFile.writeFile(EasyLaunch.upGoWeappPath("scripts/base/index.js"),baseIndex);

@@ -73,6 +73,7 @@ var MakeWeapp = /** @class */ (function (_super) {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+        this.attrBind(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startBind));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
         oNodeInfo
@@ -265,6 +266,35 @@ var MakeWeapp = /** @class */ (function (_super) {
                         oNodeInfo
                             .itemAttr
                             .set("onPress", "()=>{guidebook.navigateUrl(navigation," + _this.formatStart(v, '"', '"') + ")}");
+                        break;
+                }
+                ;
+            });
+        }
+    };
+    MakeWeapp.prototype.attrBind = function (oNodeInfo, mMap) {
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_2.TBase
+                        .defineData()
+                        .nameChange:
+                        oNodeInfo.itemAttr.set('onChange', "(value)=>{" + v + "}");
+                        break;
+                    case index_2.TBase.defineData().nameClick:
+                        oNodeInfo.itemAttr.set('onClick', "()=>{" + v + "}");
+                        break;
+                    case index_2.TBase.defineData().namePress:
+                        oNodeInfo.itemAttr.set('bindtap', v);
+                        break;
+                    case index_2.TBase.defineData().nameCancel:
+                        oNodeInfo.itemAttr.set('onCancel', "(value)=>{" + v + "}");
+                        break;
+                    case index_2.TBase.defineData().nameEnd:
+                        oNodeInfo.itemAttr.set('onEndReached', "()=>{" + v + "}");
+                        break;
+                    case index_2.TBase.defineData().nameRefresh:
+                        oNodeInfo.itemAttr.set('onRefresh', "()=>{" + v + "}");
                         break;
                 }
                 ;

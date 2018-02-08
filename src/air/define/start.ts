@@ -122,6 +122,9 @@ const defineData={
 
     startForm:'data-form-',
 
+
+    startBind:'data-bind-',
+
     startOn:'data-on-',
 
     nameRecord:'record',
