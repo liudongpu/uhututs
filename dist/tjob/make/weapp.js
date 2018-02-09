@@ -49,8 +49,7 @@ var MakeWeapp = /** @class */ (function (_super) {
 
         
 
-        this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
-
+        
         this.attrSource(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource));
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
@@ -73,6 +72,7 @@ var MakeWeapp = /** @class */ (function (_super) {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+        this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startTemplate));
         this.attrBind(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startBind));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
         this.attrProp(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startProp));
@@ -149,10 +149,10 @@ var MakeWeapp = /** @class */ (function (_super) {
                 break;
             case enumer_1.AEnumRegexKey.item:
                 if (sValue.startsWith("@")) {
-                    sReturn = "item." + sValue.substr(1) + "";
+                    sReturn = "{{item." + sValue.substr(1) + "}}";
                 }
                 else {
-                    sReturn = "{item." + sValue + "}";
+                    sReturn = "{{item." + sValue + "}}";
                 }
                 break;
             case enumer_1.AEnumRegexKey.env:
@@ -173,9 +173,8 @@ var MakeWeapp = /** @class */ (function (_super) {
                     case index_2.TBase
                         .defineData()
                         .nameRender:
-                        oNodeInfo
-                            .itemAttr
-                            .set("renderItem", "({item}) =>{return this.x_template_render_" + v + "(item)}");
+                        var oSource = index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startSource);
+                        oNodeInfo.nodeInfo = '<block wx:for="{{' + oSource.get(index_2.TBase.defineData().nameState) + '}}"><template is="' + v + '" data="{{item}}"/></block>';
                         break;
                     case index_2.TBase
                         .defineData()

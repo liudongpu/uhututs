@@ -205,6 +205,8 @@ export class ParseHtml {
             }
 
             oResult.imports=oResult.imports.concat(oScriptInfo.imports);
+
+           
            
 
             for (var p in oScriptInfo.script) {

@@ -54,8 +54,7 @@ export class MakeWeapp extends FatherMake {
 
         
 
-        this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
-
+        
         this.attrSource(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource));
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
@@ -78,6 +77,8 @@ export class MakeWeapp extends FatherMake {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+
+        this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
 
 
         this.attrBind(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startBind));
@@ -204,9 +205,9 @@ export class MakeWeapp extends FatherMake {
             case AEnumRegexKey.item:
 
                 if (sValue.startsWith("@")) {
-                    sReturn = "item." + sValue.substr(1) + "";
+                    sReturn = "{{item." + sValue.substr(1) + "}}";
                 } else {
-                    sReturn = "{item." + sValue + "}";
+                    sReturn = "{{item." + sValue + "}}";
                 }
 
                 break;
@@ -243,9 +244,11 @@ export class MakeWeapp extends FatherMake {
                             .defineData()
                             .nameRender:
 
-                        oNodeInfo
-                            .itemAttr
-                            .set("renderItem", "({item}) =>{return this.x_template_render_" + v + "(item)}");
+
+                           let oSource= TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource);
+
+
+                            oNodeInfo.nodeInfo ='<block wx:for="{{'+oSource.get(TBase.defineData().nameState)+'}}"><template is="'+v+'" data="{{item}}"/></block>';
 
                         break;
 
