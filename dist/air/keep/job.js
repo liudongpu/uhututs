@@ -148,6 +148,13 @@ var KJobNodeInfo = /** @class */ (function () {
          * @memberof KJobNodeInfo
          */
         this.contentAfter = "";
+        /**
+         * 扩展函数
+         *
+         * @type {KJobMethodInfo[]}
+         * @memberof KJobNodeInfo
+         */
+        this.itemMethods = [];
     }
     return KJobNodeInfo;
 }());

@@ -33,7 +33,7 @@ class Book implements IGuideBook{
 
     stateUpValue(that, sKey : string) {
 
-        return that.state[sKey];
+        return that.data[sKey];
 
     }
 
@@ -57,10 +57,10 @@ class Book implements IGuideBook{
         let oValue = {};
 
         let sFormStart = 'form_' + sStart + '_';
-        for (var p in that.state) {
+        for (var p in that.data) {
             if (p.startsWith(sFormStart)) {
 
-                oValue[p.substr(sFormStart.length)] = that.state[p];
+                oValue[p.substr(sFormStart.length)] = that.data[p];
             }
         }
         return oValue;
@@ -126,6 +126,7 @@ class Book implements IGuideBook{
 
     fetchPost(sUrl : string, oJsonInput : any) : Promise < any > {
 
+        /*
         return fetch(sUrl, {
             method: 'POST',
             body: TCoreCommonFunc.jsonStringify(oJsonInput)
@@ -136,6 +137,22 @@ class Book implements IGuideBook{
                 console.error(response)
             }
         })
+        */
+
+        return new Promise((resolve)=>{
+
+            wx.request({
+                url: sUrl, //仅为示例，并非真实的接口地址
+                data: TCoreCommonFunc.jsonStringify(oJsonInput),
+                method:"POST",
+                
+                success: function(res) {
+                  resolve( res.data);
+                }
+              })
+        })
+
+
     }
 
     checkFlagProduct() : boolean {
@@ -148,7 +165,7 @@ class Book implements IGuideBook{
 
        
 
-        wx.showModal({title:sTitle,content:sMessage});
+        wx.showModal({title:sTitle,content:sMessage,showCancel:false});
 
     }
 
@@ -168,7 +185,10 @@ class Book implements IGuideBook{
     componentToast(sInfo : string, iSecond : number, sType : string) {
 
         if (iSecond === undefined) {
-            iSecond = 3;
+            iSecond = 3000;
+        }
+        else{
+            iSecond=iSecond*1000;
         }
 
         switch (sType) {

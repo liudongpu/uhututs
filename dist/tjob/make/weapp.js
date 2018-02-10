@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var enumer_1 = require("./../../air/define/enumer");
+var job_1 = require("./../../air/keep/job");
 var make_1 = require("../father/make");
 var index_1 = require("../../tcore/index");
 var weapp_1 = require("../bank/weapp");
@@ -137,6 +138,14 @@ var MakeWeapp = /** @class */ (function (_super) {
     };
     MakeWeapp.prototype.processBaseForm = function (oNodeInfo) {
         if (oNodeInfo.sourceName) {
+            oNodeInfo
+                .itemAttr
+                .set('value', '{{' + oNodeInfo.sourceName + "}}");
+            oNodeInfo.itemAttr.set("bindinput", "bind" + oNodeInfo.sourceName);
+            var oMethod = new job_1.KJobMethodInfo();
+            oMethod.name = oNodeInfo.sourceName;
+            oMethod.method = "function(e) {\n                this.setData({\n                  " + oNodeInfo.sourceName + ": e.detail.value\n                })\n              }";
+            oNodeInfo.itemMethods.push(oMethod);
             if (oNodeInfo.sourceType.startsWith('form')) {
             }
         }

@@ -18,7 +18,7 @@ var Book = /** @class */ (function () {
         this.stateInObject(that, oObject);
     };
     Book.prototype.stateUpValue = function (that, sKey) {
-        return that.state[sKey];
+        return that.data[sKey];
     };
     Book.prototype.stateInObject = function (that, oObject) {
         that.setState(oObject);
@@ -33,9 +33,9 @@ var Book = /** @class */ (function () {
     Book.prototype.stateUpForm = function (that, sStart) {
         var oValue = {};
         var sFormStart = 'form_' + sStart + '_';
-        for (var p in that.state) {
+        for (var p in that.data) {
             if (p.startsWith(sFormStart)) {
-                oValue[p.substr(sFormStart.length)] = that.state[p];
+                oValue[p.substr(sFormStart.length)] = that.data[p];
             }
         }
         return oValue;
@@ -82,16 +82,27 @@ var Book = /** @class */ (function () {
         });
     };
     Book.prototype.fetchPost = function (sUrl, oJsonInput) {
+        /*
         return fetch(sUrl, {
             method: 'POST',
-            body: index_1.TCoreCommonFunc.jsonStringify(oJsonInput)
-        }).then(function (response) {
+            body: TCoreCommonFunc.jsonStringify(oJsonInput)
+        }).then((response) => {
             if (response.ok) {
                 return response.json();
+            } else {
+                console.error(response)
             }
-            else {
-                console.error(response);
-            }
+        })
+        */
+        return new Promise(function (resolve) {
+            wx.request({
+                url: sUrl,
+                data: index_1.TCoreCommonFunc.jsonStringify(oJsonInput),
+                method: "POST",
+                success: function (res) {
+                    resolve(res.data);
+                }
+            });
         });
     };
     Book.prototype.checkFlagProduct = function () {
@@ -99,7 +110,7 @@ var Book = /** @class */ (function () {
         return bReturn;
     };
     Book.prototype.componentMessageAlert = function (sTitle, sMessage) {
-        wx.showModal({ title: sTitle, content: sMessage });
+        wx.showModal({ title: sTitle, content: sMessage, showCancel: false });
     };
     Book.prototype.componentMessageConfirm = function (sTitle, sMessage, fCall) {
         wx.showModal({ title: sTitle, content: sMessage, success: function (res) {
@@ -113,7 +124,10 @@ var Book = /** @class */ (function () {
     };
     Book.prototype.componentToast = function (sInfo, iSecond, sType) {
         if (iSecond === undefined) {
-            iSecond = 3;
+            iSecond = 3000;
+        }
+        else {
+            iSecond = iSecond * 1000;
         }
         switch (sType) {
             case "fail":

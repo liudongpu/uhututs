@@ -5,7 +5,7 @@ import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 import {NavigationActions} from 'react-navigation';
 import {Toast} from 'antd-mobile';
 
-class Book {
+class Book implements IGuideBook {
 
     navigateUrl(that, sPageUrl : string) {
 
@@ -73,7 +73,7 @@ class Book {
 
     }
 
-    stateInValue(that, sKey : string, sVal : string) {
+    stateInValue(that, sKey : string, sVal : any) {
 
         let oObject = {};
         oObject[sKey] = sVal;
@@ -82,7 +82,7 @@ class Book {
 
     }
 
-    stateUpValue(that, sKey : string) {
+    stateUpValue(that, sKey : string):any {
 
         return that.state[sKey];
 

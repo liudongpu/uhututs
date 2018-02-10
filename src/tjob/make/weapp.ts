@@ -1,7 +1,7 @@
 import {AEnumRegexKey} from './../../air/define/enumer';
 import {IConfigPage} from './../../air/interfaces/config';
 
-import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo} from './../../air/keep/job';
+import {KJobPageOut, KJobFileInfo, KJobCurrentParse, KJobNodeInfo, KJobTemplateInfo, KJobMethodInfo} from './../../air/keep/job';
 import {FatherMake} from '../father/make';
 import {TCoreHelperString, TCoreHelperObject, TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
 import {BankWeapp} from '../bank/weapp';
@@ -174,7 +174,24 @@ export class MakeWeapp extends FatherMake {
 
         if (oNodeInfo.sourceName) {
 
-           
+            oNodeInfo
+            .itemAttr
+            .set('value', '{{' + oNodeInfo.sourceName+"}}");
+
+
+            oNodeInfo.itemAttr.set("bindinput","bind"+oNodeInfo.sourceName);
+
+            let oMethod=new KJobMethodInfo();
+            oMethod.name=oNodeInfo.sourceName;
+            oMethod.method=`function(e) {
+                this.setData({
+                  `+oNodeInfo.sourceName+`: e.detail.value
+                })
+              }`;
+
+            oNodeInfo.itemMethods.push(oMethod);
+
+
 
             if (oNodeInfo.sourceType.startsWith('form')) {
                 

@@ -233,6 +233,15 @@ export class KJobNodeInfo{
      * @memberof KJobNodeInfo
      */
     contentAfter:string=""
+
+
+    /**
+     * 扩展函数
+     * 
+     * @type {KJobMethodInfo[]}
+     * @memberof KJobNodeInfo
+     */
+    itemMethods:KJobMethodInfo[]=[]
     
 
     

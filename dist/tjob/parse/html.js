@@ -49,6 +49,9 @@ var ParseHtml = /** @class */ (function () {
                     case enumer_1.AEnumNodeType.element:
                         make.makeElement(oNodeInfo);
                         ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
+                        if (oNodeInfo.itemMethods.length > 0) {
+                            oResult.methods = oResult.methods.concat(oNodeInfo.itemMethods);
+                        }
                         break;
                 }
                 oCurrentPage

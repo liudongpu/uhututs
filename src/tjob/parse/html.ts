@@ -80,6 +80,12 @@ export class ParseHtml {
                         make.makeElement(oNodeInfo);
 
                         ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
+
+
+                        if(oNodeInfo.itemMethods.length>0){
+                            oResult.methods=oResult.methods.concat(oNodeInfo.itemMethods);
+                        }
+
                         break;
                 }
 
@@ -272,6 +278,11 @@ export class ParseHtml {
 
         }
         aAttr.push(">");
+
+
+
+        
+
 
         let sContent = aAttr.join('');
 
