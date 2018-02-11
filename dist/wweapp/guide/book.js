@@ -21,7 +21,7 @@ var Book = /** @class */ (function () {
         return that.data[sKey];
     };
     Book.prototype.stateInObject = function (that, oObject) {
-        that.setState(oObject);
+        that.setData(oObject);
     };
     Book.prototype.stateInForm = function (that, sStart, oObject) {
         var oState = {};
@@ -137,6 +137,11 @@ var Book = /** @class */ (function () {
                 wx.showToast({ title: sInfo, duration: iSecond });
                 break;
         }
+    };
+    Book.prototype.componentActionSheet = function (oSet) {
+    };
+    Book.prototype.systemInfo = function () {
+        return { version: '' };
     };
     return Book;
 }());

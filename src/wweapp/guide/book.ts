@@ -1,4 +1,4 @@
-import {IGuideBook} from "../../air/interfaces/guide";
+import {IGuideBook, IGuideActionSheet, IGuideSystemInfo} from "../../air/interfaces/guide";
 
 import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
@@ -38,7 +38,7 @@ class Book implements IGuideBook{
     }
 
     stateInObject(that, oObject) {
-        that.setState(oObject);
+        that.setData(oObject);
     }
 
     stateInForm(that, sStart : string, oObject : any) {
@@ -200,6 +200,15 @@ class Book implements IGuideBook{
                 break;
         }
 
+    }
+
+
+    componentActionSheet(oSet:IGuideActionSheet){
+
+    }
+
+    systemInfo() : IGuideSystemInfo{
+        return {version:''}
     }
 
 }

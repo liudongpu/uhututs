@@ -1,3 +1,18 @@
+
+export interface IGuideSystemInfo{
+    version:string
+}
+
+
+
+export interface IGuideActionSheet{
+    title:string
+    labels:string[]
+    success:Function
+}
+
+
+
 export interface IGuideBook {
 
     navigateUrl(that, sPageUrl : string);
@@ -29,4 +44,12 @@ export interface IGuideBook {
     componentMessageConfirm(sTitle : string, sMessage : string, fCall : Function);
     componentToast(sInfo : string, iSecond : number, sType : string);
 
+
+    componentActionSheet(oSet:IGuideActionSheet);
+
+    systemInfo() : IGuideSystemInfo;
+
 }
+
+
+

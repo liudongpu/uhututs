@@ -4,6 +4,7 @@ var react_native_1 = require("react-native");
 var index_1 = require("../../tcore/index");
 var react_navigation_1 = require("react-navigation");
 var antd_mobile_1 = require("antd-mobile");
+var expo_1 = require("expo");
 var Book = /** @class */ (function () {
     function Book() {
     }
@@ -59,9 +60,7 @@ var Book = /** @class */ (function () {
         oObject[sKey] = sVal;
         this.stateInObject(that, oObject);
     };
-    Book.prototype.stateUpValue = function (that, sKey) {
-        return that.state[sKey];
-    };
+    Book.prototype.stateUpValue = function (that, sKey) { return that.state[sKey]; };
     Book.prototype.stateInObject = function (that, oObject) {
         that.setState(oObject);
     };
@@ -128,7 +127,11 @@ var Book = /** @class */ (function () {
         return bReturn;
     };
     Book.prototype.componentMessageAlert = function (sTitle, sMessage) {
-        react_native_1.Alert.alert(sTitle, sMessage, [{ text: '确认' }]);
+        react_native_1.Alert.alert(sTitle, sMessage, [
+            {
+                text: '确认'
+            }
+        ]);
     };
     Book.prototype.componentMessageConfirm = function (sTitle, sMessage, fCall) {
         react_native_1.Alert.alert(sTitle, sMessage, [
@@ -155,6 +158,16 @@ var Book = /** @class */ (function () {
                 antd_mobile_1.Toast.info(sInfo, iSecond);
                 break;
         }
+    };
+    Book.prototype.systemInfo = function () {
+        return { version: expo_1.Constants.manifest.version };
+    };
+    Book.prototype.componentActionSheet = function (oSet) {
+        antd_mobile_1.ActionSheet.showActionSheetWithOptions({
+            title: oSet.title,
+            cancelButtonIndex: 2,
+            options: oSet.labels
+        }, oSet.success);
     };
     return Book;
 }());

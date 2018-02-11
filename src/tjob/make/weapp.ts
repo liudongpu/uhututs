@@ -265,7 +265,7 @@ export class MakeWeapp extends FatherMake {
                            let oSource= TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource);
 
 
-                            oNodeInfo.nodeInfo ='<block wx:for="{{'+oSource.get(TBase.defineData().nameState)+'}}"><template is="'+v+'" data="{{item}}"/></block>';
+                            oNodeInfo.nodeInfo ='<block wx:for="{{'+oSource.get(TBase.defineData().nameState)+'}}" wx:key="key"><template is="'+v+'" data="{{item}}"/></block>';
 
                         break;
 
@@ -437,20 +437,7 @@ export class MakeWeapp extends FatherMake {
 
                 switch (k) {
 
-                        case TBase
-                            .defineData()
-                            .nameChange:
-
-                            oNodeInfo.itemAttr.set('onChange',"(value)=>{"+v+"}");
-
-                        break;
-
-                        case TBase.defineData().nameClick:
-
-
-                        oNodeInfo.itemAttr.set('onClick',"()=>{"+v+"}");
-
-                        break;
+                         
                         case TBase.defineData().namePress:
 
 
@@ -458,27 +445,16 @@ export class MakeWeapp extends FatherMake {
 
                         break;
 
-                        case TBase.defineData().nameCancel:
-
-
-                        oNodeInfo.itemAttr.set('onCancel',"(value)=>{"+v+"}");
-
-                        break;
 
                         case TBase.defineData().nameEnd:
 
 
-                        oNodeInfo.itemAttr.set('onEndReached',"()=>{"+v+"}");
+                        oNodeInfo.itemAttr.set('bindscrolltolower',v);
 
                         break;
 
 
-                        case TBase.defineData().nameRefresh:
-
-
-                        oNodeInfo.itemAttr.set('onRefresh',"()=>{"+v+"}");
-
-                        break;
+                         
 
                 };
 

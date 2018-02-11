@@ -183,7 +183,7 @@ var MakeWeapp = /** @class */ (function (_super) {
                         .defineData()
                         .nameRender:
                         var oSource = index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startSource);
-                        oNodeInfo.nodeInfo = '<block wx:for="{{' + oSource.get(index_2.TBase.defineData().nameState) + '}}"><template is="' + v + '" data="{{item}}"/></block>';
+                        oNodeInfo.nodeInfo = '<block wx:for="{{' + oSource.get(index_2.TBase.defineData().nameState) + '}}" wx:key="key"><template is="' + v + '" data="{{item}}"/></block>';
                         break;
                     case index_2.TBase
                         .defineData()
@@ -284,25 +284,11 @@ var MakeWeapp = /** @class */ (function (_super) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
                 switch (k) {
-                    case index_2.TBase
-                        .defineData()
-                        .nameChange:
-                        oNodeInfo.itemAttr.set('onChange', "(value)=>{" + v + "}");
-                        break;
-                    case index_2.TBase.defineData().nameClick:
-                        oNodeInfo.itemAttr.set('onClick', "()=>{" + v + "}");
-                        break;
                     case index_2.TBase.defineData().namePress:
                         oNodeInfo.itemAttr.set('bindtap', v);
                         break;
-                    case index_2.TBase.defineData().nameCancel:
-                        oNodeInfo.itemAttr.set('onCancel', "(value)=>{" + v + "}");
-                        break;
                     case index_2.TBase.defineData().nameEnd:
-                        oNodeInfo.itemAttr.set('onEndReached', "()=>{" + v + "}");
-                        break;
-                    case index_2.TBase.defineData().nameRefresh:
-                        oNodeInfo.itemAttr.set('onRefresh', "()=>{" + v + "}");
+                        oNodeInfo.itemAttr.set('bindscrolltolower', v);
                         break;
                 }
                 ;

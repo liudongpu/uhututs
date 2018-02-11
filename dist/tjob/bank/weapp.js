@@ -5,10 +5,17 @@ var elementList = {
         name: "view"
     },
     div_scroll: {
-        name: "view"
+        name: "scroll-view",
+        attrDefault: {
+            "scroll-y": "true"
+        }
     },
     div_list: {
-        name: "view"
+        name: "scroll-view",
+        attrDefault: {
+            "scroll-y": "true",
+            "style": "height:720px"
+        }
     },
     div_form: {
         name: "form"

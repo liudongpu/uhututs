@@ -1,9 +1,10 @@
-import {IGuideBook} from "../../air/interfaces/guide";
+import {IGuideBook, IGuideSystemInfo, IGuideActionSheet} from "../../air/interfaces/guide";
 import {AsyncStorage, Alert} from 'react-native';
 import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
 import {NavigationActions} from 'react-navigation';
-import {Toast} from 'antd-mobile';
+import {Toast,ActionSheet} from 'antd-mobile';
+import {Constants} from 'expo';
 
 class Book implements IGuideBook {
 
@@ -82,11 +83,7 @@ class Book implements IGuideBook {
 
     }
 
-    stateUpValue(that, sKey : string):any {
-
-        return that.state[sKey];
-
-    }
+    stateUpValue(that, sKey : string) : any {return that.state[sKey];}
 
     stateInObject(that, oObject) {
         that.setState(oObject);
@@ -177,7 +174,11 @@ class Book implements IGuideBook {
 
     componentMessageAlert(sTitle : string, sMessage : string) {
 
-        Alert.alert(sTitle, sMessage,[{text:'确认'}]);
+        Alert.alert(sTitle, sMessage, [
+            {
+                text: '确认'
+            }
+        ]);
     }
 
     componentMessageConfirm(sTitle : string, sMessage : string, fCall : Function) {
@@ -209,6 +210,23 @@ class Book implements IGuideBook {
                 Toast.info(sInfo, iSecond);
                 break;
         }
+
+    }
+
+    systemInfo() : IGuideSystemInfo {
+
+        return {version: Constants.manifest.version}
+    }
+
+
+    componentActionSheet(oSet:IGuideActionSheet){
+
+        ActionSheet.showActionSheetWithOptions({
+            title: oSet.title,
+            cancelButtonIndex: 2,
+            options: oSet.labels
+
+        }, oSet.success);
 
     }
 
