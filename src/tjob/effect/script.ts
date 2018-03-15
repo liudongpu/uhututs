@@ -22,9 +22,12 @@ export class EffectScript {
         while (r = rImport.exec(sScript)) {
 
             let oImport=new kJobImportJs();
+
+           
             oImport.name=r[1];
             oImport.from=r[2];
 
+            if(oImport.name&&oImport.from)
             oEffect.imports.push(oImport);
 
         }

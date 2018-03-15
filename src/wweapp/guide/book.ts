@@ -211,6 +211,19 @@ class Book implements IGuideBook{
         return {version:''}
     }
 
+
+    execSpecific(sSpecificName : string, oParam ?: any) : any {
+
+        switch(sSpecificName) {
+
+           
+            default:
+                break;
+
+        }
+
+    }
+
 }
 
 const GuideBook = new Book();

@@ -13,7 +13,8 @@ var EffectScript = /** @class */ (function () {
             var oImport = new job_2.kJobImportJs();
             oImport.name = r[1];
             oImport.from = r[2];
-            oEffect.imports.push(oImport);
+            if (oImport.name && oImport.from)
+                oEffect.imports.push(oImport);
         }
         var rScript = new RegExp('\\(\\{(.|\s|\S|\n)*\\}\\)', "ig");
         var aRsc = rScript.exec(sScript);

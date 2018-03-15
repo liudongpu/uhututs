@@ -561,9 +561,13 @@ export class MakeNative extends FatherMake {
 
 
         if(oPageOut.imports.length>0){
+
+            
+            /*
             oPageOut.imports.forEach(fItem=>{
                 fItem.name="{"+fItem.name+"}";
             })
+            */
         }
 
 

@@ -365,9 +365,11 @@ var MakeNative = /** @class */ (function (_super) {
         }
         ;
         if (oPageOut.imports.length > 0) {
-            oPageOut.imports.forEach(function (fItem) {
-                fItem.name = "{" + fItem.name + "}";
-            });
+            /*
+            oPageOut.imports.forEach(fItem=>{
+                fItem.name="{"+fItem.name+"}";
+            })
+            */
         }
         return oPageOut;
     };

@@ -169,6 +169,15 @@ var Book = /** @class */ (function () {
             options: oSet.labels
         }, oSet.success);
     };
+    Book.prototype.execSpecific = function (sSpecificName, oParam) {
+        switch (sSpecificName) {
+            case "nativekeepalive":
+                expo_1.KeepAwake.activate();
+                break;
+            default:
+                break;
+        }
+    };
     return Book;
 }());
 var GuideBook = new Book();

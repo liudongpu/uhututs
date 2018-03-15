@@ -8,7 +8,7 @@ export interface IGuideSystemInfo{
 export interface IGuideActionSheet{
     title:string
     labels:string[]
-    success:Function
+    success:any
 }
 
 
@@ -48,6 +48,9 @@ export interface IGuideBook {
     componentActionSheet(oSet:IGuideActionSheet);
 
     systemInfo() : IGuideSystemInfo;
+
+
+    execSpecific(sSpecificName:string,oParam?:any):any;
 
 }
 

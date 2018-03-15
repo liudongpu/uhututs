@@ -143,6 +143,12 @@ var Book = /** @class */ (function () {
     Book.prototype.systemInfo = function () {
         return { version: '' };
     };
+    Book.prototype.execSpecific = function (sSpecificName, oParam) {
+        switch (sSpecificName) {
+            default:
+                break;
+        }
+    };
     return Book;
 }());
 var GuideBook = new Book();

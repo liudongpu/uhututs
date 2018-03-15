@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var date_1 = require("./helper/date");
+exports.TCoreHelperDate = date_1.HelperDate;
 var string_1 = require("./helper/string");
 exports.TCoreHelperString = string_1.HelperString;
 var func_1 = require("./common/func");
