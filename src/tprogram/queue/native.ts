@@ -133,7 +133,8 @@ export class QueueNative{
         TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-src-native/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
 
 
-        TNodeProtoProcess.spawnSync("tsc", [],{cwd:EasyLaunch.upSubPathForGenerate("ts-src-native")});
+        //这里忽略掉报错信息
+        TNodeProtoProcess.spawnSync("tsc", [],{cwd:EasyLaunch.upSubPathForGenerate("ts-src-native"),"stdio":""});
 
         //TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/dist/wnative",EasyLaunch.upGoNativePath("scripts/adapter/wnative"));
         //TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/dist/tcore",EasyLaunch.upGoNativePath("scripts/adapter/tcore"));

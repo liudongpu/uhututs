@@ -67,7 +67,8 @@ var QueueNative = /** @class */ (function () {
         oTsConfig.include = [index_2.TNodeIoPath.upBinPath() + "/src/wnative/**/*", index_2.TNodeIoPath.upBinPath() + "/src/tcore/**/*"];
         oTsConfig.compilerOptions.outDir = launch_1.EasyLaunch.upGoNativePath("scripts/adapter");
         index_2.TNodeIoFile.writeFile(launch_1.EasyLaunch.upSubPathForGenerate("ts-src-native/tsconfig.json"), index_1.TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
-        index_2.TNodeProtoProcess.spawnSync("tsc", [], { cwd: launch_1.EasyLaunch.upSubPathForGenerate("ts-src-native") });
+        //这里忽略掉报错信息
+        index_2.TNodeProtoProcess.spawnSync("tsc", [], { cwd: launch_1.EasyLaunch.upSubPathForGenerate("ts-src-native"), "stdio": "" });
         //TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/dist/wnative",EasyLaunch.upGoNativePath("scripts/adapter/wnative"));
         //TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/dist/tcore",EasyLaunch.upGoNativePath("scripts/adapter/tcore"));
     };
