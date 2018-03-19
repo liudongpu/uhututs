@@ -49,12 +49,12 @@ export class MakeWeapp extends FatherMake {
 
         this.processBaseForm(oNodeInfo);
 
-        /*
+        
         this.processBaseAttr(oNodeInfo);
 
         
 
-        
+        /*
         this.attrSource(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource));
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
@@ -77,6 +77,9 @@ export class MakeWeapp extends FatherMake {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+
+
+       this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         this.attrTemplate(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startTemplate));
 
@@ -489,6 +492,10 @@ export class MakeWeapp extends FatherMake {
 
                         oNodeInfo.itemAttr.set('onClick',"()=>{"+v+"}");
 
+
+                        
+
+
                         break;
                         case TBase.defineData().namePress:
 
@@ -498,6 +505,7 @@ export class MakeWeapp extends FatherMake {
                         break;
 
                         case TBase.defineData().nameCancel:
+
 
 
                         oNodeInfo.itemAttr.set('onCancel',"(value)=>{"+v+"}");
@@ -538,7 +546,7 @@ export class MakeWeapp extends FatherMake {
                         case TBase
                             .defineData()
                             .nameState:
-
+ 
                         oNodeInfo
                             .itemAttr
                             .set("data", "this.state." + v);
@@ -629,6 +637,17 @@ export class MakeWeapp extends FatherMake {
 
 
         return oPageOut;
+    }
+
+
+
+    private  methodAdd(oNodeInfo:KJobNodeInfo,sName:string,sMethod:string){
+
+        let oMethod=new KJobMethodInfo();
+            oMethod.name=sName;
+            oMethod.method=sMethod;
+
+            oNodeInfo.itemMethods.push(oMethod);
     }
 
 }

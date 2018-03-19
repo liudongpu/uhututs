@@ -81,6 +81,10 @@ export class MakeNative extends FatherMake {
 
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
+
+        this.attrBind(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startBind));
+
+
         oNodeInfo
             .itemAttr
             .forEach((v, k) => {
@@ -403,6 +407,67 @@ export class MakeNative extends FatherMake {
 
     }
 
+
+
+    /**
+     * 处理函数  native的函数去掉function字符串
+     * 
+     * @private
+     * @param {string} sString 
+     * @returns {string} 
+     * @memberof MakeNative
+     */
+    private methodParse(sString:string):string{
+
+        let iIndex=sString.indexOf('(');
+        return sString.substr(iIndex);
+    }
+
+
+    /**
+     * bind绑定名称
+     * 
+     * @private
+     * @param {string} sString 
+     * @returns {string} 
+     * @memberof MakeNative
+     */
+    private bindName(sString:string):string{
+        return "this."+sString+".bind(this)";
+    }
+
+
+    private attrBind(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
+
+        if (mMap.size > 0) {
+
+            mMap.forEach((v, k) => {
+
+                switch (k) {
+
+                         
+                        case TBase.defineData().namePress:
+                        case TBase.defineData().nameClick:
+
+
+                            oNodeInfo.itemAttr.set('onClick',this.bindName(v));
+
+                        break;
+
+
+                        
+                         
+
+                };
+
+            });
+
+        }
+
+    }
+
+
+
     private attrOn(oNodeInfo : KJobNodeInfo, mMap : Map < string, string >) {
 
         if (mMap.size > 0) {
@@ -568,6 +633,13 @@ export class MakeNative extends FatherMake {
                 fItem.name="{"+fItem.name+"}";
             })
             */
+        }
+
+
+        if(oPageOut.methods.length>0){
+            oPageOut.methods.forEach(fItem=>{
+                fItem.method=this.methodParse(fItem.method);
+            })
         }
 
 

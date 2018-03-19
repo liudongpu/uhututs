@@ -45,12 +45,8 @@ var MakeWeapp = /** @class */ (function (_super) {
                 .set("class", oNodeInfo.sourceClass);
         }
         this.processBaseForm(oNodeInfo);
-        /*
         this.processBaseAttr(oNodeInfo);
-
-        
-
-        
+        /*
         this.attrSource(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startSource));
 
         this.attrProp(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startProp));
@@ -73,6 +69,7 @@ var MakeWeapp = /** @class */ (function (_super) {
         this.attrOn(oNodeInfo, TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, TBase.defineData().startOn));
 
         */
+        this.attrOn(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startOn));
         this.attrTemplate(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startTemplate));
         this.attrBind(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startBind));
         this.attrForm(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startForm));
@@ -388,6 +385,12 @@ var MakeWeapp = /** @class */ (function (_super) {
         }
         ;
         return oPageOut;
+    };
+    MakeWeapp.prototype.methodAdd = function (oNodeInfo, sName, sMethod) {
+        var oMethod = new job_1.KJobMethodInfo();
+        oMethod.name = sName;
+        oMethod.method = sMethod;
+        oNodeInfo.itemMethods.push(oMethod);
     };
     return MakeWeapp;
 }(make_1.FatherMake));

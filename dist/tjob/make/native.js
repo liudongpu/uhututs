@@ -67,6 +67,7 @@ var MakeNative = /** @class */ (function (_super) {
         this.attrExec(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startExec));
         this.attrState(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startState));
         this.attrOn(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startOn));
+        this.attrBind(oNodeInfo, index_1.TCoreHelperMap.upChildrenMap(oNodeInfo.nodeAttr, index_2.TBase.defineData().startBind));
         oNodeInfo
             .itemAttr
             .forEach(function (v, k) {
@@ -272,6 +273,43 @@ var MakeNative = /** @class */ (function (_super) {
             });
         }
     };
+    /**
+     * 处理函数  native的函数去掉function字符串
+     *
+     * @private
+     * @param {string} sString
+     * @returns {string}
+     * @memberof MakeNative
+     */
+    MakeNative.prototype.methodParse = function (sString) {
+        var iIndex = sString.indexOf('(');
+        return sString.substr(iIndex);
+    };
+    /**
+     * bind绑定名称
+     *
+     * @private
+     * @param {string} sString
+     * @returns {string}
+     * @memberof MakeNative
+     */
+    MakeNative.prototype.bindName = function (sString) {
+        return "this." + sString + ".bind(this)";
+    };
+    MakeNative.prototype.attrBind = function (oNodeInfo, mMap) {
+        var _this = this;
+        if (mMap.size > 0) {
+            mMap.forEach(function (v, k) {
+                switch (k) {
+                    case index_2.TBase.defineData().namePress:
+                    case index_2.TBase.defineData().nameClick:
+                        oNodeInfo.itemAttr.set('onClick', _this.bindName(v));
+                        break;
+                }
+                ;
+            });
+        }
+    };
     MakeNative.prototype.attrOn = function (oNodeInfo, mMap) {
         if (mMap.size > 0) {
             mMap.forEach(function (v, k) {
@@ -344,6 +382,7 @@ var MakeNative = /** @class */ (function (_super) {
         return new native_1.BankNative();
     };
     MakeNative.prototype.subPageOut = function (oPageOut) {
+        var _this = this;
         if (oPageOut.config.headerLeft) {
             oPageOut
                 .templates
@@ -370,6 +409,11 @@ var MakeNative = /** @class */ (function (_super) {
                 fItem.name="{"+fItem.name+"}";
             })
             */
+        }
+        if (oPageOut.methods.length > 0) {
+            oPageOut.methods.forEach(function (fItem) {
+                fItem.method = _this.methodParse(fItem.method);
+            });
         }
         return oPageOut;
     };

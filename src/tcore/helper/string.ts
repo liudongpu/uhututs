@@ -50,6 +50,24 @@ export class HelperString {
         }
         return str.substring(pos + separator.length);
     }
+
+
+
+    static substringAfter(str, separator) {
+        if (this.isEmpty(str)) {
+            return str;
+        }
+        if (this.isEmpty(separator)) {
+            return this.temp.EMPTY;
+        }
+        var pos = str.indexOf(separator);
+        if (pos == this.temp.INDEX_NOT_FOUND || pos == str.length - separator.length) {
+            return this.temp.EMPTY;
+        }
+        return str.substring(pos + separator.length);
+    }
+
+
     static contains(seq, searchSeq) {
         return seq.indexOf(searchSeq) > this.temp.INDEX_NOT_FOUND;
     }
