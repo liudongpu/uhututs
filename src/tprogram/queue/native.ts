@@ -25,7 +25,7 @@ export class QueueNative{
 
        
 
-            TNodeProtoProcess.spawn("yarn",["start"],{cwd:BootProgram.upGoWorkOfNative()});
+            TNodeProtoProcess.spawn("npm",["start"],{cwd:BootProgram.upGoWorkOfNative()});
        
 
 
@@ -37,7 +37,7 @@ export class QueueNative{
         let sNativePath = EasyLaunch.upGoNativePath("");
         if (!TNodeIoFile.flagExist(sNativePath)) {
 
-            TNodeProtoProcess.spawnSync("create-react-native-app", [
+            TNodeProtoProcess.spawnSync("react-native", ["init",
                 BootProgram.upGoWorkOfNative()
             ]);
         } else {

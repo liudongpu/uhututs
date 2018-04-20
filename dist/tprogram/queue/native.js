@@ -12,12 +12,12 @@ var QueueNative = /** @class */ (function () {
     function QueueNative() {
     }
     QueueNative.run = function (oConfig) {
-        index_2.TNodeProtoProcess.spawn("yarn", ["start"], { cwd: program_1.BootProgram.upGoWorkOfNative() });
+        index_2.TNodeProtoProcess.spawn("npm", ["start"], { cwd: program_1.BootProgram.upGoWorkOfNative() });
     };
     QueueNative.update = function (oConfig) {
         var sNativePath = launch_1.EasyLaunch.upGoNativePath("");
         if (!index_2.TNodeIoFile.flagExist(sNativePath)) {
-            index_2.TNodeProtoProcess.spawnSync("create-react-native-app", [
+            index_2.TNodeProtoProcess.spawnSync("react-native", ["init",
                 program_1.BootProgram.upGoWorkOfNative()
             ]);
         }
