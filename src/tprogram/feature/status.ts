@@ -48,7 +48,7 @@ export class FeatureStatus{
     static upStatusContent():KProgramFeatureStatus{
 
 
-        let sConfigFile = EasyLaunch.upDevPathForSettings(TBase.defineProgram().fileNameOfStatus);
+        let sConfigFile = EasyLaunch.upSubPathForGenerate( TNodeIoFile.pathJoin(TBase.defineBase().pathDevSettings, TBase.defineProgram().fileNameOfStatus)  );
 
         let oStatus:KProgramFeatureStatus=null;
 
@@ -69,7 +69,7 @@ export class FeatureStatus{
 
 
     static saveStatus(oStatus:KProgramFeatureStatus){
-        let sConfigFile = EasyLaunch.upDevPathForSettings(TBase.defineProgram().fileNameOfStatus);
+        let sConfigFile = EasyLaunch.upDevPathForSettings(TNodeIoFile.pathJoin(TBase.defineBase().pathDevSettings, TBase.defineProgram().fileNameOfStatus)  );
         TNodeIoFile.writeFile(sConfigFile,TCoreCommonFunc.jsonStringifyBeautify(oStatus));
     }
 
