@@ -17,7 +17,7 @@ var elementList = {
         name: "View"
     },
     i: {
-        name: "MaterialCommunityIcons"
+        name: "Icon"
     },
     object: {
         name: "View"

@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
 var index_1 = require("../../tcore/index");
 var react_navigation_1 = require("react-navigation");
-var antd_mobile_1 = require("antd-mobile");
-var expo_1 = require("expo");
+var toast_1 = require("antd-mobile/lib/toast");
+var action_sheet_1 = require("antd-mobile/lib/action-sheet");
 var Book = /** @class */ (function () {
     function Book() {
     }
@@ -152,18 +152,18 @@ var Book = /** @class */ (function () {
         }
         switch (sType) {
             case "fail":
-                antd_mobile_1.Toast.fail(sInfo, iSecond);
+                toast_1.default.fail(sInfo, iSecond);
                 break;
             default:
-                antd_mobile_1.Toast.info(sInfo, iSecond);
+                toast_1.default.info(sInfo, iSecond);
                 break;
         }
     };
     Book.prototype.systemInfo = function () {
-        return { version: expo_1.Constants.manifest.version };
+        return { version: '' };
     };
     Book.prototype.componentActionSheet = function (oSet) {
-        antd_mobile_1.ActionSheet.showActionSheetWithOptions({
+        action_sheet_1.default.showActionSheetWithOptions({
             title: oSet.title,
             cancelButtonIndex: 2,
             options: oSet.labels
@@ -172,7 +172,7 @@ var Book = /** @class */ (function () {
     Book.prototype.execSpecific = function (sSpecificName, oParam) {
         switch (sSpecificName) {
             case "nativekeepalive":
-                expo_1.KeepAwake.activate();
+                //
                 break;
             default:
                 break;

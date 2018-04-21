@@ -21,7 +21,7 @@ const elementList : IHtmlElementList = {
         name: "View"
     },
     i: {
-        name: "MaterialCommunityIcons"
+        name: "Icon"
     },
 
     object: {

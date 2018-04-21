@@ -29,30 +29,31 @@ let configInfo:IConfigInfo={
     plugListNative:{
         reactNavigation:{
             name:"react-navigation",
-            version:"1.0.0-beta.22"
+            version:"1.5.11"
         },
 
-        qrcode:{
-            name:"react-native-qrcode",
-            version:"0.2.6"
-        },
+        
 
-        element:{
-            name:"react-native-elements",
-            version:"0.18.5"
+        vectorIcons:{
+            name:"react-native-vector-icons",
+            version:"4.6.0"
         },
 
 
 
-        antd:{
+        antdMobile:{
 
             name:"antd-mobile",
-            version:"2.1.6"
+            version:"2.1.8"
         },
 
-        babel:{
+        babelImport:{
             name:"babel-plugin-import",
-            version:"1.6.3"
+            version:"1.7.0"
+        },
+        babelResolver:{
+            name:"babel-plugin-module-resolver",
+            version:'3.1.1'
         }
     }
 

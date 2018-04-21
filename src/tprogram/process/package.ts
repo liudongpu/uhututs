@@ -26,6 +26,9 @@ export class ProcessPackage {
         TNodeProtoProcess.spawnSync("yarn",["install"],{cwd:TNodeIoFile.parentPath(sPackageFile)});
 
 
+        TNodeProtoProcess.spawnSync("react-native",["link"],{cwd:TNodeIoFile.parentPath(sPackageFile)});
+
+
     }
 
 }

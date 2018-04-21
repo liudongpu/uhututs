@@ -13,6 +13,7 @@ var ProcessPackage = /** @class */ (function () {
         });
         index_1.TNodeIoFile.writeFile(sPackageFile, index_2.TCoreCommonFunc.jsonStringifyBeautify(oPackage));
         index_1.TNodeProtoProcess.spawnSync("yarn", ["install"], { cwd: index_1.TNodeIoFile.parentPath(sPackageFile) });
+        index_1.TNodeProtoProcess.spawnSync("react-native", ["link"], { cwd: index_1.TNodeIoFile.parentPath(sPackageFile) });
     };
     return ProcessPackage;
 }());

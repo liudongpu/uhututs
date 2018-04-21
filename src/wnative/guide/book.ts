@@ -3,8 +3,10 @@ import {AsyncStorage, Alert} from 'react-native';
 import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
 import {NavigationActions} from 'react-navigation';
-import {Toast, ActionSheet} from 'antd-mobile';
-import {Constants, KeepAwake} from 'expo';
+
+import Toast from 'antd-mobile/lib/toast';
+import ActionSheet from 'antd-mobile/lib/action-sheet';
+
 
 class Book implements IGuideBook {
 
@@ -215,7 +217,7 @@ class Book implements IGuideBook {
 
     systemInfo() : IGuideSystemInfo {
 
-        return {version: Constants.manifest.version}
+        return {version: ''}
     }
 
     componentActionSheet(oSet : IGuideActionSheet) {
@@ -236,7 +238,7 @@ class Book implements IGuideBook {
         switch(sSpecificName) {
 
             case "nativekeepalive":
-                KeepAwake.activate();
+                //
                 break;
             default:
                 break;
