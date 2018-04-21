@@ -21,7 +21,8 @@ const elementList : IHtmlElementList = {
         name: "View"
     },
     i: {
-        name: "Icon"
+        name: "Icon",
+        sourceImport:[{name:"Icon",from:"react-native-vector-icons"}]
     },
 
     object: {
@@ -29,7 +30,8 @@ const elementList : IHtmlElementList = {
     },
 
     object_qrcode: {
-        name: "QRCode"
+        name: "QRCode",
+        sourceImport:[{ name:"QRCode",from:"react-native-qrcode"}]
     },
 
     button: {

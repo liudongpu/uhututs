@@ -1,6 +1,7 @@
 import { IConfigPage } from './../interfaces/config';
 import { AEnumNodeType } from "../define/enumer";
 import { IbaseKv } from '../interfaces/base';
+import { IHtmlImport } from '../interfaces/html';
 
 
 
@@ -78,7 +79,7 @@ export class KJobMethodInfo{
 
 
 
-export class  kJobImportJs {
+export class  kJobImportJs implements IHtmlImport {
     name:string=""
     from:string=""
 }
@@ -233,6 +234,9 @@ export class KJobNodeInfo{
      * @memberof KJobNodeInfo
      */
     contentAfter:string=""
+
+
+    itemImports:IHtmlImport[]=[]
 
 
     /**

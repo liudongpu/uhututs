@@ -23,6 +23,9 @@ var FatherMake = /** @class */ (function () {
         if (mElement.has(sName)) {
             var oInfo = mElement.get(sName);
             oNodeInfo.itemName = oInfo.name;
+            if (oInfo.sourceImport && oInfo.sourceImport.length > 0) {
+                oNodeInfo.itemImports = oInfo.sourceImport;
+            }
             if (oInfo.attrDefault) {
                 oNodeInfo.itemAttr = index_1.TCoreHelperMap.parseMap(oInfo.attrDefault);
             }
@@ -33,6 +36,16 @@ var FatherMake = /** @class */ (function () {
     FatherMake.prototype.makeResult = function (oPageOut, fileInfo) {
         if (oPageOut.config === undefined) {
             oPageOut.config = this.subPageConfig("{}", fileInfo);
+        }
+        //开始过滤重复引用的imports
+        if (oPageOut.imports.length > 0) {
+            var oMap_1 = new Map();
+            oPageOut.imports.forEach(function (fItem) {
+                if (!oMap_1.has(fItem.name)) {
+                    oMap_1.set(fItem.name, fItem);
+                }
+            });
+            oPageOut.imports = Array.from(oMap_1.values());
         }
         return this.subPageOut(oPageOut);
     };

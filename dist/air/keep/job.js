@@ -148,6 +148,7 @@ var KJobNodeInfo = /** @class */ (function () {
          * @memberof KJobNodeInfo
          */
         this.contentAfter = "";
+        this.itemImports = [];
         /**
          * 扩展函数
          *

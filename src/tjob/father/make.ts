@@ -1,7 +1,7 @@
 import {AEnumRegexKey} from './../../air/define/enumer';
 import {IConfigPage, IConfigParse} from './../../air/interfaces/config';
 import {KJobNodeInfo, KJobPageOut, KJobFileInfo} from './../../air/keep/job';
-import {IHtmlElementList, IHtmlElementInfo} from '../../air/interfaces/html';
+import {IHtmlElementList, IHtmlElementInfo,IHtmlImport} from '../../air/interfaces/html';
 import {TCoreHelperMap, TCoreHelperString, TCoreHelperObject} from '../../tcore/index';
 import {TNodeIoFile} from '../../tnode/index';
 import {IJobBank} from '../../air/interfaces/job';
@@ -36,6 +36,11 @@ export abstract class FatherMake {
             let oInfo = mElement.get(sName);
 
             oNodeInfo.itemName = oInfo.name;
+
+
+            if(oInfo.sourceImport&&oInfo.sourceImport.length>0){
+                oNodeInfo.itemImports=oInfo.sourceImport;
+            }
 
             if (oInfo.attrDefault) {
 
@@ -73,6 +78,30 @@ export abstract class FatherMake {
         if(oPageOut.config === undefined) {
             oPageOut.config = this.subPageConfig("{}", fileInfo);
         }
+
+
+        //开始过滤重复引用的imports
+        if(oPageOut.imports.length>0){
+
+            let oMap=new Map<string,IHtmlImport>();
+
+           
+
+            oPageOut.imports.forEach(fItem=>{
+                
+                if(!oMap.has(fItem.name)){
+
+                    oMap.set(fItem.name,fItem);
+                }
+            });
+
+            
+
+            oPageOut.imports=Array.from(  oMap.values());
+
+
+        }
+
 
         return this.subPageOut(oPageOut);
 

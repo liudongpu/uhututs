@@ -1,6 +1,6 @@
-import {IJobScript} from './../../air/interfaces/job';
-import {IConfigPage} from './../../air/interfaces/config';
-import {AEnumNodeType} from './../../air/define/enumer';
+import { IJobScript } from './../../air/interfaces/job';
+import { IConfigPage } from './../../air/interfaces/config';
+import { AEnumNodeType } from './../../air/define/enumer';
 import {
     KJobPageOut,
     KJobFileInfo,
@@ -11,20 +11,20 @@ import {
     KJobMethodInfo,
     KJobEffectScript
 } from './../../air/keep/job';
-import {EParseHtml} from "../../air/export/parse";
-import {IbaseKv} from '../../air/interfaces/base';
-import {TCoreHelperMap, TCoreCommonFunc} from '../../tcore/index';
-import {TjobFatherMake} from '../index';
+import { EParseHtml } from "../../air/export/parse";
+import { IbaseKv } from '../../air/interfaces/base';
+import { TCoreHelperMap, TCoreCommonFunc } from '../../tcore/index';
+import { TjobFatherMake } from '../index';
 import { TBase } from '../../tdaemon/index';
 import { EffectScript } from '../effect/script';
 
-const sSetIgnore : Set < string > = new Set < string > (["html", "head", "body"]);
+const sSetIgnore: Set<string> = new Set<string>(["html", "head", "body"]);
 
-const sSetTemplage : Set < string > = new Set < string > (["template"]);
+const sSetTemplage: Set<string> = new Set<string>(["template"]);
 
-const sSetForm : Set < string > = new Set < string > (["form"]);
+const sSetForm: Set<string> = new Set<string>(["form"]);
 
-const sSetElement : Set < string > = new Set < string > ([
+const sSetElement: Set<string> = new Set<string>([
     "div",
     "main",
     "a",
@@ -40,11 +40,11 @@ const sSetElement : Set < string > = new Set < string > ([
     "select"
 ]);
 
-const sSetScript : Set < string > = new Set < string > (["script"]);
+const sSetScript: Set<string> = new Set<string>(["script"]);
 
 export class ParseHtml {
 
-    static parse(fileInfo : KJobFileInfo, make : TjobFatherMake) : KJobPageOut {
+    static parse(fileInfo: KJobFileInfo, make: TjobFatherMake): KJobPageOut {
 
         let oResult: KJobPageOut = new KJobPageOut();
 
@@ -54,7 +54,7 @@ export class ParseHtml {
 
         let oParse = new EParseHtml({
 
-            onopentag(sName : string, oAttr) {
+            onopentag(sName: string, oAttr) {
 
                 let oNodeInfo = new KJobNodeInfo();
 
@@ -82,9 +82,16 @@ export class ParseHtml {
                         ParseHtml.processElementBegin(oNodeInfo, oCurrentPage);
 
 
-                        if(oNodeInfo.itemMethods.length>0){
-                            oResult.methods=oResult.methods.concat(oNodeInfo.itemMethods);
+                        if (oNodeInfo.itemMethods.length > 0) {
+                            oResult.methods = oResult.methods.concat(oNodeInfo.itemMethods);
                         }
+
+
+                        if (oNodeInfo.itemImports.length > 0) {
+                            
+                            oResult.imports = oResult.imports.concat(oNodeInfo.itemImports);
+                        }
+
 
                         break;
                 }
@@ -110,6 +117,8 @@ export class ParseHtml {
                         oNodeInfo.nodeInfo = make.makeFormat(oNodeInfo.nodeInfo);
 
                         ParseHtml.processElementEnd(oNodeInfo, oCurrentPage);
+
+
 
                         break;
 
@@ -175,9 +184,9 @@ export class ParseHtml {
             }
 
         }, {
-            decodeEntities: true,
-            lowerCaseAttributeNames: false
-        });
+                decodeEntities: true,
+                lowerCaseAttributeNames: false
+            });
 
         oParse.write(fileInfo.content);
 
@@ -189,17 +198,19 @@ export class ParseHtml {
 
         make.makeResult(oResult, fileInfo);
 
+       
+
         return oResult;
 
     }
 
-    private static processScript(oResult : KJobPageOut, fileInfo : KJobFileInfo, make : TjobFatherMake) {
+    private static processScript(oResult: KJobPageOut, fileInfo: KJobFileInfo, make: TjobFatherMake) {
 
         if (fileInfo.script != "") {
 
-            let oScriptInfo :KJobEffectScript;
+            let oScriptInfo: KJobEffectScript;
 
-            
+
 
             try {
                 oScriptInfo = EffectScript.analyseScript(fileInfo.script);
@@ -207,13 +218,13 @@ export class ParseHtml {
 
 
             } catch (e) {
-                TBase.logError(3911004,[fileInfo.path,e.toString()]);
+                TBase.logError(3911004, [fileInfo.path, e.toString()]);
             }
 
-            oResult.imports=oResult.imports.concat(oScriptInfo.imports);
+            oResult.imports = oResult.imports.concat(oScriptInfo.imports);
 
-           
-           
+
+
 
             for (var p in oScriptInfo.script) {
 
@@ -259,7 +270,7 @@ export class ParseHtml {
 
     }
 
-    private static processElementBegin(oNodeInfo : KJobNodeInfo, oCurrentPage : KJobCurrentParse) {
+    private static processElementBegin(oNodeInfo: KJobNodeInfo, oCurrentPage: KJobCurrentParse) {
 
         let aAttr = [];
 
@@ -281,7 +292,7 @@ export class ParseHtml {
 
 
 
-        
+
 
 
         let sContent = aAttr.join('');
@@ -298,7 +309,7 @@ export class ParseHtml {
 
     }
 
-    private static processElementEnd(oNodeInfo : KJobNodeInfo, oCurrentPage : KJobCurrentParse) {
+    private static processElementEnd(oNodeInfo: KJobNodeInfo, oCurrentPage: KJobCurrentParse) {
 
         let sContent = oNodeInfo.nodeInfo + '</' + oNodeInfo.itemName + '>' + oNodeInfo.contentAfter;
 
@@ -324,9 +335,9 @@ export class ParseHtml {
      * @returns {KJobNodeInfo}
      * @memberof ParseHtml
      */
-    protected static processNodeType(oNodeInfo : KJobNodeInfo, sName : string) : KJobNodeInfo {
+    protected static processNodeType(oNodeInfo: KJobNodeInfo, sName: string): KJobNodeInfo {
 
-        if(sSetIgnore.has(sName)) {
+        if (sSetIgnore.has(sName)) {
 
             oNodeInfo.nodeType = AEnumNodeType.ignore;
         } else if (sSetElement.has(sName)) {
@@ -371,9 +382,9 @@ export class ParseHtml {
 
     }
 
-    protected static processNodeFormat(oNodeInfo : KJobNodeInfo, oCurrentPage : KJobCurrentParse) : KJobNodeInfo {
+    protected static processNodeFormat(oNodeInfo: KJobNodeInfo, oCurrentPage: KJobCurrentParse): KJobNodeInfo {
 
-        if(oNodeInfo.sourceName && oCurrentPage.formName) {
+        if (oNodeInfo.sourceName && oCurrentPage.formName) {
 
             oNodeInfo.sourceName = 'form_' + oCurrentPage.formName + '_' + oNodeInfo.sourceName;
 
@@ -382,7 +393,7 @@ export class ParseHtml {
         return oNodeInfo;
     }
 
-    protected static processNodeAttr(oNodeInfo : KJobNodeInfo, oAttr : IbaseKv) : KJobNodeInfo {
+    protected static processNodeAttr(oNodeInfo: KJobNodeInfo, oAttr: IbaseKv): KJobNodeInfo {
 
         oNodeInfo.nodeAttr = TCoreHelperMap.objectToMap(oAttr);
 

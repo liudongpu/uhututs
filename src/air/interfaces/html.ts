@@ -3,11 +3,21 @@ import { IbaseKv } from "./base";
 
 
 
+
+export interface IHtmlImport{
+    name:string 
+    from:string 
+}
+
+
+
  export interface IHtmlElementInfo{
     name:string
 
     typeName?:IbaseKv
 
+
+    sourceImport?:IHtmlImport[]
 
 
 

@@ -52,6 +52,9 @@ var ParseHtml = /** @class */ (function () {
                         if (oNodeInfo.itemMethods.length > 0) {
                             oResult.methods = oResult.methods.concat(oNodeInfo.itemMethods);
                         }
+                        if (oNodeInfo.itemImports.length > 0) {
+                            oResult.imports = oResult.imports.concat(oNodeInfo.itemImports);
+                        }
                         break;
                 }
                 oCurrentPage
