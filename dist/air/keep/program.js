@@ -6,3 +6,10 @@ var KProgramFileInfo = /** @class */ (function () {
     return KProgramFileInfo;
 }());
 exports.KProgramFileInfo = KProgramFileInfo;
+var KProgramFeatureStatus = /** @class */ (function () {
+    function KProgramFeatureStatus() {
+        this.sign = new Map();
+    }
+    return KProgramFeatureStatus;
+}());
+exports.KProgramFeatureStatus = KProgramFeatureStatus;

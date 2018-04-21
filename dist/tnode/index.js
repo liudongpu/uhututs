@@ -8,3 +8,5 @@ var path_1 = require("./io/path");
 exports.TNodeIoPath = path_1.IoPath;
 var process_1 = require("./proto/process");
 exports.TNodeProtoProcess = process_1.ProtoProcess;
+var crypto_1 = require("./proto/crypto");
+exports.TNodeProtoCrypto = crypto_1.ProtoCrypto;

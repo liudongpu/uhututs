@@ -62,6 +62,7 @@ var defineProgram = {
     pathSkipDir: '/.git',
     gitManageUrl: 'git@code.aliyun.com:liudongpu/zoomanage.git',
     fileNameOfConfig: "config-go.json",
+    fileNameOfStatus: 'status-go.json',
     fileNameOfPackage: "package.json"
 };
 var defineData = {

@@ -4,3 +4,13 @@ export class KProgramFileInfo{
     importName: string
     screenName: string
 }
+
+
+
+
+
+export class KProgramFeatureStatus{
+
+    sign:Map<string,string>=new Map<string,string>()
+
+}

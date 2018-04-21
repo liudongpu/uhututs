@@ -93,6 +93,9 @@ const defineProgram = {
     fileNameOfConfig: "config-go.json",
 
 
+    fileNameOfStatus:'status-go.json',
+
+
     fileNameOfPackage:"package.json"
 
 };
