@@ -40,7 +40,7 @@ var FeatureStatus = /** @class */ (function () {
         return oStatus;
     };
     FeatureStatus.saveStatus = function (oStatus) {
-        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(tnode_1.TNodeIoFile.pathJoin(tdaemon_1.TBase.defineBase().pathDevSettings, tdaemon_1.TBase.defineProgram().fileNameOfStatus));
+        var sConfigFile = launch_1.EasyLaunch.upSubPathForGenerate(tnode_1.TNodeIoFile.pathJoin(tdaemon_1.TBase.defineBase().pathDevSettings, tdaemon_1.TBase.defineProgram().fileNameOfStatus));
         tnode_1.TNodeIoFile.writeFile(sConfigFile, tcore_1.TCoreCommonFunc.jsonStringifyBeautify(oStatus));
     };
     return FeatureStatus;
