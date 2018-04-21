@@ -2,26 +2,32 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var elementList = {
     div: {
-        name: "View"
+        name: "View",
+        sourceImport: [{ name: "{View}", from: "react-native" }]
     },
     div_scroll: {
-        name: "ScrollView"
+        name: "ScrollView",
+        sourceImport: [{ name: "{ScrollView}", from: "react-native" }]
     },
     div_list: {
-        name: "FlatList"
+        name: "FlatList",
+        sourceImport: [{ name: "{FlatList}", from: "react-native" }, { name: "{RefreshControl}", from: "react-native" }]
     },
     div_form: {
-        name: "List"
+        name: "List",
+        sourceImport: [{ name: "{ListView}", from: "react-native" }]
     },
     main: {
-        name: "View"
+        name: "View",
+        sourceImport: [{ name: "{View}", from: "react-native" }]
     },
     i: {
         name: "Icon",
         sourceImport: [{ name: "Icon", from: "react-native-vector-icons" }]
     },
     object: {
-        name: "View"
+        name: "View",
+        sourceImport: [{ name: "{View}", from: "react-native" }]
     },
     object_qrcode: {
         name: "QRCode",
@@ -34,7 +40,8 @@ var elementList = {
         }
     },
     a: {
-        name: "TouchableOpacity"
+        name: "TouchableOpacity",
+        sourceImport: [{ name: "{TouchableOpacity}", from: "react-native" }]
     },
     select: {
         name: "ModalDropdown"
@@ -64,13 +71,16 @@ var elementList = {
         name: "DatePicker"
     },
     span: {
-        name: "Text"
+        name: "Text",
+        sourceImport: [{ name: "{Text}", from: "react-native" }]
     },
     img: {
-        name: "Image"
+        name: "Image",
+        sourceImport: [{ name: "{Image}", from: "react-native" }]
     },
     iframe: {
-        name: "WebView"
+        name: "WebView",
+        sourceImport: [{ name: "{WebView}", from: "react-native" }]
     }
 };
 var BankNative = /** @class */ (function () {
