@@ -5,6 +5,12 @@ var tdaemon_1 = require("../../tdaemon");
 var tnode_1 = require("../../tnode");
 var program_1 = require("../../air/keep/program");
 var tcore_1 = require("../../tcore");
+/**
+ * 功能-状态变量
+ *
+ * @export
+ * @class FeatureStatus
+ */
 var FeatureStatus = /** @class */ (function () {
     function FeatureStatus() {
     }

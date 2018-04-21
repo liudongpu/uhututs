@@ -7,7 +7,12 @@ import { TCoreCommonFunc, TCoreHelperMap } from "../../tcore";
 
 
 
-
+/**
+ * 功能-状态变量
+ * 
+ * @export
+ * @class FeatureStatus
+ */
 export class FeatureStatus{
 
 
