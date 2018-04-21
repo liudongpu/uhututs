@@ -28,7 +28,7 @@ var FeatureStatus = /** @class */ (function () {
         return bFlag;
     };
     FeatureStatus.upStatusContent = function () {
-        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(tdaemon_1.TBase.defineProgram().fileNameOfStatus);
+        var sConfigFile = launch_1.EasyLaunch.upSubPathForGenerate(tnode_1.TNodeIoFile.pathJoin(tdaemon_1.TBase.defineBase().pathDevSettings, tdaemon_1.TBase.defineProgram().fileNameOfStatus));
         var oStatus = null;
         if (tnode_1.TNodeIoFile.flagExist(sConfigFile)) {
             oStatus = tcore_1.TCoreCommonFunc.jsonParse(tnode_1.TNodeIoFile.readFile(sConfigFile));
@@ -40,7 +40,7 @@ var FeatureStatus = /** @class */ (function () {
         return oStatus;
     };
     FeatureStatus.saveStatus = function (oStatus) {
-        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(tdaemon_1.TBase.defineProgram().fileNameOfStatus);
+        var sConfigFile = launch_1.EasyLaunch.upDevPathForSettings(tnode_1.TNodeIoFile.pathJoin(tdaemon_1.TBase.defineBase().pathDevSettings, tdaemon_1.TBase.defineProgram().fileNameOfStatus));
         tnode_1.TNodeIoFile.writeFile(sConfigFile, tcore_1.TCoreCommonFunc.jsonStringifyBeautify(oStatus));
     };
     return FeatureStatus;
