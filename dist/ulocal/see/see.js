@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var default_1 = /** @class */ (function () {
     function default_1() {
     }
-    default_1.prototype.eeee = function () {
+    default_1.prototype.abcdefgh = function () {
     };
     return default_1;
 }());
