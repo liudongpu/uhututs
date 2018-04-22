@@ -2,11 +2,14 @@ import {EasyFile} from './../easy/file';
 import {ProcessGit} from './../process/git';
 import {IArgsStart} from './../../air/interfaces/args';
 import {TNodeProtoProcess, TNodeIoFile, TNodeIoPath} from '../../tnode/index';
-import {TBase} from '../../tcore/index';
+
 import {EasyLaunch} from '../easy/launch';
+import { TBase } from '../../tdaemon';
 export class UpdateWeb {
 
     static update(args : IArgsStart) {
+
+        
 
         TBase.logDebug(3411003);
 

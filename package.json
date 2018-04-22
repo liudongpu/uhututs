@@ -8,7 +8,7 @@
     "test": "jest",
     "dev": "node dist/ulocal/publish.js",
     "dev-watch": "./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp/watch.js",
-    "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/watch.js"
+    "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/watch.js --cwd ./"
   },
   "repository": {
     "type": "git",
@@ -21,36 +21,37 @@
   },
   "homepage": "https://github.com/liudongpu/uhututs#readme",
   "dependencies": {
-    "@types/react": "^16.0.34",
-    "css-to-react-native": "^2.0.4",
+    
+    "css-to-react-native": "^2.1.2",
     "gulp": "^3.9.1",
-    "gulp-connect": "^5.0.0",
+    "gulp-connect": "^5.5.0",
     "gulp-react-native-stylesheet-css": "^1.4.4",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-watch": "^4.3.11",
+    "gulp-sass": "^4.0.1",
+    "gulp-watch": "^5.0.0",
     "htmlparser2": "^3.9.2",
-    "log4js": "^2.3.12",
+    "log4js": "^2.5.3",
     "mustache": "^2.3.0",
-    "yargs": "^10.0.3"
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
+    "@types/react": "^16.3.11",
     "@types/expo": "^24.0.2",
     "@types/htmlparser2": "^3.7.31",
-    "@types/jest": "^21.1.8",
-    "@types/log4js": "^2.3.5",
-    "@types/mustache": "^0.8.30",
-    "@types/node": "^8.0.53",
-    "@types/react-native": "^0.51.7",
-    "@types/react-navigation": "^1.0.26",
-    "@types/weixin-app": "^1.0.2",
-    "@types/yargs": "^8.0.2",
-    "antd-mobile": "^2.1.6",
-    "gulp-typescript": "^3.2.3",
-    "jest": "^21.2.1",
+    "@types/jest": "^22.2.3",
     
-    "ts-jest": "^21.2.4",
-    "typescript": "^2.6.2"
+    "@types/mustache": "^0.8.30",
+    "@types/node": "^9.6.6",
+    "@types/react-native": "^0.55.4",
+    "@types/react-navigation": "^1.5.6",
+    "@types/weixin-app": "^1.9.0",
+    "@types/yargs": "^11.0.0",
+    "antd-mobile": "^2.1.8",
+    "gulp-typescript": "^4.0.2",
+    "jest": "^22.4.3",
+    
+    "ts-jest": "^22.4.4",
+    "typescript": "^2.7.2"
   },
   "jest": {
     "transform": {
