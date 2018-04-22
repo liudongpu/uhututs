@@ -8,7 +8,7 @@
     "test": "jest",
     "dev": "node dist/ulocal/publish.js",
     "dev-watch": "./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp/watch.js",
-    "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/watch.js --cwd ./"
+    "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/adapter.js --cwd ./"
   },
   "repository": {
     "type": "git",
