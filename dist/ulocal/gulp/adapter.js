@@ -8,7 +8,7 @@ var tsProject = tsGulp.createProject("tsconfig.json");
 gulp.task("adapter:compile", function () {
     return tsProject.src()
         .pipe(tsProject())
-        .js.pipe(gulp.dest(tsProject.options.outDir));
+        .js.pipe(gulp.dest(tsProject.options.outDir)).pipe(gulp.dest(sTargetDept + "dist/"));
 });
 gulp.task('watch:ts', ['adapter:compile'], function () {
     gulp.watch("src/**/*", ['adapter:compile']);
