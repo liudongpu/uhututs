@@ -1,7 +1,7 @@
 
 
 export default class{
-    d(){
+    eeee(){
         
     }
 }
