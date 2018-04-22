@@ -3,6 +3,7 @@
     "outDir": "./dist",
     "moduleResolution": "node",
     "allowJs": true,
+    "skipLibCheck": true,
     "target": "es5",
     "jsx":"react-native",
     "rootDir": "./src",

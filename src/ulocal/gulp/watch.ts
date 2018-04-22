@@ -12,7 +12,7 @@ var sTargetDept="/usr/local/lib/node_modules/uhutu-ts/";
 
 
 gulp.task("adapter:compile", function () {
-    var tsProject = tsGulp.createProject("../../../resource/files-project/ts/tsconfig.json");
+    var tsProject = tsGulp.createProject("tsconfig.json");
     return tsProject.src()
         .pipe(tsProject())
         .js.pipe(gulp.dest(tsProject.options.outDir));
