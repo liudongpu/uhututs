@@ -45,11 +45,12 @@
     "@types/react-navigation": "^1.0.26",
     "@types/weixin-app": "^1.0.2",
     "@types/yargs": "^8.0.2",
+    "antd-mobile": "^2.1.6",
     "gulp-typescript": "^3.2.3",
     "jest": "^21.2.1",
+    
     "ts-jest": "^21.2.4",
-    "typescript": "^2.6.2",
-    "antd-mobile": "^2.1.6"
+    "typescript": "^2.6.2"
   },
   "jest": {
     "transform": {

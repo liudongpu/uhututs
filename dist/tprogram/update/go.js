@@ -23,6 +23,7 @@ var UpdateGo = /** @class */ (function () {
     };
     UpdateGo.copySrcTs = function (oConfig) {
         index_2.TNodeIoFile.copyFile(index_2.TNodeIoPath.upBinPath() + "/src/air/interfaces/guide.ts", launch_1.EasyLaunch.upDevPathForScripts("base/guide.ts"));
+        index_2.TNodeIoFile.copyFile(index_2.TNodeIoPath.upBinPath() + "/src/air/interfaces/frame.ts", launch_1.EasyLaunch.upDevPathForScripts("base/frame.ts"));
         var baseIndex = "\n        import {IGuideBook} from \"./guide\";\n        var guidebook:IGuideBook;\n        export {guidebook};";
         index_2.TNodeIoFile.writeFile(launch_1.EasyLaunch.upDevPathForScripts("base/index.ts"), baseIndex);
         var oTsConfig = index_1.TCoreCommonFunc.jsonParse(index_2.TNodeIoFile.readFile(launch_1.EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));

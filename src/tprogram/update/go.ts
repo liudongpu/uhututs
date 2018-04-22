@@ -41,6 +41,7 @@ export class UpdateGo {
     private static copySrcTs(oConfig : IConfigInfo){
 
         TNodeIoFile.copyFile(TNodeIoPath.upBinPath()+"/src/air/interfaces/guide.ts",EasyLaunch.upDevPathForScripts("base/guide.ts"));
+        TNodeIoFile.copyFile(TNodeIoPath.upBinPath()+"/src/air/interfaces/frame.ts",EasyLaunch.upDevPathForScripts("base/frame.ts"));
 
 
         var baseIndex=`

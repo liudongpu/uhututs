@@ -16,10 +16,17 @@ var EffectScript = /** @class */ (function () {
             if (oImport.name && oImport.from)
                 oEffect.imports.push(oImport);
         }
-        var rScript = new RegExp('\\(\\{(.|\s|\S|\n)*\\}\\)', "ig");
+        var rScript = new RegExp('\\((.|\s|\S|\n)*', "ig");
         var aRsc = rScript.exec(sScript);
         if (aRsc && aRsc.length > 0) {
-            oEffect.script = eval(aRsc[0]);
+            var sTarget = aRsc[0];
+            if (sScript.indexOf('=>') > -1) {
+                sTarget = sTarget.replace(/:\s*I\w*/, '');
+                oEffect.script = eval(sTarget)();
+            }
+            else {
+                oEffect.script = eval(sTarget);
+            }
         }
         return oEffect;
     };

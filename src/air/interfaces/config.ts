@@ -105,18 +105,18 @@ export interface IConfigInfo{
  */
 export interface IConfigPage{
 
-    pageTitle:string
+    pageTitle?:string
 
 
 
-    macroUrl:string
+    macroUrl?:string
 
 
-    headerLeft:string
+    headerLeft?:string
 
-    headerRight:string
+    headerRight?:string
 
-    styleUrl:string
+    styleUrl?:string
 
     
 }
