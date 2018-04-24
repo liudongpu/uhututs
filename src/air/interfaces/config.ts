@@ -65,7 +65,7 @@ export interface IConfigInfo{
 
     projectEnableNative:boolean
 
-    projectEnableVue:boolean
+    projectEnableSite:boolean
 
     projectEnableWeapp:boolean
 

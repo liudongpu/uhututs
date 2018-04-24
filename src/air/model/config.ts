@@ -18,7 +18,7 @@ let configInfo:IConfigInfo={
 
     projectEnableNative:false,
 
-    projectEnableVue:false,
+    projectEnableSite:false,
 
     projectEnableWeapp:false,
 
