@@ -122,22 +122,21 @@ export class QueueNative{
 
         TNodeIoFile.writeFile(EasyLaunch.upGoNativePath("scripts/base/index.js"),baseIndex);
 
+        
 
-        let oTsConfig=TCoreCommonFunc.jsonParse<any>( TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
+        //let oTsConfig=TCoreCommonFunc.jsonParse<any>( TNodeIoFile.readFile(EasyLaunch.upResourcePath("files-project/ts/tsconfig.json")));
+        //oTsConfig.compilerOptions.rootDir=TNodeIoPath.upBinPath()+"/src/";
+        //oTsConfig.include=[TNodeIoPath.upBinPath()+"/src/wnative/**/*",TNodeIoPath.upBinPath()+"/src/tcore/**/*"];
+        //oTsConfig.compilerOptions.outDir=EasyLaunch.upGoNativePath("scripts/adapter");
+        //TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-src-native/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
+        //TNodeProtoProcess.spawnSync("tsc", [],{cwd:EasyLaunch.upSubPathForGenerate("ts-src-native"),"stdio":""});
 
 
-        oTsConfig.compilerOptions.rootDir=TNodeIoPath.upBinPath()+"/src/";
-        oTsConfig.include=[TNodeIoPath.upBinPath()+"/src/wnative/**/*",TNodeIoPath.upBinPath()+"/src/tcore/**/*"];
-        oTsConfig.compilerOptions.outDir=EasyLaunch.upGoNativePath("scripts/adapter");
-
-        TNodeIoFile.writeFile(EasyLaunch.upSubPathForGenerate("ts-src-native/tsconfig.json"),TCoreCommonFunc.jsonStringifyBeautify(oTsConfig));
 
 
-        //这里忽略掉报错信息
-        TNodeProtoProcess.spawnSync("tsc", [],{cwd:EasyLaunch.upSubPathForGenerate("ts-src-native"),"stdio":""});
-
-        //TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/dist/wnative",EasyLaunch.upGoNativePath("scripts/adapter/wnative"));
-        //TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/dist/tcore",EasyLaunch.upGoNativePath("scripts/adapter/tcore"));
+        TBase.logDebug(3411005);
+        TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/lib/wnative",EasyLaunch.upGoNativePath("scripts/adapter/wnative"));
+        TNodeIoFile.copyDir(TNodeIoPath.upBinPath()+"/lib/tcore",EasyLaunch.upGoNativePath("scripts/adapter/tcore"));
     }
 
 

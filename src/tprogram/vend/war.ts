@@ -60,6 +60,7 @@ export class VendWar {
             }
 
             if (a.updateGo) {
+                TBase.logDebug(331005);
                 UpdateGo.update(a);
             }
 

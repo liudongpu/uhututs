@@ -55,6 +55,7 @@ var VendWar = /** @class */ (function () {
                 web_1.UpdateWeb.update(a);
             }
             if (a.updateGo) {
+                index_3.TBase.logDebug(331005);
                 go_1.UpdateGo.update(a);
             }
             if (a.runGo) {
