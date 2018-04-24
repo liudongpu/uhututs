@@ -9,6 +9,16 @@ var configInfo = {
     projectEnableSite: false,
     projectEnableWeapp: false,
     badgeFlagGenerate: false,
+    plugListSite: {
+        reactNavigation: {
+            name: "react-navigation",
+            version: "1.5.11"
+        },
+        antdMobile: {
+            name: "antd-mobile",
+            version: "2.1.8"
+        }
+    },
     plugListNative: {
         reactNavigation: {
             name: "react-navigation",
@@ -21,14 +31,6 @@ var configInfo = {
         antdMobile: {
             name: "antd-mobile",
             version: "2.1.8"
-        },
-        babelImport: {
-            name: "babel-plugin-import",
-            version: "1.7.0"
-        },
-        babelResolver: {
-            name: "babel-plugin-module-resolver",
-            version: '3.1.1'
         }
     }
 };

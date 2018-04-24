@@ -42,7 +42,7 @@ export class QueueNative{
             ]);
         } else {
 
-            ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
+            ProcessPackage.checkOrUpdateNative(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfNative(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
 
            
 

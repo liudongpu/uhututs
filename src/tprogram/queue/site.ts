@@ -25,6 +25,7 @@ export class QueueSite {
     static update(oConfig : IConfigInfo) {
 
 
+
         let sNativePath = EasyLaunch.upGoSitePath("");
         if (!TNodeIoFile.flagExist(sNativePath)) {
             
@@ -32,6 +33,17 @@ export class QueueSite {
             TNodeProtoProcess.spawnSync("npx", ["create-react-app",
                 BootProgram.upGoWorkOfSite()
             ]);
+        }
+        else{
+
+            ProcessPackage.checkOrUpdate(TNodeIoFile.pathJoin(BootProgram.upGoWorkOfSite(), TBase.defineProgram().fileNameOfPackage), oConfig.plugListSite);
+
+
+
+            
+
+           
+
         }
 
     }

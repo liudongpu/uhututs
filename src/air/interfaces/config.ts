@@ -90,6 +90,9 @@ export interface IConfigInfo{
 
     plugListNative:IConfigPlugList
 
+
+    plugListSite:IConfigPlugList
+
 }
 
 

@@ -6,7 +6,17 @@ var status_1 = require("../feature/status");
 var ProcessPackage = /** @class */ (function () {
     function ProcessPackage() {
     }
-    ProcessPackage.checkOrUpdate = function (sPackageFile, oPlugList) {
+    ProcessPackage.checkOrUpdateNative = function (sPackageFile, oPlugList) {
+        if (this.checkFlagChange(sPackageFile, oPlugList)) {
+            index_1.TNodeProtoProcess.spawnSync("yarn", ["install"], {
+                cwd: index_1.TNodeIoFile.parentPath(sPackageFile)
+            });
+            index_1.TNodeProtoProcess.spawnSync("react-native", ["link"], {
+                cwd: index_1.TNodeIoFile.parentPath(sPackageFile)
+            });
+        }
+    };
+    ProcessPackage.checkFlagChange = function (sPackageFile, oPlugList) {
         var oPackage = index_2.TCoreCommonFunc.jsonParse(index_1.TNodeIoFile.readFile(sPackageFile));
         var oMapPlug = index_2.TCoreHelperMap.parseMap(oPlugList);
         oMapPlug.forEach(function (v, k) {
@@ -14,10 +24,15 @@ var ProcessPackage = /** @class */ (function () {
         });
         var sJsonInfo = index_2.TCoreCommonFunc.jsonStringifyBeautify(oPackage);
         index_1.TNodeIoFile.writeFile(sPackageFile, sJsonInfo);
+        var sFileKey = index_1.TNodeProtoCrypto.cryptoMd5(sPackageFile);
         var sMd5 = index_1.TNodeProtoCrypto.cryptoMd5(sJsonInfo);
-        if (status_1.FeatureStatus.checkSignAndUpdate("ProcessPackage_checkOrUpdate_md5", sMd5)) {
-            index_1.TNodeProtoProcess.spawnSync("yarn", ["install"], { cwd: index_1.TNodeIoFile.parentPath(sPackageFile) });
-            index_1.TNodeProtoProcess.spawnSync("react-native", ["link"], { cwd: index_1.TNodeIoFile.parentPath(sPackageFile) });
+        return status_1.FeatureStatus.checkSignAndUpdate("ProcessPackage_checkOrUpdate_md5_" + sFileKey, sMd5);
+    };
+    ProcessPackage.checkOrUpdate = function (sPackageFile, oPlugList) {
+        if (this.checkFlagChange(sPackageFile, oPlugList)) {
+            index_1.TNodeProtoProcess.spawnSync("yarn", ["install"], {
+                cwd: index_1.TNodeIoFile.parentPath(sPackageFile)
+            });
         }
     };
     return ProcessPackage;

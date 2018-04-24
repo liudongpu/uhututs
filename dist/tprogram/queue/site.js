@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var program_1 = require("./../boot/program");
 var launch_1 = require("./../easy/launch");
+var package_1 = require("./../process/package");
 var index_1 = require("../../tnode/index");
+var index_2 = require("../../tdaemon/index");
 var QueueSite = /** @class */ (function () {
     function QueueSite() {
     }
@@ -15,6 +17,9 @@ var QueueSite = /** @class */ (function () {
             index_1.TNodeProtoProcess.spawnSync("npx", ["create-react-app",
                 program_1.BootProgram.upGoWorkOfSite()
             ]);
+        }
+        else {
+            package_1.ProcessPackage.checkOrUpdate(index_1.TNodeIoFile.pathJoin(program_1.BootProgram.upGoWorkOfSite(), index_2.TBase.defineProgram().fileNameOfPackage), oConfig.plugListSite);
         }
     };
     return QueueSite;

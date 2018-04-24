@@ -21,7 +21,7 @@ var QueueNative = /** @class */ (function () {
             ]);
         }
         else {
-            package_1.ProcessPackage.checkOrUpdate(index_1.TNodeIoFile.pathJoin(program_1.BootProgram.upGoWorkOfNative(), index_2.TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
+            package_1.ProcessPackage.checkOrUpdateNative(index_1.TNodeIoFile.pathJoin(program_1.BootProgram.upGoWorkOfNative(), index_2.TBase.defineProgram().fileNameOfPackage), oConfig.plugListNative);
             file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/macros/native.mustache"), launch_1.EasyLaunch.upDevPathForResources("macro/native.mustache"));
             file_1.EasyFile.copyFileAndReplace(launch_1.EasyLaunch.upResourcePath("files-go/indexs/App.js"), launch_1.EasyLaunch.upGoNativePath("App.js"));
             this.updatePagesNavigation();
