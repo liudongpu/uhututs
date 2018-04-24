@@ -1,7 +1,12 @@
 
 temp/
-
 generate/
+.DS_Store
+/node_modules
+npm-debug.log
+package-lock.json
+
+
 
 #uhutu_sign_begin_gitinfo
 
