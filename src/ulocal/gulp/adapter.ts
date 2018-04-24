@@ -15,9 +15,9 @@ gulp.task("adapter:compile", function () {
     
     return tsProject.src()
         .pipe(tsProject())
-        .js.pipe(gulp.dest(tsProject.options.outDir)).pipe(
-            gulp.dest(sTargetDept+"dist/")
-        );
+        .js.pipe(gulp.dest(tsProject.options.outDir))
+        .pipe(gulp.dest(sTargetDept+"dist/"))
+        ;
 });
 
 gulp.task('watch:ts', ['adapter:compile'], function() {
