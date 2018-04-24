@@ -3,8 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_native_1 = require("react-native");
 var index_1 = require("../../tcore/index");
 var react_navigation_1 = require("react-navigation");
-var toast_1 = require("antd-mobile/lib/toast");
-var action_sheet_1 = require("antd-mobile/lib/action-sheet");
 var Book = /** @class */ (function () {
     function Book() {
     }
@@ -146,28 +144,8 @@ var Book = /** @class */ (function () {
             }
         ]);
     };
-    Book.prototype.componentToast = function (sInfo, iSecond, sType) {
-        if (iSecond === undefined) {
-            iSecond = 3;
-        }
-        switch (sType) {
-            case "fail":
-                toast_1.default.fail(sInfo, iSecond);
-                break;
-            default:
-                toast_1.default.info(sInfo, iSecond);
-                break;
-        }
-    };
     Book.prototype.systemInfo = function () {
         return { version: '' };
-    };
-    Book.prototype.componentActionSheet = function (oSet) {
-        action_sheet_1.default.showActionSheetWithOptions({
-            title: oSet.title,
-            cancelButtonIndex: 2,
-            options: oSet.labels
-        }, oSet.success);
     };
     Book.prototype.execSpecific = function (sSpecificName, oParam) {
         switch (sSpecificName) {

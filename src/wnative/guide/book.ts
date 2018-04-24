@@ -4,8 +4,7 @@ import {TCoreCommonFunc, TCoreHelperUrl} from "../../tcore/index";
 
 import {NavigationActions} from 'react-navigation';
 
-import Toast from 'antd-mobile/lib/toast';
-import ActionSheet from 'antd-mobile/lib/action-sheet';
+
 
 
 class Book implements IGuideBook {
@@ -198,40 +197,14 @@ class Book implements IGuideBook {
         ]);
     }
 
-    componentToast(sInfo : string, iSecond : number, sType : string) {
-
-        if (iSecond === undefined) {
-            iSecond = 3;
-        }
-
-        switch (sType) {
-            case "fail":
-                Toast.fail(sInfo, iSecond);
-                break;
-            default:
-                Toast.info(sInfo, iSecond);
-                break;
-        }
-
-    }
+    
 
     systemInfo() : IGuideSystemInfo {
 
         return {version: ''}
     }
 
-    componentActionSheet(oSet : IGuideActionSheet) {
-
-        ActionSheet.showActionSheetWithOptions({
-            title: oSet.title,
-            cancelButtonIndex: 2,
-            options: oSet.labels
-
-        },
-            oSet.success
-    );
-
-    }
+    
 
     execSpecific(sSpecificName : string, oParam ?: any) : any {
 

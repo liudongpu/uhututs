@@ -122,24 +122,6 @@ var Book = /** @class */ (function () {
                 }
             } });
     };
-    Book.prototype.componentToast = function (sInfo, iSecond, sType) {
-        if (iSecond === undefined) {
-            iSecond = 3000;
-        }
-        else {
-            iSecond = iSecond * 1000;
-        }
-        switch (sType) {
-            case "fail":
-                wx.showToast({ title: sInfo, duration: iSecond });
-                break;
-            default:
-                wx.showToast({ title: sInfo, duration: iSecond });
-                break;
-        }
-    };
-    Book.prototype.componentActionSheet = function (oSet) {
-    };
     Book.prototype.systemInfo = function () {
         return { version: '' };
     };

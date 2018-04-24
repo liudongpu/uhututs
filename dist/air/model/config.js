@@ -6,7 +6,7 @@ var configInfo = {
     projectDisplayName: "示例项目",
     projectVersionCode: 1,
     projectEnableNative: false,
-    projectEnableVue: false,
+    projectEnableSite: false,
     projectEnableWeapp: false,
     badgeFlagGenerate: false,
     plugListNative: {
