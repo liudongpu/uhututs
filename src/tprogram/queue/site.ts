@@ -16,7 +16,11 @@ import {TBase} from '../../tdaemon/index';
 
 export class QueueSite {
 
-    static run(oConfig : IConfigInfo) {}
+    static run(oConfig : IConfigInfo) {
+
+
+        TNodeProtoProcess.spawn("npm",["start"],{cwd:BootProgram.upGoWorkOfSite()});
+    }
 
     static update(oConfig : IConfigInfo) {
 

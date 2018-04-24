@@ -5,6 +5,7 @@ var start_1 = require("../easy/start");
 var program_1 = require("../boot/program");
 var index_1 = require("../../tnode/index");
 var weapp_1 = require("../queue/weapp");
+var site_1 = require("../queue/site");
 var RunGo = /** @class */ (function () {
     function RunGo() {
     }
@@ -17,6 +18,9 @@ var RunGo = /** @class */ (function () {
         }
         if (oConfig.projectEnableWeapp) {
             weapp_1.QueueWeapp.run(oConfig);
+        }
+        if (oConfig.projectEnableSite) {
+            site_1.QueueSite.run(oConfig);
         }
     };
     /**

@@ -5,6 +5,7 @@ import {EasyStart} from '../easy/start';
 import {BootProgram} from '../boot/program';
 import {TNodeIoPath, TNodeIoFile, TNodeProtoProcess} from '../../tnode/index';
 import { QueueWeapp } from '../queue/weapp';
+import { QueueSite } from '../queue/site';
 export class RunGo {
 
     static run(arg : IArgsStart) {
@@ -27,6 +28,12 @@ export class RunGo {
 
             QueueWeapp.run(oConfig);
         }
+
+
+        if(oConfig.projectEnableSite){
+            QueueSite.run(oConfig);
+        }
+
 
     }
 

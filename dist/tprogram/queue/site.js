@@ -6,7 +6,9 @@ var index_1 = require("../../tnode/index");
 var QueueSite = /** @class */ (function () {
     function QueueSite() {
     }
-    QueueSite.run = function (oConfig) { };
+    QueueSite.run = function (oConfig) {
+        index_1.TNodeProtoProcess.spawn("npm", ["start"], { cwd: program_1.BootProgram.upGoWorkOfSite() });
+    };
     QueueSite.update = function (oConfig) {
         var sNativePath = launch_1.EasyLaunch.upGoSitePath("");
         if (!index_1.TNodeIoFile.flagExist(sNativePath)) {
