@@ -15,6 +15,9 @@ var BootProgram = /** @class */ (function () {
     BootProgram.upGoWorkOfNative = function () {
         return index_1.TBase.defineBase().projectGo + index_1.TBase.defineBase().workNative + this.upGoConfig().projectBaseName;
     };
+    BootProgram.upGoWorkOfSite = function () {
+        return index_1.TBase.defineBase().projectGo + index_1.TBase.defineBase().workSite + this.upGoConfig().projectBaseName;
+    };
     BootProgram.upGoWorkOfWeapp = function () {
         return index_1.TBase.defineBase().projectGo + index_1.TBase.defineBase().workWeapp + this.upGoConfig().projectBaseName;
     };

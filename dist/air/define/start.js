@@ -50,7 +50,7 @@ var defineBase = {
     projectGo: "go",
     projectManage: "manage",
     workNative: "native",
-    workVue: "vue",
+    workSite: "site",
     workWeapp: "weapp",
     nameBind: "bind"
 };

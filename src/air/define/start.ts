@@ -71,7 +71,7 @@ const defineBase = {
     projectManage: "manage",
 
     workNative: "native",
-    workVue: "vue",
+    workSite: "site",
 
     workWeapp: "weapp",
 

@@ -18,6 +18,18 @@ export class QueueSite {
 
     static run(oConfig : IConfigInfo) {}
 
-    static update(oConfig : IConfigInfo) {}
+    static update(oConfig : IConfigInfo) {
+
+
+        let sNativePath = EasyLaunch.upGoSitePath("");
+        if (!TNodeIoFile.flagExist(sNativePath)) {
+            
+
+            TNodeProtoProcess.spawnSync("npx", ["create-react-app",
+                BootProgram.upGoWorkOfSite()
+            ]);
+        }
+
+    }
 
 }

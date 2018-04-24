@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var site_1 = require("./../queue/site");
 var weapp_1 = require("./../queue/weapp");
 var native_1 = require("./../queue/native");
 var launch_1 = require("./../easy/launch");
@@ -19,6 +20,9 @@ var UpdateGo = /** @class */ (function () {
         }
         if (oConfig.projectEnableWeapp) {
             weapp_1.QueueWeapp.update(oConfig);
+        }
+        if (oConfig.projectEnableSite) {
+            site_1.QueueSite.update(oConfig);
         }
     };
     UpdateGo.copySrcTs = function (oConfig) {

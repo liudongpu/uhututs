@@ -67,6 +67,13 @@ export class EasyLaunch {
     }
 
 
+    static upGoSitePath(sPath:string){
+
+        return TNodeIoFile.pathJoin(TNodeIoPath.upCwdPath(), BootProgram.upGoWorkOfSite(), sPath);
+
+    }
+
+
 
     static upGoWeappPath(sPath:string){
 

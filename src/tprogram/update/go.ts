@@ -1,3 +1,4 @@
+import { QueueSite } from './../queue/site';
 import { QueueWeapp } from './../queue/weapp';
 import { QueueNative } from './../queue/native';
 import {ProcessPath} from './../process/path';
@@ -33,6 +34,12 @@ export class UpdateGo {
         if(oConfig.projectEnableWeapp){
             QueueWeapp.update(oConfig);
         }
+
+
+        if(oConfig.projectEnableSite){
+            QueueSite.update(oConfig);
+        }
+
     }
 
 
