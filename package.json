@@ -9,7 +9,8 @@
     "dev": "node dist/ulocal/publish.js",
     "back-dev-watch": "./node_modules/gulp/bin/gulp.js watch  --gulpfile dist/ulocal/gulp/watch.js",
     "dev-watch": "gulp adapter  --gulpfile dist/ulocal/gulp/adapter.js --cwd ./",
-    "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/adapter.js --cwd ./"
+    "dev-adapter": "./node_modules/gulp/bin/gulp.js adapter  --gulpfile dist/ulocal/gulp/adapter.js --cwd ./",
+    "dev-lib": "./node_modules/gulp/bin/gulp.js lib  --gulpfile dist/ulocal/gulp/lib.js --cwd ./"
   },
   "repository": {
     "type": "git",
